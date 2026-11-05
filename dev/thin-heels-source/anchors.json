@@ -1,0 +1,126 @@
+{
+  "stiletto6": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "toe": [
+        96,
+        540
+      ],
+      "groundY": 540,
+      "bbox": [
+        96,
+        51,
+        929,
+        541
+      ],
+      "counter": [
+        855,
+        205
+      ],
+      "vamp": [
+        285,
+        460
+      ],
+      "strap": [
+        594,
+        332
+      ],
+      "ornamentWarp": "per-column source-coordinate translation; see builder; identical RGB/tint mapping"
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "toe": [
+        171,
+        964
+      ],
+      "groundY": 964,
+      "bbox": [
+        171,
+        417,
+        829,
+        965
+      ],
+      "counter": [
+        770,
+        500
+      ],
+      "vamp": [
+        350,
+        865
+      ],
+      "strap": [
+        590,
+        710
+      ],
+      "ornamentWarp": "per-column source-coordinate translation; see builder; identical RGB/tint mapping"
+    }
+  },
+  "stiletto9": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "toe": [
+        96,
+        540
+      ],
+      "groundY": 540,
+      "bbox": [
+        96,
+        51,
+        929,
+        541
+      ],
+      "counter": [
+        855,
+        195
+      ],
+      "vamp": [
+        285,
+        465
+      ],
+      "strap": [
+        594,
+        332
+      ],
+      "ornamentWarp": "per-column source-coordinate translation; see builder; identical RGB/tint mapping"
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "toe": [
+        171,
+        964
+      ],
+      "groundY": 964,
+      "bbox": [
+        171,
+        419,
+        815,
+        965
+      ],
+      "counter": [
+        770,
+        500
+      ],
+      "vamp": [
+        350,
+        865
+      ],
+      "strap": [
+        590,
+        710
+      ],
+      "ornamentWarp": "per-column source-coordinate translation; see builder; identical RGB/tint mapping"
+    }
+  }
+}

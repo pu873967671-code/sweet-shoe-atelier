@@ -1,0 +1,84 @@
+{
+  "scope": "SOURCE CANDIDATE ONLY; no runtime camera registration",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "toeGroundImmutable": true,
+  "front": {
+    "toe": [
+      275,
+      1175
+    ],
+    "ground": [
+      906,
+      1085
+    ],
+    "vamp": [
+      465,
+      1110
+    ],
+    "collarFar": [
+      467,
+      1010
+    ],
+    "collarNear": [
+      929,
+      665
+    ],
+    "cuff": {
+      "center": [
+        822,
+        542
+      ],
+      "radius": [
+        102,
+        19
+      ],
+      "rotation": -0.12
+    },
+    "occlusionOrder": "above rear leg and shoe"
+  },
+  "rear": {
+    "toe": [
+      261,
+      923
+    ],
+    "ground": [
+      373,
+      942
+    ],
+    "vamp": [
+      385,
+      883
+    ],
+    "collarFar": [
+      395,
+      814
+    ],
+    "collarNear": [
+      675,
+      602
+    ],
+    "cuff": {
+      "center": [
+        614,
+        520
+      ],
+      "radius": [
+        70,
+        14
+      ],
+      "rotation": 0.12
+    },
+    "occlusionOrder": "behind front leg and shoe"
+  },
+  "integrationRemaining": [
+    "Native manual collar/piping refinement and dye-edge acceptance",
+    "Native material/shadow/highlight acceptance for these candidate source weights",
+    "All raster and procedural ornaments re-authored in these two cameras",
+    "All five sock styles with perspective cuffs and original collar occlusion",
+    "Complete pair cache/render/fallback path, save compatibility and no-jitter QA",
+    "Heel-specific paired sources for the remaining runtime silhouettes"
+  ]
+}

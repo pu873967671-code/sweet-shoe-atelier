@@ -1,0 +1,94 @@
+{
+  "status": "PASS source-semantic only; full browser/ART acceptance pending",
+  "changedShellPixels": 6085,
+  "upperUnchanged": true,
+  "commonUpper400CalfUnchanged": true,
+  "toeAndFloorUnchanged": true,
+  "probes": {
+    "690,703": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "700,690": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "680,710": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "640,760": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 216
+    },
+    "630,780": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 216
+    },
+    "610,820": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 252
+    },
+    "630,800": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "615,840": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "598,880": {
+      "shell": 254,
+      "sourceAlpha": 254,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "579,920": {
+      "shell": 254,
+      "sourceAlpha": 254,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "558,940": {
+      "shell": 254,
+      "sourceAlpha": 254,
+      "upper": 0,
+      "previousShell": 0
+    },
+    "772,450": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 3
+    },
+    "784,470": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 4
+    },
+    "800,500": {
+      "shell": 255,
+      "sourceAlpha": 255,
+      "upper": 0,
+      "previousShell": 3
+    }
+  },
+  "review": "sidewall-fixed-review.jpg"
+}

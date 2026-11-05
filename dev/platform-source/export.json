@@ -1,0 +1,30 @@
+{
+  "product": {
+    "frame": [
+      1024,
+      640
+    ],
+    "source": "product.png",
+    "skin": null,
+    "ornamentWarp": {
+      "x": 0,
+      "y": "-52*(1-clamp((x-300)/550,0,1))"
+    },
+    "upperPixels": 161864,
+    "shellPixels": 232122
+  },
+  "fitting": {
+    "frame": [
+      1024,
+      1024
+    ],
+    "source": "fitting.png",
+    "skin": "exact accepted upper400rows; source-matched lower instep cel finish",
+    "ornamentWarp": {
+      "x": 5,
+      "y": -40
+    },
+    "upperPixels": 130290,
+    "shellPixels": 139232
+  }
+}

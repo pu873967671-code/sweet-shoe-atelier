@@ -1,0 +1,56 @@
+{
+  "product": {
+    "folder": "shoe2d",
+    "part": "base",
+    "start": 326,
+    "stop": 461,
+    "left": 800,
+    "top": [
+      823,
+      872
+    ],
+    "bottom": [
+      825,
+      866
+    ],
+    "toe": 96,
+    "floor": 540,
+    "heelFloor": 478,
+    "base": "stiletto6",
+    "frame": [
+      1024,
+      640
+    ],
+    "translucentGlassPixels": 5587,
+    "unchangedOutsideDistalStem": true,
+    "originalHeelCapExact": true,
+    "source": "original code-native translucent beveled prism"
+  },
+  "fitting": {
+    "folder": "fitting2d",
+    "part": "shoe",
+    "start": 714,
+    "stop": 850,
+    "left": 704,
+    "top": [
+      736,
+      776
+    ],
+    "bottom": [
+      736,
+      772
+    ],
+    "toe": 171,
+    "floor": 964,
+    "heelFloor": 866,
+    "base": "stiletto6",
+    "frame": [
+      1024,
+      1024
+    ],
+    "translucentGlassPixels": 4833,
+    "unchangedOutsideDistalStem": true,
+    "originalHeelCapExact": true,
+    "source": "original code-native translucent beveled prism"
+  }
+}

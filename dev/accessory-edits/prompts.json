@@ -1,0 +1,316 @@
+{
+  "model": "gpt-image-2",
+  "mode": "/v1/images/edits",
+  "size": "1024x640",
+  "quality": "high",
+  "jobs": [
+    {
+      "name": "flat_strap_thin",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE even-width satin Mary Jane band over the open instep, entering the far topline and attached at visible outer quarter with small gold buckle. Band follows the curved instep in exact perspective, far end occluded by collar. No bow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_strap_thin.png"
+    },
+    {
+      "name": "flat_strap_ribbon",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE broad soft satin ribbon over the open instep with a small SIDE-VIEW tied satin knot on the outer quarter. Ribbon wraps the curved instep and disappears behind far topline. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_strap_ribbon.png"
+    },
+    {
+      "name": "flat_strap_cross",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: THREE crossed satin laces wrapping the vamp toward the opening, with six small sewn eyelets. Every lace conforms to curved upper, foreshortened narrow on far side and wider on near side. Small sideways satin knot next to opening. Not a flat horizontal ladder. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_strap_cross.png"
+    },
+    {
+      "name": "flat_strap_pearl",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE curved strand of seven lustrous ivory pearls over the instep, foreshortened and receding behind far collar, attached at both sides. Small contact shadows beneath beads. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_strap_pearl.png"
+    },
+    {
+      "name": "flat_decoration_small",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small soft satin bow sewn onto the REAR BACK SEAM of the heel counter at extreme right, viewed in PROFILE from this camera. Asymmetric lobes: far loop partly occluded by heel counter, near loop visible along outer side. NOT facing the camera. Folded cloth and dangling short tails follow rear seam. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_decoration_small.png"
+    },
+    {
+      "name": "flat_decoration_big",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE grand soft satin bow sewn onto the REAR BACK SEAM of heel counter at extreme right, viewed in PROFILE/three-quarter side from this camera. Far loop partly occluded, near lobe along outside quarter, asymmetric foreshortened folds and two relaxed tails. NOT symmetric or front-facing. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_decoration_big.png"
+    },
+    {
+      "name": "flat_decoration_flower",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE layered ivory silk camellia flower pinned to the back counter at extreme right. Its circular face is angled sideways along heel counter, elliptical foreshortening, near petals overlap far petals. Small gold centre, contact shadows. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_decoration_flower.png"
+    },
+    {
+      "name": "flat_decoration_drop",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE gold-set ivory teardrop pearl hanging from rear BACK seam, tiny gold mounting chain with natural vertical drape. Side-profile attachment, pearl has spherical volume, partly overlaps outer counter. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_decoration_drop.png"
+    },
+    {
+      "name": "flat_charm_mini",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small satin bow sewn flat ON THE TOE VAMP x300 near opening, lying along the curved upper plane and viewed at the exact same oblique camera angle as shoe. Strong foreshortening: near loop broad, far loop smaller, knot follows diagonal seam. NOT an upright badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_charm_mini.png"
+    },
+    {
+      "name": "flat_charm_pearl",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small ivory pearl jewellery brooch on TOE VAMP x300, lying snug on curved upper, foreshortened gold setting with attached contact shadow. Subtle lustrous sphere, not upright front-facing badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_charm_pearl.png"
+    },
+    {
+      "name": "flat_charm_crystal",
+      "heel": "flat",
+      "prompt": "Use case: precise-object-edit. Edit this exact flat shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE faceted pale clear lilac crystal in fine gold brooch setting on TOE VAMP x300, gemstone table aligned with curved upper and strongly foreshortened in perspective. Near bezel lower than far bezel, seated directly on satin with contact shadow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/flat-input.png",
+      "output": "dev/accessory-edits/flat_charm_crystal.png"
+    },
+    {
+      "name": "kitten_strap_thin",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE even-width satin Mary Jane band over the open instep, entering the far topline and attached at visible outer quarter with small gold buckle. Band follows the curved instep in exact perspective, far end occluded by collar. No bow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_strap_thin.png"
+    },
+    {
+      "name": "kitten_strap_ribbon",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE broad soft satin ribbon over the open instep with a small SIDE-VIEW tied satin knot on the outer quarter. Ribbon wraps the curved instep and disappears behind far topline. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_strap_ribbon.png"
+    },
+    {
+      "name": "kitten_strap_cross",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: THREE crossed satin laces wrapping the vamp toward the opening, with six small sewn eyelets. Every lace conforms to curved upper, foreshortened narrow on far side and wider on near side. Small sideways satin knot next to opening. Not a flat horizontal ladder. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_strap_cross.png"
+    },
+    {
+      "name": "kitten_strap_pearl",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE curved strand of seven lustrous ivory pearls over the instep, foreshortened and receding behind far collar, attached at both sides. Small contact shadows beneath beads. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_strap_pearl.png"
+    },
+    {
+      "name": "kitten_decoration_small",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small soft satin bow sewn onto the REAR BACK SEAM of the heel counter at extreme right, viewed in PROFILE from this camera. Asymmetric lobes: far loop partly occluded by heel counter, near loop visible along outer side. NOT facing the camera. Folded cloth and dangling short tails follow rear seam. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_decoration_small.png"
+    },
+    {
+      "name": "kitten_decoration_big",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE grand soft satin bow sewn onto the REAR BACK SEAM of heel counter at extreme right, viewed in PROFILE/three-quarter side from this camera. Far loop partly occluded, near lobe along outside quarter, asymmetric foreshortened folds and two relaxed tails. NOT symmetric or front-facing. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_decoration_big.png"
+    },
+    {
+      "name": "kitten_decoration_flower",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE layered ivory silk camellia flower pinned to the back counter at extreme right. Its circular face is angled sideways along heel counter, elliptical foreshortening, near petals overlap far petals. Small gold centre, contact shadows. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_decoration_flower.png"
+    },
+    {
+      "name": "kitten_decoration_drop",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE gold-set ivory teardrop pearl hanging from rear BACK seam, tiny gold mounting chain with natural vertical drape. Side-profile attachment, pearl has spherical volume, partly overlaps outer counter. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_decoration_drop.png"
+    },
+    {
+      "name": "kitten_charm_mini",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small satin bow sewn flat ON THE TOE VAMP x300 near opening, lying along the curved upper plane and viewed at the exact same oblique camera angle as shoe. Strong foreshortening: near loop broad, far loop smaller, knot follows diagonal seam. NOT an upright badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_charm_mini.png"
+    },
+    {
+      "name": "kitten_charm_pearl",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small ivory pearl jewellery brooch on TOE VAMP x300, lying snug on curved upper, foreshortened gold setting with attached contact shadow. Subtle lustrous sphere, not upright front-facing badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_charm_pearl.png"
+    },
+    {
+      "name": "kitten_charm_crystal",
+      "heel": "kitten",
+      "prompt": "Use case: precise-object-edit. Edit this exact kitten shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE faceted pale clear lilac crystal in fine gold brooch setting on TOE VAMP x300, gemstone table aligned with curved upper and strongly foreshortened in perspective. Near bezel lower than far bezel, seated directly on satin with contact shadow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/kitten-input.png",
+      "output": "dev/accessory-edits/kitten_charm_crystal.png"
+    },
+    {
+      "name": "block_strap_thin",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE even-width satin Mary Jane band over the open instep, entering the far topline and attached at visible outer quarter with small gold buckle. Band follows the curved instep in exact perspective, far end occluded by collar. No bow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_strap_thin.png"
+    },
+    {
+      "name": "block_strap_ribbon",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE broad soft satin ribbon over the open instep with a small SIDE-VIEW tied satin knot on the outer quarter. Ribbon wraps the curved instep and disappears behind far topline. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_strap_ribbon.png"
+    },
+    {
+      "name": "block_strap_cross",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: THREE crossed satin laces wrapping the vamp toward the opening, with six small sewn eyelets. Every lace conforms to curved upper, foreshortened narrow on far side and wider on near side. Small sideways satin knot next to opening. Not a flat horizontal ladder. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_strap_cross.png"
+    },
+    {
+      "name": "block_strap_pearl",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE curved strand of seven lustrous ivory pearls over the instep, foreshortened and receding behind far collar, attached at both sides. Small contact shadows beneath beads. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_strap_pearl.png"
+    },
+    {
+      "name": "block_decoration_small",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small soft satin bow sewn onto the REAR BACK SEAM of the heel counter at extreme right, viewed in PROFILE from this camera. Asymmetric lobes: far loop partly occluded by heel counter, near loop visible along outer side. NOT facing the camera. Folded cloth and dangling short tails follow rear seam. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_decoration_small.png"
+    },
+    {
+      "name": "block_decoration_big",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE grand soft satin bow sewn onto the REAR BACK SEAM of heel counter at extreme right, viewed in PROFILE/three-quarter side from this camera. Far loop partly occluded, near lobe along outside quarter, asymmetric foreshortened folds and two relaxed tails. NOT symmetric or front-facing. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_decoration_big.png"
+    },
+    {
+      "name": "block_decoration_flower",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE layered ivory silk camellia flower pinned to the back counter at extreme right. Its circular face is angled sideways along heel counter, elliptical foreshortening, near petals overlap far petals. Small gold centre, contact shadows. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_decoration_flower.png"
+    },
+    {
+      "name": "block_decoration_drop",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE gold-set ivory teardrop pearl hanging from rear BACK seam, tiny gold mounting chain with natural vertical drape. Side-profile attachment, pearl has spherical volume, partly overlaps outer counter. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_decoration_drop.png"
+    },
+    {
+      "name": "block_charm_mini",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small satin bow sewn flat ON THE TOE VAMP x300 near opening, lying along the curved upper plane and viewed at the exact same oblique camera angle as shoe. Strong foreshortening: near loop broad, far loop smaller, knot follows diagonal seam. NOT an upright badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_charm_mini.png"
+    },
+    {
+      "name": "block_charm_pearl",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small ivory pearl jewellery brooch on TOE VAMP x300, lying snug on curved upper, foreshortened gold setting with attached contact shadow. Subtle lustrous sphere, not upright front-facing badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_charm_pearl.png"
+    },
+    {
+      "name": "block_charm_crystal",
+      "heel": "block",
+      "prompt": "Use case: precise-object-edit. Edit this exact block shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE faceted pale clear lilac crystal in fine gold brooch setting on TOE VAMP x300, gemstone table aligned with curved upper and strongly foreshortened in perspective. Near bezel lower than far bezel, seated directly on satin with contact shadow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/block-input.png",
+      "output": "dev/accessory-edits/block_charm_crystal.png"
+    },
+    {
+      "name": "wedge_strap_thin",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE even-width satin Mary Jane band over the open instep, entering the far topline and attached at visible outer quarter with small gold buckle. Band follows the curved instep in exact perspective, far end occluded by collar. No bow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_strap_thin.png"
+    },
+    {
+      "name": "wedge_strap_ribbon",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE broad soft satin ribbon over the open instep with a small SIDE-VIEW tied satin knot on the outer quarter. Ribbon wraps the curved instep and disappears behind far topline. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_strap_ribbon.png"
+    },
+    {
+      "name": "wedge_strap_cross",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: THREE crossed satin laces wrapping the vamp toward the opening, with six small sewn eyelets. Every lace conforms to curved upper, foreshortened narrow on far side and wider on near side. Small sideways satin knot next to opening. Not a flat horizontal ladder. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_strap_cross.png"
+    },
+    {
+      "name": "wedge_strap_pearl",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE curved strand of seven lustrous ivory pearls over the instep, foreshortened and receding behind far collar, attached at both sides. Small contact shadows beneath beads. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_strap_pearl.png"
+    },
+    {
+      "name": "wedge_decoration_small",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small soft satin bow sewn onto the REAR BACK SEAM of the heel counter at extreme right, viewed in PROFILE from this camera. Asymmetric lobes: far loop partly occluded by heel counter, near loop visible along outer side. NOT facing the camera. Folded cloth and dangling short tails follow rear seam. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_decoration_small.png"
+    },
+    {
+      "name": "wedge_decoration_big",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE grand soft satin bow sewn onto the REAR BACK SEAM of heel counter at extreme right, viewed in PROFILE/three-quarter side from this camera. Far loop partly occluded, near lobe along outside quarter, asymmetric foreshortened folds and two relaxed tails. NOT symmetric or front-facing. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_decoration_big.png"
+    },
+    {
+      "name": "wedge_decoration_flower",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE layered ivory silk camellia flower pinned to the back counter at extreme right. Its circular face is angled sideways along heel counter, elliptical foreshortening, near petals overlap far petals. Small gold centre, contact shadows. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_decoration_flower.png"
+    },
+    {
+      "name": "wedge_decoration_drop",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE gold-set ivory teardrop pearl hanging from rear BACK seam, tiny gold mounting chain with natural vertical drape. Side-profile attachment, pearl has spherical volume, partly overlaps outer counter. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_decoration_drop.png"
+    },
+    {
+      "name": "wedge_charm_mini",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small satin bow sewn flat ON THE TOE VAMP x300 near opening, lying along the curved upper plane and viewed at the exact same oblique camera angle as shoe. Strong foreshortening: near loop broad, far loop smaller, knot follows diagonal seam. NOT an upright badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_charm_mini.png"
+    },
+    {
+      "name": "wedge_charm_pearl",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE small ivory pearl jewellery brooch on TOE VAMP x300, lying snug on curved upper, foreshortened gold setting with attached contact shadow. Subtle lustrous sphere, not upright front-facing badge. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_charm_pearl.png"
+    },
+    {
+      "name": "wedge_charm_crystal",
+      "heel": "wedge",
+      "prompt": "Use case: precise-object-edit. Edit this exact wedge shoe sprite. Paint ONLY the following accessory ONTO the existing shoe: ONE faceted pale clear lilac crystal in fine gold brooch setting on TOE VAMP x300, gemstone table aligned with curved upper and strongly foreshortened in perspective. Near bezel lower than far bezel, seated directly on satin with contact shadow. All tintable fabric is neutral muted lilac-grey #b4a4bb, satin folds with pale highlights and soft grey shadows. Match the shoe exact three-quarter SIDE camera and perspective, toe LEFT heel RIGHT. Accessory must feel sewn to the curved shoe surface, include a small soft contact shadow immediately under it. Keep the original shoe shape, outline, toe, sole, heel, interior, piping, canvas, scale and position pixel-identical. No change to original shoe pixels outside accessory/contact area. Keep perfectly flat green #00ff00 background, no floor shadow. ONE shoe and ONE requested accessory only. Do not add decorative text, labels, unrelated pearls, extra straps or any other accessories. Maintain original1024x640 frame. Premium softly painted satin fashion game art.",
+      "input": "dev/accessory-edits/wedge-input.png",
+      "output": "dev/accessory-edits/wedge_charm_crystal.png"
+    }
+  ]
+}

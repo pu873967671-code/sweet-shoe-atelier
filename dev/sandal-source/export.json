@@ -1,0 +1,200 @@
+{
+  "crystalsandal": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "source": "product.png",
+      "toeX": 96,
+      "floorY": 540,
+      "trim": "crystalsandal",
+      "sourceCameraIndependent": true,
+      "candidateKit": true,
+      "visualAcceptanceRequired": true,
+      "semanticMask": {
+        "method": "camera-local cubic semantic paths; no RGB classification",
+        "surfaces": [
+          "forefoot",
+          "outer_footbed_wall",
+          "near_diagonal",
+          "far_diagonal_front",
+          "ankle_front",
+          "rear_counter_and_heel",
+          "ankle_outer_return",
+          "buckle_fabric_inset"
+        ],
+        "protected": [
+          "front_cream_footbed",
+          "main_insole",
+          "rear_lining"
+        ]
+      }
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "source": "fitting.png",
+      "toeX": 171,
+      "floorY": 964,
+      "trim": "crystalsandal",
+      "sourceCameraIndependent": true,
+      "candidateKit": true,
+      "visualAcceptanceRequired": true,
+      "semanticMask": {
+        "method": "authored-semantic-polygons-v3-toe-contact",
+        "dyeRegions": [
+          "ankle",
+          "diagonal",
+          "counter",
+          "forefoot",
+          "heel"
+        ],
+        "excluded": [
+          "skin",
+          "toes",
+          "cream footbed",
+          "cream inner sidewall",
+          "warm lining",
+          "outsole",
+          "champagne buckle"
+        ],
+        "acceptance": "development-only; complete rendered acceptance still required"
+      }
+    }
+  },
+  "flowersandal": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "source": "product.png",
+      "toeX": 96,
+      "floorY": 540,
+      "trim": "flowersandal",
+      "sourceCameraIndependent": true,
+      "candidateKit": true,
+      "visualAcceptanceRequired": true,
+      "semanticMask": {
+        "method": "camera-local cubic semantic paths; no RGB classification",
+        "surfaces": [
+          "forefoot",
+          "outer_footbed_wall",
+          "near_diagonal",
+          "far_diagonal_front",
+          "ankle_front",
+          "rear_counter_and_heel",
+          "ankle_outer_return",
+          "buckle_fabric_inset"
+        ],
+        "protected": [
+          "front_cream_footbed",
+          "main_insole",
+          "rear_lining"
+        ]
+      }
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "source": "fitting.png",
+      "toeX": 171,
+      "floorY": 964,
+      "trim": "flowersandal",
+      "sourceCameraIndependent": true,
+      "candidateKit": true,
+      "visualAcceptanceRequired": true,
+      "semanticMask": {
+        "method": "authored-semantic-polygons-v3-toe-contact",
+        "dyeRegions": [
+          "ankle",
+          "diagonal",
+          "counter",
+          "forefoot",
+          "heel"
+        ],
+        "excluded": [
+          "skin",
+          "toes",
+          "cream footbed",
+          "cream inner sidewall",
+          "warm lining",
+          "outsole",
+          "champagne buckle"
+        ],
+        "acceptance": "development-only; complete rendered acceptance still required"
+      }
+    }
+  },
+  "wrapsandal": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "source": "product.png",
+      "toeX": 96,
+      "floorY": 540,
+      "trim": "wrapsandal",
+      "sourceCameraIndependent": true,
+      "candidateKit": true,
+      "visualAcceptanceRequired": true,
+      "semanticMask": {
+        "method": "camera-local cubic semantic paths; no RGB classification",
+        "surfaces": [
+          "forefoot",
+          "outer_footbed_wall",
+          "near_diagonal",
+          "far_diagonal_front",
+          "ankle_front",
+          "rear_counter_and_heel",
+          "ankle_outer_return",
+          "buckle_fabric_inset"
+        ],
+        "protected": [
+          "front_cream_footbed",
+          "main_insole",
+          "rear_lining"
+        ]
+      }
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "source": "fitting.png",
+      "toeX": 171,
+      "floorY": 964,
+      "trim": "wrapsandal",
+      "sourceCameraIndependent": true,
+      "candidateKit": true,
+      "visualAcceptanceRequired": true,
+      "semanticMask": {
+        "method": "authored-semantic-polygons-v3-toe-contact",
+        "dyeRegions": [
+          "ankle",
+          "diagonal",
+          "counter",
+          "forefoot",
+          "heel"
+        ],
+        "excluded": [
+          "skin",
+          "toes",
+          "cream footbed",
+          "cream inner sidewall",
+          "warm lining",
+          "outsole",
+          "champagne buckle"
+        ],
+        "acceptance": "development-only; complete rendered acceptance still required"
+      }
+    }
+  }
+}

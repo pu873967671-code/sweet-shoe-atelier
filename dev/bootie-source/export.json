@@ -1,0 +1,30 @@
+{
+  "product": {
+    "frame": [
+      1024,
+      640
+    ],
+    "source": "product.png",
+    "skin": null,
+    "toeOrnamentTranslation": [
+      0,
+      25
+    ],
+    "upperPixels": 202338,
+    "shellPixels": 220180
+  },
+  "fitting": {
+    "frame": [
+      1024,
+      1024
+    ],
+    "source": "fitting.png",
+    "skin": "exact accepted block cel pixels",
+    "toeOrnamentTranslation": [
+      0,
+      -4
+    ],
+    "upperPixels": 194101,
+    "shellPixels": 200745
+  }
+}

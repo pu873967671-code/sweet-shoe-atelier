@@ -1,0 +1,62 @@
+{
+  "maryjane": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "componentBounds": [
+        453,
+        233,
+        729,
+        424
+      ],
+      "componentPixels": 15430,
+      "bodySource": "assets/shoe2d/flat_base.webp"
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "componentBounds": [
+        436,
+        554,
+        695,
+        703
+      ],
+      "componentPixels": 13987,
+      "bodySource": "assets/fitting2d/flat_shoe.webp"
+    }
+  },
+  "ballet": {
+    "product": {
+      "frame": [
+        1024,
+        640
+      ],
+      "componentBounds": [
+        449,
+        84,
+        1001,
+        417
+      ],
+      "componentPixels": 60464,
+      "bodySource": "assets/shoe2d/flat_base.webp"
+    },
+    "fitting": {
+      "frame": [
+        1024,
+        1024
+      ],
+      "componentBounds": [
+        410,
+        254,
+        843,
+        668
+      ],
+      "componentPixels": 58038,
+      "bodySource": "assets/fitting2d/flat_shoe.webp"
+    }
+  }
+}

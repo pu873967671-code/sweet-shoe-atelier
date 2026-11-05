@@ -1,0 +1,1048 @@
+{
+  "flat_bow_decoration": {
+    "pixels": 11089,
+    "alpha_bounds": [
+      615,
+      467,
+      848,
+      745
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        7.2771220207214355
+      ],
+      [
+        0.0,
+        1.0,
+        3.465564727783203
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_bow_strap": {
+    "pixels": 8782,
+    "alpha_bounds": [
+      407,
+      601,
+      634,
+      748
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        7.2771220207214355
+      ],
+      [
+        0.0,
+        1.0,
+        3.465564727783203
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_bow_charm": {
+    "pixels": 1439,
+    "alpha_bounds": [
+      200,
+      797,
+      450,
+      960
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        7.2771220207214355
+      ],
+      [
+        0.0,
+        1.0,
+        3.465564727783203
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_lace_decoration": {
+    "pixels": 4610,
+    "alpha_bounds": [
+      730,
+      499,
+      840,
+      683
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.2897329330444336
+      ],
+      [
+        0.0,
+        1.0,
+        4.872468948364258
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_lace_strap": {
+    "pixels": 18441,
+    "alpha_bounds": [
+      360,
+      678,
+      640,
+      855
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.2897329330444336
+      ],
+      [
+        0.0,
+        1.0,
+        4.872468948364258
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_lace_charm": {
+    "pixels": 496,
+    "alpha_bounds": [
+      373,
+      790,
+      450,
+      881
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.2897329330444336
+      ],
+      [
+        0.0,
+        1.0,
+        4.872468948364258
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_pearl_decoration": {
+    "pixels": 10113,
+    "alpha_bounds": [
+      724,
+      508,
+      840,
+      649
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.243835687637329
+      ],
+      [
+        0.0,
+        1.0,
+        2.6655476093292236
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_pearl_strap": {
+    "pixels": 5868,
+    "alpha_bounds": [
+      396,
+      570,
+      780,
+      877
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.243835687637329
+      ],
+      [
+        0.0,
+        1.0,
+        2.6655476093292236
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_pearl_charm": {
+    "pixels": 1306,
+    "alpha_bounds": [
+      195,
+      839,
+      450,
+      885
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.243835687637329
+      ],
+      [
+        0.0,
+        1.0,
+        2.6655476093292236
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_ribbon_decoration": {
+    "pixels": 1340,
+    "alpha_bounds": [
+      730,
+      501,
+      810,
+      682
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        0.0704452246427536
+      ],
+      [
+        0.0,
+        1.0,
+        0.4739035964012146
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_ribbon_strap": {
+    "pixels": 16520,
+    "alpha_bounds": [
+      360,
+      600,
+      687,
+      880
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        0.0704452246427536
+      ],
+      [
+        0.0,
+        1.0,
+        0.4739035964012146
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "flat_ribbon_charm": {
+    "pixels": 5298,
+    "alpha_bounds": [
+      258,
+      816,
+      398,
+      924
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        0.0704452246427536
+      ],
+      [
+        0.0,
+        1.0,
+        0.4739035964012146
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_bow_decoration": {
+    "pixels": 10461,
+    "alpha_bounds": [
+      615,
+      467,
+      851,
+      750
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.460106760263443
+      ],
+      [
+        0.0,
+        1.0,
+        0.9414733648300171
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_bow_strap": {
+    "pixels": 10595,
+    "alpha_bounds": [
+      406,
+      615,
+      639,
+      761
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.460106760263443
+      ],
+      [
+        0.0,
+        1.0,
+        0.9414733648300171
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_bow_charm": {
+    "pixels": 493,
+    "alpha_bounds": [
+      180,
+      790,
+      354,
+      959
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.460106760263443
+      ],
+      [
+        0.0,
+        1.0,
+        0.9414733648300171
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_lace_decoration": {
+    "pixels": 4460,
+    "alpha_bounds": [
+      730,
+      497,
+      829,
+      681
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7442567348480225
+      ],
+      [
+        0.0,
+        1.0,
+        1.4970945119857788
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_lace_strap": {
+    "pixels": 13658,
+    "alpha_bounds": [
+      360,
+      685,
+      614,
+      860
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7442567348480225
+      ],
+      [
+        0.0,
+        1.0,
+        1.4970945119857788
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_lace_charm": {
+    "pixels": 634,
+    "alpha_bounds": [
+      371,
+      790,
+      450,
+      849
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7442567348480225
+      ],
+      [
+        0.0,
+        1.0,
+        1.4970945119857788
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_pearl_decoration": {
+    "pixels": 9202,
+    "alpha_bounds": [
+      732,
+      507,
+      849,
+      649
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.26064157485961914
+      ],
+      [
+        0.0,
+        1.0,
+        0.8409255146980286
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_pearl_strap": {
+    "pixels": 4178,
+    "alpha_bounds": [
+      371,
+      570,
+      780,
+      863
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.26064157485961914
+      ],
+      [
+        0.0,
+        1.0,
+        0.8409255146980286
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_pearl_charm": {
+    "pixels": 2077,
+    "alpha_bounds": [
+      180,
+      790,
+      429,
+      958
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.26064157485961914
+      ],
+      [
+        0.0,
+        1.0,
+        0.8409255146980286
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_ribbon_decoration": {
+    "pixels": 1948,
+    "alpha_bounds": [
+      731,
+      499,
+      816,
+      681
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.9922493696212769
+      ],
+      [
+        0.0,
+        1.0,
+        2.70343017578125
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_ribbon_strap": {
+    "pixels": 12272,
+    "alpha_bounds": [
+      360,
+      587,
+      660,
+      875
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.9922493696212769
+      ],
+      [
+        0.0,
+        1.0,
+        2.70343017578125
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "kitten_ribbon_charm": {
+    "pixels": 4213,
+    "alpha_bounds": [
+      261,
+      812,
+      381,
+      908
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.9922493696212769
+      ],
+      [
+        0.0,
+        1.0,
+        2.70343017578125
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_bow_decoration": {
+    "pixels": 13966,
+    "alpha_bounds": [
+      615,
+      455,
+      879,
+      697
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.5763013362884521
+      ],
+      [
+        0.0,
+        1.0,
+        1.8837676048278809
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_bow_strap": {
+    "pixels": 10983,
+    "alpha_bounds": [
+      429,
+      570,
+      659,
+      697
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.5763013362884521
+      ],
+      [
+        0.0,
+        1.0,
+        1.8837676048278809
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_bow_charm": {
+    "pixels": 1812,
+    "alpha_bounds": [
+      234,
+      824,
+      411,
+      885
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.5763013362884521
+      ],
+      [
+        0.0,
+        1.0,
+        1.8837676048278809
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_lace_decoration": {
+    "pixels": 4099,
+    "alpha_bounds": [
+      728,
+      490,
+      828,
+      682
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.4488285779953003
+      ],
+      [
+        0.0,
+        1.0,
+        2.814328908920288
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_lace_strap": {
+    "pixels": 11760,
+    "alpha_bounds": [
+      360,
+      775,
+      602,
+      880
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.4488285779953003
+      ],
+      [
+        0.0,
+        1.0,
+        2.814328908920288
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_lace_charm": {
+    "pixels": 802,
+    "alpha_bounds": [
+      320,
+      790,
+      450,
+      840
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.4488285779953003
+      ],
+      [
+        0.0,
+        1.0,
+        2.814328908920288
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_pearl_decoration": {
+    "pixels": 9854,
+    "alpha_bounds": [
+      724,
+      502,
+      840,
+      649
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7035498023033142
+      ],
+      [
+        0.0,
+        1.0,
+        1.2972173690795898
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_pearl_strap": {
+    "pixels": 4153,
+    "alpha_bounds": [
+      360,
+      570,
+      778,
+      857
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7035498023033142
+      ],
+      [
+        0.0,
+        1.0,
+        1.2972173690795898
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_pearl_charm": {
+    "pixels": 1933,
+    "alpha_bounds": [
+      180,
+      790,
+      363,
+      957
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7035498023033142
+      ],
+      [
+        0.0,
+        1.0,
+        1.2972173690795898
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_ribbon_decoration": {
+    "pixels": 1532,
+    "alpha_bounds": [
+      728,
+      491,
+      814,
+      681
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.9097371697425842
+      ],
+      [
+        0.0,
+        1.0,
+        1.170998215675354
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_ribbon_strap": {
+    "pixels": 12577,
+    "alpha_bounds": [
+      360,
+      603,
+      652,
+      880
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.9097371697425842
+      ],
+      [
+        0.0,
+        1.0,
+        1.170998215675354
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "block_ribbon_charm": {
+    "pixels": 5050,
+    "alpha_bounds": [
+      233,
+      819,
+      378,
+      924
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.9097371697425842
+      ],
+      [
+        0.0,
+        1.0,
+        1.170998215675354
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_bow_decoration": {
+    "pixels": 12518,
+    "alpha_bounds": [
+      615,
+      425,
+      853,
+      699
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.3752611875534058
+      ],
+      [
+        0.0,
+        1.0,
+        5.790306568145752
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_bow_strap": {
+    "pixels": 10838,
+    "alpha_bounds": [
+      423,
+      570,
+      657,
+      699
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.3752611875534058
+      ],
+      [
+        0.0,
+        1.0,
+        5.790306568145752
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_bow_charm": {
+    "pixels": 0,
+    "alpha_bounds": null,
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -1.3752611875534058
+      ],
+      [
+        0.0,
+        1.0,
+        5.790306568145752
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_lace_decoration": {
+    "pixels": 4209,
+    "alpha_bounds": [
+      728,
+      489,
+      804,
+      676
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7480881810188293
+      ],
+      [
+        0.0,
+        1.0,
+        1.51192045211792
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_lace_strap": {
+    "pixels": 17222,
+    "alpha_bounds": [
+      360,
+      652,
+      640,
+      834
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7480881810188293
+      ],
+      [
+        0.0,
+        1.0,
+        1.51192045211792
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_lace_charm": {
+    "pixels": 0,
+    "alpha_bounds": null,
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.7480881810188293
+      ],
+      [
+        0.0,
+        1.0,
+        1.51192045211792
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_pearl_decoration": {
+    "pixels": 8982,
+    "alpha_bounds": [
+      723,
+      487,
+      821,
+      634
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        4.917047500610352
+      ],
+      [
+        0.0,
+        1.0,
+        0.506190299987793
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_pearl_strap": {
+    "pixels": 3485,
+    "alpha_bounds": [
+      360,
+      571,
+      780,
+      849
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        4.917047500610352
+      ],
+      [
+        0.0,
+        1.0,
+        0.506190299987793
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_pearl_charm": {
+    "pixels": 1530,
+    "alpha_bounds": [
+      203,
+      880,
+      450,
+      960
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        4.917047500610352
+      ],
+      [
+        0.0,
+        1.0,
+        0.506190299987793
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_ribbon_decoration": {
+    "pixels": 1245,
+    "alpha_bounds": [
+      728,
+      489,
+      804,
+      676
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.529716432094574
+      ],
+      [
+        0.0,
+        1.0,
+        1.1145031452178955
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_ribbon_strap": {
+    "pixels": 14730,
+    "alpha_bounds": [
+      360,
+      570,
+      676,
+      880
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.529716432094574
+      ],
+      [
+        0.0,
+        1.0,
+        1.1145031452178955
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  },
+  "wedge_ribbon_charm": {
+    "pixels": 5721,
+    "alpha_bounds": [
+      257,
+      809,
+      404,
+      917
+    ],
+    "alignment": [
+      [
+        1.0,
+        0.0,
+        -0.529716432094574
+      ],
+      [
+        0.0,
+        1.0,
+        1.1145031452178955
+      ]
+    ],
+    "unchanged_alpha_pixels": 0
+  }
+}

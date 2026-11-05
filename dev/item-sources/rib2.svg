@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<defs>
+ <linearGradient id="ribbon" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#ffddcd"/><stop offset=".18" stop-color="#ff9d9f"/><stop offset=".48" stop-color="#e96f86"/><stop offset=".76" stop-color="#f68a96"/><stop offset="1" stop-color="#c95578"/></linearGradient>
+ <linearGradient id="flange" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#fff9dc"/><stop offset=".48" stop-color="#ffe8c5"/><stop offset="1" stop-color="#e2bc94"/></linearGradient>
+ <radialGradient id="end" cx=".3" cy=".2"><stop stop-color="#ffc6bf"/><stop offset=".8" stop-color="#ec8390"/><stop offset="1" stop-color="#ca5c79"/></radialGradient>
+ <radialGradient id="core"><stop stop-color="#7e4c59"/><stop offset=".8" stop-color="#a96972"/><stop offset="1" stop-color="#e6b39a"/></radialGradient>
+ <filter id="shadow"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<ellipse cx="133" cy="207" rx="94" ry="13" fill="#a05b73" opacity=".16" filter="url(#shadow)"/>
+<!-- Closed horizontal coral spool, deliberately no loose ribbon tail. -->
+<ellipse cx="78" cy="118" rx="44" ry="77" fill="url(#flange)" stroke="#bd917a" stroke-width="2" transform="rotate(-18 78 118)"/>
+<path d="M67 46 Q100 31 186 69 L198 184 Q154 218 87 189 Q65 155 61 112 Q57 75 67 46Z" fill="url(#ribbon)" stroke="#b9687c" stroke-width="2"/>
+<path d="M77 56 Q111 47 172 74 M69 76 Q114 66 172 91 M67 97 Q115 85 172 110 M69 121 Q113 108 178 132 M74 144 Q119 134 181 154 M80 166 Q127 159 184 175 M90 184 Q134 184 179 191" fill="none" stroke="#ffd2c3" stroke-opacity=".6" stroke-width="2"/>
+<path d="M84 52 Q63 108 97 185" stroke="#fff0d6" stroke-width="5" opacity=".65" fill="none"/>
+<ellipse cx="182" cy="134" rx="44" ry="76" transform="rotate(-13 182 134)" fill="url(#flange)" stroke="#bd917a" stroke-width="2"/>
+<ellipse cx="183" cy="132" rx="35" ry="65" transform="rotate(-13 183 132)" fill="url(#end)" stroke="#df8e94" stroke-width="2"/>
+<ellipse cx="183" cy="132" rx="29" ry="57" transform="rotate(-13 183 132)" fill="none" stroke="#ffd8c5" stroke-width="2"/>
+<ellipse cx="183" cy="132" rx="23" ry="47" transform="rotate(-13 183 132)" fill="none" stroke="#e59a9e" stroke-width="2"/>
+<ellipse cx="183" cy="132" rx="17" ry="34" transform="rotate(-13 183 132)" fill="none" stroke="#ffc6bb" stroke-width="2"/>
+<ellipse cx="183" cy="132" rx="11" ry="23" transform="rotate(-13 183 132)" fill="url(#core)" stroke="#ffe2be" stroke-width="5"/>
+<path d="M165 73 Q194 55 212 96" fill="none" stroke="#fff8e4" stroke-width="4" stroke-linecap="round"/>
+</svg>

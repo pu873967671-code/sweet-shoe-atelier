@@ -1,0 +1,68 @@
+{
+  "product": {
+    "base": "stiletto6",
+    "frame": [
+      1024,
+      640
+    ],
+    "toeX": 96,
+    "groundY": 540,
+    "heelOnlyRegion": {
+      "folder": "shoe2d",
+      "base": "base",
+      "start": 326,
+      "left": 800,
+      "center": [
+        846,
+        404
+      ],
+      "radii": [
+        57,
+        60
+      ],
+      "cap": [
+        825,
+        459,
+        869,
+        479
+      ],
+      "toe": 96,
+      "floor": 540
+    },
+    "exactUpperOutsideSupport": true,
+    "source": "original code-native sphere and mounts"
+  },
+  "fitting": {
+    "base": "stiletto6",
+    "frame": [
+      1024,
+      1024
+    ],
+    "toeX": 171,
+    "groundY": 964,
+    "heelOnlyRegion": {
+      "folder": "fitting2d",
+      "base": "shoe",
+      "start": 714,
+      "left": 704,
+      "center": [
+        754,
+        791
+      ],
+      "radii": [
+        47,
+        53
+      ],
+      "cap": [
+        734,
+        838,
+        774,
+        867
+      ],
+      "toe": 171,
+      "floor": 964
+    },
+    "exactUpperOutsideSupport": true,
+    "source": "original code-native sphere and mounts"
+  }
+}

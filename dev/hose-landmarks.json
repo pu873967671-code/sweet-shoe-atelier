@@ -1,0 +1,23 @@
+{
+  "_note": "Source pixel rows traced from each base's own knee bend and highest visible thigh. Pairs are rear/front; thigh bands remain in-frame because anatomical upper thigh is cropped.",
+  "flat": {"knee": [126, 157], "thigh": [34, 43]},
+  "block": {"knee": [134, 165], "thigh": [37, 46]},
+  "kitten": {"knee": [113, 146], "thigh": [30, 40]},
+  "stiletto6": {"knee": [122, 153], "thigh": [33, 42]},
+  "stiletto9": {"knee": [137, 166], "thigh": [38, 47]},
+  "wedge": {"knee": [131, 162], "thigh": [36, 45]},
+  "maryjane": {"knee": [125, 155], "thigh": [34, 43]},
+  "ballet": {"knee": [129, 160], "thigh": [35, 44]},
+  "slingback": {"knee": [117, 149], "thigh": [32, 41]},
+  "loafer": {"knee": [120, 152], "thigh": [33, 42]},
+  "platform": {"knee": [132, 164], "thigh": [36, 46]},
+  "bootie": {"knee": [121, 154], "thigh": [34, 43]},
+  "pearlpump": {"knee": [114, 147], "thigh": [31, 40]},
+  "bowsling": {"knee": [112, 145], "thigh": [30, 39]},
+  "crystalpump": {"knee": [119, 151], "thigh": [32, 41]},
+  "studpump": {"knee": [116, 148], "thigh": [31, 40]},
+  "bowmule": {"knee": [118, 150], "thigh": [32, 41]},
+  "pearlheel": {"knee": [128, 159], "thigh": [35, 44]},
+  "luciteheel": {"knee": [120, 152], "thigh": [33, 42]},
+  "crystalsandal": {"knee": [133, 164], "thigh": [36, 45]}
+}

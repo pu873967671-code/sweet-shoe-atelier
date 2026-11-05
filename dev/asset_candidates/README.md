@@ -1,0 +1,4 @@
+Candidate leg/foot assets (not yet in runtime):
+- vroid_base_female/: VRoid Studio sample base female, CC0 (VRoid Project; via https://opengameart.org/content/vroid-studio-cc0-models, terms https://vroid.pixiv.help/hc/en-us/articles/4402614652569). VRM0.x = glTF2 (rename .vrm->.glb). Proper sculpted stylized feet/ankles; toon skin. Use only legs (hide upper body), restyle skin colour to project palette.
+- Existing: assets/models/female_base.gltf (Quaternius Universal Base, CC0) — feet looked broken.
+- hiirusama/: CC0 shoes by Hiirusama (https://hiirusama.gumroad.com/l/heels_4 Mary Jane Heels 8cm, https://hiirusama.gumroad.com/l/heels_1 Classic round-toe Pumps). Parts modelled separately (upper, sole, heel, insole, strap). FBX → convert with three FBXLoader + GLTFExporter in headless Chromium.

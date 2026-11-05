@@ -1,0 +1,37 @@
+{
+  "status": "ACCEPTED",
+  "style": "crystalsandal",
+  "accepted_utc": "2026-10-25T22:34:00Z",
+  "scope": "single official style only; no flower/wrap or independent pair acceptance",
+  "source_sha256": {
+    "assets/shoe2d/crystalsandal_base.webp": "f1f7e9b7c763ddc733a09949f4afdcff3a0d3672ce5a535f7afe49c3fb741c6d",
+    "assets/shoe2d/crystalsandal_binding.webp": "1a61a7cb23d84ad1c6f9a62c53bac576f6d726c01b971782d3f08e1a0b9ccd2f",
+    "assets/shoe2d/crystalsandal_highlight.webp": "fd3fabf2b2937ce774f6763aa82864cec34a817f0a79210c7fe6d42e42943bb0",
+    "assets/shoe2d/crystalsandal_insole.webp": "1b4ef91416924f8bba7b6761c30a30c5ca959f36a8d76ac10fe852855f11c336",
+    "assets/shoe2d/crystalsandal_shadow.webp": "98d2533d3482716c3c8694424e28e8663c9d6bb9b85b5c20bcba812c6eff3469",
+    "assets/shoe2d/crystalsandal_sole.webp": "83c26e46f5144b4ff838e1f25bc4a2f266a5ffb2e8c8bfad2d440bf63a0bd96c",
+    "assets/shoe2d/crystalsandal_upper.webp": "ef3f8a839027115d633643e1c6a40c7ffd2cd4088b8f4191738eceb1be2e638c",
+    "assets/fitting2d/crystalsandal_highlight.webp": "dc4712979f9c46510fa069d395d63be76970bc440562fdf26ed8fe783cce9f79",
+    "assets/fitting2d/crystalsandal_legs.webp": "b4d68326fb9d0ca827c89614f64364b1570d9bfad02e858de49d78fec56ff178",
+    "assets/fitting2d/crystalsandal_occlusion.webp": "832f63f02a05eb4e09f3980ce1678b525986a4b90ebd56a5f3b44b5a18656dbb",
+    "assets/fitting2d/crystalsandal_shadow.webp": "27d1312a33a51b6d274e29073a4b1d46722e975a8b2f79e9e71716a839f05411",
+    "assets/fitting2d/crystalsandal_shoe.webp": "5914a9cff5a8e6929ce816ab70b814251a1f49bd7b23db0a8c5fcae1058d44e6",
+    "assets/fitting2d/crystalsandal_upper.webp": "01982e9490c69509c1b5d9d3c8abc6bf0b371528e08dae9c78ee0f035e497b0d"
+  },
+  "evidence": {
+    "native": "qa/crystalsandal-native/report.json",
+    "flow": "qa/crystalsandal-flow/report.json",
+    "screens": "qa/session-2224-screens.json",
+    "release": "qa/session-2224-release.json",
+    "perspective": "qa/crystalsandal-perspective/report.json",
+    "crystal_zip": "qa/session-2224-crystal-zip/report.json"
+  },
+  "native_checks": 132,
+  "flow_checks": 18,
+  "catalog_gate": "spk6 discovery;140-coin catalog value under existing craft-first gate",
+  "release": {
+    "sha256": "5c33ab13893ff1a402065c70ddd1ba43fd4f23b4621e371318b443e9a8b95f08",
+    "files": 721,
+    "bytes": 19765210
+  }
+}

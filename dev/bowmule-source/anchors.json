@@ -1,0 +1,28 @@
+{
+  "product": {
+    "source": "product.png",
+    "frame": [
+      1024,
+      640
+    ],
+    "baseFront": "genuine full mule edit",
+    "exactForefootThroughX": null,
+    "toeX": 96,
+    "groundY": 540,
+    "backlessRearFromOriginalEdit": true,
+    "skin": null
+  },
+  "fitting": {
+    "source": "fitting.png",
+    "frame": [
+      1024,
+      1024
+    ],
+    "baseFront": "bowsling",
+    "exactForefootThroughX": 550,
+    "toeX": 171,
+    "groundY": 964,
+    "backlessRearFromOriginalEdit": true,
+    "skin": "exact common upper400; source-matched exposed rear heel"
+  }
+}

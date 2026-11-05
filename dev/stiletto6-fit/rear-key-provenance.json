@@ -1,0 +1,30 @@
+{
+  "source": "assets/src-user-legs-20261029/candidates/leg-rear-heel-candidate-v2.png",
+  "sha256": "b155ef91a546d331f9c1ef08196f161c7d9655a952bd75196047575de19704f1",
+  "bounds": [
+    175,
+    0,
+    563,
+    1319
+  ],
+  "edge_softness_source_px": 1.5,
+  "source_unchanged": true,
+  "landmarks": {
+    "heel": [
+      522,
+      1115
+    ],
+    "arch": [
+      453,
+      1154
+    ],
+    "ball": [
+      376,
+      1275
+    ],
+    "toe": [
+      290,
+      1314
+    ]
+  }
+}

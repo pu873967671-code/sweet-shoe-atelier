@@ -1,0 +1,286 @@
+{
+"shoe_block_cross": [
+900,
+491
+],
+"shoe_block_none": [
+900,
+492
+],
+"shoe_block_pearl": [
+900,
+535
+],
+"shoe_block_ribbon": [
+900,
+568
+],
+"shoe_block_thin": [
+900,
+521
+],
+"shoe_flat_cross": [
+900,
+291
+],
+"shoe_flat_none": [
+900,
+262
+],
+"shoe_flat_pearl": [
+900,
+353
+],
+"shoe_flat_ribbon": [
+900,
+465
+],
+"shoe_flat_thin": [
+900,
+344
+],
+"shoe_kitten_cross": [
+900,
+434
+],
+"shoe_kitten_none": [
+900,
+409
+],
+"shoe_kitten_pearl": [
+900,
+482
+],
+"shoe_kitten_ribbon": [
+900,
+523
+],
+"shoe_kitten_thin": [
+900,
+485
+],
+"shoe_wedge_cross": [
+900,
+432
+],
+"shoe_wedge_none": [
+900,
+452
+],
+"shoe_wedge_pearl": [
+900,
+534
+],
+"shoe_wedge_ribbon": [
+900,
+540
+],
+"shoe_wedge_thin": [
+900,
+502
+],
+"bow": [
+256,
+185
+],
+"pearl_drop": [
+93,
+256
+],
+"flower": [
+256,
+241
+],
+"charm_pearl": [
+256,
+252
+],
+"charm_crystal": [
+256,
+253
+],
+"charm_minibow": [
+256,
+187
+],
+"motif_flower": [
+256,
+241
+],
+"motif_heart": [
+256,
+200
+],
+"motif_star": [
+256,
+246
+],
+"sparkle": [
+254,
+256
+],
+"icon_color": [
+160,
+135
+],
+"icon_material": [
+160,
+136
+],
+"icon_pattern": [
+160,
+151
+],
+"icon_strap": [
+160,
+142
+],
+"icon_decoration": [
+160,
+121
+],
+"icon_heel": [
+160,
+129
+],
+"icon_charm": [
+160,
+145
+],
+"icon_coin": [
+158,
+160
+],
+"icon_star": [
+160,
+144
+],
+"icon_heart": [
+160,
+131
+],
+"icon_clock": [
+154,
+160
+],
+"icon_gift": [
+160,
+147
+],
+"tex_satin": [
+512,
+512
+],
+"tex_velvet": [
+512,
+341
+],
+"tex_glitter": [
+512,
+501
+],
+"tex_mesh": [
+512,
+341
+],
+"tex_lace": [
+512,
+341
+],
+"pedestal": [
+800,
+378
+],
+"box_closed": [
+600,
+405
+],
+"box_open": [
+600,
+415
+],
+"confetti": [
+900,
+619
+],
+"logo": [
+900,
+433
+],
+"bg_shop": [
+1600,
+900
+],
+"c_bride_neutral": [
+346,
+360
+],
+"c_bride_happy": [
+345,
+360
+],
+"c_bride_sad": [
+344,
+360
+],
+"c_buns_neutral": [
+322,
+360
+],
+"c_buns_happy": [
+318,
+360
+],
+"c_buns_sad": [
+320,
+360
+],
+"c_casual_neutral": [
+344,
+360
+],
+"c_casual_happy": [
+344,
+360
+],
+"c_casual_sad": [
+345,
+360
+],
+"c_pink_neutral": [
+298,
+360
+],
+"c_pink_happy": [
+302,
+360
+],
+"c_pink_sad": [
+297,
+360
+],
+"c_school_neutral": [
+315,
+360
+],
+"c_school_happy": [
+313,
+360
+],
+"c_school_sad": [
+310,
+360
+],
+"c_tea_neutral": [
+355,
+360
+],
+"c_tea_happy": [
+353,
+360
+],
+"c_tea_sad": [
+350,
+360
+]
+}

@@ -1,0 +1,22 @@
+{
+  "product": {
+    "source": "product.png",
+    "frame": [
+      1024,
+      640
+    ],
+    "preservedForefootThroughX": 560,
+    "bodyBase": "kitten",
+    "newRearPixels": 87668
+  },
+  "fitting": {
+    "source": "fitting.png",
+    "frame": [
+      1024,
+      1024
+    ],
+    "preservedForefootThroughX": 640,
+    "bodyBase": "kitten",
+    "newRearPixels": 19613
+  }
+}

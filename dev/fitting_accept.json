@@ -1,0 +1,20 @@
+{
+  "accepted": true,
+  "iteration": 2,
+  "mode": "painted paired fitting",
+  "worn_anatomy_accepted": true,
+  "scope": "Reviewed existing heel-specific 2D paintings; not retired 3D anatomy",
+  "reasons": [
+    "Both complete source-matched feet are visible and grounded in personally inspected portrait, desktop and short-landscape captures.",
+    "The immutable lower-foot painting retains accepted ankle, instep, shoe arch and accessory placement for all ten registered styles.",
+    "The authorized smaller/darker back-foot copy shares all finish layers without mirroring its painted perspective.",
+    "Five sock choices and four colours paint beneath shoes; short-boot cuffs remain visible.",
+    "Seven-view paired acceptance passes 21 checks / 37 captures; original fitting regression passes 38 checks / 33 captures."
+  ],
+  "limitations": [
+    "Upper calves retain the accepted soft source crop; no new skirt hem or independent two-leg painting.",
+    "Short-landscape composition scales down to retain all accessible controls.",
+    "Physical-device and production-host review remains outstanding."
+  ],
+  "supersedes": "Historical shoes-only WebGL fallback acceptance; see FITTING_LOOP.md"
+}

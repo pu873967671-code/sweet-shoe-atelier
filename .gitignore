@@ -1,0 +1,200 @@
+qa/*.png
+dev/logs/
+video/
+
+__pycache__/
+*.pyc
+
+dist/
+
+qa/*contact-sheet.jpg
+/dev/asset_candidates/*.zip
+
+# Reproducible paired-fitting captures; selected review sheets are tracked.
+qa/paired-fitting/*.png
+qa/paired-fitting/*.jpg
+qa/sock-ui/
+qa/heel-height/*.png
+qa/heel-height/*.jpg
+qa/style-ornaments/stiletto*.png
+
+qa/new-style/pearlpump/*.png
+qa/style-ornaments/pearlpump-*.png
+
+# Reproducible crystal couture captures; reviewed contact sheets are tracked.
+qa/new-style/crystalpump/*.png
+
+# Reproducible localized wish-guidance captures.
+qa/order-blockers/*.png
+
+# Reproducible mixed-ready ingredient status captures.
+qa/order-status/*.png
+
+# Reproducible low-energy wish relief captures.
+qa/order-energy/*.png
+
+# Reproducible fitting mask-failure/recovery captures.
+qa/fitting2d/missing-occlusion-fallback-pair.png
+qa/fitting2d/missing-upper-fallback-pair.png
+qa/fitting2d/recovered-*.png
+
+# Reproducible bow-mule source-camera and UI captures.
+qa/new-style/bowmule/*.png
+
+# Reproducible ankle-bow source-camera and saved upload captures.
+qa/new-style/dorsay/*.png
+qa/upload/dorsay/
+qa/upload/studpump/
+qa/package-budget/*.png
+
+# Reproducible direct generator-state captures.
+qa/generator-status/*.png
+
+# Reproducible hosiery matrix; keep reviewed contact sheets and reports.
+qa/hosiery-polish/*.png
+qa/hosiery-polish/before/*.png
+qa/hosiery-polish/after/*.png
+
+# Reproducible crystal pavé source-camera and bilingual saved-flow captures.
+qa/pave/*.png
+qa/pave-flow/*.png
+qa/material-variety/*.png
+qa/session-2154-pave-zip/*.png
+
+# Reproducible heel-counter skin-pixel and current fitting QA captures.
+qa/skin-pixels/*.png
+qa/session-0700-perspective/*.png
+qa/session-0700-upload/*.png
+
+# Reproducible fixed-camera fitting acceptance captures; retain JSON evidence.
+qa/fixed-framing/*.png
+qa/fixed-framing/*.jpg
+
+# Reproducible calf-continuity QA; retain automated checks and JSON evidence.
+qa/leg-smooth/*.png
+qa/leg-smooth/*.jpg
+qa/leg-smooth/before-source.txt
+
+# Reproducible USER12:47 stage/calf captures; retain QA scripts and JSON evidence.
+qa/layout-1247/**/*.png
+qa/layout-1247/**/*.jpg
+qa/calf-1247/**/*.png
+qa/calf-1247/**/*.jpg
+
+# Reproducible release-refresh screenshots; retain JSON acceptance evidence.
+qa/session-0525-fitting/**/*.png
+qa/session-0525-fitting/**/*.jpg
+qa/session-0525-upload/*.png
+
+# Reproducible Canvas fidelity replays; retain the concise review reports.
+qa/fidelity-current/**/*.png
+qa/fidelity-current/**/*.jpg
+qa/fidelity-current/**/*commands.json
+qa/fidelity-current/offline/decoded/
+qa/toe-sole/
+
+# Reproducible USER19:50 display/worn and paired Canvas replays.
+qa/angle-1950/**/*.png
+qa/angle-1950/**/*.jpg
+qa/angle-1950/**/commands.json
+qa/angle-1950/*.log
+
+# Reproducible Supervisor20:47 runtime captures; retain concise JSON reports.
+qa/session-2047*/**/*.png
+qa/session-2047*/**/*.jpg
+qa/session-2047*/**/commands.json
+qa/supervisor-2047/**/*.png
+qa/supervisor-2047/**/*.jpg
+qa/supervisor-2047/**/commands.json
+
+# Reproducible display/worn crystal-fidelity browser captures; retain JSON reports.
+qa/session-0408-audit-flat/*.png
+qa/session-0408-audit-flat/*.jpg
+qa/session-0410-parity/**/*.png
+qa/session-0410-parity/**/*.jpg
+qa/session-0410-parity/*.png
+qa/session-0410-parity/*.jpg
+qa/crystal-fidelity/*.png
+qa/session-0410-crystal-flow/*.png
+qa/session-0410-source-ornaments.jpg
+
+# Reproducible accepted-camera hosiery captures; retain QA reports.
+qa/skin-pixels-side-camera/*.png
+
+# Reproducible 2026-10-27 REVIEW screenshots; retain JSON evidence.
+qa/session-0525*/**/*.png
+qa/session-0525*/**/*.jpg
+qa/session-0525*/*.png
+qa/session-0525*/*.jpg
+qa/session-0525*.jpg
+qa/session-0525*.log
+qa/grand-*-source.jpg
+qa/grand-coordinate-sheet.jpg
+qa/fidelity-1327/laces-side-camera/**/*.png
+qa/fidelity-1327/laces-side-camera/**/*.jpg
+
+# Reproducible integral-bow/accepted-lace session captures; retain JSON evidence.
+qa/session-0554*/*.png
+qa/session-0554*/*.jpg
+qa/session-0554*.jpg
+qa/session-0555-integral-bow/**/*.png
+qa/session-0555-integral-bow/*.png
+qa/session-0555-integral-bow-reproduced/*.png
+qa/session-0555-integral-bow*.log
+dev/sfx_backup_2129/
+
+# Reproducible rear-pair matrix captures; retain the report.
+qa/rear-pair-matrix/*.png
+qa/rear-pair-matrix/*.jpg
+qa/session-1027-redo/session-1028-*.png
+qa/far-bands-session/
+
+# Reproducible accepted gen5 fitting captures; keep review sheets and metrics.
+qa/gen5-independent/*.png
+
+# Reproducible stiletto9 out4 captures; retain review sheets and reports.
+qa/stiletto9-out4/*.png
+
+# Reproducible stiletto6 out4 captures; retain review sheets and reports.
+qa/stiletto6-out4/*.png
+
+# Reproducible kitten out4 captures; retain review sheets and reports.
+qa/kitten-out4/*.png
+
+# Reproducible stiletto6 contour details; keep metrics and the single review sheet.
+qa/stiletto6-polish/*.png
+qa/stiletto6-polish/before-*.webp
+
+# Reproducible kitten contour/full-size details; retain reports and review sheet.
+qa/kitten-polish/**/*.png
+qa/kitten-polish/*.png
+
+# Reproducible Impeccable UI review captures; retain reports and final contact.
+qa/impeccable-20261029/**/*.png
+qa/impeccable-20261029/**/*.jpg
+qa/impeccable-a/*
+!qa/impeccable-a/assessment-a.md
+qa/impeccable-b/*
+!qa/impeccable-b/audit.md
+!qa/impeccable-b/detector.json
+!qa/impeccable-b/browser-clean.json
+
+# Reproducible returned-source kitten screenshots; retain reports and contact.
+qa/user-kitten/after/*.png
+qa/user-kitten/after/*.jpg
+qa/user-kitten/upload/*.png
+qa/user-kitten/generic-upload/*.png
+
+# Reproducible returned-source studpump captures; retain reports and contact.
+qa/user-studpump/**/*.png
+qa/user-studpump/**/*.jpg
+
+# Reproducible returned-source Mary Jane captures; retain reports and contact.
+qa/user-maryjane/**/*.png
+qa/user-maryjane/**/*.jpg
+
+# Reproducible USER 2026-10-30 heel/collar capture matrix; keep report/contact.
+qa/heel-collar-20261030-before/
+qa/heel-collar-20261030/*.png
+
+qa/heel-collar-20261030/**/*.png

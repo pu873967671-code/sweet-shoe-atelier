@@ -1,0 +1,48 @@
+{
+  "product": {
+    "substantialTrimComponents": 1,
+    "componentAreas": [
+      10728
+    ],
+    "trimPixelsOutsideSourceSilhouette": 7863,
+    "sourceMounts": [
+      [
+        861,
+        83
+      ],
+      [
+        862,
+        104
+      ]
+    ],
+    "sourceOnly": true,
+    "registrationAccepted": false
+  },
+  "fitting": {
+    "substantialTrimComponents": 1,
+    "componentAreas": [
+      6339
+    ],
+    "trimPixelsOutsideSourceSilhouette": 0,
+    "sourceMounts": [
+      [
+        501,
+        398
+      ],
+      [
+        735,
+        405
+      ],
+      [
+        499,
+        405
+      ],
+      [
+        735,
+        410
+      ]
+    ],
+    "sourceOnly": true,
+    "registrationAccepted": false
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "source": "dev/maryjane-source/ballet-product-extracted.png",
+  "sourceAnchors": [
+    [
+      449,
+      350
+    ],
+    [
+      700,
+      410
+    ],
+    [
+      910,
+      134
+    ]
+  ],
+  "wornAnchors": [
+    [
+      290,
+      850
+    ],
+    [
+      638,
+      837
+    ],
+    [
+      690,
+      565
+    ]
+  ],
+  "reconstruction": "original instep crossings and near bow; supersampled front-only ankle satin turns; hidden far loop/clasp",
+  "ankleTurns": [
+    [
+      425,
+      738,
+      552,
+      22
+    ],
+    [
+      420,
+      730,
+      593,
+      21
+    ]
+  ],
+  "parts": {
+    "shoe": "f17c021f0316aa7fa157aec8b9730ff0702b2a3428001e8fe5a8e19b4faca2d7",
+    "upper": "28d40ad4f4d4d4f5f6de5ff077734837b0fab0812f2fb3268ff6a6306c0b89a5",
+    "shadow": "0529f77efaa0f1abdfe08c97fe76fb41ef9c2b2f8eb2eb6227968375e3ef57c9",
+    "highlight": "70572d0ffce2f4603c08f1d0ff17952122271e66ed42408cc3bd1c564a46613c",
+    "occlusion": "0980df4f93d857bb91a325a6231d13e0edb14dc06008bd5d14a0d32f9e43dc04"
+  }
+}

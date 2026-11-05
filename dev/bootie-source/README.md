@@ -1,0 +1,9 @@
+# Short ankle bootie: source and rebuild
+
+Two genuine `gpt-image-2` edits of the accepted neutral block product and worn paintings. Built-in imagegen returned no artifact; imagegen skill bundled `scripts/image_gen.py edit` used the REVIEW21:52/21:57/23:05 explicit API workflow, established project endpoint https://afgp.cc.cd/v1, quality high. Exact prompts, inputs, original PNGs and logs are retained here. No runtime API or CDN.
+
+Rebuild: `python3 dev/build-bootie-assets.py` (Pillow/NumPy/OpenCV). Seven product layers use1024×640, six fitting layers use1024². Product silhouette normalizes to toe96/right928/top51/floor540. Fitting uses the genuine closed-boot edit and exact accepted `block_legs.webp` pixels. Offline continuous collar geometry and occlusion cover the original bare instep; no photo-skin splice or repeated calf strip. Broad source lightmaps keep satin/velvet clean. Whole shaft, vamp and heel support tint; only narrow top piping, lining and tan outsole remain natural.
+
+Eight toe-ornament/tint layers reuse approved block view-specific sources with fixed translations: product(0,+25), worn(0,-4). No new ornament generation is claimed. Run `dev/fitting-polish/repair-crystals.py` after original accessory/platform exports and BEFORE this builder so restored original gem/pearl pixels propagate. Bootie has no extra straps or rear décor; the editor, cleanDesign and commissions share that rule. Missing artwork falls back locally.
+
+Personal review rejected an initial warm reflected heel island and disconnected arch stripe; final masks restrict tan preservation to a narrow actual outsole band. Root inspected original neutral edits, native black velvet, both-camera ornament sheets and real desktop/portrait UI. Discovery lea5 /80coins, valid commissions, save and Collection are verified by focused QA and smoke. Full production/device and seven-size all-group acceptance is outside this session.

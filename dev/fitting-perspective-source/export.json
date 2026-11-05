@@ -1,0 +1,67 @@
+{
+  "salon": {
+    "size": [
+      1536,
+      1024
+    ],
+    "horizon": 0.4,
+    "platform": "none in background; one shared runtime platform",
+    "source_sha256": "98468a4bb86c5e86340f7cf37024d690f5e1159eae1aaa52bf1230150da0ab6c",
+    "assets": {
+      "assets/bg_fitting.webp": "364aee2d6f8f9a76e4248bf1e3fc47bbe78cf4d821f4576de253d12883cac823",
+      "assets/scenes/close_salon.webp": "364aee2d6f8f9a76e4248bf1e3fc47bbe78cf4d821f4576de253d12883cac823"
+    }
+  },
+  "mirror_lounge": {
+    "size": [
+      1536,
+      1024
+    ],
+    "horizon": 0.4,
+    "platform": "none in background; one shared runtime platform",
+    "source_sha256": "76e828092f41f6342d6030f3572731117999576ebc923f3a5647c079ba0e9b8f",
+    "assets": {
+      "assets/scenes/close_mirror_lounge.webp": "a2263aa5f1b48a374a7fd2e09d5e8f561434c3cf9e993478aadafa2e112d57bb",
+      "assets/scenes/scene_mirror_lounge_thumb.webp": "255f3babdca0d344c630a2fd6d0a54739f43903ca952f0692c41150aa5d61dda"
+    }
+  },
+  "car": {
+    "size": [
+      1536,
+      1024
+    ],
+    "horizon": 0.4,
+    "platform": "none in background; one shared runtime platform",
+    "source_sha256": "3994fa759a7a58d4c9d9ed7f971aaa2eb7b91121eb3e98783ed5738b63cdb6fc",
+    "assets": {
+      "assets/scenes/close_car.webp": "5686ac7162bda598344184adc10aba4def3c080d545fe3d170f893e73ded2d9c",
+      "assets/scenes/scene_car_thumb.webp": "dabd21dafe5b1e96065f81bc83d0d035496aba173f25510949a070eb306749ed"
+    }
+  },
+  "vanity": {
+    "size": [
+      1536,
+      1024
+    ],
+    "horizon": 0.4,
+    "platform": "none in background; one shared runtime platform",
+    "source_sha256": "ea0f650ee60b811397c491ee9d02f8b1707158668436f2065f89a1565acf11a5",
+    "assets": {
+      "assets/scenes/close_vanity.webp": "46746498e52b5863e2b3f4b278e4a9844be8e2b2d7428854744736eed5939cd4",
+      "assets/scenes/scene_vanity_thumb.webp": "27c2a228454e9d3322d7d836a4dae3c7b0295494e0db62d4183f4b6532e8e5bf"
+    }
+  },
+  "balcony": {
+    "size": [
+      1536,
+      1024
+    ],
+    "horizon": 0.4,
+    "platform": "none in background; one shared runtime platform",
+    "source_sha256": "d172314ce408ee0ac8584926acf96dd049a2fd80d99543a18c05c5b5472e4be7",
+    "assets": {
+      "assets/scenes/close_balcony.webp": "5f35b09b371d9aad3f16db5f3c0e1ca1deb5d879a7890000147685e721038330",
+      "assets/scenes/scene_balcony_thumb.webp": "69964cf4f9317c5f0e4c77c255575d2eb97388f574a811ca8e5e31668fd6ba31"
+    }
+  }
+}

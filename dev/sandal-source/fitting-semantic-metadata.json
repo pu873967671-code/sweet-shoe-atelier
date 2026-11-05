@@ -1,0 +1,19 @@
+{
+  "method": "authored-semantic-polygons-v1",
+  "dyeRegions": [
+    "ankle",
+    "diagonal",
+    "counter",
+    "forefoot",
+    "heel"
+  ],
+  "excluded": [
+    "skin",
+    "toes",
+    "cream footbed",
+    "warm lining",
+    "outsole",
+    "champagne buckle"
+  ],
+  "acceptance": "development-only; complete rendered acceptance still required"
+}

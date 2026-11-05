@@ -1,0 +1,26 @@
+{
+  "product": {
+    "source": "product.png",
+    "frame": [
+      1024,
+      640
+    ],
+    "sourceAlphaPreserved": true,
+    "shoePixels": 184987,
+    "upperPixels": 124840,
+    "bodyBase": "genuine image edit",
+    "skinBase": null
+  },
+  "fitting": {
+    "source": "fitting.png",
+    "frame": [
+      1024,
+      1024
+    ],
+    "sourceAlphaPreserved": true,
+    "shoePixels": 115067,
+    "upperPixels": 104024,
+    "bodyBase": "genuine image edit",
+    "skinBase": "accepted flat cel leg, exact pixels"
+  }
+}

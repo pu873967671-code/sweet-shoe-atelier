@@ -1,0 +1,26 @@
+{
+  "accepted": false,
+  "iteration": 36,
+  "scope": "Shared stable painted2D product kit; fixed ornaments, mask and floral lace",
+  "technical_acceptance": true,
+  "profile": {
+    "side_length_height_ratio": 3.302783244935682,
+    "pearl_scale": 0.65
+  },
+  "reasons": [
+    "Personally reviewed4heel72finish contact and44accessory atlas, actual responsive shared screens and enlarged floral lace.",
+    "Final126checks/27UI screenshots PASS, toe/ground/length jitter0px, no runtime3D requests.",
+    "Shared product migration complete. New bespoke accessory art was not generated: built-in image tool returned no artifact; reused original painted patches have honest provenance. Premium accessory art review and physical-device acceptance remain open."
+  ],
+  "evidence": [
+    "qa/shoe2d/report.json",
+    "qa/shoe2d/contact-sheet.jpg",
+    "qa/shoe2d/studio-contact.jpg",
+    "dev/SHOE_LOOP.md",
+    "qa/shoe2d/accessory-contact.jpg",
+    "qa/painted-shared-screens-report.json",
+    "qa/painted-shared-shallow-final-report.json"
+  ],
+  "heel_seat_accepted": true,
+  "painted_base_accepted": true
+}

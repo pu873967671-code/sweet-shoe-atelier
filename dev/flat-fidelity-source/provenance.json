@@ -1,0 +1,12 @@
+{
+  "model": "gpt-image-2",
+  "workflow": "built-in returned no artifact; existing REVIEW API edit workflow via bundled imagegen CLI",
+  "prompt": "prompt.txt",
+  "inputs": [
+    "edit-input.png",
+    "design-reference.png"
+  ],
+  "originalLayers": "<style>_<part>.webp",
+  "output": "candidate.png",
+  "integration": "dev/build-flat-fidelity.py"
+}

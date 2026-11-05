@@ -1,0 +1,21 @@
+{
+  "generated": "2026-10-25",
+  "tool": "imagegen skill bundled scripts/image_gen.py edit",
+  "model": "gpt-image-2",
+  "quality": "high",
+  "endpoint": "https://afgp.cc.cd/v1",
+  "inputs": {
+    "product": "dev/dorsay-source/product-input.png",
+    "fitting": "dev/dorsay-source/fitting-input.png"
+  },
+  "prompts": {
+    "product": "product-prompt.txt",
+    "fitting": "fitting-prompt.txt"
+  },
+  "outputs": {
+    "product": "product.png",
+    "fitting": "fitting.png"
+  },
+  "builtin_attempt": "returned no artifact; followed REVIEW explicit gpt-image-2 edit workflow",
+  "runtimeDependencies": "none"
+}

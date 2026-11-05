@@ -1,0 +1,17 @@
+{
+  "status": "REJECTED_SOURCE_ONLY",
+  "registered": false,
+  "runtimeFilesAdded": 0,
+  "mechanicalChecks": {
+    "flowersandal": "18checks21capturesPASS",
+    "crystalsandal": "18checks21capturesPASS"
+  },
+  "visualFailures": [
+    "noisy dye contamination on cream insole",
+    "rear collar/buckle mask discontinuity",
+    "forefoot sole corner patch",
+    "wrap ankle strips disconnected"
+  ],
+  "finalRuntimeStyles": 19,
+  "evidence": "qa/new-style/{flowersandal,crystalsandal}/contact-sheet.jpg"
+}

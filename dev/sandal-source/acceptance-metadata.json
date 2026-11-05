@@ -1,0 +1,122 @@
+{
+  "crystalsandal": {
+    "shoe2d": {
+      "toeX": 96,
+      "floorY": 540,
+      "alphaBounds": [
+        96,
+        21,
+        929,
+        541
+      ]
+    },
+    "fitting2d": {
+      "toeX": 171,
+      "floorY": 964,
+      "alphaBounds": [
+        171,
+        364,
+        820,
+        965
+      ],
+      "protectedToePoints": [
+        {
+          "point": [
+            200,
+            875
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            248,
+            900
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            288,
+            911
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            336,
+            916
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            387,
+            915
+          ],
+          "upperAlpha": 0
+        }
+      ],
+      "commonUpper400Exact": true
+    }
+  },
+  "flowersandal": {
+    "shoe2d": {
+      "toeX": 96,
+      "floorY": 540,
+      "alphaBounds": [
+        96,
+        21,
+        929,
+        541
+      ]
+    },
+    "fitting2d": {
+      "toeX": 171,
+      "floorY": 964,
+      "alphaBounds": [
+        171,
+        364,
+        820,
+        965
+      ],
+      "protectedToePoints": [
+        {
+          "point": [
+            200,
+            875
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            248,
+            900
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            288,
+            911
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            336,
+            916
+          ],
+          "upperAlpha": 0
+        },
+        {
+          "point": [
+            387,
+            915
+          ],
+          "upperAlpha": 0
+        }
+      ],
+      "commonUpper400Exact": true
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+<defs>
+ <linearGradient id="silk" x1=".15" y1="0" x2=".8" y2="1"><stop stop-color="#fff4ed"/><stop offset=".25" stop-color="#ffd4df"/><stop offset=".5" stop-color="#f5a9c2"/><stop offset=".7" stop-color="#fff0e7"/><stop offset="1" stop-color="#dc849f"/></linearGradient>
+ <linearGradient id="back" x1="0" x2=".8" y2="1"><stop stop-color="#ef9fb8"/><stop offset=".55" stop-color="#ce7a95"/><stop offset="1" stop-color="#f9bdce"/></linearGradient>
+ <linearGradient id="fold" x1="0" x2="1"><stop stop-color="#aa5d7b"/><stop offset="1" stop-color="#ffdae4"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="170%" height="170%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<path d="M36 66 Q102 15 162 73 C211 129 76 119 91 167 Q122 222 216 172" fill="none" stroke="#a95d7b" stroke-opacity=".15" stroke-width="40" filter="url(#shadow)" transform="translate(0 5)"/>
+<!-- An open, free length of satin: no rolled end and no spool hole. -->
+<path d="M29 51 L45 36 Q116 13 164 63 Q177 79 173 95 L147 120 Q151 93 125 77 Q84 49 43 82 L30 68Z" fill="url(#silk)" stroke="#ba8190" stroke-width="2"/>
+<path d="M164 63 Q205 106 133 129 Q97 141 91 161 L55 165 Q43 118 110 100 Q155 88 164 63Z" fill="url(#back)" stroke="#ba8190" stroke-width="2"/>
+<path d="M133 129 Q90 153 103 170 Q132 206 199 163 L221 185 L208 193 L218 207 Q141 251 91 211 Q57 187 55 165 Q46 136 85 121 Q61 150 91 172 Q115 185 133 129Z" fill="url(#silk)" stroke="#ba8190" stroke-width="2"/>
+<path d="M41 40 Q116 17 159 66 M61 164 Q66 185 95 205 Q142 240 212 201" fill="none" stroke="#fff5db" stroke-width="3"/>
+<path d="M45 77 Q88 43 130 74 M62 160 Q77 132 114 121" fill="none" stroke="#fff7ec" stroke-opacity=".8" stroke-width="3"/>
+<path d="M151 91 Q147 105 117 115 M91 172 Q113 191 139 182" fill="none" stroke="url(#fold)" stroke-width="5" stroke-linecap="round"/>
+</svg>

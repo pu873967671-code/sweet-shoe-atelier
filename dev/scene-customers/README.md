@@ -1,0 +1,5 @@
+# Red-carpet background generation attempt
+
+2026-11-02: built-in image generation returned no output. The skill-bundled API CLI was attempted with model `gpt-image-2`, edit input `assets/scenes/fixed_vanity.webp`, medium quality, size 848×1264. The configured API credential was rejected with HTTP401. No generated art, synthetic placeholder, or new runtime scene was installed. `Showcase.recommended` uses the task-authorized mirror-lounge fallback.
+
+Prompt: Create the red carpet premiere lounge variation of this Sweet Shoe Atelier background. Keep EXACT image size and EXACT empty cream oval pedestal geometry and position, floor height, perspective and camera. Replace only the vanity bedroom background with cozy muted red carpet leading into a golden premiere doorway, gold rope stanchions at the sides, mint green walls, candy pink swags, warm lights, soft hand-painted storybook texture. Pedestal remains empty and unobscured, centered at x424 y752 with ellipse radii349 and74 in the 848x1264 reference. No people, feet, shoes, letters, logos or watermark.

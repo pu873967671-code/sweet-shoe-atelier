@@ -1,0 +1,12 @@
+# Original ankle-bow pump — two genuine camera edits
+
+Product and worn paintings are genuine gpt-image-2 image edits of accepted stiletto6 sources, via the imagegen skill bundled CLI after root's built-in imagegen returned no artifact, under REVIEW's explicit images/edits API instructions. Endpoint https://afgp.cc.cd/v1; quality high. Exact inputs, prompts, unmodified original outputs and timing logs are retained here. Product response1586x992, worn1254-square. No logo, brand mark or copied trademark hardware.
+
+The source model supplied a graceful lowered curved quarter and integral thin ankle ribbon/bow, not the requested deep open-side d'Orsay. The shipped label is truthfully **Ankle-bow pump**; internal id `dorsay` is retained only as an asset key. Fixed6cm painted heel, not a new adjustable-height family.
+
+Rebuild: `/tmp/atelier-art-env/bin/python dev/build-dorsay-assets.py` (Pillow/NumPy/OpenCV). Thirteen local losslessWebP layers,1024x640 product and1024-square worn. Deterministic source normalization fixes product toe96/floor540 and worn171/964. Source chroma fringe is excluded before a largest-component silhouette, close/soft subpixel edge and continuous authored collar/ankle-tie masks. Cream footbed/binding/outsole stay neutral. Matching worn arch/calf comes from the genuine worn edit, with accepted stiletto6 upper400calf rows exact and broader source-matched warm cel shading below. Skin remains present behind the lowered quarter so socks can cover it through the ordinary skin-before-shoe pipeline. Exact colour/material changes keep the same geometry and source anchors. No optional duplicate ornaments overlap the integral bow. No runtime image service/CDN/download.
+
+`anchors.json` / `export.json` record the source geometry, source PNGs remain unmodified and `export-contact.jpg` presents source composites on light and dark. Root owns registry, progression, bilingual copy, focused browser QA, final docs and package.
+
+
+FINAL ART DECISION 2026-10-24 23:40UTC: ankle-bow pump is SOURCE-ONLY, not registered or shipped. Root rejected final native worn ankle-bow skin fringe and minor product binding residue. The13candidate layers are retained under dev/dorsay-source/runtime-candidate/{shoe2d,fitting2d}; builder writes there. Earlier integration/QA descriptions above document the attempted candidate, not accepted runtime content. Existing17styles remain unchanged. Finish source-bound ribbon/skin separation and re-run full new-style acceptance before registration.

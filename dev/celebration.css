@@ -1,0 +1,20 @@
+
+/* Supervisor 08:35: earned styles and keepsakes, with a quiet 1.8s reveal. */
+.celebration-host{position:relative}
+.earned-celebration{position:absolute;left:50%;top:12px;translate:-50% 0;z-index:9;display:flex;align-items:center;gap:10px;width:max-content;max-width:calc(100% - 20px);min-height:76px;padding:7px 5px 7px 10px;isolation:isolate;border:1px solid #e6cfa2;border-radius:21px;background:linear-gradient(115deg,#fffdf4f8,#fff0f5f8 58%,#e4f8eff8);box-shadow:0 8px 26px #69465625,inset 0 0 0 3px #fffdf7aa;pointer-events:none;animation:earned-arrive .34s cubic-bezier(.18,.8,.3,1) both}
+.earned-celebration-art{display:flex;align-items:center;justify-content:center;position:relative;flex:none;width:76px;height:60px;border-radius:50%;background:radial-gradient(ellipse,#fffdf0 40%,#eed7a03b 70%,transparent 72%)}
+.earned-celebration-art img{width:100%;height:100%;object-fit:contain}.earned-celebration-art canvas{width:100%;height:100%;object-fit:contain}
+.earned-celebration-copy{display:block;min-width:0;max-width:285px;color:#64485c;text-align:left}
+.earned-celebration-copy small{display:block;color:#84724c;font:600 10px/1.4 var(--font-ui);letter-spacing:.7px}
+.earned-celebration-copy strong{display:block;margin-top:3px;font:700 17px/1.25 var(--font-ui);overflow-wrap:anywhere}
+.earned-celebration-skip{flex:none;align-self:center;width:44px!important;min-width:44px;height:44px!important;min-height:44px;border:0;border-radius:50%;background:#fffaf280;color:#7c6b69;box-shadow:none;padding:0;font:25px/1 var(--font-ui);pointer-events:auto}
+.earned-celebration-skip:hover{background:#f4e2d8}.earned-celebration-skip:focus-visible{outline:3px solid #34755b;outline-offset:1px}
+.earned-celebration-glints{position:absolute;inset:-12px;z-index:-1;overflow:hidden;border-radius:28px;pointer-events:none}
+.earned-celebration-glints i{position:absolute;left:calc(8% + var(--glint)*21%);top:calc(10% + var(--glint)*12%);font:24px/1 var(--font-ui);font-style:normal;color:#dfb66b;opacity:0;animation:earned-glint 1.25s ease-in-out calc(var(--glint)*.08s) both}
+@keyframes earned-arrive{from{opacity:0;transform:translateY(-9px)}65%{opacity:1;transform:translateY(1px)}to{opacity:1;transform:none}}
+@keyframes earned-glint{0%,100%{opacity:0;scale:.3;rotate:-25deg}35%{opacity:.9;scale:1.1;rotate:0deg}70%{opacity:.5;scale:.8;rotate:15deg}}
+.renovation-reveal .room-detail-glint{animation-duration:.95s;animation-iteration-count:1}
+#modalRoot .boutique-modal:has(.renovation-reveal) .boutique-keepsake:after{animation-duration:1.4s;animation-delay:.15s}
+@media(max-height:560px) and (orientation:landscape){.earned-celebration{top:5px;min-height:60px;padding:4px 2px 4px 7px;gap:5px;border-radius:16px}.earned-celebration-art{width:55px;height:48px}.earned-celebration-copy strong{font-size:14px}.earned-celebration-copy small{font-size:9px}}
+@media(orientation:portrait){.earned-celebration{top:8px;gap:5px;padding-left:6px;min-height:68px}.earned-celebration-art{width:58px;height:52px}.earned-celebration-copy strong{font-size:15px}.earned-celebration-copy small{font-size:9px;letter-spacing:.3px}}
+@media(prefers-reduced-motion:reduce){.earned-celebration,.earned-celebration-glints i{animation:none}.earned-celebration-glints{display:none}.renovation-reveal .room-detail-glint{animation:none}}

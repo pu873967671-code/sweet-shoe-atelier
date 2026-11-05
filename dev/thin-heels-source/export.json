@@ -1,0 +1,42 @@
+{
+  "stiletto6_product": {
+    "bbox": [
+      96,
+      51,
+      929,
+      541
+    ],
+    "upperPixels": 86100,
+    "source": "product-6.png"
+  },
+  "stiletto6_fitting": {
+    "bbox": [
+      171,
+      417,
+      829,
+      965
+    ],
+    "upperPixels": 81687,
+    "source": "fitting-6.png"
+  },
+  "stiletto9_product": {
+    "bbox": [
+      96,
+      51,
+      929,
+      541
+    ],
+    "upperPixels": 84340,
+    "source": "product-9.png"
+  },
+  "stiletto9_fitting": {
+    "bbox": [
+      171,
+      419,
+      815,
+      965
+    ],
+    "upperPixels": 81508,
+    "source": "fitting-9.png"
+  }
+}

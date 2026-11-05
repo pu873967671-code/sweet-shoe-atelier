@@ -1,0 +1,18 @@
+# Supervisor 00:14 fitting review loop — 2026-10-23
+
+1. **Actual-foot attempt — rejected.** Restored all original Quaternius foot triangles, baked real skeleton poses, measured foot bounds for shoe length ×1.05 and used different shoe yaw. Opened `qa/fitting3d_attempt_0014_flat_1336x790.png` personally. The instep was visible, but the foot protruded through both side walls/toes; the ankle silhouette remained coarse. Stopped anatomy work immediately under the authorized one-attempt rule. This rejected experiment is not shipped. Only the desktop was captured for this failed attempt.
+2. **Shoes-only pedestal — refinement needed.** Removed body/skirt/skin proxies and model loading altogether. Opened desktop flat/block/kitten captures: large, clean, distinct shoes, visible seams/binding and sole contacts; no broken anatomy. The first mobile framing assertion exposed a low, flattened hero angle before a mobile capture; raised the portrait camera. The broad pedestal deliberately continues outside the frame, while both shoes remain contained.
+3. **Final product framing — fallback accepted.** Rendered all four actual saved heels at 1336×790 and 390×844, opened full-size desktop flat/block/kitten and portrait flat/block/kitten, then the eight-image contact sheet. Both shoes are completely inside the usable area, comfortably above the dock, with clear shoe openings and distinct block/kitten/wedge supports. No legs, ankles or skirt exist. Pair/Fan/Offset update actual transforms; front/side/top, zoom and context-loss fallback pass. Report: `qa/fitting3d-report.json` (8 screenshots / 12 checks). This accepts only the explicitly authorized product fallback, not worn anatomy or final shoe sculpt quality.
+
+Remaining critique: the current flat last is still too elongated and low; toe/collar silhouette and opening proportions require the separate Supervisor 00:22 shoe loop. Do not restore anatomical fitting merely because a numerical test passes. The source-only VRoid candidate is not integrated.
+
+
+## Supervisor 01:55 — presentation-only review
+- Kept accepted product-shoe meshes and shoes-only fallback. Desktop five-scene captures personally inspected: cream/mint/pink scenery stays behind the unchanged shoes, pair remains complete above the dock.
+- First trim placement was hidden inside the pedestal. Moved the thin pink torus above the mint base; final actual WebGL `qa/fitting3d_flat_1336x790.png` opened and inspected, with continuous pink edging, clean porcelain top and unobstructed shoes. This presentation change is accepted early; no anatomy/art-geometry acceptance is changed.
+- Desktop final quick real-WebGL PASS. Portrait/final focused menu coverage is recorded in the latest PROGRESS entry.
+
+
+## Painted paired fitting / sock loop — 2026-10-24
+1. Opened actual390×844 pairing and light/dark source matrix. The two-feet system retained complete shoes and readable calf form, but the back toe sat too high above the plinth, and short-boot shafts hid ankle sock cuffs. Rejected those placements.
+2. Moved the immutable back-foot transform down and raised bootie sock cuffs above its shaft. Reran21checks/37captures across7sizes and10styles. Root opened final portrait,800×450 and both complete light/dark sheets: both shoes are complete/grounded, sock choices read, no dark rectangles/halos, controls remain accessible. Accepted this presentation early under the existing review-loop rule. No new foot painting/3D anatomy is claimed; original source arches and fixed lower-foot pixels remain. The cropped upper calves and smaller short-landscape view are explicit limitations.

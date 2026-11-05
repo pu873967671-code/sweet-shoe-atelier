@@ -1,0 +1,27 @@
+{
+  "source": "assets/src-user-legs-20261029/candidates/leg-rear-heel-candidate-v2.png",
+  "source_sha256": "b155ef91a546d331f9c1ef08196f161c7d9655a952bd75196047575de19704f1",
+  "derivative": "dev/user-heel-derived/rear-heel-v2.png",
+  "derivative_sha256": "2f4ae10e9724acd003f912c867e71edd3892167fcaa229ecaf6e9d91e81cb00f",
+  "bounds": [
+    174,
+    0,
+    564,
+    1320
+  ],
+  "anatomy_landmarks": {
+    "ball": [
+      325,
+      1290
+    ],
+    "toe_tip": [
+      188,
+      1283
+    ],
+    "heel_seat": [
+      538,
+      1085
+    ]
+  },
+  "method": "connected chroma key; enclosed-highlight fill; neutral floor-shadow rejection; 0.55px soft edge; white matte decontamination"
+}

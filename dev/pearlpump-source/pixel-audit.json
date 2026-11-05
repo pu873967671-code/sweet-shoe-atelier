@@ -1,0 +1,28 @@
+{
+  "product": {
+    "exactSourceAlpha": true,
+    "exactVisibleBodyOutsidePearls": true,
+    "acceptedPearls": 20,
+    "opaqueBounds": [
+      96,
+      51,
+      929,
+      541
+    ],
+    "sourcePixelCount": 165107,
+    "pearlPixelCount": 9412
+  },
+  "fitting": {
+    "exactSourceAlpha": true,
+    "exactVisibleBodyOutsidePearls": true,
+    "acceptedPearls": 23,
+    "opaqueBounds": [
+      171,
+      417,
+      829,
+      965
+    ],
+    "sourcePixelCount": 89021,
+    "pearlPixelCount": 8283
+  }
+}

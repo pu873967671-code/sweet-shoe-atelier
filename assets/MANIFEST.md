@@ -1,0 +1,672 @@
+# Asset manifest (all WebP, transparent unless noted). Some files may still be arriving; code must tolerate missing art with a tasteful fallback.
+
+## User-reference rigid pair — flat / stiletto6 (2026-10-29)
+
+The twelve `fitting-rigid/{flat,stiletto6}_{front,rear}_{skin,cloth,black}.webp`
+layers derive only from the immutable front/rear PNGs in
+`src-user-legs-20261029/`. The pair reference determines the close crossed
+stance: raised front leg passes in front of the standing rear leg, whose
+complete shoe/foot stack is uniformly scaled to 0.78 of the front shoe.
+Both styles use the same responsive stage anchors in `js/fitting-rigid.js`.
+
+Rebuild with `python3 dev/build-rigid-legs.py --styles flat stiletto6`.
+The dedicated user-leg exporters apply whole-image uniform scale and
+translation only, preserving source angles and anatomy. Original shoe
+openings provide occlusion; shoes and ornaments are never warped.
+Black/white cloth derives volume from the same painted luminance and shares
+exact outline alpha. WebP quality 82 keeps alpha lossless and RGB mean error
+below 1.5 levels, preserving package budget. Source PNGs are never overwritten
+or included in the runtime ZIP. Per-style provenance records placements,
+source/output hashes and decoded compression error in `qa/user-{style}/`.
+
+
+## 05:19 fitting polish
+
+The bootie worn shoe, upper, shadow and highlight layers share a small local
+shaft-to-instep edge smoothing and one-pixel feather. Rebuild this retouch
+with `python3 dev/fitting-polish/smooth-bootie-edge.py` from its retained
+pre-polish source kit; the collar, toe and fitting mounts remain unchanged.
+Mary Jane's fitted sewn tab and bare-skin mesh are refined in the canvas
+compositor; no new runtime assets or remote resources are required.
+
+
+## 02:17 bow colour and tails
+
+Puffy satin is neutralized in the shared canvas renderer before shoe-colour tinting. Kitten and stiletto6/9 product Grand paintings and tint masks have shortened, V-cut main tails; fitting projects the same assets. Regenerating the original Grand sources requires reapplying this edit.
+
+## Integral satin bows — display / worn fidelity (2026-10-27)
+
+`python3 dev/fitting-polish/repair-integral-bows.py` replaces the compact worn
+bow on `bowsling` and `bowmule` with each style's own original product folds.
+It restores the retained clean slingback forefoot first, then projects the
+paint and complete dye/shadow/highlight coverage around the original vamp
+knot, compensating for the accepted side camera. Premultiplied interpolation
+keeps the satin outline soft. Eight existing worn WebPs are replaced; product,
+skin, hosiery, occlusion, heel, pair and room sources remain exact. Immutable
+pre-repair inputs are under `dev/fitting-polish/integral-bow-source/`; rerun
+after either original integral-bow builder. No additional runtime asset or CDN.
+
+## Grand satin display / worn identity (2026-10-27)
+
+`js/fitting2d.js` reuses the existing repaired product `decoration_big` painting
+and tint at seven knot-pinned uniform worn-camera mounts. The far loop is
+occluded against existing skin/hosiery/shoe alpha; near folds and asymmetric
+tails keep their source identity. Source WebPs and framing are unchanged;
+missing product art or tint retains the former complete worn bow. Tiny source
+contour scraps remain a documented polish follow-up.
+
+## Crystal brooch display / worn identity (2026-10-27)
+
+`js/fitting2d.js` reuses the existing product-camera `charm_crystal` painting
+for the worn toe brooch: identical lilac facets and fixed gold claws, with
+seven measured camera-local crops, toe centres and uniform scales. Inherited
+styles resolve through their existing accessory family. No source WebP is
+modified or added; missing product artwork retains the complete worn gem.
+The original Grand-bow sources still need extraction cleanup before shared
+projection; their silhouette mismatch remains an explicit art follow-up.
+
+## USER19:50 camera continuation (2026-10-26)
+
+`js/fitting2d.js` projects the complete composed lower foot toward the longer
+product side camera, with a smooth transition below source y350. Original
+skin/shoe/hosiery/accessory WebPs remain unchanged. Inverse row sampling avoids
+fractional strip seams; transparent pair padding preserves the extended toes.
+Rear-foot placement exposes more instep while retaining the .80 slim calves.
+Cross laces in `js/accessory-renderer.js` attach to the original low vamp;
+the temporary raised-vamp extension has been removed. This is local Canvas
+geometry, not newly generated anatomy or an independently painted camera.
+Diagnostic actual-runtime Cairo comparisons: `qa/angle-1950/`; remaining
+style-specific artistic differences are recorded in newest `dev/PROGRESS.md`.
+
+## USER13:27 product / worn fidelity continuation (2026-10-26)
+
+The retained genuine reference edit in `dev/flat-fidelity-source/candidate.png`
+supplies only the worn flat's pointed toe and the flat/ballet/maryjane low heel.
+`python3 dev/build-flat-fidelity.py` blends camera-local satin/sole regions and
+smooths the heel displacement before cubic resampling. Original collars,
+calves, hosiery and contact mounts remain protected; prompts, input paintings
+and provenance remain beside the edit. `python3 qa/flat-heel-edge-test.py`
+checks smooth native alpha against a reconstructed rejected jagged warp.
+
+Cross-laces now use local Canvas artwork in `js/accessory-renderer.js` for
+both cameras: three eyelet pairs, alternating satin crossings and a folded
+side bow, with independent product/worn coordinates and untinted gold metal.
+The prior painted cross layers remain validated source/fallback artwork.
+Worn thin bands retain their source painting plus a camera-mounted hollow
+gold buckle authored in `js/fitting2d.js`; hardware is drawn after tinting.
+No new raster asset, download or CDN is required by these details.
+
+Runtime packaging (Supervisor 2026-10-26 08:35): the sixteen legacy
+`shoe_{flat|block|kitten|wedge}_{thin|ribbon|cross|pearl}.webp` paintings remain
+source-only. The four `_none` paintings still ship for emergency product
+fallbacks. Product-camera `shoe2d/*_insole.webp` and `*_sole.webp` are also
+source-only: their fixed pixels already reside in each immutable `_base`
+painting, and the active compositor never requests the separate layers.
+Packaging still validates complete registered source kits before pruning;
+missing source layers and unregistered camera artwork remain release failures.
+Both music recordings, all soft 07:02 cues/codecs and licenses remain intact.
+Music uses relative local paths on every host; file:// previews silently skip sound
+effects because browsers block local fetches.
+
+## Merge items — assets/items/ (256×256)
+Chains (tier 1→7): fab = cotton ball, thread spool, yarn skein, folded fabric, printed fabric roll, satin bolt, silk bolt
+lea = leather scrap, leather strip, insole, outsole, heel block, wooden shoe last, finished blush pump
+spk = glass bead, seed pearls, pearl strand, crystal, faceted pink gem, gem brooch, jeweled tiara
+rib = ribbon scrap, ribbon roll, lace trim, satin bow, rosette, corsage, couture bow
+Files: m_fab1..m_fab7, m_lea1..7, m_spk1..7, m_rib1..7 ; generators gen_fab (sewing basket), gen_lea (cobbler toolbox), gen_spk (jewelry box), gen_rib (ribbon drawer)
+UI: ui_energy, ui_gem, ui_crate (locked board cell box), ui_chest, ui_tool, ui_lock ; ui_board (opaque tileable board texture)
+## Try-on — assets/legs/
+leg_flat, leg_block, leg_kitten, leg_wedge: a girl's lower leg wearing a PLAIN WHITE/IVORY satin shoe of that heel type, side view, toe pointing LEFT,
+transparent bg. The shoe in these images was generated from shoe_{heel}_none.webp but is slightly re-scaled/shifted — build the worn render by
+masking the shoe pixels (non-skin) and re-rendering/recoloring them with the design pipeline (tint, material texture, pattern, strap, decor, charm),
+or by fitting the dynamic shoe to the detected shoe bbox; precompute masks/anchors in a dev script, ship results as data. Skin must stay untouched.
+mask_{flat|block|kitten|wedge}: precomputed neutral-satin alpha masks, generated by `python3 dev/build-worn-assets.py`; skin and natural soles are excluded. Runtime uses no pixel reads.
+bg_fitting (opaque, wide): runway + mirror fitting room background.
+## Merge screen
+bg_merge (opaque, wide) atelier workroom backdrop.
+## Boutique renovation — assets/decor/
+d_{rug|counter|shelf|sofa|mirror|flowers|chandelier|window}{1|2}: level 1 modest, level 2 deluxe stickers placed into the bg_shop scene.
+## Characters
+mentor_neutral (Madame Odette, guide, waist-up portrait, transparent). Existing customers c_*_{neutral|happy|sad}.
+## Existing (v2): shoe_*, tex_*, motif_*, bow, pearl_drop, flower, charm_*, sparkle, icon_*, bg_shop, pedestal, box_*, confetti, logo
+
+## Local Chinese type
+`fonts/atelier-sc.ttf`: Noto Sans SC variable, subset to the Chinese and full-width characters used in the game, SIL Open Font License (`fonts/OFL.txt`). Source: https://github.com/notofonts/noto-cjk (Sans/Variable/TTF/Subset/NotoSansSC-VF.ttf). Served locally; no runtime font/CDN request. Regenerate the subset when adding Chinese copy.
+
+Font subset rebuild: `python3 dev/subset-font.py /path/to/NotoSansSC-VF.ttf` (requires fontTools). The helper collects all Chinese/full-width characters from local HTML/JS and verifies source coverage before replacing the font. Current subset: 664 characters (rebuilt 2026-11-02 for scene-customer copy), covering all current runtime Chinese/full-width copy, including scene Share/Buy labels and the extended introduction. Rebuilt for Supervisor 18:05 after actual screenshots exposed missing 分享 glyphs.
+## Music — assets/audio/ (CC0 public domain, no attribution required; credits optional)
+bgm_cozy.mp3 — "Heavenly Loop" (OGA, CC0, https://opengameart.org/content/heavenly-loop), soft ambient, 34 s loop → Atelier. User 2026-10-26: wants very soft light music; rejected beeps, music box, piano lofi, upbeat game track.
+bgm_tea.mp3 — "A cup of tea" by TAD, CC0, lofi, 169 s (https://opengameart.org/content/lofi-compilation) → use for Boutique/Studio/Try-on.
+Stream with HTMLAudioElement/MediaElementSource (lazy-load after first gesture, never block loading), loop, ~35% default volume, 1.5 s crossfade on screen change; procedural music only as fallback.
+- assets/scenes/: scene_mirror_lounge, scene_car, scene_vanity, scene_balcony (1536x1024 webp + _thumb 240x160), gpt-image-2, 2026-10-23, fitting showcase scenes (no people).
+
+`legs/calf_{flat|block|kitten|wedge}`: offline tapered 1200px calf extension derived from the existing painted leg top edge by `dev/build-worn-assets.py`. Matching skin shades/alpha, no runtime image reads. Scene thumbnails and backgrounds are local and included by `dev/package.py`.
+- assets/angles/: 16 webp (4 heels × front34/top, legs + recolourable shade), gpt-image-2 chroma-green generated then keyed, 2026-10-23.
+
+## Luminous shoe shading — assets/tones/
+88 lossless WebP tone/gleam layers derived from original studio shoes, worn masks and new angle shades. Regenerate with `python3 dev/build-luminous-assets.py` (Pillow + NumPy). Offline luminance maps implement `colour * (0.5 + 0.65 L)` with separate white specular highlights; runtime compositing never reads source pixels. Skin and soles retain their source artwork.
+- assets/mentor/: mentor_{wave,point,cheer,think,surprise,present}.webp full-body poses (gpt-image-2 edit from mentor_neutral), 2026-10-23.
+- assets/poses/: 12 natural poses (4 heels × relaxed/crossed/step), 3/4 front, legs + recolourable shade, gpt-image-2 chroma-key, 2026-10-23.
+
+Natural pose shoe anchors are extracted offline from the two largest shade-alpha components, stored in `A.POSE_ANCHORS`; 24 natural tone/gleam maps are included by `dev/build-luminous-assets.py`.
+
+## Arrival and tutorial UI (2026-10-23 13:19)
+- `ui/logo_v2.webp`: transparent 1774×887 illustrated logo; `ui/loading_bg.webp`: 1024×1536 boutique background, cropped with cover.
+- `ui/tutorial_hand.svg`: local code-authored 80px glove illustration with outline, shading and shadow; guide tap/drag animation respects reduced motion. Packaged without a runtime download.
+
+## Clean shoe surfaces (2026-10-23 13:24)
+`fabrics/*_upper.webp` and `*_edge.webp`: 88 offline, lossless upper masks and original painted edge layers for studio shoes, side-worn shoes, front/top angles and natural poses. Generated with `python3 dev/build-fabric-assets.py` (Pillow + NumPy), together with `js/fabric-regions.js`. Masks keep motif/fabric detail off soles and heel blocks; original collar edge restores piping/contact after recolouring. Runtime uses draw/composite only, with no image pixel reads. Satin and the four motifs are procedural Canvas artwork; no noisy texture tiles or motif bitmap seams.
+- assets/poses/<heel>_seated_{legs,shade}.webp: dedicated seated (car) art, 2026-10-23 14:16.
+
+Dedicated seated pairs also have eight offline `tones/<heel>_seated_shade_{tone,gleam}` layers and eight `fabrics/<heel>_seated_shade_{upper,edge}` layers, rebuilt by the existing luminous/fabric scripts. These preserve the new painted skin/soles while sharing dynamic shoe colours and surfaces.
+
+Music delivery (Supervisor 14:40 follow-up): both existing CC0 MP3s are encoded at 64 kbps stereo / 44.1 kHz to keep the complete runtime ZIP below 20 MiB. Lazy HTMLAudio + WebAudio gain buses reuse local tracks, loop and crossfade at 35% over 1.5 seconds; failed tracks use synthesis. No runtime CDN.
+
+## Product camera integration (2026-10-23)
+- `tones/*_shadow.webp`, `tones/*_highlight.webp`: derived alpha weights from existing shoe/leg/shade luminance, generated locally with Pillow by `dev/build-product-assets.py`; no new third-party art. 512px continuous shading maps share full-resolution masks and painted sources. Existing tone/gleam detail maps are compacted to the same maximum size for the upload budget.
+- `js/product-frames.js`: generated source-pixel ankle-height crops for four heels × natural/seated/front/top views. Studio, fitting and Collection reuse the same product composition.
+- All five `scenes/close_*.webp` and `ui/logo_v3.webp` are integrated and packaged; wide backgrounds remain scene picker previews. Superseded `ui/logo_v2.webp` stays in the source repository and is excluded from the upload.
+
+## Grounded product composites (Supervisor 15:58)
+- `tones/<heel>_<view>_contact.webp`: 24 lossless local alpha shadows derived from the actual opaque outsole, with a tight dark core and soft falloff. Generated by `dev/build-product-assets.py`; product reflection profiles share the same source coordinates in `js/product-frames.js`. No runtime pixel reads.
+- Ramp weights now use each source's 50th/80th luminance percentiles: the middle plateau is the exact palette swatch, and only the top quintile enters the warm highlight. A minimum 28-level highlight transition avoids white-source banding.
+
+Supervisor 16:18 floor polish: regenerate only the 24 contact masks with `python3 dev/build-product-assets.py --contacts-only`, preserving the accepted colour-weight files. Warm #5a3028 masks contain a 0.45-alpha outsole core, a source-scaled ambient pool and small heel-tip contacts. Runtime floor layers use multiply against the room independently of the shoe/skin image; no image readbacks.
+
+## Local real-time shoe renderer (2026-10-23, migration step 1)
+- `vendor/three.module.min.js`: three.js r169, official MIT license in `vendor/LICENSE.three.txt`. RoomEnvironment, GLTFLoader and BufferGeometryUtils imports resolve locally. Runtime ZIP includes the vendored code/license.
+- `js/shoe3d.js` authors the flat last, bevelled soles, rolled topline, material microstructure, four motifs and insole label procedurally. Canvas textures are generated locally, with no image-generation service, external model or CDN dependency.
+
+Supervisor 18:22 refinement: the procedural flat now has a 70% waist, almond toe, 4%-length bent sole/toe spring, separate light welt and lining, rolled piped scoop, footprint AO and a 15-degree product camera. Satin uses longitudinal anisotropy and neutral product tone mapping; material base colours remain exact palette values. All geometry/textures remain local code-generated assets; no additional bitmap/model dependency.
+
+
+Supervisor 18:40 / migration step 2: the local procedural last now has a broad toe-only opening, low quarters/counter, a thin outsole and a light unbranded curved pad. Block/kitten/wedge heel geometry and real bow/pearl/crystal/flower/ribbon meshes use named shoe-local sockets. No downloaded model, extra bitmap or external runtime dependency was added.
+
+## Supervisor 19:35 art refresh integration
+Existing filenames now carry the refreshed mint atelier/shop/fitting backgrounds, Mimi mentor poses, 18 customer busts and candy merge items/generators/UI. Order crops frame faces; large mentor poses stay bottom anchored. Older renovation artwork is displayed as earned miniatures below the furnished mint shop instead of overlaid furniture. Bundled Chinese font already covers 米; no source-font download or new runtime dependency was needed.
+
+## Rigged fitting — Supervisor 21:58
+`models/female_base.gltf` and `Superhero_Female_FullBody.bin`: Quaternius Universal Base Characters, CC0; provenance in `models/LICENSE.md`. Local GLTFLoader and `js/fitting3d.js` retain the lower-body skeleton, trim unused upper triangles and restyle skin with soft peach physical material. Procedural fluted mint/cream skirt, mint plinth and fitted skin inserts are code generated. Shoes reuse the exact Shoe3D meshes/materials, attach to foot bones and adapt to heel pitch. No external runtime download.
+
+## Supervisor 22:33 / 22:20 polish
+`ui/logo_v4.webp` is now the active loading/title/summary logo; v2/v3 remain source-only. Procedural fitting uses two welded Loop subdivision passes, soft peach toon bands, a flared scalloped mint skirt and shorter proportions. Shoe meshes add dashed stitches, padded binding, a tiny insole mark, cambered silk strips/bow loops, buckles, iridescent pearls and transmissive faceted crystals. All geometry/textures remain local code-generated assets; no CDN/model download is introduced.
+
+Supervisor 22:52: visible calves are now continuous code-authored Hermite profiles following the supplied CC0 rig, avoiding overlapping source ankle rings and unused subdivision/bake work. Ribbons have closed thin strip geometry; crystal jewellery uses authored table/crown/girdle/pavilion facets. Close-up uses the same local live renderer; no new image, model, CDN or font asset is added.
+
+Supervisor 00:14: live 3D and Collection now use a code-authored cream/mint pedestal with the existing Shoe3D pair. No body model is loaded at runtime; the licensed Quaternius files remain available in source/runtime packaging for now. No external asset, CDN or font dependency was added. The new VRoid candidate under dev/ is source-only and excluded from the ZIP.
+
+
+SHOE LOOP 2: upper normals/tangents and terminal dome are generated analytically; gathered silk loops/knot/tails remain thin procedural geometry with no extra bitmap/model. Studio clearance follows actual controls; snapshot camera fitting excludes live UI offsets. All assets remain local.
+
+
+## Supervisor 01:30 — boutique miniature collection
+`decor/mint_{rug,counter,shelf,sofa,mirror,flowers,chandelier,window}{1,2}.svg`: sixteen local code-authored UI illustrations with mint/pink/cream dimensional gradients, alpha backgrounds and deluxe star details. Rebuild with `python3 dev/build-boutique-icons.py`. They replace old decor stickers in runtime previews, earned keepsakes, slot lists and chapter reveals; original WebPs remain source assets. No external image/model/font download. Built-in image generation returned no artifact; these are explicitly native SVG UI art.
+
+Supervisor 01:55: boutique/showcase backgrounds retain their existing local paintings with a CSS mint/pink wash. The shared product pedestal uses cool porcelain, mint and a code-authored thin pink torus trim. No new bitmap, model, font or runtime network dependency.
+
+## Professional CC0 shoes — Supervisor 12:45 / 01:27
+`models/shoes/classic-pump.glb` (176 kB), `models/shoes/mary-jane.glb` (218 kB): Hiirusama professional CC0 FBX derivatives; source links and terms in `models/shoes/LICENSE.md`. Indexed, texture-free GLBs retain the artist's upper, toe, collar, counter, footbed/outsole and original heel; Mary Jane supplies a separate strap and buckle. Rebuild offline with `python3 dev/model-tools/convert-shoes.py`. Local GLTFLoader loads once; studio, Collection snapshots and product pedestal share the new mesh builder. Runtime smooth rear pitch adapts flat/kitten/block/wedge and anchors accessories to the deformed shell. Procedural shoe bodies are used only if the professional GLB fails. The unused Quaternius anatomy files stay source-only and are omitted from the upload. All runtime dependencies remain local.
+
+Supervisor 13:00 (2026-10-24): the professional flat shell has a lower ballet cut, slim forefoot and thin sole. Wedge support samples the imported last; accessory contact points use ray intersections with the imported shell. The shoes-only live showcase and shared snapshots no longer construct the porcelain round platform; a CSS glass window preserves the existing room art. No new external asset, CDN or runtime dependency.
+
+
+## Supervisor 13:32 — mint/candy character finish
+`c_*_{neutral,happy,sad}.webp`, six `mentor/mentor_*.webp` poses and `mentor_neutral.webp`: all 25 existing local cartoon character assets receive a restrained clothing-only mint/candy palette pass. Existing faces, skin, hair, identities and expressions are preserved by narrow garment/hue masks; decoded alpha remains exact. Rebuild using `python3 dev/build-character-palette.py` (Pillow/NumPy, fixed git source revision `92ab7cf`, quality-90 WebP). This is deterministic processing of existing artwork, not newly generated character geometry/art. Built-in image generation returned no artifact in this session; rounded-3D Mimi regeneration remains a follow-up. No new runtime dependency/CDN.
+
+Shoe rear bows use their own opaque swatch-coloured satin physical material (opacity 1, transmission 0), independently of mesh/lace/glitter uppers. The low-flat heel support and rotated sole normals share the existing professional mesh builder.
+
+
+## 2026-10-24 — genuinely redrawn mint/candy cast (supersedes palette-only pass)
+All18 `c_*_{neutral,happy,sad}.webp`, six `mentor/mentor_*.webp` poses and `mentor_neutral.webp` now contain genuinely new rounded Western animation3D art, generated offline with the user-authorized existing `/workspace/work/gen/gen.py` service (`gpt-image-2`). Built-in image tool returned no artifact. Exact prompts: `dev/customer-refresh-prompts.json`, `dev/mimi-refresh-prompts.json`; eight original alpha/green-screen sheets: `dev/character-sources/`. Rebuild reviewed exports with `python3 dev/import-customer-refresh.py --apply` and `python3 dev/import-mimi-art.py` (Pillow/NumPy). Customers retain302×360 transparent canvases, distinct identities and neutral/happy/sad; Mimi retains all six contextual poses and identity details, with head-centred transparent framing. Original alpha is retained; RGB green is keyed offline. Sources are excluded from runtime packaging. Do not run the superseded palette builder over this cast. No runtime download/CDN is introduced.
+
+Heel-seat raycasts now refresh the deformed professional mesh bounding sphere along with its box; actual low-pump support contact removes the final projecting light lip. No new model or shader asset.
+
+
+## Supervisor 14:12 — normalized Mimi sprite framing
+Seven existing Mimi WebPs are re-exported from the reviewed original source sheets with a common 800×1000 head-centred frame, 960px visible body height, 240px crown-to-chin band and shared foot baseline. Explicit source intervals exclude neighbour hair from surprise. Rebuild: `python3 dev/import-mimi-art.py`; source landmarks/bounds are recorded in `dev/mimi-framing.json`. Tutorial/opening CSS sizes characters by height. No new generated art, customer edit or runtime dependency was added.
+
+## Stable painted studio shoe kit — Supervisor 14:50 (2026-10-24)
+`shoe2d/{flat,kitten,block,wedge}_{base,upper,binding,insole,sole,shadow,highlight}.webp`:
+four genuine `gpt-image-2` **image edits** using `dev/refs/shoe2d_test.jpg` as the style/camera reference, generated through the explicitly requested `/workspace/work/gen/edit.py` workflow. Neutral ivory satin, cream stitched binding/interior, tan narrow outsoles and a woven espadrille wedge. No accessories are baked into the bases. Exact per-heel prompts, model, endpoint mode and reference are retained in `dev/shoe2d-source/prompts.json`; original generated PNGs are in the same source-only directory.
+
+Rebuild: `python3 dev/build-shoe2d-assets.py` (Pillow + NumPy). Each cutout and all six derived layers share one 1024×640 canvas, physical toe x96, right x928, length832px and ground y540. The generated source alpha is preserved; hidden RGB in fully transparent source pixels is never drawn. Tall pump edits receive a documented vertical fit into the canvas. Per-heel reviewed sole-boundary polygons, colour segmentation and connected interior cleanup keep warm insole/binding/rope out of the tint mask. Cream piping is restored in a 4px source band. White alpha masks and 32-stop light-map alpha keep all 28 WebPs around 533KiB; no runtime generation, CDN or pixel read is needed. Colour/material/pattern use the same base pixels and masks, so option changes cannot change the silhouette. Decoration sprites, other product screens and final 3D removal are the following integration slice.
+
+## Painted kit accessory and runtime migration — 2026-10-24
+`shoe2d/accessories/{bow,pearls,laces,maryjane,drop,crystal,flower,pearl}.webp` are eight offline exported transparent patches. Rebuild with `python3 dev/build-shoe2d-accessories.py`; exact existing-painting provenance is in `shoe2d/accessories/PROVENANCE.md`. Bow uses a fixed pink satin grade. No new generated source is claimed (built-in generation returned no artifact). Four source-coordinate anchor sets are in `js/shoe2d.js`. Lace now uses connected floral embroidery and fine netting; block support-face mask includes its original satin shadow pixels.
+All current product views use the same painted kit, pairs drawn twice. Legacy WebGL code is retained only under `dev/archive/`; vendor and all model payloads are excluded from the runtime package.
+
+
+Supervisor 15:52 accessory polish: rebuild the same eight patches with `python3 dev/build-shoe2d-accessories.py` (Pillow only). Original bow folds receive a deterministic rose/ivory grade; pearl strand has seven larger painted beads; laces have supersampled shaded silk cords/gold eyelets. Shoe2D authors a fixed satin instep arch and outer gold buckle, with original inner piping over the far sewn tab. Runtime adds shoe-clipped tight/soft contact shadows to every ornament. Existing source paintings/anchors are retained; no new generated source, model or network dependency.
+
+
+## Supervisor 16:55 — distinct ribbon silhouettes (2026-10-24)
+`items/m_rib1.webp`, `m_rib2.webp`, `m_rib6.webp` are local transparent 256×256 exports from editable native SVG sources in `dev/item-sources/`. They extend the mint/candy gradient vocabulary of the existing `decor/mint_flowers*.svg` art: rib1 is a loose open satin length without a rolled end; rib2 is a deeper coral closed spool without a loose tail; rib6 is an asymmetric mint leafy corsage with two long fishtail ribbons. The accepted rib5 rosette and all other tiers are unchanged. No new AI-generated image is claimed; no external artwork or runtime service is used. Rebuild with `python3 dev/build-ribbon-icons.py` (existing Playwright/Chromium + Pillow); this refreshes only those three `ITEM_BOUNDS` entries. Audit all 28 actual 48px icons with `python3 qa/item-readability.py`.
+
+Supervisor 17:20: the live Mary Jane/ribbon band is code-authored satin geometry in `js/shoe2d.js`, clipped to the existing immutable painting and tucked under its original binding. The uniform band and outer gold buckle share the player's colour; no new bitmap, generated painting, model or runtime download is added. All original per-heel anchor values and base assets remain unchanged.
+
+
+## Supervisor22:30 /21:57 — residue extraction and worn fitting
+`shoe2d/accessories/*` residue masks rebuilt with `python3 dev/extract-accessory-edits.py`; compact warm-bezel/pearl components exclude pale lilac shoe fragments. Dark/light source sheets are in dev/accessory-edits/.
+`fitting2d/legs.webp` and four heel-specific `{shoe,upper,shadow,highlight,occlusion}.webp` sets are genuine gpt-image-2 image-edit derivatives, generated via imagegen skill bundled CLI after built-in generation returned no artifact, following REVIEW21:57. Inputs: user_fitting_foot_ref.jpg (pose only; flower excluded) and shoe2d_test.jpg (style). Prompts/original source images: dev/fitting-source/. Rebuild deterministic1024×1024 exports with `python3 dev/build-fitting2d.py` (Pillow/NumPy/OpenCV). One shared skin source is immutable across heel/colour/material changes. No runtime image service/CDN, pixel readback or external dependency. Fitting-view accessories remain pending.
+
+
+## Supervisor22:50 worn-view polish
+`fitting2d/{heel}_legs.webp`: deterministic source-matched warm cel skin from original per-heel edits, exact common upper400px; rebuild `python3 dev/fitting-polish/build-skin.py --phase all --out assets/fitting2d`. No newly generated skin is claimed. Continuous curved upper/sole masks and lowpass lightmaps: canonical extraction, then `clean-upper.py`, then `smooth-fabric.py` under dev/fitting-polish/.
+`fitting2d/accessories/`:44fixed1024square worn-view transparent layers plus24neutral-fabric masks from16genuine gpt-image-2 image edits of the existing worn sources. Bundled imagegen CLI used with authorized REVIEW API workflow after built-in was unavailable. Exact prompts/originals and extraction report: dev/fitting-accessories/. Rebuild `python3 dev/build-fitting-accessories.py`. No runtime service/CDN or pixel readback.
+
+## Supervisor23:05 — Mary Jane
+`shoe2d/maryjane_{base,upper,binding,insole,sole,shadow,highlight}.webp` and `fitting2d/maryjane_{shoe,upper,shadow,highlight,occlusion,legs}.webp`: genuine gpt-image-2 reference edits (bundled imagegen CLI after built-in returned no artifact), isolated neutral satin instep band/gold buckle over the immutable accepted flat body and cel skin. Frames1024×640/1024². Sources/prompts/provenance: dev/maryjane-source; rebuild `python3 dev/build-new-shoe-styles.py --style maryjane`. No runtime service/CDN. Pearl residue cleanup: `python3 dev/fitting-polish/clean-ornament-residue.py` after worn ornament export.
+
+
+## Supervisor23:05 — ribbon ballet completion (2026-10-24)
+`shoe2d/ballet_{base,upper,binding,insole,sole,shadow,highlight}.webp` and `fitting2d/ballet_{shoe,upper,shadow,highlight,occlusion,legs}.webp` complete the reference-edited ribbon-tie variant on the accepted immutable flat body. Original genuine image-edit sources, exact prompts and provenance remain in `dev/maryjane-source/`; rebuild with `python3 dev/build-new-shoe-styles.py --style ballet`. Only the perspective-correct ribbon component is added; original toe/body/sole and exposed skin stay unchanged. Both cloth masks recolour the ankle wrap and side bow with the upper. Ribbon discovery `rib3` earns this style; built-in ties suppress additional strap accessories and no-bow commissions never request it. The body retains the accepted small low heel, not a newly generated zero-drop last. No new external source, CDN or runtime service was added during this completion pass.
+
+
+## Supervisor23:05 continuation — slingback
+`shoe2d/slingback_{base,upper,binding,insole,sole,shadow,highlight}.webp` and `fitting2d/slingback_{shoe,upper,shadow,highlight,occlusion,legs}.webp`: two genuine gpt-image-2 edits of accepted kitten product/worn sources, via imagegen skill bundled CLI following the explicitly requested REVIEW API workflow after built-in returned no artifact. Exact prompts, originals, provenance and export metadata in `dev/slingback-source/`. Rebuild with `python3 dev/build-slingback-assets.py` (Pillow/NumPy/OpenCV). Accepted front/calf pixels retained, rear quarter opens into a fixed satin strap/gold buckle and source-matched exposed heel. All runtime images local; no runtime image API or CDN.
+
+
+## 2026-10-24 — penny loafer
+`shoe2d/loafer_{base,upper,binding,insole,sole,shadow,highlight}.webp` and `fitting2d/loafer_{shoe,upper,shadow,highlight,occlusion,legs}.webp`: genuine neutral product+worn reference edits, with raised apron and sewn penny saddle. Exact prompts, originals and provenance: `dev/loafer-source/`; built-in returned no artifact, so the imagegen skill bundled gpt-image-2 edit CLI followed the explicit REVIEW API workflow. Rebuild: `python3 dev/build-loafer-assets.py`. Fixed1024×640/1024² frames; source-matched accepted flat cel skin stays exact, full saddle/upper tint excludes warm interior/outsole. Existing flat perspective ornaments retain toe/counter mounts; additional instep straps are suppressed. No runtime API/CDN.
+
+
+## 2026-10-24 — platform pump and collar cleanup
+`shoe2d/platform_*`(7) and `fitting2d/platform_*`(6): genuine gpt-image-2 product+worn edits via the imagegen skill bundled CLI after built-in returned no artifact, under explicit REVIEW API instructions. Sources/exact prompts/provenance: dev/platform-source; rebuild dev/build-platform-assets.py. Fixed frames, thick tinted forefoot platform and chunky heel. Upper400skin rows stay exact; lower instep receives source-matched cel finish.34ornament/tint layers under each camera's accessories directory reuse approved block paintings with documented source-coordinate warps (not newly generated ornaments). Local font rebuilt to599characters for new copy. No runtime API/CDN.
+Front collar cleanup: python3 dev/fitting-polish/clean-front-collar.py after base and derivative exports. Narrow authored opening removes photo-skin splice/white spikes in7existing styles; all outside-aperture visible pixels preserved. Order: dev/fitting-polish/FRONT_COLLAR.md.
+
+
+## 2026-10-24 — ankle bootie and jewellery extraction repair
+`shoe2d/bootie_*`(7), `fitting2d/bootie_*`(6), and8camera-specific toe ornament/tint layers: genuine product+worn gpt-image-2 reference edits through imagegen skill bundled CLI after built-in returned no artifact, under REVIEW's explicit API workflow. Exact prompts/originals/provenance in dev/bootie-source; deterministic builder dev/build-bootie-assets.py. Fixed1024×640/1024²frames and exact accepted block cel skin; closed shaft recolours fully. Existing block toe paintings use documented fixed source-coordinate translations. No additional straps/rear décor on this silhouette. Font rebuilt602characters.
+`dev/fitting-polish/repair-crystals.py` restores original gemstone/pearl pixels from retained genuine image-edit sources with tight bezel masks, removing source piping and extraction holes; this is deterministic extraction cleanup, not new generated art. Run after accessory/platform export and before bootie export. No runtime service/CDN.
+
+
+## 2026-10-24 — paired fitting / socks
+No new raster source or external download: runtime derives the authorized back-foot copy and broad-calf extension from existing accepted `fitting2d/` paintings. Sock fabric is a canvas overlay clipped to the original skin silhouette, below shoe/ornament layers; no pixel reads. The local OFL Chinese font was rebuilt to608glyphs for bilingual pairing controls (zero missing runtime glyphs).
+
+## 2026-10-24 — thin-pump3/6/9cm family
+Existing kitten remains the accepted3cm source. New `shoe2d/stiletto{6,9}_*`(7layers each), `fitting2d/stiletto{6,9}_*`(6each) and dedicated camera-coordinate ornament/tint layers derive from four genuine `gpt-image-2` image edits. Built-in returned no artifact; imagegen skill bundled CLI used the explicitly requested REVIEW API workflow. Exact prompts, input paintings, original outputs and provenance: `dev/thin-heels-source/`; deterministic rebuild: `python3 dev/build-thin-heels-assets.py`. Fixed1024×640/1024²frames, pinned toes/floors and shared accepted upper calf; per-height source anchors are retained alongside the builder. Ornaments reuse approved kitten camera paintings via documented per-height coordinate remapping, not newly generated jewellery. All runtime art stays local; no CDN or runtime image API.
+
+
+## 2026-10-24 — pearl satin pump / reviewed residue cleanup
+`shoe2d/pearlpump_*`(7) and `fitting2d/pearlpump_*`(6) retain accepted stiletto6 body/skin/sole pixels and add camera-specific pearl studs extracted from two genuine gpt-image-2 reference edits. The imagegen skill bundled CLI followed REVIEW's explicitly requested API workflow after built-in generation returned no artifact. Exact edit prompts, input paintings, original outputs, extraction regions, anchors and provenance: `dev/pearlpump-source/`. Rebuild: `python3 dev/build-pearlpump-assets.py` (OpenCV/NumPy/Pillow environment). Fabric, shadow and highlight masks exclude ivory pearl cores; no runtime API/CDN is introduced.
+`dev/fitting-polish/clean-ribbon-residue.py` (Pillow only) clears isolated source-ribbon scraps in seven worn kits and matching tint layers, preserving all pixels outside reviewed regions. Run after worn accessory and platform/thin-height remapping exporters. Total-art failure fitting artwork is drawn locally in Canvas; no additional downloaded source.
+
+Thin-pump outer-counter correction: `dev/fitting-polish/clean-thin-counter.py` changes only product effect/binding masks on confirmed satin at the far counter; accepted base/skin/sole artwork remains exact. The thin-height builder invokes this correction; rebuild pearl layers afterward. Final pearl extraction:20product/23worn regions.
+
+
+## 2026-10-24 — bow slingback / seated strap seam / crystal spray pump
+`shoe2d/bowsling_*`(7) and `fitting2d/bowsling_*`(6): genuine gpt-image-2 product+worn reference edits, extracted onto accepted slingback bodies. Exact sources/prompts/provenance in dev/bowsling-source; deterministic builder dev/build-bowsling-assets.py. Bow fabric follows colour/material; original outsole/calf/occlusion exact. This previously committed kit is now explicitly documented.
+`dev/fitting-polish/attach-thin-straps.py` fixes only stiletto6/stiletto9 worn thin-band/tint endpoints using original retained painted source; exact RGBA outside reviewed ROI. Rebuild AFTER thin-height accessory export; not newly generated art.
+`shoe2d/crystalpump_*`(7) and `fitting2d/crystalpump_*`(6): two genuine gpt-image-2 image edits via the imagegen skill bundled CLI under REVIEW explicit API instructions after built-in returned no artifact. Exact prompts/inputs/originals/timings/provenance: dev/crystalpump-source. Rebuild python3 dev/build-crystalpump-assets.py (Pillow/NumPy/OpenCV). Six individually reviewed bezel contours per camera extract only faceted crystal pixels over exact accepted stiletto6 body; no source skin replacement. Full alpha, toe/floor and calf preserved; upper/shadow/highlight masks exclude opaque facets. Source service's near-opaque crystal interiors are made opaque inside the reviewed contours, preserving ivory-silver facet colour under every fabric. Local font rebuilt to609glyphs for 簇. No runtime image service/CDN/download introduced.
+
+
+## 2026-10-24 — studded pump / pearl mount cleanup / patent
+`shoe2d/studpump_*`(7) and `fitting2d/studpump_*`(6): genuine gpt-image-2 product+worn image edits via imagegen skill bundled CLI after built-in returned no artifact, following REVIEW explicit API workflow. Exact prompts/accepted6cm inputs/originals/provenance: dev/studpump-source. Rebuild python3 dev/build-studpump-assets.py (Pillow/NumPy/OpenCV). Individually reviewed19/20pyramid-stud contours preserve original complete alpha/body/calf/binding/sole and exclude neutral facets from upper/shadow/highlight masks. Both cameras keep their accepted toe/floor anchors. No generated body/skin or source edge noise enters runtime.
+`dev/fitting-polish/clean-pearl-mount-residue.py` clears only three reviewed detached source-skin slivers above the kitten/6/9cm worn pearl mounts. Run AFTER worn accessory/crystal-repair/thin-height exporters; exact RGBA outside ROIs is preserved.
+Patent uses local Canvas reflected-light gradients over existing immutable shoe masks and an HTML/CSS gradient swatch, with no additional bitmap/source service. Local licensed Chinese font rebuilt to613runtime glyphs. All game art remains local, without CDN/image API requests.
+
+
+## 2026-10-24 — satin bow mule
+`shoe2d/bowmule_*`(7), `fitting2d/bowmule_*`(6): two genuine gpt-image-2 reference edits through the imagegen skill bundled CLI after built-in returned no artifact, under REVIEW's explicit API workflow. Exact sources/prompts/logs/provenance: dev/bowmule-source; deterministic rebuild: dev/build-bowmule-assets.py (Pillow/NumPy/OpenCV). Product uses the complete backless source painting; worn preserves accepted forefoot/bow and upper400calf rows, adds source-matched exposed heel. Product toe/floor96/540, worn171/964. Chroma fringe removed, cream lining/outsole excluded from upper dye, broad cel skin and lightmaps. Fixed3cm, rib6 discovery/110coins, integral bow excludes overlapping trims and No-bows commissions. EN/zh local font now615glyphs. No runtime service/CDN.
+
+
+## 2026-10-24 — source-only ankle-bow candidate / packaging headroom
+`dev/dorsay-source/`: two genuine gpt-image-2 product/worn reference edits through imagegen bundled CLI after built-in returned no artifact, following REVIEW explicit images/edits workflow. Exact inputs/prompts/originals/logs/provenance retained; deterministic builder `dev/build-dorsay-assets.py` writes13candidate layers under `runtime-candidate/{shoe2d,fitting2d}`. Fixed product96/540,worn171/964, exact accepted upper400calf. Native visual review rejected remaining thin ankle-bow skin fringe/binding residue; candidate is NOT registered or shipped. No runtime service/CDN.
+Packager excludes16retired `decor/d_*.webp` paintings and4old full `scenes/scene_*.webp` backgrounds. Active mint SVG décor, close_* backplates and scene_*_thumb pickers remain validated. Originals stay as source art; no active raster recompression.
+
+## 2026-10-25 — REVIEW11:02 exterior ornaments and overlapping fitting
+`js/accessory-renderer.js` draws original code-native jewellery and silk ornaments in fixed product/worn cameras: external instep pearls, outer trim/studs, heart buckle, anklet, puffy/double bows, rosette, heel crystals and toe brooch/glitter variants. No generated/downloaded ornament raster or runtime service was added. Existing painted source kits remain; fitting recomposes them into front-over-back overlap with authored contoured shaded calf continuation and shaped socks. No independently painted paired source is claimed. Local Noto subset rebuilt from the documented OFL source; all623current runtime Chinese/full-width glyphs covered.
+
+## 2026-10-25 — slim youthful fitting skin / complete product pearl strap
+All seventeen `fitting2d/*_legs.webp` layers receive a deterministic local PIL finish through `python3 dev/fitting-polish/soften-skin.py`. Immutable pre-finish sources live in `dev/fitting-polish/source-skin/`. Broad peach light planes replace source skin detail; a rounded, antialiased alpha contour removes small corners without a blurred halo. Matching shoe/upper/occlusion layers retain their camera coordinates. Run this finish AFTER any kit exporter that rewrites skin. No image generation, external raster, runtime readback or network dependency is introduced. `js/fitting2d.js` applies one fixed slender transform to the complete stacked pair; source shoe/accessory mounts stay aligned. Product pearl bridges now use collar-checked source mounts and continuous arc-length bead spacing, with an outer fastening/button.
+
+
+## Product thin/cross collar finish and pearl orb heel — 2026-10-25
+- `dev/fitting-polish/attach-product-thin.py` finishes product thin bands for block, kitten, stiletto6, stiletto9 and platform: source-silhouette far-collar occlusion and local internal-satin slit repair. Immutable original inputs are `dev/fitting-polish/product-thin-source/`; paint and tint both contact each source collar, x650 onward stays exact. Run after accessory/height/platform exporters. Pillow only, deterministic atomic asset replacement. Body/worn artwork and fixed toe/floor coordinates are untouched.
+- `dev/fitting-polish/clean-product-cross.py` repairs the same five product cross-lace paintings from retained original chroma edits inside approved camera footprints. Shared paint/tint alpha restores holes in pale satin/bows and rejects detached extraction flecks. Inputs in `dev/fitting-polish/product-cross-source/`; run after accessory/height/platform exporters. Pillow + NumPy; no runtime dependency.
+- `shoe2d/pearlheel_{base,upper,binding,insole,sole,shadow,highlight}.webp` and `fitting2d/pearlheel_{shoe,upper,shadow,highlight,legs,occlusion}.webp`: original code-authored pearl-orb support and champagne fittings over the accepted stiletto6 upper/arch. Product/worn geometry has separate camera coordinates. The neutral nacre hardware stays outside fabric masks; skin/occlusion reuse softened6cm sources byte-for-byte. Rebuild with `python3 dev/build-pearlheel-assets.py` (Pillow + NumPy); native source, anchors and provenance in `dev/pearlheel-source/`. No newly generated anatomy or paired painting is claimed. Toe, forefoot ground and original heel-tip ground pixels stay fixed. Registered as Pearl orb pump / 珍珠球高跟鞋, crafted spk6 /125coins, compatible inherited6cm ornaments. No new runtime CDN/image API/font dependency.
+
+## Lucite sculptural heel — 2026-10-25
+`shoe2d/luciteheel_{base,upper,binding,insole,sole,shadow,highlight}.webp` and `fitting2d/luciteheel_{shoe,upper,shadow,highlight,legs,occlusion}.webp`: original code-authored transparent beveled prism over the accepted6cm pump. Separate product/worn facets and champagne mounts replace only the distal heel stem; original contact cap, upper/arch and softened skin retain their fixed source pixels. Upper/shadow/highlight masks exclude the glass, so color, fabric and motifs cannot tint it. Local alpha blending reveals the backdrop; this is painted transparent glass, without physical refraction. Rebuild: `python3 dev/build-luciteheel-assets.py` (Pillow + NumPy); provenance, independent camera anchors and native light/dark sheets in `dev/luciteheel-source/`. Registered as Lucite heel pump / 透明高跟鞋, spk6 discovery /125coins; compatible6cm ornaments and saved identities retained. No runtime download, service, CDN or new font asset.
+
+## Original broad ribbon satin finish — 2026-10-25
+`python3 dev/fitting-polish/clean-product-ribbon.py` re-extracts neutral satin/folds from the retained original image-edit paintings. Seven product ribbon paintings and their tint layers now share full satin alpha; seven worn tint masks match their existing immutable paintings. Original exterior alpha contours and bounds stay exact; only fully enclosed extraction gaps fill. Run after legacy accessory/platform/height exporters. Immutable before sources: `dev/fitting-polish/product-ribbon-source/`; native light/dark before/after and deterministic acceptance: `qa/ribbon-satin/`. Product/worn body, skin, masks, toe/floor coordinates and runtime renderer stay unchanged.
+
+## Independent pair source candidate — 2026-10-25
+`dev/paired-source-20261025/` retains the genuine generated1254px master, original prompt/provenance, cleaned alpha and native light/dark review. `candidate-kit/` contains separate front/rear skin, shoe, upper, shadow, highlight and occlusion layers plus source-coordinate anchors/cuff ellipses. These remain development-only, excluded from the runtime ZIP and style registry. Reconstruction/mask checks do not grant finished-art acceptance: collar/dye edges, material weights, matching socks, all camera-specific ornaments and the complete runtime pair path remain work before registration. Rebuild with `python3 dev/build-independent-pair-source.py` (Pillow + NumPy). No runtime asset/API/CDN dependency is added.
+# Open-toe candidate repair — 2026-10-25 09:25 UTC
+
+No new runtime art or external source was added. Development-only sandal masks now protect complete cream sidewalls/counter piping; original code-authored wrap turns connect to the retained source fastening in both cameras. Draw-only sock volume/cuff treatment is gated by unregistered `openToe` metadata. Source/review evidence remains `dev/sandal-source/`; all3candidate kits stay excluded from runtime assets and ZIP. Existing19styles and original generated source provenance remain unchanged.
+
+Final toe-contact cleanup (2026-10-25 09:55 UTC): `dev/sandal_masks_fitting.py` follows each painted toe underside so opaque socks cover the complete skin contour. The final change moves1,220shell pixels within source(246,915)–(432,939) into the matching skin layer; the cream big-toe footbed, upper dye and all pixels outside that region remain exact. Native evidence/hashes: `qa/session-0955-toe-fix/`. All39rebuilt candidate layers stay under dev; no generated/downloaded source or runtime asset was added.
+
+## 2026-10-25 — local recorded effects and Safari music activation
+`assets/sfx/`: fourteen short, softened CC0 cues from the locally supplied Kenney Casino Audio 1.1, Interface Sounds 1.0 and UI SFX Set. Every cue has local Vorbis (`.ogg`) and MP3 Safari fallback (`.mp3`); total including license 112,405 bytes. Exact per-cue original mapping and CC0 license: `assets/sfx/LICENSE.txt`; deterministic ffmpeg conversion: `python3 dev/build-sfx.py`. Original packs and their License.txt files stay under `dev/sfx_src` and are never shipped. Action cues use preloaded decoded WebAudio buffers, slight pitch variation, tier-dependent merge pitch and bounded cascaded coin clinks; no synthetic action beeps.
+Music remains the existing local CC0 MP3 tracks above. First gesture synchronously resumes AudioContext and primes both scene media elements; autoplay denials remain retryable and Safari `interrupted` resumes. Music/sound buses remain independently saved and pause immediately with page/ad/settings state.
+
+## 2026-10-25 — couture finish extension
+Brushed metallic and pearlescent silk, rosebud embroidery and diamond stitching use original local Canvas drawing in `js/shoe2d.js`, shared by product and worn cameras through `SweetShoe.CoutureFinish`; CSS swatches use no downloaded bitmap. Each camera clips finishes to its accepted upper mask. No body/skin/source paintings, mounts or runtime network dependencies change. EN/zh copy uses the licensed local Noto Sans SC font rebuilt from the documented original OFL source to629Chinese/full-width glyphs. Native19-style dark/light evidence: `qa/couture-finishes/`.
+
+## 2026-10-25 — couture straps and exterior ornaments
+Six original Canvas ornaments in `js/accessory-renderer.js`: faceted crystal and braided satin instep bands, layered satin camellia, counter-mounted heel bow, crystal butterfly and pearl-blossom toe brooch. Each uses the existing independent product/worn bridge, vamp, counter or toe coordinates; no new raster art or external source/service/CDN. Added bilingual earned detail IDs and No-bows semantics; original paintings, masks and mounts stay fixed. The existing local font covers all629runtime glyphs, including the new labels. Native acceptance: `qa/couture-ornaments/` (19style sheets,280compatible camera/background variants); additional native crops: `qa/ornaments-2250/`.
+
+
+## 2026-10-25 — REVIEW00:55 unified low-camera fitting rooms
+Five genuine `gpt-image-2` reference edits replace the fitting salon and `scenes/close_{mirror_lounge,car,vanity,balcony}.webp` backgrounds with low-camera empty floors. The salon's former painted runway is removed; no background paints a platform. The sole display platform is now authored by the shared runtime camera, so scene floor, platform and fitted-pair layout share one horizon. Room identities remain salon, mirror lounge, pastel city street, golden vanity and sunset balcony. All five source images are1536×1024; four scene picker thumbnails are regenerated from the matching final art. `scenes/close_salon.webp` also mirrors the accepted salon as a retained source alias.
+Built-in imagegen returned no artifact; the imagegen skill bundled `gpt-image-2` edit CLI used REVIEW's explicitly requested relay. Exact prompts, input originals, genuine outputs, provenance and source/export SHA256 are retained under `dev/fitting-perspective-source/`. Deterministic export: `python3 dev/build-fitting-perspective.py` (Pillow), WebP quality88 and thumbnails85. No runtime image API, external CDN or generated anatomy is introduced.
+
+## REVIEW 01:11 local instep / hosiery-counter finish — 2026-10-25
+`dev/fitting-polish/repair-hosiery-junction.py` deterministically finishes the 19 accepted worn skin/occlusion cameras from immutable originals in `dev/fitting-polish/hosiery-junction-source/`. It smooths only the small inherited instep ledge and fills skin/fabric beneath the existing heel-counter piping; counter occlusion cannot cut an uncovered seam. Existing shoe/upper/ornament art, calves, toe/floor mounts, paired overlap and scene projection stay fixed. Pillow-only, lossless WebP with transparent RGB preserved; no generated or downloaded source. Native before/after and exact bounds: `qa/hosiery-junction/`; runtime light/dark every-style/colour acceptance: `qa/hosiery-polish/`.
+
+
+## 2026-10-25 — REVIEW22:20 woven pattern continuation
+Scalloped embroidery and satin pinstripes are original code-native Canvas patterns in `js/shoe2d.js`, shared by the product and worn renderer. Curved ivory shell stitching and paired fine woven threads are clipped to each accepted camera upper; original skin, shoe silhouettes, soles, ornaments and mounts remain unchanged. Their CSS sample swatches need no bitmap or runtime service. Earn through rib3 / fab3 discovery respectively, or the existing 30 / 20 coin purchase path. The licensed local Noto Sans SC subset was rebuilt from the documented original OFL source to631runtime Chinese/full-width glyphs, including 扇 and 纹. No external runtime CDN or generated artwork. Native and actual bilingual saved-flow evidence: `qa/pattern-variety/` and `qa/pattern-variety-flow/`.
+
+## 2026-10-25 — platform inner-binding alpha finish
+`dev/fitting-polish/repair-platform-binding.py` restores 4,590 interior alpha pixels in the accepted worn platform shoe and matching occlusion, removing ragged extraction holes between its cream piping and cloth. Original RGB, outside-region pixels and every shoe column's outer bounds remain exact; skin, upper/finish masks, ornaments, camera and toe/floor anchors are unchanged. Immutable final-camera inputs and rebuild guidance: `dev/fitting-polish/platform-binding-source/`. Pillow-only lossless WebP with exact transparent RGB; no generated/downloaded source or runtime network dependency. Invariants and enlarged before/after: `qa/session-2054-platform-binding/`; native bare/lace/opaque light/dark and actual paired fitting checks: `qa/session-2054-platform-final/`.
+
+## 2026-10-25 — crystal pavé and resilient local music
+Crystal pavé is an original source-coordinate Canvas finish in `js/shoe2d.js`, shared with the worn renderer through `SweetShoe.CoutureFinish`. Small four-facet crystal seats follow staggered curved rows inside each accepted upper mask; original shoe/skin paintings, soles, collars, hardware and mounts remain unchanged. The matching picker swatch is an original inline SVG in local CSS. Earned through spk5 discovery; bilingual copy uses the licensed Noto Sans SC subset rebuilt to633runtime glyphs. No new downloaded raster, runtime service or CDN. Existing CC0 music files are unchanged; transient-load retries reuse their local media elements within a later activation gesture.
+
+## Crystal chain sandal — official single-kit integration (2026-10-25 22:24 UTC)
+- `shoe2d/crystalsandal_{base,upper,binding,insole,sole,shadow,highlight}.webp`: immutable 1024×640 product camera.
+- `fitting2d/crystalsandal_{shoe,upper,shadow,highlight,occlusion,legs}.webp`: matching 1024×1024 worn camera; camera-local toe/sidewall masks preserve cream piping, skin and integral crystals.
+- All13layers are byte-exact copies of the accepted original exports retained under `dev/sandal-source/runtime-candidate/` (785,402bytes total). Original camera prompts, paintings and provenance remain under `dev/sandal-source/`; no new raster generation, CDN or runtime pixel reads.
+- Earn through spk6 discovery;140coins is catalog value, with the existing craft-first gate. Integral crystal/ankle straps exclude duplicate hardware. Existing colours,11materials,10patterns, hosiery and saved scenes remain dynamic.
+- Native final QA and acceptance hashes: `qa/crystalsandal-native/`, `dev/sandal-source/crystalsandal-acceptance.json`. Flower/wrap sandal and ankle-bow candidates remain development-only and excluded from release.
+
+## Heel-counter hosiery coverage — REVIEW 2026-10-26 07:00
+`fitting2d/<style>_hosiery.webp`: original offline semantic coverage maps for all20registered worn cameras, derived by `python3 dev/fitting-polish/build-hosiery-collars.py` from accepted shoe/upper/leg layers. Cover baked ankle-skin slivers under the shoe collar with the selected cloth after shoe shading and before ornaments. Skin-colour matching and existing upper masks preserve cream piping, gold hardware, integral trims and the open-toe shell; original source images remain byte-exact. Empty coverage uses a1×1transparent sentinel. Runtime uses draw-only source-atop compositing, retains source alpha and requires the map for complete fitted-kit recovery/packaging. Rebuild maps after registering a new camera.
+
+Supervisor 08:35 picker copy: local Noto Sans SC subset rebuilt to635runtime Chinese/full-width characters with the documented source/tool. New picker/celebration visuals use existing local artwork and CSS; no raster or audio added.
+
+## Fixed try-on framing — USER 2026-10-26 11:55
+
+`scenes/fixed_{salon,mirror_lounge,car,vanity,balcony}.webp` are original generated
+`gpt-image` room backdrops supplied on 2026-10-26. Each includes its own low-camera
+platform, rim and floor shadow. They replace the earlier `close_*` try-on camera;
+runtime draws only shoe contact shadows over the baked platform. The approved
+composition reference is `dev/refs/user_fixed_framing_1155.webp`.
+
+Measured top-surface ellipses in native image pixels (vertical rim and floor
+shadow excluded):
+
+| Scene | Image size | Centre | Radii | Rim depth |
+| --- | --- | --- | --- | --- |
+| Salon | 864 × 1222 | 433, 728 | 340, 74 | 30 |
+| Mirror lounge | 848 × 1264 | 424, 750 | 348, 74 | 34 |
+| City escape | 848 × 1264 | 424, 752 | 334, 72 | 31 |
+| Golden vanity | 848 × 1264 | 424, 752 | 349, 74 | 33 |
+| Rose balcony | 896 × 1200 | 448, 712 | 357, 73 | 30 |
+
+Backgrounds and fitted anatomy share a fixed composition and one uniform outer
+resize transform. The native baked ellipse is never stretched or re-squashed.
+No generated anatomy, external CDN or runtime image service is introduced.
+
+
+## Supervisor20:18 continuation — 2026-10-26
+Ballet worn ribbon layers are deterministic Pillow derivatives of the retained approved product ribbon semantic mask, via `dev/build-ballet-ribbon-fidelity.py`; no new generated painting. Ribbon-only coverage excludes product lining/skin, and complete knot/tails fit the source frame. `js/fitting2d.js` uses premultiplied bilinear source-local camera sampling; `WornBodyFidelity.postProjection` preserves pearlheel orb aspect. Evidence and limitations: newest dev/PROGRESS.md.
+
+## User-repaired Mimi think animation (2026-10-27)
+`mentor/think_anim/think_01.webp` through `think_40.webp`: exact user-approved hand-repaired848×1072RGBA frames (eye corner and shoulder/tape corrected),40frames at8fps. Do not re-key, recolour or regenerate. Runtime `js/mentor-animation.js` fetches the original bytes lazily only when a think pose is visible, keeps compressed local frame blobs with a rolling two-image decode, and maps them into the static800×1000camera (head y20/soles y980). Static `mentor_think.webp` remains the reduced-motion/loading/failure fallback. Canvas smoothing stays high; page hiding removes animation and pauses its clock. No CDN/dependency.
+
+
+## 2026-10-27 — original Pearl nacre / Grand satin fidelity
+Seven product Pearl toe cabochons now restore their original painted nacre opacity within camera-specific semantic ellipses. Braided gold/negative chain spaces and all pixels outside those ellipses retain the original extraction; complete asset bounds stay fixed. `dev/fitting-polish/repair-product-pearl-nacre.py` uses retained aligned original product edits; immutable before inputs are in `dev/fitting-polish/pearl-nacre-source/`, native light/dark/hashes in `qa/pearl-nacre/`. Fitting projects that same original nacre/bezel through seven source-local toe mounts, retaining the complete prior worn bead on missing product art.
+Seven product Grand bow paintings/tints restore continuous original neutral satin through enclosed extraction holes via `dev/fitting-polish/clean-grand-bow.py`; original exterior alpha/camera bounds stay exact, with source backups in `dev/fitting-polish/grand-bow-source/`. Worn Grand identity and tiny inherited exterior scraps remain follow-ups. Original paintings, no new generation/download/CDN/runtime dependency.
+
+## 2026-10-27 — Puffy satin bow
+`ornaments/puffy_satin.webp` is a locally keyed gpt-image-2 satin painting shared by product and worn cameras. Runtime multiplies the painted folds by a lightened selected shoe colour and supplies a soft contact shadow. The raw generated source is retained outside the runtime package.
+
+## 2026-10-27 — Chantilly lace
+`materials/lace_tile.webp` is the source-only supervisor-supplied white transparent Chantilly artwork. `materials/lace_seamless.webp` is its quality-80 half-offset, 64-pixel feathered derivative, reproducible with `python3 dev/build-lace-tile.py`; the shared product/worn renderer tiles it over the dyed upper. Kitten and loafer use camera-specific scalloped collar trim.
+
+## 2026-10-28 — package headroom: reviewed shoe paintings
+
+Eight product bases and two worn shoes were encoded from the exact pre-optimization
+`555dc73` originals using Pillow 13.0.0 / libwebp 1.6.0 (lossy WebP quality 95,
+method 4, exact=True). Quality 82 softened fine grain in 3× source comparisons;
+quality 95 was chosen to preserve detail better. All ten retain their original
+dimensions and exact per-pixel alpha, with no masks, positions, animation frames,
+or Crystal sandal camera assets changed. Encoding changes RGB, not geometry.
+
+Rebuild from pristine source assets, never from already encoded output:
+
+```sh
+mkdir -p /tmp/shoe-pkg-source /tmp/shoe-pkg-output
+git archive 555dc73 assets/shoe2d assets/fitting2d | tar -x -C /tmp/shoe-pkg-source
+python3 dev/optimize-package-art.py --source /tmp/shoe-pkg-source/assets --output /tmp/shoe-pkg-output
+```
+
+The helper writes to a separate tree and verifies dimensions and alpha. The
+source and encoded SHA-256 hashes below identify the exact reviewed files;
+codec versions can affect reproducibility.
+
+| Relative path under assets | Original SHA-256 | Encoded SHA-256 |
+| --- | --- | --- |
+| `fitting2d/bootie_shoe.webp` | `dc8917472e1f00d91fde91a409609488bba2e683c6ec0583991f57dfed96ecaf` | `8baa35d0dba60d027cafe3fe05f363bda85aa64b070bef547f6e30e0d866d689` |
+| `fitting2d/bowmule_shoe.webp` | `6f60ce875ad1fa3adeec091d29f6c6a00aa3cb3ef44bb19ee6ac4f133d03aa62` | `6cbaedbf2ec25cb0170e7b3345c0a290fb8583205202c34b95a1e0ec3100b0ee` |
+| `shoe2d/ballet_base.webp` | `fdaa60f83223d919524fa9e287e04018ff73c02ee19bb098d5655f21e534190c` | `96c6ef533be6e527999487f5415685ffab95c4ed6a1be3f92770588d1f59c2c0` |
+| `shoe2d/bootie_base.webp` | `a8112f87f579db523319d193411ab8991ac90e95ada2b32d0e95b07b6e7302c7` | `db8bac63e959b2ebaed78af412aa99121c696a6ab09fb40df86709872d6a1b7a` |
+| `shoe2d/bowsling_base.webp` | `d851b9b3143a70b204174cb5d49424c6bac22ed966ecf2f4326c0945594dd212` | `d39b9863366b681e3e3a36a110deca21f289a8e21a991791880cc221569224f3` |
+| `shoe2d/crystalpump_base.webp` | `dac850fadb7f4d201a67f967bc38419d1794947474f5c1e42905cfc2e483e458` | `37fe0e19b7ad209891fa48c71510727c4bc07f571e87c5b0138853a3e17b6c56` |
+| `shoe2d/loafer_base.webp` | `cf6ab7e8514bae4380cba5eba797b604c9c740d0b80f16ad664ca9359e25f16c` | `55a195bceb44187ead4e50ae8b7db681bdabc912ba2e12a0b851577c37dc8b13` |
+| `shoe2d/maryjane_base.webp` | `b4b930bff220a543196be2c6762a955eb69a2348be3ddfc90822898a175aedc0` | `e24461c54661c72faedbecc506857ea394b2a08c5bd701314c3dac8fb9b7ff35` |
+| `shoe2d/platform_base.webp` | `9d46984364b0060adb742f7cc108686d1b17152772d7b7aeb1ae62d04ddec9b3` | `4ceb027f552d124378dd0a2e9c4466c6043a98eb2eccc9f86bfdcc57dad43b0a` |
+| `shoe2d/studpump_base.webp` | `0bedd0e8d96b656633ff2e5a51d62069fbb2095088e588ce8c46701ab8f8b8fc` | `cc3d05998864ac452dad75e8282eaa8af218cd93af4af29bb22f40fc54abf2fa` |
+
+### Flat Grand bow product edge repair (2026-10-28)
+
+`shoe2d/accessories/flat_decoration_big.webp` and its `_tint.webp` mask retain
+the existing painted satin from `dev/heelbow-source/flat_decoration_big-original.webp`.
+Rebuild both with `python3 dev/repair-flat-grand-bow.py`: a supersampled,
+hand-traced contour intersects the original alpha to remove extraction slivers
+and the pale tail fringe, while nearby opaque satin supplies clean edge colour.
+The repair affects the flat-family product bow layer and its colour mask; the
+shoe body, sole and fitting-camera artwork are unchanged.
+
+### Grand satin tail finish (2026-10-28)
+
+The flat, block, wedge and platform product Grand bow paintings use shorter,
+anti-aliased fishtail contours. Their tint masks have the same coverage; the
+worn renderer projects these same paintings. The other three shared Grand
+families retain their existing short tails. Rebuild the four derivatives from
+retained pre-trim paintings with `python3 dev/fitting-polish/shorten-grand-tails.py`
+after any earlier Grand extraction repair. No shoe body or camera mount changes.
+
+### Accepted gen5 half-on anatomy (2026-10-28)
+
+`fitting-rigid/{studpump,flat,maryjane}_{front,rear}_{skin,cloth,black}.webp`
+are local quality-92 WebP derivatives of Supervisor-approved
+`qa/research-rigid/gen5/*-leg-{front,rear}.png` (1024×1840, showcase y offset1200).
+The retained gen4 gpt-image-2 sources and gen5 exporter document original
+provenance. No new image generation or network dependency was introduced.
+`python3 dev/build-rigid-legs.py` (Pillow/NumPy) derives the near shoe-opening cut
+from each exact product insole/binding mask and bakes skin and cloth volume with
+soft contact occlusion. Front feet show the accepted raised heel; the separate
+rear source stands inside its shoe. Runtime uses alpha compositing only, with
+one uniform transform per original `Shoe2D.composite` shoe, preserving its body,
+heel, piping and ornaments. Colours, yarn and fishnet are local Canvas layers.
+These three styles form the initial reviewed rollout; the stiletto9
+continuation below adds a fourth. Other styles retain the previous complete
+renderer until their own source is accepted.
+`fitting-rigid/maryjane_strap.webp` retains the accepted source strap alpha;
+the renderer draws matching dynamically dyed product pixels through this mask
+after the foot, keeping the integral buckle and strap visible.
+
+
+### Stiletto 9cm out4 rollout (2026-10-28)
+
+`fitting-rigid/stiletto9_{front,rear}_{skin,cloth,black}.webp` are quality-92
+local derivatives, rebuilt by `python3 dev/build-rigid-legs.py --styles stiletto9`.
+The front reuses the approved gen5 studpump high-heel whole-foot painting;
+the rear uses the independent standing `qa/research-rigid/gen/stiletto9-leg-rear.png`.
+Its matching approved pump calf continues above the source crop, blended only
+at y220–320 so the 1220×1000 shared picture has no flat leg cutoff. The ankle
+and foot retain their source coordinates. Each camera is cut against the
+stiletto9 product insole/binding, with the existing skin/cloth volume exporter.
+No model-painted shoe pixels, fresh generation or external runtime dependency.
+The exact stiletto9 product composite, finishes and ornaments are drawn with
+uniform transforms; contact shadows use this shoe's own heel-tip position.
+This is the fourth reviewed rigid style; sixteen styles retain legacy fitting.
+
+
+### Stiletto 6cm out4 rollout (2026-10-28)
+
+`fitting-rigid/stiletto6_{front,rear}_{skin,cloth,black}.webp` are six local
+quality-92 derivatives (330,314 bytes total). Rebuild with
+`python3 dev/build-rigid-legs.py --styles stiletto6` (Pillow/NumPy).
+Both sources are the approved `qa/research-rigid/gen5/studpump-leg-{front,rear}.png`:
+the front is half-on with a raised heel, while the independently painted rear
+stands inside its shoe. Their existing full-height calves continue above frame.
+The exporter cuts each foot against stiletto6's own product insole and binding;
+no generated shoe pixels enter runtime. Product body, heel, binding, finishes
+and optional ornaments keep their original uniform transforms. Contact shadows
+use the 6cm pump's own heel-tip position. A targeted build writes only the
+requested style, including the Mary Jane strap only when Mary Jane is requested.
+This is the fifth rigid style; fifteen styles retain the prior complete fitting.
+The user-owned `qa/research-rigid/out4/flat-pink-satin-black-hires.png` is untouched.
+
+2026-10-29 runtime polish: the six committed stiletto6 WebPs remain byte-exact.
+`js/fitting-rigid.js` trims two small front heel/arch extraction ledges with
+antialiased Canvas curves after hosiery composition (source y1208–1280 and
+y1300–1388). No shoe pixels or rear anatomy are changed. Native contour,
+all-hosiery edge and actual uniform shoe-transform checks are reproducible with
+`python3 qa/rigid-contour-test.py`; evidence is in `qa/stiletto6-polish/`.
+
+
+### Kitten closed-pump out4 rollout (2026-10-28)
+
+`fitting-rigid/kitten_{front,rear}_{skin,cloth,black}.webp` are six local
+quality-92 derivatives (321,478 bytes total). Rebuild only this style with
+`python3 dev/build-rigid-legs.py --styles kitten` (Pillow/NumPy).
+Both sources are the approved `qa/research-rigid/gen5/studpump-leg-{front,rear}.png`:
+the front has a raised heel and visible arch; the independent rear stands in
+its own shoe. Each is cut against kitten's original product insole/binding.
+No generated shoe pixels are used: original product body, low heel, cream
+piping, finishes and ornaments retain uniform transforms. Contact shadows use
+the kitten painting's measured heel tip (815,445), with a smaller rear shoe
+on a separate ground line. Six rigid styles are now enabled; fourteen retain
+the complete prior fitting. No fresh generation or external runtime dependency.
+
+The user's three hand-editing sources remain untouched:
+
+| Protected path | SHA-256 |
+| --- | --- |
+| `qa/research-rigid/out4/flat-pink-satin-black-hires.png` | `b198a36d4f0890124f9689cdec11f3943c9c38c7ff8b5c8536f79976b8a1cc88` |
+| `qa/research-rigid/gen5/flat-leg-front.png` | `c36dfb87eeed17db53c7b174ebb2a13cbf491e07f342a94d7dc32b4712a77a51` |
+| `qa/research-rigid/gen5/flat-leg-rear.png` | `e6e03e0a5cd30025a09023d987fb7972af7decc5d80f0edc0e84fe065a1997a0` |
+
+These hashes identify the pre-return files; the user's returned corrections
+are authoritative and must replace this baseline when supplied.
+
+2026-10-29 kitten contour polish: all six kitten WebPs and the protected flat
+files remain byte-exact. The runtime applies the accepted stiletto6 exterior
+heel/arch trims to kitten's shared front-foot source frame, after hosiery
+composition. Its own throat cut, full rear painting and original product shoe
+remain intact. Reproduce the native outline, hosiery and rigid-transform audit
+with `python3 qa/rigid-contour-test.py --style kitten`; source hashes and reports
+are in `qa/kitten-polish/`.
+
+
+### User-returned flat anatomy — REVIEW19:05 (2026-10-29)
+
+The six `fitting-rigid/flat_{front,rear}_{skin,cloth,black}.webp` files now derive
+exclusively from `src-user-legs-20261029/leg-front-left-user.png` and
+`leg-rear-right-user.png`. `pair-reference-user.png` supplies pose reference.
+These three originals are immutable and source-only. Rebuild using
+`python3 dev/build-user-flat-legs.py` or the existing builder with `--styles flat`.
+Only whole-image uniform scale/translation and rigid-shoe occlusion are used;
+lossless skin preserves transformed RGB, and cloth uses source luminance with
+identical alpha. Exact hashes, transforms and rebuild evidence are in
+`qa/user-flat/{asset-provenance,rebuild}.json`. Other style kits are unchanged.
+
+
+### Kitten returned user anatomy — USER23:52 (2026-10-29)
+
+The six `fitting-rigid/kitten_{front,rear}_{skin,cloth,black}.webp` derivatives
+now come only from the immutable `src-user-legs-20261029/` front/rear PNGs.
+Rebuild with `python3 dev/build-rigid-legs.py --styles kitten` or
+`python3 dev/build-user-kitten-legs.py`. Both legs retain their original angles
+and contours through whole-image uniform scale/translation, then the original
+kitten insole/binding/upper masks occlude the covered foot. Black/white cloth
+uses the source luminance and identical alpha; the obsolete runtime front-foot
+contour trims have been removed. Runtime uses the accepted flat/stiletto6
+close crossed composition and 0.78 rear stack, with rigid product shoe pixels.
+
+Six 1024×2140 WebPs total **441,208 bytes**, encoded from transformed original
+PNG pixels at quality82 with lossless alpha (never recompressed derivatives).
+Per-export fidelity metrics, source SHA256 and placements are retained in
+`qa/user-kitten/asset-provenance.json`. No original user or product pixels are
+modified. Full-size captures and native/3× evidence: `qa/user-kitten/after/`;
+reference-side-by-side review: `qa/contact/20261029-190959.jpg`.
+
+Authoritative returned-source styles expose `RigidFitting.userStyles`: their
+legacy `fitting2d/<style>_{shoe,upper,shadow,highlight,occlusion,legs,hosiery}`
+body cameras remain retained/validated source assets but are excluded from
+the upload ZIP. Runtime retries the approved legs with grounded rigid shoes
+on missing imagery; these styles never fall back to obsolete anatomy. Shared
+accessories and all other styles keep their required camera files.
+
+### Studded pump returned user anatomy — USER23:52 (2026-10-29)
+
+The six `fitting-rigid/studpump_{front,rear}_{skin,cloth,black}.webp` layers
+derive only from the immutable returned front/rear PNGs in
+`src-user-legs-20261029/`. Rebuild with
+`python3 dev/build-rigid-legs.py --styles studpump` or
+`python3 dev/build-user-studpump-legs.py` (Pillow/NumPy). Whole-source uniform
+scale/translation retains the hand-fixed contours and angles. Studpump's own
+original insole/binding/upper masks occlude the covered foot; its original
+product artwork, gold studs, piping and sole are unchanged.
+
+The original 6cm last shares the accepted stiletto6 source placements and
+close crossed composition, including the snug 0.78 rear shoe/foot/ornament
+stack. Black/white cloth derives from painted luminance with identical alpha.
+Six 1024×2140 WebPs total **456,180 bytes**: quality82 RGB, lossless alpha,
+encoded directly from transformed user PNGs. Source hashes, placements and
+per-export fidelity metrics are in `qa/user-studpump/asset-provenance.json`.
+The style joins `RigidFitting.userStyles`, so packaging validates but omits
+its seven unused legacy body-camera layers. Shared accessories remain local.
+
+### Mary Jane returned user anatomy — USER23:52 (2026-10-29)
+
+The six `fitting-rigid/maryjane_{front,rear}_{skin,cloth,black}.webp` layers
+derive only from the immutable returned front/rear PNGs in
+`src-user-legs-20261029/`. Rebuild with
+`python3 dev/build-rigid-legs.py --styles maryjane` or
+`python3 dev/build-user-maryjane-legs.py` (Pillow/NumPy). Whole-source uniform
+scale/translation preserves the hand-fixed contours and source angles;
+original product insole/binding masks occlude the covered foot. The upper dye
+mask is intentionally excluded: its far-collar line belongs behind the foot
+and would otherwise cut a diagonal slit through opaque hosiery.
+
+The original `maryjane_strap.webp` mask stays byte-exact. Runtime restores the
+dynamically tinted original product band/buckle above each foot. Both shoes
+use translation and uniform scale only, with the approved close crossed pose
+and0.78rear shoe/foot/ornament stack. Black/white cloth retains source alpha
+and luminance volume. Six1024×2140quality82WebPs preserve lossless alpha;
+source hashes, transforms and per-export RGB fidelity are recorded in
+`qa/user-maryjane/asset-provenance.json`. Rebuild and actual native/3× fitting,
+saved/share/recovery evidence are in `qa/user-maryjane/`.
+
+Mary Jane joins authoritative `RigidFitting.userStyles`; packaging validates
+but omits its seven unused legacy body-camera layers. Missing leg or integral
+band shows grounded original shoes until draw-only retry succeeds, without
+requesting the retired anatomy. No original user/product/strap art or audio
+was changed; no external CDN or generation service is required.
+
+### USER 2026-10-30 approved heel rear / individual collar calibration
+
+Four heeled returned-source rear layers use the immutable approved candidate v2
+white-background PNG. `dev/key-user-heel.py` extracts a source-only derivative
+under `dev/user-heel-derived/`; its provenance records the unchanged original
+SHA256. Flat retains `leg-rear-right-user.png`. Each style has independent
+front/rear similarity placements and near-collar traces/masks in
+`dev/fitting-calibration/`. Rebuild via `dev/build-calibrated-user-legs.py` or
+the existing per-style builder. No product shoe pixels are modified. White
+cloth retains soft source luminance at221–253; runtime WebPs retain lossless
+alpha. Final visual limitations and QA are in the newest PROGRESS entry.
+
+### Stiletto6 hosiery relief / SUPERVISOR12:00 (2026-10-30)
+
+Only stiletto6's six `fitting-rigid` derivatives were rebuilt from the same immutable front source and approved keyed rear candidate v2. The independent near-collar traces now follow the returning counter lip after x850. White cloth maps original luminance to190–254 with soft source-painted ankle/Achilles/heel/instep/toe relief; runtime omits the former22% white wash and reduces straight yarn opacity. Alpha remains identical across skin/cloth/black; original source PNGs, product shoes and all other style layers are unchanged. Rebuild: `python3 dev/build-calibrated-user-legs.py --styles stiletto6`. Artistic seat limits and exact QA/package evidence are recorded in the newest PROGRESS entry; no final supervisor acceptance is implied.

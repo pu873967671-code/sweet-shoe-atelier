@@ -1,0 +1,162 @@
+{
+  "flat": {
+    "source": "dev/shoe2d-source/flat.png",
+    "sourceBounds": [
+      428,
+      64,
+      1751,
+      676
+    ],
+    "canvas": [
+      1024,
+      640
+    ],
+    "toe": [
+      96,
+      540
+    ],
+    "groundY": 540,
+    "rightX": 928,
+    "length": 832,
+    "bbox": [
+      96,
+      156,
+      929,
+      541
+    ],
+    "anchors": {
+      "vamp": [
+        350,
+        440
+      ],
+      "counter": [
+        837,
+        289.75
+      ],
+      "strap": [
+        590,
+        355.20000000000005
+      ]
+    }
+  },
+  "kitten": {
+    "source": "dev/shoe2d-source/kitten.png",
+    "sourceBounds": [
+      171,
+      53,
+      1434,
+      957
+    ],
+    "canvas": [
+      1024,
+      640
+    ],
+    "toe": [
+      96,
+      540
+    ],
+    "groundY": 540,
+    "rightX": 928,
+    "length": 832,
+    "bbox": [
+      96,
+      51,
+      929,
+      541
+    ],
+    "anchors": {
+      "vamp": [
+        350,
+        440
+      ],
+      "counter": [
+        837,
+        221.5
+      ],
+      "strap": [
+        590,
+        304.8
+      ]
+    }
+  },
+  "block": {
+    "source": "dev/shoe2d-source/block.png",
+    "sourceBounds": [
+      200,
+      68,
+      1380,
+      949
+    ],
+    "canvas": [
+      1024,
+      640
+    ],
+    "toe": [
+      96,
+      540
+    ],
+    "groundY": 540,
+    "rightX": 928,
+    "length": 832,
+    "bbox": [
+      96,
+      51,
+      929,
+      541
+    ],
+    "anchors": {
+      "vamp": [
+        350,
+        440
+      ],
+      "counter": [
+        837,
+        221.5
+      ],
+      "strap": [
+        590,
+        304.8
+      ]
+    }
+  },
+  "wedge": {
+    "source": "dev/shoe2d-source/wedge.png",
+    "sourceBounds": [
+      179,
+      70,
+      1401,
+      979
+    ],
+    "canvas": [
+      1024,
+      640
+    ],
+    "toe": [
+      96,
+      540
+    ],
+    "groundY": 540,
+    "rightX": 928,
+    "length": 832,
+    "bbox": [
+      96,
+      51,
+      929,
+      541
+    ],
+    "anchors": {
+      "vamp": [
+        350,
+        440
+      ],
+      "counter": [
+        837,
+        221.5
+      ],
+      "strap": [
+        590,
+        304.8
+      ]
+    }
+  }
+}

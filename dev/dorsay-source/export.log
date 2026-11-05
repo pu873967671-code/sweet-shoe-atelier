@@ -1,0 +1,26 @@
+{
+  "product": {
+    "source": "product.png",
+    "frame": [
+      1024,
+      640
+    ],
+    "toeX": 96,
+    "groundY": 540,
+    "genuineAnkleBow": true,
+    "sideOpening": "lowered curved quarter, not a deep side cutout",
+    "upper400CalfExact": false
+  },
+  "fitting": {
+    "source": "fitting.png",
+    "frame": [
+      1024,
+      1024
+    ],
+    "toeX": 171,
+    "groundY": 964,
+    "genuineAnkleBow": true,
+    "sideOpening": "lowered curved quarter, not a deep side cutout",
+    "upper400CalfExact": true
+  }
+}

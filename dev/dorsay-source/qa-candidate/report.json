@@ -1,0 +1,96 @@
+{
+  "checks": [
+    {
+      "core": {
+        "discovered": "rib5",
+        "requested": 136,
+        "design": {
+          "color": "pink",
+          "material": "satin",
+          "pattern": "none",
+          "strap": "none",
+          "decoration": "none",
+          "heel": "dorsay",
+          "charm": "none"
+        }
+      },
+      "locked_orders_checked": 1000,
+      "unlocked_orders_checked": 3000,
+      "round_trip_order_gallery_design": true
+    },
+    "both camera toe/floor anchors pinned; accepted upper400calf exact RGBA",
+    "shoe2d: complete nonempty immutable mask/art kit (1024, 640)",
+    "shoe2d: upper/lighting alpha bounded by immutable shell",
+    "fitting2d: complete nonempty immutable mask/art kit (1024, 1024)",
+    "fitting2d: upper/lighting alpha bounded by immutable shell",
+    "pink/satin: genuine product/worn sources, no readback",
+    "blue/lace: genuine product/worn sources, no readback",
+    "black/velvet: genuine product/worn sources, no readback",
+    {
+      "all_finishes": "exact exposed-skin RGB, 0px leg jitter",
+      "protected_skin_pixels": 202116
+    },
+    {
+      "studio_picker": 390,
+      "pageWidth": 390,
+      "viewport": 390,
+      "scrollable": true,
+      "selected": "true",
+      "contained": true,
+      "target": true,
+      "scrollTop": 565
+    },
+    "390: integrated construction retains supported choices with explanatory copy",
+    "390x844: scroll/select, save, fitting, Collection, reload",
+    {
+      "studio_picker": 1336,
+      "pageWidth": 1336,
+      "viewport": 1336,
+      "scrollable": true,
+      "selected": "true",
+      "contained": true,
+      "target": true,
+      "scrollTop": 453
+    },
+    "1336: integrated construction retains supported choices with explanatory copy",
+    "1336x790: scroll/select, save, fitting, Collection, reload",
+    {
+      "studio_picker": 800,
+      "pageWidth": 800,
+      "viewport": 800,
+      "scrollable": true,
+      "selected": "true",
+      "contained": true,
+      "target": true,
+      "scrollTop": 470
+    },
+    "800: integrated construction retains supported choices with explanatory copy",
+    "800x450: scroll/select, save, fitting, Collection, reload"
+  ],
+  "screenshots": [
+    "qa/new-style/dorsay/product-pink-satin.png",
+    "qa/new-style/dorsay/product-dark-pink-satin.png",
+    "qa/new-style/dorsay/fitting-pink-satin.png",
+    "qa/new-style/dorsay/fitting-dark-pink-satin.png",
+    "qa/new-style/dorsay/product-blue-lace.png",
+    "qa/new-style/dorsay/product-dark-blue-lace.png",
+    "qa/new-style/dorsay/fitting-blue-lace.png",
+    "qa/new-style/dorsay/fitting-dark-blue-lace.png",
+    "qa/new-style/dorsay/product-black-velvet.png",
+    "qa/new-style/dorsay/product-dark-black-velvet.png",
+    "qa/new-style/dorsay/fitting-black-velvet.png",
+    "qa/new-style/dorsay/fitting-dark-black-velvet.png",
+    "qa/new-style/dorsay/studio-390x844.png",
+    "qa/new-style/dorsay/actual-fitting-390x844.png",
+    "qa/new-style/dorsay/collection-390x844.png",
+    "qa/new-style/dorsay/studio-1336x790.png",
+    "qa/new-style/dorsay/actual-fitting-1336x790.png",
+    "qa/new-style/dorsay/collection-1336x790.png",
+    "qa/new-style/dorsay/studio-800x450.png",
+    "qa/new-style/dorsay/actual-fitting-800x450.png",
+    "qa/new-style/dorsay/collection-800x450.png"
+  ],
+  "page_errors": [],
+  "asset_errors": [],
+  "status": "PASS"
+}

@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scope": "source extraction + candidate visible per-foot kit; not runtime integration",
+  "originalDimensions": [
+    1254,
+    1254
+  ],
+  "alphaBounds": [
+    257,
+    0,
+    1091,
+    1200
+  ],
+  "retainedSourceRgbUnchanged": 550881,
+  "lowAlphaSourceSpecksRemoved": 10912,
+  "transparentPixels": 1021629,
+  "calvesBleedTop": true,
+  "shoesClearBottom": true,
+  "originalSha256": "7247f3052a9b42767f0c81341557317fb860745252b194283773a26d1f05b906",
+  "alphaSha256": "61ecf93b926136703d33227f0ff7cddb940ef3fce90304ddc982de9b59aa83c7",
+  "runtimeIntegrated": false,
+  "exactSourceReconstruction": true,
+  "disjointVisiblePartitions": true,
+  "upperMasksContainedInShoe": true,
+  "regionPixels": {
+    "front_legs": 270973,
+    "rear_legs": 138086,
+    "front_shoe": 105958,
+    "rear_shoe": 35870
+  },
+  "candidateLayers": [
+    "front_highlight.webp",
+    "front_legs.webp",
+    "front_occlusion.webp",
+    "front_shadow.webp",
+    "front_shoe.webp",
+    "front_upper.webp",
+    "rear_highlight.webp",
+    "rear_legs.webp",
+    "rear_occlusion.webp",
+    "rear_shadow.webp",
+    "rear_shoe.webp",
+    "rear_upper.webp",
+    "reconstructed.webp"
+  ]
+}

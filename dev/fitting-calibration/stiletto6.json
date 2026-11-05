@@ -1,0 +1,462 @@
+{
+  "style": "stiletto6",
+  "note": "Stiletto6 only, SUPERVISOR12:55: rounded original counter lip, brighter source-luminance white hosiery, whole-source heel seating. Immutable user paintings and original shoe base retained.",
+  "front": {
+    "source": "assets/src-user-legs-20261029/leg-front-left-user.png",
+    "source_anchors": [
+      [
+        470,
+        1444
+      ],
+      [
+        710,
+        1132
+      ]
+    ],
+    "seat_anchors": [
+      [
+        490,
+        514
+      ],
+      [
+        830,
+        224
+      ]
+    ],
+    "collar_trace": [
+      [
+        0,
+        510
+      ],
+      [
+        95,
+        510
+      ],
+      [
+        200,
+        449
+      ],
+      [
+        280,
+        408
+      ],
+      [
+        300,
+        403
+      ],
+      [
+        325,
+        404
+      ],
+      [
+        350,
+        410
+      ],
+      [
+        375,
+        417
+      ],
+      [
+        400,
+        423
+      ],
+      [
+        425,
+        428
+      ],
+      [
+        450,
+        433
+      ],
+      [
+        475,
+        437
+      ],
+      [
+        500,
+        440
+      ],
+      [
+        525,
+        441
+      ],
+      [
+        550,
+        441
+      ],
+      [
+        575,
+        436
+      ],
+      [
+        600,
+        431
+      ],
+      [
+        625,
+        417
+      ],
+      [
+        650,
+        402
+      ],
+      [
+        675,
+        375
+      ],
+      [
+        700,
+        347
+      ],
+      [
+        725,
+        312
+      ],
+      [
+        750,
+        276
+      ],
+      [
+        775,
+        233
+      ],
+      [
+        800,
+        190
+      ],
+      [
+        825,
+        125
+      ],
+      [
+        850,
+        98
+      ],
+      [
+        860,
+        85
+      ],
+      [
+        865,
+        82
+      ],
+      [
+        870,
+        82
+      ],
+      [
+        875,
+        82
+      ],
+      [
+        880,
+        84
+      ],
+      [
+        885,
+        89
+      ],
+      [
+        895,
+        103
+      ],
+      [
+        910,
+        131
+      ],
+      [
+        925,
+        168
+      ],
+      [
+        940,
+        250
+      ],
+      [
+        1023,
+        510
+      ]
+    ],
+    "placement": {
+      "scale": 1.072677687032363,
+      "degrees": 4.604178521521013,
+      "tx": 170.25994990718706,
+      "ty": 371.182340993656
+    },
+    "placement_override": {
+      "scale": 1.072677687032363,
+      "degrees": 4.604178521521013,
+      "tx": 170.25994990718706,
+      "ty": 371.182340993656
+    },
+    "collar_interpolation": "pchip",
+    "preserve_upper": true,
+    "sole_seat_landmarks": [
+      {
+        "name": "ball",
+        "source": [
+          500,
+          1417
+        ],
+        "seat": [
+          500,
+          441
+        ]
+      },
+      {
+        "name": "arch",
+        "source": [
+          625,
+          1242
+        ],
+        "seat": [
+          675,
+          376
+        ]
+      },
+      {
+        "name": "heel",
+        "source": [
+          725,
+          1114
+        ],
+        "seat": [
+          800,
+          191
+        ]
+      }
+    ],
+    "seat_provenance": "Seat landmarks sampled from original stiletto6 insole alpha lower boundary. Placement fitted against the full unoccluded source sole, not an invented hidden support curve. Exact contour differences are retained in the QA overlay.",
+    "forefoot_opening_limit": 500,
+    "collar_provenance": "Independent stiletto6 near collar follows original smooth cream counter lip, replacing the erroneous two-peaked dye-mask boundary. Whole-source translation seats the heel inward; original anatomy is not warped."
+  },
+  "rear": {
+    "source": "dev/stiletto6-fit/rear-keyed.png",
+    "source_anchors": [
+      [
+        325,
+        1290
+      ],
+      [
+        538,
+        1085
+      ]
+    ],
+    "seat_anchors": [
+      [
+        455,
+        510
+      ],
+      [
+        824,
+        238
+      ]
+    ],
+    "collar_trace": [
+      [
+        0,
+        510
+      ],
+      [
+        95,
+        510
+      ],
+      [
+        200,
+        449
+      ],
+      [
+        280,
+        408
+      ],
+      [
+        300,
+        403
+      ],
+      [
+        325,
+        404
+      ],
+      [
+        350,
+        410
+      ],
+      [
+        375,
+        417
+      ],
+      [
+        400,
+        423
+      ],
+      [
+        425,
+        428
+      ],
+      [
+        450,
+        433
+      ],
+      [
+        475,
+        437
+      ],
+      [
+        500,
+        440
+      ],
+      [
+        525,
+        441
+      ],
+      [
+        550,
+        441
+      ],
+      [
+        575,
+        436
+      ],
+      [
+        600,
+        431
+      ],
+      [
+        625,
+        417
+      ],
+      [
+        650,
+        402
+      ],
+      [
+        675,
+        375
+      ],
+      [
+        700,
+        347
+      ],
+      [
+        725,
+        312
+      ],
+      [
+        750,
+        276
+      ],
+      [
+        775,
+        233
+      ],
+      [
+        800,
+        190
+      ],
+      [
+        825,
+        125
+      ],
+      [
+        850,
+        98
+      ],
+      [
+        860,
+        85
+      ],
+      [
+        865,
+        82
+      ],
+      [
+        870,
+        82
+      ],
+      [
+        875,
+        82
+      ],
+      [
+        880,
+        84
+      ],
+      [
+        885,
+        89
+      ],
+      [
+        895,
+        103
+      ],
+      [
+        910,
+        131
+      ],
+      [
+        925,
+        168
+      ],
+      [
+        940,
+        250
+      ],
+      [
+        1023,
+        510
+      ]
+    ],
+    "placement": {
+      "scale": 1.5790101735787982,
+      "degrees": 1.0070089418440547,
+      "tx": 30.218383984567396,
+      "ty": -100.3324408309245
+    },
+    "placement_override": {
+      "scale": 1.5790101735787982,
+      "degrees": 1.0070089418440547,
+      "tx": 30.218383984567396,
+      "ty": -100.3324408309245
+    },
+    "collar_interpolation": "pchip",
+    "preserve_upper": true,
+    "sole_seat_landmarks": [
+      {
+        "name": "ball",
+        "source": [
+          375,
+          1288
+        ],
+        "seat": [
+          500,
+          441
+        ]
+      },
+      {
+        "name": "arch",
+        "source": [
+          450,
+          1165
+        ],
+        "seat": [
+          675,
+          376
+        ]
+      },
+      {
+        "name": "heel",
+        "source": [
+          525,
+          1111
+        ],
+        "seat": [
+          800,
+          191
+        ]
+      }
+    ],
+    "seat_provenance": "Seat landmarks sampled from original stiletto6 insole alpha lower boundary. Placement fitted against the full unoccluded source sole, not an invented hidden support curve. Exact contour differences are retained in the QA overlay.",
+    "collar_provenance": "Independent stiletto6 near collar follows original smooth cream counter lip, replacing the erroneous two-peaked dye-mask boundary. Whole-source translation seats the heel inward; original anatomy is not warped.",
+    "forefoot_provenance": "Rear raised instep retains its original continuous source contour; the former rectangular forefoot opening guard cut a visible right angle through the ankle. Original outer-upper and smooth near-collar masks provide shoe occlusion."
+  }
+}

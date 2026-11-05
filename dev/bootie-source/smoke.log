@@ -1,0 +1,20 @@
+PASS: 30 days of achievable orders; VIP, scoring, combos, negatives, save recovery, localization, all canvas variants and 20 artwork anchors.
+PASS: v3 migration/roundtrip/corrupt recovery, merge adjacency, max tiers, generator atomicity/cooldown, offline energy, 3000-turn board simulation.
+PASS: atomic multi-item delivery, distinct per-piece availability, 100 crafted weighted orders, 1–3 requirements, proportional rewards, board-aware weights, legacy requests and persistent easy slot.
+PASS: explicit free cooldown relief, read-only previews, exact shared inventory, expert-drop/expiry handling, save persistence, stale-click atomicity and unchanged delivery cadence.
+PASS: milestone chest queue, atomic full-board refusal, deterministic four-drop contents, no energy cost, save/partial-chest recovery, final-slot replacement, valid idle hints.
+PASS: 60 sustained orders, 236 actual energy taps, 12 free chests; 204.7 simulated minutes (188.4 waiting), no resource/board resets or paid boosts. The renovation-aware simulation is in qa/pacing-test.js.
+PASS: bubble expiry/reload/full-board/insufficient-gems/atomic purchase/dismissal; real guided starter sequence and one-time reward; crafted detail unlocks, achievable commissions, legacy guide migration, four local worn masks.
+PASS: all 16 renovation tasks / eight two-level slots, exact stars, stale-callback protection, chapter boundaries, full-board deferred generator, save recovery, reachable jewel/ribbon orders and charm payouts.
+PASS: expert generators deterministic across eight reloads, failed-tap atomicity, customer chapter gates, 16 bilingual story entries, daily claim/reload/midnight/clock rollback, renovation energy and commission stars, legacy audio mute.
+PASS: extended introduction, real renovation spending, saved checkpoints, wrong-event/idempotent guards, legacy opt-out and bilingual lessons.
+PASS: showcase legacy migration, corrupt recovery, atomic coin purchases, no double-spending, gallery scenes and save roundtrip.
+PASS: new-player commission → fitting → first renovation route, using real earned stars.
+PASS: Chinese locale alias migration/reload, preserved wallet/gallery, complete bilingual dictionary.
+PASS: all registered painted shoe kits, shared pair markup and browser entry without archived 3D.
+PASS: Mary Jane discovery, compatible customer requests, one built-in strap and save/gallery migration.
+PASS: ribbon ballet discovery, fulfillable requests, built-in ribbon/bow and save/gallery compatibility.
+PASS: earned slingback, compatible open-heel commissions, source-safe ornaments and save/gallery recovery.
+PASS: earned penny loafer, sewn saddle, fulfillable orders and saved finish/Collection identity.
+PASS: earned platform pump, fulfillable orders, optional finishes, local fallback and saved Collection.
+PASS: earned ankle bootie, compatible shaft/toe details, fulfillable requests, local fallback and saved Collection.

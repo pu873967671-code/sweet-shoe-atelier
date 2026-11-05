@@ -1,0 +1,45 @@
+{
+  "workflow": "Built-in returned no artifact; explicitly requested gpt-image-2 edits via relay using bundled imagegen CLI.",
+  "scenes": {
+    "salon": {
+      "input": "assets/bg_fitting.webp",
+      "prompt_file": "dev/fitting-perspective-source/salon-prompt.txt",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "quality": "high",
+      "horizon": 0.4
+    },
+    "mirror_lounge": {
+      "input": "assets/scenes/close_mirror_lounge.webp",
+      "prompt_file": "dev/fitting-perspective-source/mirror_lounge-prompt.txt",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "quality": "high",
+      "horizon": 0.4
+    },
+    "car": {
+      "input": "assets/scenes/close_car.webp",
+      "prompt_file": "dev/fitting-perspective-source/car-prompt.txt",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "quality": "high",
+      "horizon": 0.4
+    },
+    "vanity": {
+      "input": "assets/scenes/close_vanity.webp",
+      "prompt_file": "dev/fitting-perspective-source/vanity-prompt.txt",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "quality": "high",
+      "horizon": 0.4
+    },
+    "balcony": {
+      "input": "assets/scenes/close_balcony.webp",
+      "prompt_file": "dev/fitting-perspective-source/balcony-prompt.txt",
+      "model": "gpt-image-2",
+      "size": "1536x1024",
+      "quality": "high",
+      "horizon": 0.4
+    }
+  }
+}

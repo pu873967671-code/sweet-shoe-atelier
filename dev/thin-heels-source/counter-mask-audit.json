@@ -1,0 +1,28 @@
+{
+  "6": {
+    "unchangedBaseInsoleSole": true,
+    "unchangedAfterY250": true,
+    "upperOnlyIncreases": true,
+    "changedPixels": 2372,
+    "changedBounds": [
+      867,
+      67,
+      930,
+      251
+    ],
+    "edgeFeather": ".5px Gaussian, includes row250"
+  },
+  "9": {
+    "unchangedBaseInsoleSole": true,
+    "unchangedAfterY250": true,
+    "upperOnlyIncreases": true,
+    "changedPixels": 2832,
+    "changedBounds": [
+      857,
+      61,
+      930,
+      251
+    ],
+    "edgeFeather": ".5px Gaussian, includes row250"
+  }
+}

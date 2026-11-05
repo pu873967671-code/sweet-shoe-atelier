@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "identicalFiles": 14,
+  "sha256": {
+    "dev/paired-source-20261025/pair-neutral-alpha.webp": "61ecf93b926136703d33227f0ff7cddb940ef3fce90304ddc982de9b59aa83c7",
+    "dev/paired-source-20261025/candidate-kit/front_highlight.webp": "6106c2bc8570e25f94337604ea3a7feb5b2d62344d4ad619fd2f3161c7f9ac6f",
+    "dev/paired-source-20261025/candidate-kit/front_legs.webp": "817566d105886b39f46431509fa51d4634fe4de149329eee47818d6b5a7446e2",
+    "dev/paired-source-20261025/candidate-kit/front_occlusion.webp": "fa0c81952d1b0c48b57c37a09926528735ecc88e2d687d18634ebbefc407888e",
+    "dev/paired-source-20261025/candidate-kit/front_shadow.webp": "11de8742c90ba80de05f1453b7c1ab4ec19232b1603ab7e4800ee29d51ef9d2f",
+    "dev/paired-source-20261025/candidate-kit/front_shoe.webp": "908a96639180de4a2a6b50572bd4409ae349d460c6ac997e34dee9872bd0b4d5",
+    "dev/paired-source-20261025/candidate-kit/front_upper.webp": "7e78107ab09ebdf51b919c4f51a770c44857d1c37ca2c94e969630bd8d24ced2",
+    "dev/paired-source-20261025/candidate-kit/rear_highlight.webp": "3b0ad88da3a3c12485d8b4e610d713b659ce66f04729e339b0dc7c272b171772",
+    "dev/paired-source-20261025/candidate-kit/rear_legs.webp": "51b1da9ef638bedac95814f622f08843b73ac7cbcffab597e0f7be7365adb1a4",
+    "dev/paired-source-20261025/candidate-kit/rear_occlusion.webp": "bfed44556f474729b98c06512605118728b7198f447fa0279d316fc8f340be2f",
+    "dev/paired-source-20261025/candidate-kit/rear_shadow.webp": "7c7c3ffd1a07d3b084f87c92e481fc6effdc0104e4782fb87d71e564acd340fe",
+    "dev/paired-source-20261025/candidate-kit/rear_shoe.webp": "cfe185654eb6e6e455169defc2827b4568004901e6d28184051bf9ed039db572",
+    "dev/paired-source-20261025/candidate-kit/rear_upper.webp": "555ce7716d4c07168036f5188207322e6d720a26c10643f13810376ff9c9b16f",
+    "dev/paired-source-20261025/candidate-kit/reconstructed.webp": "61ecf93b926136703d33227f0ff7cddb940ef3fce90304ddc982de9b59aa83c7"
+  },
+  "runtimeIntegrated": false
+}

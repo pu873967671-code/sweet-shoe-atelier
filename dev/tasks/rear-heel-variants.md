@@ -1,0 +1,5 @@
+# Task: rear heel counter v2 for frill/lace variants (continue rear-heel-apply)
+
+User already approved applying v2 to the frill and lace variants. Authorized: use the existing sock masks as the coverage selector (`python3 dev/apply-rear-heel.py --sock-policy mask`): repaint the shoe/lining/background pixels in the patch box, keep sock pixels. The rear sock's heel should sit inside the lowered, rounded, still-thick counter exactly like the base v2 (shoe wall wraps the heel, no empty brown pocket, no gap/halo). If the sock outline needs a small local repaint where the old counter used to cut it, hand-paint it matching the knit texture; no stretching/warping. Update the variant _mask/_legs/_sole files consistently.
+Then `--verify --sock-policy mask`, `python3 dev/rear-heel-applied-browser.py`, regenerate dev/qa-out/rear_heel/applied.jpg, run smoke tests, bump ASSET_V, commit.
+Hard constraints: do not touch js/audio.js, qa/, dev/codex_ledger.csv, dev/codex_tokens.csv, dev/codex_pause_until, assets/src-user-legs-20261029/*, other bases.

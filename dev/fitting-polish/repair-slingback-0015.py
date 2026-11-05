@@ -1,0 +1,15 @@
+from PIL import Image, ImageDraw, ImageFilter, ImageChops
+ref=Image.open('dev/refs/ref_slingback_heel_fix.png').convert('RGB')
+leg=Image.open('dev/fitting-polish/slingback-0015-source/legs.webp').convert('RGBA')
+mask=Image.new('L',(1024,1024)); d=ImageDraw.Draw(mask)
+d.polygon([(735,495),(850,495),(850,755),(683,755),(692,705),(713,640),(733,590),(742,550)],fill=255)
+mask=mask.filter(ImageFilter.GaussianBlur(1))
+background=ImageChops.darker(ImageChops.darker(*ref.split()[:2]),ref.split()[2]).point(lambda v: min(255,max(0,(250-v)*35)))
+patch=ref.convert('RGBA');patch.putalpha(ImageChops.multiply(mask,background))
+leg.putalpha(ImageChops.multiply(leg.getchannel('A'),ImageChops.invert(mask)))
+leg.alpha_composite(patch);leg.save('assets/fitting2d/slingback_legs.webp',lossless=True)
+cut=Image.new('L',(4096,4096));d=ImageDraw.Draw(cut)
+points=[(760,526),(770,540),(782,560),(792,580),(798,600),(801,620),(800,640),(797,652),(1024,652),(1024,526)]
+d.polygon([(x*4,y*4) for x,y in points],fill=255)
+cut=cut.resize((1024,1024),Image.Resampling.LANCZOS)
+shoe=Image.open('dev/fitting-polish/slingback-0015-source/shoe.webp').convert('RGBA');shoe.putalpha(ImageChops.multiply(shoe.getchannel('A'),ImageChops.invert(cut)));shoe.save('assets/fitting2d/slingback_shoe.webp',lossless=True)
