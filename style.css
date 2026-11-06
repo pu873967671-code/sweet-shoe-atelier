@@ -1680,3 +1680,48 @@ header #nav button.active,
 .runway-modal .runway-dock:has([data-scene-bonus="claimed"]) .runway-reaction{display:block;grid-column:1/-1;font-size:12px;line-height:1.3;margin:2px 0;color:#426358}
 .runway-modal .runway-dock .scene-bonus-line{grid-column:1/-1;margin:2px 0}
 .runway-modal .runway-dock:has(.scene-bonus-line){overflow-y:auto}
+
+/* ── Art polish pass (2026-11-06) ─────────────────────────────────────────
+   Visual defects found by rendering every main screen at 1920×1080, 1280×720,
+   800×450, 390×844 and 844×390. Each rule below fixes one observed defect. */
+
+/* Title: logo_v4 carries ~27% empty transparent canvas under the wordmark,
+   which left a dead band between logo and tagline. Crop to the painted area. */
+.modal[data-modal-kind=welcome] .title-logo{aspect-ratio:1500/720;height:auto;max-height:none;width:min(430px,76vw,64vh);object-fit:cover;object-position:50% 38%}
+
+/* Atelier: Mimi was taller than her column and her bow/hair painted over the
+   first order card. Keep the full figure inside the mentor column. */
+@media(orientation:landscape){.mentor-area .atelier-mentor{max-height:100%}}
+
+/* Order cards: the green ✓ badge sat on top of the "Have 1 / 1" counter at
+   phone and 800×450 sizes. Pin it to the item art's top-right corner. */
+.request-check{top:-3px;left:calc(50% + 5px);box-shadow:0 0 0 2px #fff}
+@media(orientation:portrait){.request-check{top:-3px;left:calc(50% + 3px)}}
+
+/* Compact merge header (800×450): the active nav item became a squashed
+   circle because labels had only 5px side padding. Give pills real shape. */
+@media(max-height:560px) and (orientation:landscape){body.merge-active header #nav button{padding:3px 14px}}
+
+/* Free design (wide desktop): the white design panel stopped above the action
+   row, so "Inspire me / Save" hung on a different backdrop with a seam.
+   Extend the panel behind the actions and align its content with Serve mode. */
+@media(orientation:landscape) and (min-width:1201px) and (min-height:561px){
+ #studioScreen:has(.free-brief) .custom{grid-area:1/2/5/3;justify-content:flex-start;padding-bottom:96px}
+ #studioScreen:has(.free-brief) .work-actions{position:relative;z-index:1}
+}
+
+/* Dialog close buttons hugged the 24px rounded corner and read as falling
+   off the card; give them the same inset as the card padding. */
+.modal:not(.runway-modal):not(.boutique-modal):not(.collection-modal)>.modal-dismiss{top:12px;right:12px}
+
+/* Fitting room: with a claimed scene bonus, the customer's reaction line was
+   cut off by the bottom edge of the fixed-height dock (1280×720 and similar).
+   Tighten vertical rhythm in that state so every line fits. */
+@media(orientation:landscape) and (min-height:561px){
+ .runway-modal .runway-dock:has([data-scene-bonus="claimed"]){row-gap:6px;padding-block:12px}
+}
+
+/* Result card: "Scene bonus" and its explanation sat on mismatched baselines,
+   and the two actions had different heights. */
+.scene-bonus-line{align-items:baseline}
+.modal[data-modal-kind=result] :is(.primary,.secondary):not(.modal-dismiss){min-height:48px;vertical-align:middle}
