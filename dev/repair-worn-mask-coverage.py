@@ -331,7 +331,9 @@ def repair(variant):
     sock_added = 0
     if sock is not None:
         key = np.clip((g - np.maximum(r, b) - 2) / 10.0, 0, 1)
-        keyed = np.where((a > 0) & (legs < 128) & (clear < 128), np.rint(key * 255), 0).astype(np.int32)
+        # Painted cuffs (lace, frill) are mint and sit inside the bare-leg skin
+        # outline, so the skin test must not exclude them: skin is never green.
+        keyed = np.where((a > 0) & ((legs < 128) | (key > 0)) & (clear < 128), np.rint(key * 255), 0).astype(np.int32)
         for _ in range(4):  # grow from the updated edge until stable
             want = np.where(dilate(sock[..., 3] >= 128, SOCK_REACH), keyed, 0)
             raise_ = want > sock[..., 3]
