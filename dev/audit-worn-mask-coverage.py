@@ -19,7 +19,10 @@ def leaks(v,which):
     pz=rep.piping_zone(P,L,rep.baseline(f"{v}_mask")[...,3]>=128,base in rep.SPLIT_BASES,rep.piping_width(base))
     # visible undyed share of a pixel = 1 - dye - nodye - legs - sock (clamped)
     vis=np.clip(255-M-N-L-K,0,255)
-    satin=(a>200)&(spread<=24)&(lum>=105)&~orn&~pz&(C<128)
+    band=rep.dilate(L>=128,rep.COLLAR)&(L<128) if rep.piping_width(base) else np.zeros(shape[:2],bool)
+    s0=rep.aligned(rep.baseline(f"{base}_sole"),dx,dy,shape)[...,3]>=128
+    piping=(band&(s0|(rep.box_mean(g-b,2)>=rep.CREAM_LO+2))) if rep.piping_width(base) else np.zeros(shape[:2],bool)  # authored collar piping, kept on purpose
+    satin=(a>200)&(spread<=24)&(lum>=105)&~orn&~pz&~piping&(C<128)
     near=rep.dilate(M>=200,2)
     leak=satin&near&(vis>=96)
     green=(a>32)&(g>r+12)&(g>b+4)&(L<128)&(C<128)&(M<128)&(N<128)&(K<128) if v.count('_') else np.zeros(shape[:2],bool)

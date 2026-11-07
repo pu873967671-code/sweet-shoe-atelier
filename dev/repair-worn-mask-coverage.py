@@ -140,28 +140,50 @@ def soften_sole(base):
     solid = sole[..., 3] >= 128
     satin = solid & (cream <= CREAM_LO + 1) & (r - b <= 26) & (lum >= 150) & (a > 200) & (legs < 128)
     # Collar: the measured piping band of this style (none for unpiped styles).
-    collar = piping_zone(painting, legs, dye >= 128, base in SPLIT_BASES, piping_width(base))
-    if base in SPLIT_BASES:
-        # Strap styles carry small rhinestones along every strap, all near the
-        # skin: keep the authored matte within 16 px of the skin there.
-        collar = dilate(legs >= 128, COLLAR) & ~(legs >= 128) & (a > 0)
+    # Piped styles keep the authored matte within 16 px of the skin: at the
+    # throat the shaded satin below the piping is as creamy as the piping, and
+    # releasing it by colour leaves bites. Unpiped styles have nothing to keep.
+    collar = dilate(legs >= 128, COLLAR) & ~(legs >= 128) & (a > 0)
+    if piping_width(base) == 0:
+        collar = np.zeros_like(collar)
     # Ornaments (pearls, crystals, clear heels) are thick bright neutral parts
     # of the authored matte; their shaded rims stay with them.
     spread = np.maximum(r, np.maximum(g, b)) - np.minimum(r, np.minimum(g, b))
     core = thick_parts(solid & (spread <= 24) & (lum >= 150), THICK)
     ornament = dilate(core, 3)
+    # Small rhinestones (strap crystals) are too small to be thick, but they
+    # sparkle: strong local contrast inside the authored matte. Smooth strap
+    # rims and welts do not.
+    sparkle = solid & erode(solid, 1) & (lum - box_mean(lum, 2) > SPARKLE) & (lum > 200)
+    gems = (dilate(sparkle, 1) & solid) if base in GEM_BASES else np.zeros_like(solid)
+    ornament |= gems
+    core = core | gems
     release = geodesic((dye >= 128) & ~solid, satin & ~collar & ~dilate(core, ORNAMENT_MARGIN), RELEASE)
+    # Overreach is a thin strip at the edge of the authored matte; glints
+    # painted deep inside a heel or sole must stay with it.
+    edge_zone = (sole[..., 3] >= 128) & ~erode(sole[..., 3] >= 128, EDGE_DEPTH)
+    release &= edge_zone
     original = sole[..., 3].copy()
     sole[release, 3] = 0
     solid = sole[..., 3] >= 128
     soft = np.rint(np.clip((cream - CREAM_LO) / (CREAM_HI - CREAM_LO), 0, 1) * 255).astype(np.int32)
     # Inside the boundary the ramp may lower coverage; outside it only raises
     # it. Neither applies in the collar zone (see above).
-    inner = solid & ~erode(solid, BAND) & (a > 0) & (legs < 128) & ~collar & ~ornament
+    inner = solid & ~erode(solid, BAND) & (a > 0) & (legs < 128) & ~collar & ~ornament & (lum >= 105)
     outer = dilate(solid, OUTER) & ~solid & (a > 0) & (legs < 128) & ~collar & ~ornament
     sole[inner, 3] = soft[inner]
     sole[outer, 3] = np.maximum(sole[outer, 3], soft[outer])
     band = inner | outer
+    # Edge pass: neutral no-dye pixels touching the dye (the antialiased rim
+    # of the welt and outsole) showed as a broken light outline on dark
+    # shoes. Two rings deep, outside the collar band; ornaments kept.
+    rim = np.zeros_like(solid)
+    for _ in range(EDGE_RINGS):
+        dyed = (dye >= 128) & (sole[..., 3] < 128) | rim
+        ring = dilate(dyed, 1) & (sole[..., 3] >= 1) & (lum >= 105) & (box_mean(cream, 2) <= CREAM_LO) & (r - b <= 18) & (a > 0) & (legs < 128) & ~ornament
+        rim |= ring & edge_zone & ~collar
+    sole[rim, 3] = 0
+    band = band | rim
     touched = release | band
     sole[touched, 0] = sole[touched, 1] = sole[touched, 2] = 255
     return sole, int((sole[..., 3] != original).sum())
@@ -171,6 +193,10 @@ BAND, OUTER, CREAM_LO, CREAM_HI, RELEASE = 2, 4, 8, 15, 10
 COLLAR, PIPING, STITCH = 16, 10, 14
 SPLIT_BASES = {'crystalsandal'}
 THICK = 3
+EDGE_RINGS = 2
+EDGE_DEPTH = 4
+SPARKLE = 45
+GEM_BASES = {'crystalsandal', 'crystalpump', 'pearlpump', 'studpump'}
 ORNAMENT_MARGIN = 8
 
 
@@ -314,7 +340,14 @@ def repair(variant):
     # (pearls, crystals). Their antialiased outline must stay undyed too.
     sole0_solid = aligned(baseline(f'{base}_sole'), dx, dy, shape)[..., 3] >= 128
     ornament = dilate(thick_parts(sole0_solid & (spread <= 24) & (lum >= 150), THICK), 3)
-    satin = (a > 0) & (spread <= 24) & (lum >= 105) & ~ornament & ~piping_zone(painting, legs, dye[..., 3] >= 128, base in SPLIT_BASES, piping_width(base))
+    # Inside the piping band, only cream pixels are piping; neutral satin
+    # below a thin piping line (green - blue <= 8) still takes the dye.
+    collar_band = (dilate(legs >= 128, COLLAR) & (legs < 128)) if piping_width(base) else np.zeros(shape[:2], bool)
+    # Piped styles: inside the collar band the authored no-dye matte is the
+    # piping, plus any smoothed-cream pixels next to it. Unpiped: geometry.
+    piping = (collar_band & (sole0_solid | (box_mean(g - b, 2) >= CREAM_LO + 2))) if piping_width(base) \
+        else piping_zone(painting, legs, dye[..., 3] >= 128, base in SPLIT_BASES, piping_width(base))
+    satin = (a > 0) & (spread <= 24) & (lum >= 105) & ~ornament & ~piping
     # Pixels whose no-dye coverage this repair lowered (see soften_sole)
     # need dye underneath, whatever their tint, or the released
     # share of the pixel shows the undyed painting. The runtime removes dye in
@@ -345,13 +378,19 @@ def repair(variant):
     core = thick_parts(sole0_solid & (spread <= 24) & (lum >= 150), THICK)
     gap = 255 - np.maximum(legs, sock_alpha) - sole
     open_satin = ((a > 200) & (spread <= 24) & (lum >= 105) & ~core & ~dilate(core, 1)
-                  & ~piping_zone(painting, legs, dye[..., 3] >= 128, base in SPLIT_BASES, piping_width(base))
+                  & ~piping
                   & (clear < 128) & (gap > 0))
     for _ in range(8):  # repeat until stable: newly solid pixels close their neighbours
         closing = open_satin & dilate(np.maximum(dye[..., 3], alpha) >= 200, 2) & (alpha < gap)
         if not closing.any():
             break
         alpha = np.where(closing, np.maximum(alpha, gap), alpha)
+    # Never dye cream piping: on piped styles, cream pixels (green - blue >= 10)
+    # within 16 px of the skin keep their painting, wherever the stitch line
+    # failed to fence the piping zone.
+    if piping_width(base):
+        band = dilate(legs >= 128, COLLAR) & (legs < 128)
+        alpha = np.where(piping, 0, alpha)
     raise_ = alpha > dye[..., 3]
     dye[raise_, 3] = alpha[raise_]
     dye[raise_, 0] = dye[raise_, 1] = dye[raise_, 2] = 255
