@@ -3,7 +3,7 @@
 // A design is a finish applied to one immutable painting. Neither a colour nor
 // a fabric selection changes the source frame, silhouette, or camera.
 const WIDTH=1024,HEIGHT=640,HEELS=A.opts.heel.map(o=>o[0]);
-const PRODUCT_EDGE_V='20261104u';
+const PRODUCT_EDGE_V='20261107a';
 // The binding mask restores the painted inner seam over the sewn strap tab.
 // Insole/sole pixels stay in the immutable base and need no extra bitmap decode.
 const PARTS=['base','upper','shadow','highlight','binding'];
