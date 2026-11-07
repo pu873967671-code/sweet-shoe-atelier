@@ -16,7 +16,7 @@ def leaks(v,which):
     L=rep.aligned(rep.current(f'{base}_legs'),dx,dy,shape)[...,3].astype(int);C=rep.current(f'{v}_clear')[...,3]
     r,g,b,a=(P[...,i] for i in range(4));lum=r*.299+g*.587+b*.114;spread=np.maximum(r,np.maximum(g,b))-np.minimum(r,np.minimum(g,b))
     orn=rep.dilate(rep.thick_parts((rep.aligned(rep.baseline(f'{base}_sole'),dx,dy,shape)[...,3]>=128)&(spread<=24)&(lum>=150),rep.THICK),3)
-    pz=rep.piping_zone(P,L,rep.baseline(f'{v}_mask')[...,3]>=128,base in rep.SPLIT_BASES)
+    pz=rep.piping_zone(P,L,rep.baseline(f"{v}_mask")[...,3]>=128,base in rep.SPLIT_BASES,rep.piping_width(base))
     # visible undyed share of a pixel = 1 - dye - nodye - legs - sock (clamped)
     vis=np.clip(255-M-N-L-K,0,255)
     satin=(a>200)&(spread<=24)&(lum>=105)&~orn&~pz&(C<128)
