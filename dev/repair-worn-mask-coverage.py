@@ -301,6 +301,16 @@ def repair(variant):
     inside = (satin & dilate((dye[..., 3] >= 250) | fill, 1) & (legs < 128) & ((sole == 0) | softened)
               & (sock_alpha < 128) & (clear < 128))
     alpha = np.where(inside, np.maximum(alpha, 255 - cover), alpha)
+    # Closing: satin within 2 px of solid dye whose total coverage (dye,
+    # no-dye, skin, sock) still leaves the painting visible gets the missing
+    # share. Ornament cores and piping stay excluded; ornament margins are
+    # allowed here because a strap's rim can sit within 3 px of a rhinestone.
+    core = thick_parts(sole0_solid & (spread <= 24) & (lum >= 150), THICK)
+    gap = 255 - np.maximum(legs, sock_alpha) - sole
+    closing = ((a > 200) & (spread <= 24) & (lum >= 105) & ~core & ~dilate(core, 1)
+               & ~piping_zone(painting, legs, dye[..., 3] >= 128, base in SPLIT_BASES)
+               & dilate(np.maximum(dye[..., 3], alpha) >= 200, 2) & (clear < 128) & (gap > 0))
+    alpha = np.where(closing, np.maximum(alpha, gap), alpha)
     raise_ = alpha > dye[..., 3]
     dye[raise_, 3] = alpha[raise_]
     dye[raise_, 0] = dye[raise_, 1] = dye[raise_, 2] = 255
