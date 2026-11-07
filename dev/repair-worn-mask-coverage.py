@@ -182,6 +182,24 @@ def soften_sole(base):
         dyed = (dye >= 128) & (sole[..., 3] < 128) | rim
         ring = dilate(dyed, 1) & (sole[..., 3] >= 1) & (lum >= 105) & (box_mean(cream, 2) <= CREAM_LO) & (r - b <= 18) & (a > 0) & (legs < 128) & ~ornament
         rim |= ring & edge_zone & ~collar
+    # Outsole lip: a 1 px neutral highlight between the dyed upper and the
+    # sole. The 5x5 cream average above includes the brown sole, so test
+    # these per pixel: one ring, outside the collar, ornaments kept.
+    # The sole matte is shared by the bare, frill and lace paintings, which
+    # are repainted a pixel or two apart, so test the lip in each of them.
+    for name in (base, base + '_frill', base + '_lace'):
+        path = WORN / f'{name}.webp'
+        if not path.exists() or name not in SPRITES:
+            continue
+        ox, oy = SPRITES[name]['x'] - SPRITES[base]['x'], SPRITES[name]['y'] - SPRITES[base]['y']
+        vp = aligned(np.asarray(Image.open(path).convert('RGBA')), ox, oy, painting.shape).astype(np.int32)
+        vdye = aligned(baseline(f'{name}_mask'), ox, oy, painting.shape)[..., 3]
+        vr, vg, vb, va = (vp[..., i] for i in range(4))
+        vlum = vr * .299 + vg * .587 + vb * .114
+        dyed = (vdye >= 128) & (sole[..., 3] < 128) | rim
+        lip = (dilate(dyed, 1) & (sole[..., 3] >= 1) & (vg - vb <= CREAM_LO) & (vr - vb <= 22) & (vlum >= 150)
+               & (va > 0) & (legs < 128) & ~ornament & ~collar & edge_zone)
+        rim |= lip
     sole[rim, 3] = 0
     band = band | rim
     touched = release | band
@@ -195,6 +213,7 @@ SPLIT_BASES = {'crystalsandal'}
 THICK = 3
 EDGE_RINGS = 2
 EDGE_DEPTH = 4
+CLOSE_REACH = 4
 SPARKLE = 45
 GEM_BASES = {'crystalsandal', 'crystalpump', 'pearlpump', 'studpump'}
 ORNAMENT_MARGIN = 8
@@ -211,23 +230,11 @@ def box_mean(values, radius):
 
 
 def thick_parts(mask, radius):
-    """Connected parts of mask (8-connected) that survive erosion by radius."""
-    core = erode(mask, radius)
-    if not core.any():
-        return np.zeros_like(mask)
-    H, W = mask.shape
-    out = np.zeros_like(mask)
-    queue = deque(zip(*np.nonzero(core)))
-    for y, x in queue:
-        out[y, x] = True
-    while queue:
-        y, x = queue.popleft()
-        for yy in (y - 1, y, y + 1):
-            for xx in (x - 1, x, x + 1):
-                if 0 <= yy < H and 0 <= xx < W and mask[yy, xx] and not out[yy, xx]:
-                    out[yy, xx] = True
-                    queue.append((yy, xx))
-    return out
+    """Morphological opening: the parts of mask at least 2*radius+1 px thick.
+
+    (Not whole connected components: a thin satin lip touching a clear heel
+    or pearl must not inherit its protection.)"""
+    return dilate(erode(mask, radius), radius) & mask
 
 
 def distances(seed, allowed, reach):
@@ -381,7 +388,7 @@ def repair(variant):
                   & ~piping
                   & (clear < 128) & (gap > 0))
     for _ in range(8):  # repeat until stable: newly solid pixels close their neighbours
-        closing = open_satin & dilate(np.maximum(dye[..., 3], alpha) >= 200, 2) & (alpha < gap)
+        closing = open_satin & dilate(np.maximum(dye[..., 3], alpha) >= 200, CLOSE_REACH) & (alpha < gap)
         if not closing.any():
             break
         alpha = np.where(closing, np.maximum(alpha, gap), alpha)
