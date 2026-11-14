@@ -4,6 +4,9 @@
   const SAMPLES=['tap','spawn','merge','coin','switch','pick','drop','box','ribbon','delivery','level','error','unlock','sparkle','tryon'];
   const ALIASES={click:'tap',generate:'spawn',pop:'spawn',navigation:'switch',whoosh:'switch',
     discovery:'unlock',renovate:'level',renovation:'level',chapter:'level',guide:'sparkle',crate:'box',ding:'sparkle'};
+  // Calm background music (CC0, kistol on OpenGameArt). Players switch freely.
+  A.MUSIC_TRACKS=[{id:'forget',en:'Forget Me Not',zh:'勿忘我'},{id:'bluebonnet',en:'Bluebonnet',zh:'矢车菊'}];
+  const trackName=state=>A.MUSIC_TRACKS.some(x=>x.id===state?.musicTrack)?state.musicTrack:'forget';
   A.SFX_FILES=SAMPLES.flatMap(name=>['ogg','mp3'].map(ext=>'assets/sfx/'+name+'.'+ext));
   A.createAudioEngine=function(getState,blocked,getScene=()=> 'merge'){
     const engine={ctx:null,master:null,effects:null,music:null,tick:null,step:0,voices:new Set(),lastCue:new Map(),limit:32,
@@ -63,7 +66,7 @@
         if(!getState().music||!window.Audio||!this.ctx.createMediaElementSource)return;
         // Safari grants playback per element. Warm both local scene tracks in
         // the first gesture so an automatic post-pack scene change can play too.
-        for(const name of ['tea']){
+        for(const name of [trackName(getState())]){
           if(this.failedTracks.has(name))continue;
           const track=this.track(name);if(track.primed)continue;
           track.primed=true;
@@ -98,7 +101,7 @@
           }
           this.currentTrack=null;return false;
         }
-        const name='tea'; // user 2026-10-26: the reception track fits everywhere, keep one soft track
+        const name=trackName(getState()); // user 2026-11-14: quiet, reflective; player-selectable
         if(this.failedTracks.has(name)||!window.Audio||!this.ctx.createMediaElementSource)return false;
         if(this.currentTrack===name&&!this.tracks.get(name)?.audio.paused)return true;
         try{
@@ -106,7 +109,7 @@
           this.currentTrack=name;
           for(const [id,other] of this.tracks){
             clearTimeout(other.stopTimer);other.gain.gain.cancelScheduledValues(this.ctx.currentTime);
-            other.gain.gain.setTargetAtTime(id===name?.35:0,this.ctx.currentTime,.35);
+            other.gain.gain.setTargetAtTime(id===name?.3:0,this.ctx.currentTime,.8);
             if(id!==name)other.stopTimer=setTimeout(()=>{if(this.currentTrack!==id)other.audio.pause();},1500);
           }
           const play=track.audio.play();
