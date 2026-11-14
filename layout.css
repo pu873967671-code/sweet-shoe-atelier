@@ -271,3 +271,45 @@ html body .custom #options .option{overflow:visible!important}
   html body header #nav button .nav-label{display:inline!important;font-size:11px!important;white-space:nowrap!important}
   html body header #nav button:has(.nav-label-short) .nav-label{display:none!important}
 }
+
+/* ── Guide: pearl touch point, softer veil ────────────────────────────── */
+html body .guide-hand{width:60px!important;height:60px!important;animation:none!important;filter:drop-shadow(0 4px 10px #b93a6733)!important;pointer-events:none}
+html body .guide-ring{border:2px solid #fff!important;border-radius:20px!important;box-shadow:0 0 0 4px #ffd3e099,0 0 28px 6px #f383aa40!important}
+html body .guide-label{background:#fffdfe!important;border:1px solid var(--v-line)!important;border-radius:999px!important;box-shadow:var(--v-shadow)!important;color:var(--v-ink)!important;font:600 15px var(--v-font)!important;padding:10px 18px!important}
+
+/* ── Phone fit fixes ──────────────────────────────────────────────────── */
+html body #studioScreen .stage{overflow:hidden!important}
+html body #studioScreen .stage #preview{position:absolute!important;inset:10px!important;width:auto!important;height:auto!important;max-height:none!important;display:grid!important;place-items:center!important}
+html body #studioScreen .stage #preview canvas{width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important}
+html body #saveNotice{top:auto!important;right:auto!important;left:50%!important;bottom:calc(18px + env(safe-area-inset-bottom,0px))!important;translate:-50% 0!important;border-radius:999px!important;border:1px solid var(--v-line)!important;background:#fffdfeee!important;color:var(--v-muted)!important;font:600 12px var(--v-font)!important;box-shadow:var(--v-shadow)!important;padding:7px 16px!important}
+@media (orientation:portrait) and (max-width:700px){html body #saveNotice{bottom:calc(104px + env(safe-area-inset-bottom,0px))!important}}
+html body #atelierScreen .board-rim::before,html body #atelierScreen .board-rim::after{display:none!important}
+html body #atelierScreen .board-rim{border-style:solid!important}
+
+/* ── Motion: soft, slow, satin ─────────────────────────────────────────── */
+:root{--v-ease:cubic-bezier(.22,.8,.24,1)}
+@keyframes v-rise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes v-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes v-sheen{0%,72%{background-position:-160% 0}100%{background-position:260% 0}}
+@keyframes v-glow{0%,100%{box-shadow:0 10px 24px #ec6a9640}50%{box-shadow:0 12px 32px #ec6a9666}}
+@media (prefers-reduced-motion:no-preference){
+  html body #studioScreen:not([hidden])>*,html body #atelierScreen:not([hidden])>*{animation:v-rise .6s var(--v-ease) both}
+  html body #studioScreen:not([hidden])>:nth-child(2),html body #atelierScreen:not([hidden])>:nth-child(2){animation-delay:.08s}
+  html body #studioScreen:not([hidden])>:nth-child(3),html body #atelierScreen:not([hidden])>:nth-child(3){animation-delay:.16s}
+  html body #studioScreen .stage #preview canvas{animation:v-float 6s ease-in-out infinite}
+  html body #studioScreen #pack{background-image:linear-gradient(110deg,transparent 35%,#ffffff55 50%,transparent 65%),linear-gradient(135deg,#f383aa,var(--v-rose))!important;background-size:250% 100%,100% 100%!important;animation:v-sheen 5.5s ease-in-out infinite,v-glow 3.6s ease-in-out infinite}
+  html body #customer .req{transition:background .35s var(--v-ease),border-color .35s,color .35s,transform .35s var(--v-ease)}
+  html body #customer .req.match{animation:v-rise .5s var(--v-ease)}
+}
+html body :is(header #nav button,header .icon-button,#studioScreen .work-actions button,.custom #tabs button,.custom #options .option,#atelierScreen .order-deliver,#atelierScreen .atelier-tools button,#atelierScreen .merge-cell){transition:transform .28s var(--v-ease),box-shadow .28s var(--v-ease),background-color .28s,border-color .28s,color .28s!important}
+@media (hover:hover){
+  html body :is(#studioScreen .work-actions button,.custom #options .option,#atelierScreen .order-deliver,#atelierScreen .atelier-tools button):hover{transform:translateY(-2px)}
+  html body .custom #options .option:hover{border-color:#f6b6cb!important;box-shadow:0 8px 18px #b93a6714!important}
+}
+html body :is(#studioScreen .work-actions button,.custom #options .option,.custom #tabs button,header #nav button,#atelierScreen .order-deliver,#atelierScreen .merge-cell):active{transform:scale(.96)!important}
+html body .custom #options .option.selected .swatch{transform:scale(1.08);transition:transform .35s var(--v-ease)}
+html body #atelierScreen .order-deliver{box-shadow:0 6px 14px #ec6a9633!important}
+html body .backdrop{backdrop-filter:blur(6px)!important;background:#3a2a4a33!important}
+html body .modal{animation:v-rise .5s var(--v-ease)!important}
+@media (orientation:portrait) and (max-width:700px){html body #atelierScreen .mentor-area{align-items:stretch!important}html body #atelierScreen #mergeDetail{width:100%!important;left:auto!important;right:auto!important}}
+html body #app[inert] header #nav,html body.dialogue-active header #nav{display:none!important}

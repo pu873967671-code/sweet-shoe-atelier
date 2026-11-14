@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# LEGACY: superseded by dev/build-elegant-sfx.py (2026-11-14); do not run, it would bring back noisy recordings.
 """Physical-action cues from local CC0 Kenney recordings (cloth, paper, tissue, coins).
 Run this first, then dev/build-elegant-sfx.py, which composes the tuned chimes.
 Originals/licenses remain development-only."""
