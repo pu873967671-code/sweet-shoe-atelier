@@ -1,0 +1,273 @@
+/* Sweet Shoe Atelier — layout v2 (2026-11-14)
+   A clean rebuild of the main screens on top of the legacy stylesheet.
+   Principles: the shoe is the hero; one card per job (customer · stage ·
+   design box); one rose action per screen; cute, rounded, lilac & blush.
+   This file is loaded last and intentionally overrides layout from style.css. */
+
+:root{
+  --v-bg:#f5f1fd;--v-bg2:#fdebf2;--v-card:#fffdfe;--v-ink:#4a3446;--v-muted:#8a7686;
+  --v-line:#ece4f4;--v-lilac:#ebe5fb;--v-blush:#ffe3ec;--v-rose:#ec6a96;--v-rose-deep:#b93a67;
+  --v-shadow:0 10px 30px #6b4a7a14,0 2px 6px #6b4a7a0f;--v-radius:28px;
+  --v-font:'Atelier Round','Atelier CJK','PingFang SC','Microsoft YaHei',Arial,sans-serif;
+}
+
+/* ── Page ─────────────────────────────────────────────────────────────── */
+html body{background:var(--v-bg) radial-gradient(#e7dcf6 1.2px,transparent 1.4px) 0 0/22px 22px!important;font-family:var(--v-font)}
+html body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 50% at 15% 0%,#fde3ee 0,transparent 70%),radial-gradient(50% 45% at 100% 100%,#e6defb 0,transparent 70%)}
+html body #app{display:flex!important;flex-direction:column!important;gap:14px!important;height:100dvh!important;padding:12px 20px 16px!important;color:var(--v-ink)}
+html body footer{display:none!important}
+
+/* ── Header: one tidy bar ─────────────────────────────────────────────── */
+html body header{flex:none!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;height:auto!important;min-height:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+html body header .brand{display:none!important}
+html body header #nav{display:flex!important;flex:none!important;gap:4px!important;padding:5px!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:999px!important;box-shadow:var(--v-shadow)!important;width:auto!important}
+html body header #nav button{display:flex!important;flex-direction:row!important;align-items:center!important;gap:7px!important;padding:8px 16px!important;min-height:44px!important;border-radius:999px!important;border:0!important;background:none!important;box-shadow:none!important;color:var(--v-muted)!important;font:600 14px/1 var(--v-font)!important}
+html body header #nav button img.ui-icon{display:block!important;width:26px!important;height:26px!important}
+html body header #nav button .nav-label{display:inline!important;font-size:14px!important;color:inherit!important}
+html body header #nav button:hover{background:#faf6ff!important;color:var(--v-ink)!important}
+html body header #nav button.active{background:var(--v-blush)!important;color:var(--v-rose-deep)!important}
+html body header .header-right{display:flex!important;align-items:center!important;gap:8px!important;flex:none!important;width:auto!important}
+html body header :is(.hud-pill,.coin-pill,.header-energy){display:inline-flex!important;align-items:center!important;gap:6px!important;height:44px!important;padding:0 14px 0 8px!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:999px!important;box-shadow:var(--v-shadow)!important;font:700 15px var(--v-font)!important;color:var(--v-ink)!important}
+html body header .header-energy:empty{display:none!important}
+html body header .hud-level{display:none!important}
+html body header .atelier-hud{display:flex!important;gap:8px!important}
+html body header :is(.hud-pill,.coin-pill) img{width:26px!important;height:26px!important}
+html body header .icon-button{width:44px!important;height:44px!important;min-width:44px!important;padding:0!important;display:grid!important;place-items:center!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:50%!important;box-shadow:var(--v-shadow)!important}
+html body header .icon-button img.ui-icon{width:26px!important;height:26px!important}
+
+/* ── Shared card look ─────────────────────────────────────────────────── */
+html body #studioScreen>.panel,html body #studioScreen .custom,html body #studioScreen #customer{background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:var(--v-radius)!important;box-shadow:var(--v-shadow)!important}
+
+/* ── Design studio: customer · stage · design box ─────────────────────── */
+html body #studioScreen[hidden],html body #atelierScreen[hidden]{display:none!important}
+html body #studioScreen{flex:1!important;min-height:0!important;display:grid!important;grid-template-columns:290px minmax(0,1fr) 370px!important;grid-template-rows:minmax(0,1fr)!important;gap:16px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;height:auto!important;overflow:visible!important}
+html body #studioScreen>*{grid-row:1!important;margin:0!important;min-height:0!important;max-height:none!important}
+html body #studioScreen #customer{grid-column:1!important;display:flex!important;flex-direction:column!important;gap:14px!important;padding:22px 20px!important;overflow:auto!important;position:relative!important;width:auto!important;height:auto!important}
+html body #studioScreen .work-area{grid-column:2!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:12px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;min-width:0!important;height:auto!important}
+html body #studioScreen .custom{grid-column:3!important;display:flex!important;flex-direction:column!important;gap:14px!important;padding:20px!important;overflow:hidden!important;width:auto!important;height:auto!important}
+
+/* Customer card */
+html body #customer .commission-identity{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:6px!important;grid-row:auto!important}
+html body #customer .portrait-wrap{width:104px!important;height:104px!important;flex:none!important;margin:0!important;border-radius:50%!important;overflow:hidden!important;background:radial-gradient(circle at 50% 35%,#fff,var(--v-blush))!important;border:4px solid #fff!important;box-shadow:0 6px 16px #b93a6722!important;position:relative!important}
+html body #customer .portrait-wrap img{width:100%!important;height:118%!important;object-fit:cover!important;object-position:50% 8%!important;position:static!important;transform:none!important;max-width:none!important}
+html body #customer .section-kicker{font:600 11px var(--v-font)!important;letter-spacing:.12em!important;color:var(--v-muted)!important;text-transform:uppercase}
+html body #customer .customer-name{font:600 26px/1.1 var(--v-font)!important;margin:2px 0 0!important;color:var(--v-ink)!important;white-space:normal!important}
+html body #customer .theme{display:inline-block!important;margin:4px 0 0!important;padding:4px 12px!important;border-radius:999px!important;background:var(--v-lilac)!important;color:#5e4a8a!important;font:600 12px var(--v-font)!important;white-space:nowrap!important}
+html body #customer .commission-brief{display:flex!important;flex-direction:column!important;gap:12px!important;padding:0!important;background:none!important;border:0!important;grid-row:auto!important;grid-column:auto!important}
+html body #customer .speech{position:relative!important;margin:6px 0 0!important;padding:12px 14px!important;background:#faf6ff!important;border:0!important;border-radius:18px!important;font:500 14px/1.45 var(--v-font)!important;color:var(--v-ink)!important;text-align:center!important;box-shadow:none!important}
+html body #customer .speech::before{content:"";position:absolute;top:-7px;left:50%;margin-left:-8px;border:8px solid transparent;border-top:0;border-bottom-color:#faf6ff}
+html body #customer .scene-recommendation,html body #customer .commission-shoe{display:none!important}
+html body #customer .requirements{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important;grid-template-columns:none!important;margin:0!important}
+html body #customer .req{display:inline-flex!important;align-items:center!important;gap:6px!important;width:auto!important;height:auto!important;min-height:36px!important;padding:6px 12px 6px 8px!important;border-radius:999px!important;background:#fff!important;border:1.5px dashed #dccfe8!important;font:600 13px var(--v-font)!important;color:var(--v-ink)!important;box-shadow:none!important;flex:none!important}
+html body #customer .req img.ui-icon{width:22px!important;height:22px!important}
+html body #customer .req b{display:none!important}
+html body #customer .req.match{background:var(--v-blush)!important;border:1.5px solid #f6b6cb!important;color:var(--v-rose-deep)!important}
+html body #customer .req.match::after{content:"✓";font-weight:700;margin-left:2px}
+html body #customer .commission-status{margin-top:auto!important;display:grid!important;gap:8px!important;padding:12px 0 0!important;border-top:1px solid var(--v-line)!important;background:none!important;grid-row:auto!important;grid-column:auto!important}
+html body #customer .timer-row{display:flex!important;justify-content:space-between!important;align-items:center!important;font:600 13px var(--v-font)!important;color:var(--v-muted)!important}
+html body #customer .timer-track{height:10px!important;border-radius:999px!important;background:var(--v-lilac)!important;overflow:hidden!important}
+html body #customer .timer-track i{border-radius:999px!important;background:linear-gradient(90deg,#f59fbd,var(--v-rose))!important}
+html body #customer .customer-top{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;position:static!important}
+html body #customer .time-ad{min-height:34px!important;padding:4px 12px!important;border-radius:999px!important;font:600 12px var(--v-font)!important;background:#faf6ff!important;border:1px solid var(--v-line)!important;color:var(--v-muted)!important}
+html body #customer.free-brief .commission-status{display:none!important}
+
+/* Stage */
+html body #studioScreen .work-heading,html body #studioScreen .stage-note,html body #studioScreen #stageLabel,html body #studioScreen .stage .spark,html body #studioScreen .design-caption img{display:none!important}
+html body #studioScreen .stage{flex:1!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;margin:0!important;border:0!important;box-shadow:none!important;border-radius:var(--v-radius)!important;background:radial-gradient(60% 18% at 50% 80%,#e2d4f2 0,transparent 70%),radial-gradient(70% 70% at 50% 45%,#fff 0,#fff8fb 45%,transparent 75%)!important;display:grid!important;place-items:center!important;position:relative!important}
+html body #studioScreen .stage #preview{width:min(100%,760px)!important;height:auto!important;max-height:100%!important;position:relative!important;inset:auto!important;transform:none!important}
+html body #studioScreen .stage #preview canvas{width:100%!important;height:auto!important;max-height:100%!important;object-fit:contain!important}
+html body #studioScreen .design-caption{display:block!important;padding:0!important;margin:0!important;font:600 14px var(--v-font)!important;color:var(--v-muted)!important;text-align:center!important;background:none!important}
+html body #studioScreen .work-actions{display:flex!important;gap:12px!important;justify-content:center!important;align-items:center!important;width:min(100%,520px)!important;padding:0!important;margin:0!important;position:static!important;grid-template-columns:none!important}
+html body #studioScreen .work-actions button{min-height:58px!important;border-radius:999px!important;font:600 17px var(--v-font)!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;margin:0!important}
+html body #studioScreen #inspire{flex:none!important;padding:0 22px!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;color:var(--v-ink)!important;box-shadow:var(--v-shadow)!important}
+html body #studioScreen #pack{flex:1!important;padding:0 28px!important;background:linear-gradient(135deg,#f383aa,var(--v-rose))!important;border:0!important;color:#fff!important;box-shadow:0 10px 24px #ec6a9655!important;text-shadow:0 1px 0 #b93a6744}
+html body #studioScreen .work-actions img.ui-icon{width:24px!important;height:24px!important}
+html body #studioScreen #pack img.ui-icon{filter:brightness(0) invert(1)}
+
+/* Design box */
+html body .custom .panel-heading,html body .custom #sampleNote,html body .custom #designSummary,html body .custom #recentChoices,html body .custom #optionCount,html body .custom #partTitle{display:none!important}
+html body .custom #tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;padding:0!important;margin:0!important;overflow:visible!important;background:none!important}
+html body .custom #tabs button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important;min-height:66px!important;height:auto!important;padding:8px 2px!important;border-radius:18px!important;background:#faf7fe!important;border:1.5px solid transparent!important;box-shadow:none!important;color:var(--v-muted)!important;font:600 12px var(--v-font)!important;width:auto!important}
+html body .custom #tabs button img.ui-icon{width:30px!important;height:30px!important}
+html body .custom #tabs button.active{background:var(--v-blush)!important;border-color:#f6b6cb!important;color:var(--v-rose-deep)!important}
+html body .custom .options-heading{display:flex!important;justify-content:flex-end!important;align-items:center!important;min-height:0!important;margin:-4px 0 -6px!important;padding:0!important;border:0!important}
+html body .custom .design-undo{min-height:32px!important;padding:2px 12px!important;border-radius:999px!important;font:600 12px var(--v-font)!important;background:none!important;border:1px solid var(--v-line)!important;color:var(--v-muted)!important}
+html body .custom .design-undo:disabled{visibility:hidden}
+html body .custom #options{flex:1!important;min-height:0!important;max-height:none!important;overflow:auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-content:start!important;gap:10px!important;padding:2px 2px 8px!important;margin:0!important}
+html body .custom #options .option{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;min-height:96px!important;height:auto!important;padding:10px 4px!important;border-radius:20px!important;background:#fff!important;border:1.5px solid var(--v-line)!important;box-shadow:none!important;font:600 12.5px/1.2 var(--v-font)!important;color:var(--v-ink)!important;text-align:center!important;position:relative!important}
+html body .custom #options .option .swatch{width:46px!important;height:46px!important;border-radius:50%!important;margin:0!important;box-shadow:inset 0 -3px 6px #0000001a,0 2px 6px #6b4a7a22!important}
+html body .custom #options .option canvas{max-width:100%!important;height:46px!important}
+html body .custom #options .option.selected{background:var(--v-blush)!important;border-color:var(--v-rose)!important;color:var(--v-rose-deep)!important}
+html body .custom #options .option.selected::after{content:"✓";position:absolute;top:6px;right:9px;font-weight:700;color:var(--v-rose)}
+html body .custom #options .option.craft-locked,html body .custom #options .option.locked{background:#fbf9fd!important;color:var(--v-muted)!important}
+html body .custom #options .option small{display:inline-flex!important;align-items:center!important;gap:3px!important;font:600 11px var(--v-font)!important;color:var(--v-muted)!important}
+html body .custom #options .option small img{width:15px!important;height:15px!important}
+html body .custom .heel-height-choices:not([hidden]){display:flex!important;gap:6px!important;flex-wrap:wrap!important}
+
+/* ── Atelier: orders · board · materials ──────────────────────────────── */
+html body #atelierScreen:not([hidden]){flex:1!important;min-height:0!important;display:grid!important;grid-template-columns:290px minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;gap:16px!important;padding:0!important;height:auto!important}
+html body #atelierScreen .merge-intro{grid-column:1/-1!important;grid-row:1!important;display:flex!important;flex-direction:row-reverse!important;align-items:stretch!important;gap:12px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;height:auto!important;min-height:0!important}
+html body #atelierScreen .merge-intro-copy{display:flex!important;flex:none!important;width:auto!important;padding:0!important;background:none!important}
+html body #atelierScreen .merge-intro-copy>:not(.atelier-tools){display:none!important}
+html body #atelierScreen .atelier-tools{display:flex!important;gap:8px!important;align-items:center!important}
+html body #atelierScreen .atelier-tools button{width:64px!important;min-width:64px!important;height:auto!important;min-height:76px!important;border-radius:22px!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;box-shadow:var(--v-shadow)!important;color:var(--v-ink)!important;display:grid!important;place-items:center!important;align-content:center!important;gap:2px!important;padding:6px!important}
+html body #atelierScreen .atelier-orders{flex:1!important;min-width:0!important;display:flex!important;gap:12px!important;overflow-x:auto!important;padding:0!important}
+html body #atelierScreen .atelier-order{flex:1 1 0!important;min-width:240px!important;display:flex!important;align-items:center!important;gap:12px!important;padding:12px 14px!important;min-height:76px!important;height:auto!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:24px!important;box-shadow:var(--v-shadow)!important}
+html body #atelierScreen .atelier-order.ready{border-color:#f6b6cb!important;background:linear-gradient(135deg,#fff,#fff3f7)!important}
+html body #atelierScreen .order-deliver{margin-left:auto!important;min-height:46px!important;padding:0 18px!important;border-radius:999px!important;background:linear-gradient(135deg,#f383aa,var(--v-rose))!important;border:0!important;color:#fff!important;font:600 14px var(--v-font)!important;box-shadow:0 6px 16px #ec6a9644!important}
+html body #atelierScreen .merge-board-wrap{grid-column:2!important;grid-row:2!important;display:grid!important;place-items:center!important;min-height:0!important;height:auto!important;padding:0!important}
+html body #atelierScreen .board-rim{background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:32px!important;box-shadow:var(--v-shadow)!important;padding:14px!important;max-height:100%!important}
+html body #atelierScreen .merge-board{gap:8px!important;background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+html body #atelierScreen .merge-cell{border-radius:18px!important;border:0!important;background:#f7f3fd!important;box-shadow:inset 0 -3px 0 #ebe3f6!important}
+html body #atelierScreen .merge-cell.item,html body #atelierScreen .merge-cell.generator{background:radial-gradient(circle at 50% 30%,#fff,#fdf3f7)!important;box-shadow:inset 0 -3px 0 #f4dbe6,0 2px 6px #6b4a7a10!important}
+html body #atelierScreen .merge-cell.crate{background:#efe9f8!important;opacity:.85}
+html body #atelierScreen .merge-cell.selected,html body #atelierScreen .merge-cell[aria-pressed="true"]{box-shadow:0 0 0 3px var(--v-rose),inset 0 -3px 0 #f4dbe6!important}
+html body #atelierScreen .board-caption{display:none!important}
+html body #atelierScreen .mentor-area{grid-column:1!important;grid-row:2!important;display:flex!important;flex-direction:column!important;gap:12px!important;min-height:0!important;height:auto!important;position:relative!important;overflow:hidden!important}
+html body #atelierScreen #mergeDetail{position:relative!important;inset:auto!important;width:auto!important;max-width:none!important;margin:0!important;padding:16px!important;background:var(--v-card)!important;border:1px solid var(--v-line)!important;border-radius:var(--v-radius)!important;box-shadow:var(--v-shadow)!important;z-index:2!important}
+html body #atelierScreen #mergeDetail h3{font:600 17px/1.2 var(--v-font)!important;color:var(--v-ink)!important}
+html body #atelierScreen .atelier-mentor{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;flex:1!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;background:none!important;border-radius:0!important;overflow:visible!important}
+html body #atelierScreen .atelier-mentor img{position:absolute!important;inset:auto 0 0 50%!important;width:auto!important;height:100%!important;max-width:none!important;translate:-50% 0!important;object-fit:contain!important;object-position:bottom!important}
+
+/* ── Short landscape (800x450, 844x390) ───────────────────────────────── */
+@media (max-height:560px) and (orientation:landscape){
+  html body #app{gap:8px!important;padding:8px 12px!important}
+  html body header #nav{padding:3px!important}
+  html body header #nav button{flex-direction:column!important;gap:1px!important;padding:3px 9px!important;min-height:40px!important;font-size:10.5px!important}
+  html body header #nav button img.ui-icon{width:20px!important;height:20px!important}
+  html body header #nav button .nav-label{font-size:10.5px!important}
+  html body header :is(.hud-pill,.coin-pill,.header-energy){height:38px!important;padding:0 10px 0 6px!important;font-size:13px!important}
+  html body header :is(.hud-pill,.coin-pill) img{width:22px!important;height:22px!important}
+  html body header .icon-button{width:38px!important;height:38px!important;min-width:38px!important}
+  html body header .icon-button img.ui-icon{width:22px!important;height:22px!important}
+  html body #studioScreen{grid-template-columns:220px minmax(0,1fr) 290px!important;gap:10px!important}
+  html body #studioScreen #customer{padding:12px!important;gap:8px!important}
+  html body #customer .portrait-wrap{width:64px!important;height:64px!important;border-width:3px!important}
+  html body #customer .customer-name{font-size:19px!important}
+  html body #customer .speech{display:none!important}
+  html body #customer .req{min-height:30px!important;padding:3px 10px 3px 6px!important;font-size:11.5px!important}
+  html body #customer .req img.ui-icon{width:18px!important;height:18px!important}
+  html body #studioScreen .custom{padding:12px!important;gap:8px!important}
+  html body .custom #tabs button{min-height:50px!important;padding:4px 2px!important;font-size:10.5px!important}
+  html body .custom #tabs button img.ui-icon{width:22px!important;height:22px!important}
+  html body .custom #options{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+  html body .custom #options .option{min-height:72px!important;padding:6px 2px!important;font-size:11px!important}
+  html body .custom #options .option .swatch{width:34px!important;height:34px!important}
+  html body #studioScreen .work-actions button{min-height:46px!important;font-size:15px!important}
+  html body #studioScreen .design-caption{font-size:12px!important}
+  html body #atelierScreen:not([hidden]){grid-template-columns:190px minmax(0,1fr)!important;gap:8px!important}
+  html body #atelierScreen .atelier-order{min-width:200px!important;min-height:58px!important;padding:6px 10px!important}
+  html body #atelierScreen .order-deliver{min-height:40px!important}
+  html body #atelierScreen .atelier-tools button{width:48px!important;min-width:48px!important;min-height:58px!important}
+  html body #atelierScreen .board-rim{padding:8px!important;border-radius:22px!important}
+  html body #atelierScreen .merge-board{gap:5px!important}
+  html body #atelierScreen #mergeDetail{padding:10px!important}
+}
+
+/* ── Phone portrait: stacked, with a bottom dock ──────────────────────── */
+@media (orientation:portrait) and (max-width:700px){
+  html body #app{padding:10px 12px calc(92px + env(safe-area-inset-bottom,0px))!important;gap:10px!important;height:100dvh!important}
+  html body header{justify-content:flex-end!important}
+  html body header #nav{position:fixed!important;z-index:60!important;left:max(10px,env(safe-area-inset-left,0px))!important;right:max(10px,env(safe-area-inset-right,0px))!important;bottom:max(10px,env(safe-area-inset-bottom,0px))!important;justify-content:space-between!important;padding:6px!important;border-radius:28px!important;order:9}
+  html body header #nav button{flex:1 1 0!important;flex-direction:column!important;gap:2px!important;padding:6px 2px!important;min-height:58px!important;border-radius:22px!important;font-size:11px!important}
+  html body header #nav button img.ui-icon{width:26px!important;height:26px!important}
+  html body header #nav button .nav-label{font-size:11px!important;white-space:nowrap!important}
+  html body header .header-right{width:100%!important;justify-content:space-between!important;gap:6px!important}
+  html body header :is(.hud-pill,.coin-pill,.header-energy){height:40px!important;padding:0 10px 0 6px!important;font-size:14px!important}
+  html body header .header-energy{flex-direction:row!important}
+  html body header .header-energy small,html body header .header-energy span span{display:none!important}
+  html body header :is(.hud-pill,.coin-pill) img{width:24px!important;height:24px!important}
+  html body header .icon-button{width:40px!important;height:40px!important;min-width:40px!important}
+
+  html body #studioScreen{display:flex!important;flex-direction:column!important;gap:10px!important;overflow:auto!important}
+  html body #studioScreen>*{flex:none!important}
+  html body #studioScreen #customer{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;column-gap:12px!important;row-gap:8px!important;padding:12px!important;overflow:visible!important}
+  html body #customer .commission-identity{display:contents!important}
+  html body #customer .portrait-wrap{grid-column:1!important;grid-row:1/3!important;width:64px!important;height:64px!important;border-width:3px!important}
+  html body #customer .commission-identity>div:last-child{grid-column:2!important;grid-row:1/3!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;text-align:left!important}
+  html body #customer .customer-name{font-size:20px!important}
+  html body #customer .commission-brief{grid-column:1/-1!important}
+  html body #customer .speech{display:none!important}
+  html body #customer .requirements{justify-content:flex-start!important;gap:6px!important}
+  html body #customer .req{min-height:32px!important;font-size:12px!important;padding:4px 10px 4px 6px!important}
+  html body #customer .commission-status{grid-column:1/-1!important;padding-top:8px!important}
+  html body #studioScreen .work-area{gap:8px!important}
+  html body #studioScreen .stage{flex:none!important;height:min(30dvh,260px)!important;width:100%!important}
+  html body #studioScreen .design-caption{display:none!important}
+  html body #studioScreen .work-actions{width:100%!important}
+  html body #studioScreen .work-actions button{min-height:52px!important;font-size:16px!important}
+  html body #studioScreen .custom{padding:12px!important;gap:10px!important;overflow:visible!important}
+  html body .custom #tabs{display:flex!important;overflow-x:auto!important;gap:6px!important;scrollbar-width:none}
+  html body .custom #tabs button{flex:0 0 64px!important;min-height:62px!important;font-size:11px!important}
+  html body .custom #tabs button img.ui-icon{width:26px!important;height:26px!important}
+  html body .custom #options{grid-template-columns:repeat(3,minmax(0,1fr))!important;overflow:visible!important;gap:8px!important}
+  html body .custom #options .option{min-height:86px!important;font-size:12px!important}
+
+  html body #atelierScreen:not([hidden]){display:flex!important;flex-direction:column!important;gap:10px!important;overflow:auto!important}
+  html body #atelierScreen .merge-intro{flex-direction:column!important;gap:8px!important}
+  html body #atelierScreen .atelier-tools{justify-content:flex-end!important}
+  html body #atelierScreen .atelier-tools button{width:auto!important;min-width:52px!important;min-height:44px!important;border-radius:16px!important;padding:4px 10px!important}
+  html body #atelierScreen .atelier-orders{gap:8px!important}
+  html body #atelierScreen .atelier-order{min-width:0!important;flex:1 1 0!important;flex-wrap:wrap!important;min-height:0!important;padding:8px 10px!important;gap:6px!important}
+  html body #atelierScreen .order-deliver{margin-left:0!important;width:100%!important;min-height:40px!important}
+  html body #atelierScreen .merge-board-wrap{flex:none!important}
+  html body #atelierScreen .board-rim{padding:8px!important;border-radius:24px!important;width:100%!important}
+  html body #atelierScreen .merge-board{gap:5px!important}
+  html body #atelierScreen .mentor-area{flex:none!important}
+  html body #atelierScreen .atelier-mentor{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){html body *{transition-duration:.01ms!important}}
+
+/* ── Fixes: board fits the height; phone order; short nav labels ──────── */
+html body #nav .nav-label-short{display:none!important}
+html body #atelierScreen .merge-board{--cell:clamp(34px,min(calc((100dvh - 252px)/7.4),calc((100vw - 400px)/9.6)),66px)!important}
+@media (max-height:560px) and (orientation:landscape){
+  html body #atelierScreen .merge-board{--cell:clamp(26px,min(calc((100dvh - 178px)/7.5),calc((100vw - 260px)/9.8)),46px)!important}
+}
+@media (orientation:portrait) and (max-width:700px){
+  html body #nav .nav-label{display:none!important}
+  html body #nav .nav-label-short{display:inline!important;font-size:11px!important;white-space:nowrap!important}
+  html body #atelierScreen:not([hidden]){justify-content:flex-start!important;margin:0!important}
+  html body #atelierScreen .merge-intro{flex-direction:column-reverse!important}
+  html body #atelierScreen .merge-intro-copy{width:100%!important}
+  html body #atelierScreen .atelier-tools{flex-direction:row!important;width:100%!important;justify-content:flex-start!important}
+  html body #atelierScreen .merge-board{--cell:clamp(28px,calc((100vw - 84px)/9),44px)!important}
+  html body #studioScreen:not([hidden]){justify-content:flex-start!important}
+}
+html body #studioScreen .work-actions button{white-space:nowrap!important}
+@media (max-height:560px) and (orientation:landscape){
+  html body #studioScreen #inspire span{display:none!important}
+  html body #studioScreen #inspire{padding:0 16px!important}
+  html body #customer .timer-row{font-size:11px!important}
+  html body #customer .commission-status{gap:4px!important;padding-top:6px!important}
+  html body #customer .time-ad{min-height:28px!important;padding:2px 8px!important;font-size:10.5px!important}
+  html body #customer .commission-identity .section-kicker{display:none!important}
+}
+@media (orientation:portrait) and (max-width:700px){
+  html body header #nav button .nav-label{display:none!important}
+  html body header #nav button .nav-label-short{display:inline!important}
+  html body #studioScreen .stage{height:min(24dvh,210px)!important}
+}
+html body header .header-energy img{width:24px!important;height:24px!important}
+html body header .header-energy>span{display:flex!important;flex-direction:column!important;line-height:1.05!important}
+html body header .header-energy small{font:600 10px var(--v-font)!important;color:var(--v-muted)!important}
+@media (max-height:560px) and (orientation:landscape){
+  html body header .header-energy small{display:none!important}
+  html body header .header-right{gap:5px!important}
+  html body header :is(.hud-pill,.coin-pill,.header-energy){padding:0 8px 0 5px!important;gap:4px!important}
+}
+@media (orientation:portrait) and (max-width:700px){
+  html body header .header-energy small{display:none!important}
+  html body header .header-right{gap:4px!important;min-width:0!important}
+  html body header .atelier-hud{gap:4px!important}
+  html body header :is(.hud-pill,.coin-pill,.header-energy){padding:0 8px 0 4px!important;gap:3px!important;font-size:13px!important}
+  html body header :is(.hud-pill,.coin-pill,.header-energy) img{width:22px!important;height:22px!important}
+  html body header .icon-button{width:38px!important;height:38px!important;min-width:38px!important}
+}
+/* Locked options show their price: give them room. */
+html body .custom #options .option{overflow:visible!important}
+@media (max-height:560px) and (orientation:landscape){html body .custom #options .option{min-height:84px!important}}
+@media (orientation:portrait) and (max-width:700px){
+  html body header #nav button .nav-label{display:inline!important;font-size:11px!important;white-space:nowrap!important}
+  html body header #nav button:has(.nav-label-short) .nav-label{display:none!important}
+}
