@@ -1769,3 +1769,48 @@ body{background-color:#f6f3fc}
 img.ui-icon,.resource-icon{object-fit:contain}
 .icon-button img.ui-icon{width:24px;height:24px}
 .pause-button img.ui-icon{width:26px;height:26px}
+
+/* ── Readability pass (2026-11-14): bigger icons and labels ──────────────── */
+header #nav button img.ui-icon{display:block;width:30px;height:30px}
+header #nav .nav-label{font-size:14px}
+header .coin-pill img.ui-icon,header .hud-pill img{width:28px;height:28px}
+header #coins,header #atelierStars,header #atelierGems{font-size:16px}
+header .icon-button img.ui-icon{width:28px;height:28px}
+header .pause-button img.ui-icon{width:30px;height:30px}
+#studioScreen #tabs img.ui-icon,#tabs img.ui-icon{width:32px;height:32px}
+#studioScreen #tabs button{font-size:13px}
+#studioScreen #options .option{font-size:13px}
+.resource-icon{min-width:20px;min-height:20px}
+#studioScreen .req{font-size:13px}
+#studioScreen .req img.ui-icon{width:20px;height:20px}
+@media(max-width:1200px),(max-height:560px){
+ header #nav button img.ui-icon{width:24px;height:24px}
+ header #nav .nav-label{font-size:13px}
+ #studioScreen #tabs img.ui-icon,#tabs img.ui-icon{width:28px;height:28px}
+ #studioScreen #tabs button{font-size:12px}
+ #studioScreen #options .option{font-size:12px}
+ #studioScreen .req{font-size:12px}
+}
+@media(max-height:560px) and (orientation:landscape){
+ header #nav button img.ui-icon{width:22px;height:22px}
+ header .coin-pill img.ui-icon,header .hud-pill img{width:24px;height:24px}
+ header #coins,header #atelierStars,header #atelierGems{font-size:15px}
+ header .icon-button img.ui-icon{width:24px;height:24px}
+}
+@media(orientation:portrait){
+ header #nav button img.ui-icon{width:26px;height:26px}
+ header #nav .nav-label{font-size:11px}
+ header .coin-pill img.ui-icon,header .hud-pill img{width:24px;height:24px}
+ header #coins,header #atelierStars,header #atelierGems{font-size:14px}
+ #studioScreen #tabs img.ui-icon,#tabs img.ui-icon{width:30px;height:30px}
+ #studioScreen #tabs button{font-size:11px}
+ #studioScreen #options .option{font-size:12px}
+ #studioScreen .req{font-size:12px}
+ .resource-icon{min-width:17px;min-height:17px}
+}
+/* Short landscape (800x450, 844x390): icon above a short label, like phones. */
+@media(max-height:560px) and (orientation:landscape){
+ header #nav button,body.merge-active header #nav button{flex-direction:column;justify-content:center;gap:0;padding:2px 8px!important;min-height:42px;line-height:1.05}
+ header #nav button img.ui-icon{width:20px;height:20px}
+ header #nav .nav-label{font-size:10.5px;white-space:nowrap}
+}
