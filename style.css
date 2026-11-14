@@ -1756,3 +1756,6 @@ header #nav button.active,
 .runway-scene .styling-brief{top:74px}
 @media(max-width:600px){.runway-scene .styling-brief{top:82px}}
 @media(max-height:560px) and (orientation:landscape){.runway-scene .styling-brief{top:58px}}
+.resting-sway{animation:resting-sway .5s ease}
+@keyframes resting-sway{0%,100%{transform:rotate(0)}30%{transform:rotate(-3deg)}65%{transform:rotate(2deg)}}
+@media(prefers-reduced-motion:reduce){.resting-sway{animation:none}}

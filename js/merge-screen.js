@@ -213,7 +213,7 @@
       root.querySelector('.merge-board-wrap')?.append(banner);setTimeout(()=>banner.remove(),3400);
     }
     function commit(result) {
-      if (!result.ok) {api.toast(tr(result.reason==='chestSpace'?'chestSpace':result.reason==='space'?'space':result.reason==='energy'?'emptyBody':result.reason==='crate'?'crate':result.reason==='cooldown'?'cooldown':'mismatch'));api.sound('error');return false;}
+      if (!result.ok) {api.toast(tr(result.reason==='chestSpace'?'chestSpace':result.reason==='space'?'space':result.reason==='energy'?'emptyBody':result.reason==='crate'?'crate':result.reason==='cooldown'?'cooldown':'mismatch'));if(result.reason!=='cooldown')api.sound('error');return false;}
       const guided=G.advance(api.state(),result);
       if(result.type==='merge'&&!G.active(api.state()))B.offer(board(),result);
       selected=guided?-1:result.to; api.save();api.header();render();
@@ -256,7 +256,10 @@
         // A blocked basket still owns the selected detail; do not leave the
         // previous material's instructions visible after an unsuccessful tap.
         const result=M.generate(b,index);
-        if(!result.ok&&!G.active(api.state())){render();api.sound('error');}
+        if(!result.ok&&!G.active(api.state())){render();
+          // A resting basket is not a mistake: no sound, just a gentle sway.
+          if(result.reason==='cooldown'){const el=root.querySelector(`[data-cell="${index}"]`);el?.classList.remove('resting-sway');void el?.offsetWidth;el?.classList.add('resting-sway');}
+          else api.sound('error');}
         else if(!commit(result))render();
       }
       else if(cell?.kind==='chest') {

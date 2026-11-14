@@ -23,7 +23,7 @@
         if(typeof fetch!=='function'||!this.ctx?.decodeAudioData)return Promise.resolve(null);
         const load=(async()=>{
           for(const ext of ['ogg','mp3'])try{
-            const response=await fetch('assets/sfx/'+name+'.'+ext+'?v=20261114');
+            const response=await fetch('assets/sfx/'+name+'.'+ext+'?v=20261114c');
             if(!response.ok)continue;
             const bytes=await response.arrayBuffer();
             const buffer=await new Promise((resolve,reject)=>this.ctx.decodeAudioData(bytes,resolve,reject));
@@ -191,7 +191,8 @@
         const name=ALIASES[kind]||kind;
         if(!SAMPLES.includes(name))return;
         const now=this.ctx.currentTime,last=this.lastCue.get(name);
-        if(last!==undefined&&now-last<.06)return;
+        // The gentle 'not now' cue speaks once, never as a repeated buzz.
+        if(last!==undefined&&now-last<(name==='error'?1.2:.06))return;
         this.lastCue.set(name,now);
         const generation=this.effectGeneration;
         const play=()=>{
@@ -203,7 +204,7 @@
             this.sample('sparkle',variation*1.12,.14,.04);
           }else if(name==='tryon'){this.sample('tryon',variation,.5);this.sample('sparkle',variation*1.1,.16,.22);
           }else if(kind==='merge')this.sample(name,variation*Math.pow(1.055,Math.min(7,Math.max(1,tier))-1),.55);
-          else this.sample(name,variation,name==='tap'?.18:name==='error'?.28:.48);
+          else this.sample(name,variation,name==='tap'?.18:name==='error'?.2:.48);
         };
         if(this.buffers.has(name))play();
         else {
