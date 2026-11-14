@@ -1,9 +1,9 @@
 'use strict';
 (function(A){
   // All action cues are local Kenney CC0 recordings; no oscillator substitutes.
-  const SAMPLES=['tap','spawn','merge','coin','switch','pick','drop','box','ribbon','delivery','level','error','unlock','sparkle'];
+  const SAMPLES=['tap','spawn','merge','coin','switch','pick','drop','box','ribbon','delivery','level','error','unlock','sparkle','tryon'];
   const ALIASES={click:'tap',generate:'spawn',pop:'spawn',navigation:'switch',whoosh:'switch',
-    discovery:'unlock',renovate:'level',renovation:'level',chapter:'level',guide:'sparkle',crate:'box',ding:'sparkle',tryon:'sparkle'};
+    discovery:'unlock',renovate:'level',renovation:'level',chapter:'level',guide:'sparkle',crate:'box',ding:'sparkle'};
   A.SFX_FILES=SAMPLES.flatMap(name=>['ogg','mp3'].map(ext=>'assets/sfx/'+name+'.'+ext));
   A.createAudioEngine=function(getState,blocked,getScene=()=> 'merge'){
     const engine={ctx:null,master:null,effects:null,music:null,tick:null,step:0,voices:new Set(),lastCue:new Map(),limit:32,
@@ -20,7 +20,7 @@
         if(typeof fetch!=='function'||!this.ctx?.decodeAudioData)return Promise.resolve(null);
         const load=(async()=>{
           for(const ext of ['ogg','mp3'])try{
-            const response=await fetch('assets/sfx/'+name+'.'+ext);
+            const response=await fetch('assets/sfx/'+name+'.'+ext+'?v=20261114');
             if(!response.ok)continue;
             const bytes=await response.arrayBuffer();
             const buffer=await new Promise((resolve,reject)=>this.ctx.decodeAudioData(bytes,resolve,reject));
@@ -198,6 +198,7 @@
             const count=Math.min(3,Math.max(1,Math.ceil(Math.sqrt(Math.max(1,tier))/1.5)));
             for(let i=0;i<count;i++)this.sample('coin',variation*(1.06+i*.05),.5,i*.09);
             this.sample('sparkle',variation*1.12,.14,.04);
+          }else if(name==='tryon'){this.sample('tryon',variation,.5);this.sample('sparkle',variation*1.1,.16,.22);
           }else if(kind==='merge')this.sample(name,variation*Math.pow(1.055,Math.min(7,Math.max(1,tier))-1),.55);
           else this.sample(name,variation,name==='tap'?.18:name==='error'?.28:.48);
         };

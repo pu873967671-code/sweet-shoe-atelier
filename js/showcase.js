@@ -108,5 +108,49 @@
   const socks=root?.querySelector('.runway-sock-styles'),selected=socks?.querySelector('[aria-pressed="true"]');
   revealChoice(socks,selected,selected?.dataset.fittingSock);
  }
- A.Showcase={scenes,find,sanitize,choose,picker,frame,framing,project,composition,recommended,sceneHint,bonusAmount,claimSceneBonus,bonusLine,appearance};
+ // Styling wish: every commission asks for a sock style, a sock colour and a
+ // room. Each matched item is a heart; each heart pays 10% of the order once
+ // (at least 5 coins). Improving a look later pays only the difference, and
+ // coins already paid by the older single scene bonus count toward it.
+ const STYLING={date:['frill','pink'],tea:['lace','cream'],school:['knee','white'],wedding:['lace','white'],everyday:['none',null],party:['blacksheer',null],streamer:['thigh','pink'],redcarpet:['sheer','black'],bridal:['sheer','white']};
+ const COLORLESS=new Set(['none','blacksheer','pantyhose']);
+ const SOCK_LABELS={none:['Bare legs','光腿'],frill:['Frill socks','荷叶边袜'],lace:['Lace socks','蕾丝袜'],sheer:['Sheer tights','薄丝袜'],knee:['Knee-highs','及膝袜'],thigh:['Thigh-highs','长筒袜'],blacksheer:['Black sheer','黑丝袜'],pantyhose:['Sheer pantyhose','薄连裤袜'],opaque:['Opaque tights','厚连裤袜'],fishnet:['Diamond knit','菱格袜']};
+ const COLOR_LABELS={pink:['Candy pink','糖果粉'],mint:['Mint','薄荷绿'],cream:['Cream','奶油色'],white:['White','白色'],black:['Midnight','午夜黑']};
+ const label=(map,id)=>(map[id]||[id,id])[A.lang==='zh'?1:0];
+ function brief(artwork){
+  const theme=A.themes.find(t=>t.id===artwork?.customerTheme);if(!theme||!(artwork.orderEarned>0))return null;
+  const [sock,color]=STYLING[theme.id]||['none',null];
+  return {sock,color:COLORLESS.has(sock)?null:color,scene:recommended(theme.id).id};
+ }
+ // Colour only counts with the right sock; for a colourless brief (bare legs,
+ // black sheer) the colour heart comes with the sock.
+ function stylingChecks(artwork,fitting,sceneId){
+  const b=brief(artwork);if(!b)return null;const f=cleanFittingOptions(fitting);
+  const sock=f.sock===b.sock,color=sock&&(b.color===null||f.color===b.color),scene=sceneId===b.scene;
+  return {brief:b,sock,color,scene,hearts:(sock?1:0)+(color?1:0)+(scene?1:0)};
+ }
+ function heartValue(artwork){return Number.isFinite(artwork?.orderEarned)&&artwork.orderEarned>0?Math.max(5,Math.round(artwork.orderEarned*.1)):0;}
+ function stylingPaid(artwork){return Number.isInteger(artwork?.stylingPaid)?artwork.stylingPaid:artwork?.sceneBonusClaimed?bonusAmount(artwork):0;}
+ function claimStyling(state,artwork,fitting,sceneId){
+  const c=stylingChecks(artwork,fitting,sceneId);if(!c||!state.showcase?.owned.includes(sceneId)&&c.scene)return {paid:0,checks:c};
+  const best=Math.max(c.hearts,artwork.stylingHearts|0),target=best*heartValue(artwork),before=stylingPaid(artwork),paid=Math.max(0,target-before);
+  artwork.stylingHearts=best;artwork.stylingPaid=Math.max(before,target);
+  if(c.scene&&!artwork.sceneBonusClaimed){artwork.sceneBonusClaimed=true;artwork.sceneAppearance=sceneId;}
+  if(paid){state.coins+=paid;state.dayCoins+=paid;
+   if(state.best?.customerTheme===artwork.customerTheme&&state.best.day===artwork.day&&state.best.earned>=artwork.orderEarned)state.best.earned+=paid;}
+  const perfect=best===3&&!artwork.perfectLook;if(perfect)artwork.perfectLook=true;
+  return {paid,checks:c,perfect};
+ }
+ function heartIcons(n){return '<span class="styling-hearts" aria-hidden="true">'+[0,1,2].map(i=>`<i class="${i<n?'on':''}">♥</i>`).join('')+'</span>';}
+ function stylingCard(state,artwork,fitting,sceneId){
+  const c=stylingChecks(artwork,fitting,sceneId);if(!c)return '';const zh=A.lang==='zh',b=c.brief,scene=find(b.scene),owned=state.showcase?.owned.includes(b.scene);
+  const best=Math.max(c.hearts,artwork.stylingHearts|0),value=heartValue(artwork);
+  const item=(ok,text)=>`<li class="${ok?'ok':''}"><b aria-hidden="true">${ok?'✓':'○'}</b>${text}</li>`;
+  const colorText=b.color?label(COLOR_LABELS,b.color):(zh?'任意颜色':'Any colour');
+  const sceneText=(zh?scene.zh:scene.en)+(owned?'':` <small class="styling-lock"><img src="assets/items/ui_lock.webp" alt=""> ${scene.price}</small>`);
+  return `<div class="styling-brief" data-hearts="${best}" role="status" aria-label="${zh?'造型心愿':'Styling wish'}: ${c.hearts}/3"><strong class="styling-title">${zh?'造型心愿':'Styling wish'}</strong>${heartIcons(best)}<ul>${item(c.sock,label(SOCK_LABELS,b.sock))}${item(c.color,colorText)}${item(c.scene,sceneText)}</ul><span class="styling-reward"><img src="assets/icon_coin.webp" alt=""> ${best*value}/${3*value}</span></div>`;
+ }
+ function stylingTeaser(artwork){const b=brief(artwork);if(!b)return '';const zh=A.lang==='zh',scene=find(b.scene);
+  return `<p class="styling-teaser">${heartIcons(0)}<span>${zh?'试穿造型心愿':'Styling wish'}: ${label(SOCK_LABELS,b.sock)}${b.color?' · '+label(COLOR_LABELS,b.color):''} · ${zh?scene.zh:scene.en} — ${zh?'最多':'up to'} +${3*heartValue(artwork)} ${zh?'金币':'coins'}</span></p>`;}
+ A.Showcase={scenes,find,sanitize,choose,picker,frame,framing,project,composition,recommended,sceneHint,bonusAmount,claimSceneBonus,bonusLine,appearance,brief,stylingChecks,heartValue,stylingPaid,claimStyling,stylingCard,stylingTeaser,STYLING};
 })(globalThis.SweetShoe=globalThis.SweetShoe||{});
