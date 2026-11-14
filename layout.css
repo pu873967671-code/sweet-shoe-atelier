@@ -313,3 +313,99 @@ html body .backdrop{backdrop-filter:blur(6px)!important;background:#3a2a4a33!imp
 html body .modal{animation:v-rise .5s var(--v-ease)!important}
 @media (orientation:portrait) and (max-width:700px){html body #atelierScreen .mentor-area{align-items:stretch!important}html body #atelierScreen #mergeDetail{width:100%!important;left:auto!important;right:auto!important}}
 html body #app[inert] header #nav,html body.dialogue-active header #nav{display:none!important}
+
+/* ══ Pop-up screens (2026-11-15): one calm family ═════════════════════════ */
+/* Loading */
+html body #loading::before{background:radial-gradient(ellipse at 50% 45%,#fffdfee6 0,#f5f1fdcc 45%,#ebe5fb99 100%)!important}
+html body #loading .load-track{height:14px!important;border-radius:999px!important;background:#fff!important;border:1px solid var(--v-line)!important;box-shadow:var(--v-shadow)!important;overflow:visible!important}
+html body #loading #loadFill{border-radius:999px!important;background:linear-gradient(90deg,#f9bdd1,var(--v-rose))!important}
+html body #loading :is(#loadProgress,#loadText){font:600 15px var(--v-font)!important;color:var(--v-muted)!important}
+
+/* Title */
+html body .title-backdrop{background:radial-gradient(ellipse at 50% 40%,#fffdfe 0,#f5f1fd 55%,#ebe5fb 100%)!important;backdrop-filter:none!important}
+html body .title-backdrop::before{content:"";position:absolute;inset:0;background:url('assets/ui/loading_bg.webp') center/cover no-repeat;opacity:.28;filter:saturate(.8)}
+html body .modal.title-card{position:relative!important;width:min(520px,92vw)!important;max-width:none!important;padding:36px 36px 28px!important;border-radius:36px!important;background:#fffdfef2!important;border:1px solid #fff!important;box-shadow:0 30px 70px #6b4a7a26,0 4px 12px #6b4a7a12!important;gap:14px!important;display:flex!important;flex-direction:column!important;align-items:center!important}
+html body .title-card .title-logo{width:min(400px,78vw)!important;max-height:none!important}
+html body .title-card>p{font:600 17px var(--v-font)!important;color:var(--v-muted)!important;margin:0!important}
+html body .title-card .title-actions{display:grid!important;gap:10px!important;width:min(320px,100%)!important}
+html body .title-card .title-actions button{min-height:56px!important;border-radius:999px!important;font:600 17px var(--v-font)!important}
+html body .title-card .title-actions .primary{background:linear-gradient(135deg,#f383aa,var(--v-rose))!important;color:#fff!important;border:0!important;box-shadow:0 10px 24px #ec6a9655!important}
+html body .title-card .title-actions .secondary{background:#fff!important;border:1px solid var(--v-line)!important;color:var(--v-ink)!important}
+html body .title-card .title-actions .secondary:last-child{min-height:40px!important;border:0!important;background:none!important;color:var(--v-muted)!important;font-size:14px!important}
+
+/* All dialogs: readable type, one close button, rounded controls */
+html body .modal{font-family:var(--v-font)!important;color:var(--v-ink)!important}
+html body .modal :is(p,li,dd,small){font-size:max(13px,1em)}
+html body .modal h2{font:600 clamp(24px,2.6vw,32px)/1.15 var(--v-font)!important;color:var(--v-ink)!important}
+html body .modal :is(.eyebrow,.section-kicker,.kicker){font:600 11.5px var(--v-font)!important;letter-spacing:.14em!important;color:var(--v-muted)!important}
+html body .modal :is(.primary,.secondary):not(.modal-dismiss):not(.sock-chip):not(.showcase-chip):not(.sock-color){min-height:48px!important;border-radius:999px!important;font:600 15px var(--v-font)!important}
+html body .modal .primary{background:linear-gradient(135deg,#f383aa,var(--v-rose))!important;color:#fff!important;border:0!important;box-shadow:0 8px 20px #ec6a9644!important}
+html body .modal .secondary:not(.modal-dismiss){background:#fff!important;border:1px solid var(--v-line)!important;color:var(--v-ink)!important;box-shadow:none!important}
+html body .modal-dismiss{width:44px!important;height:44px!important;border-radius:50%!important;background:#fff!important;border:1px solid var(--v-line)!important;box-shadow:var(--v-shadow)!important;color:var(--v-ink)!important;font:400 24px/1 var(--v-font)!important}
+html body .collection-back,html body .boutique-heading>button.secondary{display:none!important}
+
+/* Full-screen sheets: Collection and Boutique */
+html body .modal:is(.collection-modal,.boutique-modal){background:var(--v-bg) radial-gradient(#e7dcf6 1.2px,transparent 1.4px) 0 0/22px 22px!important;border-radius:0!important}
+html body :is(.collection-heading,.boutique-heading){padding:22px 28px 10px!important;background:none!important;border:0!important;box-shadow:none!important}
+html body :is(.collection-heading,.boutique-heading) h2{font-size:clamp(26px,3vw,36px)!important}
+html body :is(.collection-heading,.boutique-heading) p{font:500 14px var(--v-font)!important;color:var(--v-muted)!important}
+html body :is(.collection-layout,.boutique-layout){gap:18px!important;padding:0 28px 24px!important}
+html body :is(.collection-stage,.collection-detail,.boutique-visual,.boutique-tasks){border-radius:28px!important;border:1px solid var(--v-line)!important;box-shadow:var(--v-shadow)!important;background:var(--v-card)!important;overflow:hidden}
+html body .collection-detail{padding:26px!important;gap:14px!important}
+html body .collection-detail h3{font:600 26px var(--v-font)!important}
+html body .boutique-tasks{padding:22px!important}
+html body .boutique-tasks h3{font:600 20px var(--v-font)!important}
+html body .boutique-tasks :is(p,small,span){font-size:13.5px}
+
+/* Collection filmstrip becomes photocards */
+html body .collection-filmstrip{gap:16px!important;padding:16px 28px 26px!important;background:none!important;border:0!important;box-shadow:none!important}
+html body .collection-filmstrip .gallery-item{width:112px!important;min-width:112px!important;padding:6px 6px 10px!important;border-radius:14px!important;background:#fff!important;border:0!important;box-shadow:0 8px 18px #6b4a7a1f!important;transform:rotate(-2deg);transition:transform .35s var(--v-ease),box-shadow .35s!important;font:600 12px var(--v-font)!important;color:var(--v-muted)!important}
+html body .collection-filmstrip .gallery-item:nth-child(even){transform:rotate(2deg)}
+html body .collection-filmstrip .gallery-item:hover,html body .collection-filmstrip .gallery-item.selected{transform:rotate(0) translateY(-6px)!important;box-shadow:0 14px 26px #b93a6726!important}
+html body .collection-filmstrip .gallery-item.selected{outline:3px solid var(--v-rose)!important;outline-offset:2px}
+html body .collection-thumbnail{border-radius:10px!important;background:linear-gradient(160deg,#fff,var(--v-blush))!important;overflow:hidden}
+html body .scene-photo-badge{font:600 10px var(--v-font)!important;border-radius:999px!important;background:#fffdfee6!important;color:var(--v-rose-deep)!important}
+
+/* Result card */
+html body .modal[data-modal-kind=result]{border-radius:32px!important;padding:28px!important}
+html body .modal[data-modal-kind=result] .stats{border-radius:22px!important;background:#faf6ff!important;border:0!important}
+html body .modal[data-modal-kind=result] .stats strong{font:600 24px var(--v-font)!important}
+html body .modal[data-modal-kind=result] .stats small{font:600 12px var(--v-font)!important;color:var(--v-muted)!important}
+
+/* Pause */
+html body .modal[data-modal-kind=pause]{border-radius:32px!important;padding:30px!important}
+html body .atelier-settings{border-radius:24px!important;background:#faf6ff!important;border:0!important}
+html body .settings-toggle{min-height:56px!important;font:600 15px var(--v-font)!important}
+html body .audio-credits{font:500 12px var(--v-font)!important;color:var(--v-muted)!important}
+
+/* Fitting room controls: readable and roomy */
+html body .runway-modal .runway-heading h2{font-size:24px!important}
+html body .runway-modal .runway-dock{border-radius:28px!important;background:#fffdfeee!important;border:1px solid #fff!important;box-shadow:0 18px 40px #6b4a7a24!important}
+html body .runway-dock .sock-chip{min-height:42px!important;padding:6px 14px!important;border-radius:999px!important;font:600 13.5px var(--v-font)!important;background:#fff!important;border:1px solid var(--v-line)!important;color:var(--v-ink)!important}
+html body .runway-dock .sock-chip[aria-pressed=true]{background:var(--v-blush)!important;border-color:var(--v-rose)!important;color:var(--v-rose-deep)!important}
+html body .runway-dock .sock-color{width:38px!important;height:38px!important;min-width:38px!important}
+html body .runway-dock .showcase-chip span{font:600 13.5px var(--v-font)!important}
+html body .runway-dock .showcase-chip small{font:600 12px var(--v-font)!important}
+html body .runway-dock .showcase-heading{font:600 13px var(--v-font)!important;color:var(--v-muted)!important}
+html body .runway-scene .styling-brief{font-size:13.5px!important;padding:14px 16px!important;border-radius:22px!important;max-width:290px!important}
+html body .runway-scene .styling-brief .styling-title{font-size:14px!important}
+html body .runway-scene .styling-brief .styling-hearts{font-size:18px!important}
+
+@media (max-height:560px) and (orientation:landscape){
+  html body :is(.collection-heading,.boutique-heading){padding:12px 18px 6px!important}
+  html body :is(.collection-layout,.boutique-layout){padding:0 18px 12px!important;gap:12px!important}
+  html body .collection-filmstrip{padding:10px 18px 14px!important}
+  html body .collection-filmstrip .gallery-item{width:88px!important;min-width:88px!important}
+  html body .modal.title-card{padding:20px 24px!important;gap:8px!important}
+  html body .title-card .title-logo{width:min(300px,60vw)!important;max-height:34vh!important}
+  html body .title-card .title-actions button{min-height:44px!important}
+  html body .runway-dock .sock-chip{min-height:36px!important;font-size:12px!important}
+  html body .runway-scene .styling-brief{font-size:11.5px!important;padding:8px 10px!important}
+}
+@media (orientation:portrait) and (max-width:700px){
+  html body :is(.collection-heading,.boutique-heading){padding:16px 16px 6px!important}
+  html body :is(.collection-layout,.boutique-layout){padding:0 14px 14px!important;gap:12px!important}
+  html body .collection-filmstrip{padding:12px 14px 20px!important;gap:12px!important}
+  html body .collection-filmstrip .gallery-item{width:96px!important;min-width:96px!important}
+  html body .runway-scene .styling-brief{font-size:12px!important;padding:9px 11px!important;max-width:230px!important}
+}
