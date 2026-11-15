@@ -185,3 +185,59 @@
 :root body .custom #options .option.selected,:root body .custom #options .option.selected *{color:#9d4f66!important}
 :root body .custom #options .option.selected::after{width:26px!important;height:18px!important;top:3px!important;right:3px!important}
 :root body .custom #tabs button.active img.ui-icon{background:radial-gradient(circle closest-side,#fbe0e7 0,#ecaebe 88%,transparent 92%) center/64% 64% no-repeat,var(--t-rosette) center/100% 100% no-repeat!important}
+
+/* ══ Pass 3 (user feedback): no net inside any frame; finer, softer materials ══ */
+/* Inner frames are clean: the net var becomes transparent everywhere it was used */
+:root{--t-tulle:linear-gradient(#0000,#0000)}
+/* The page alone is tulle: a very fine net over soft drape folds */
+:root body{background:url('assets/ui/textile/tulle-fine.svg') 0 0/6px 10px,
+  repeating-linear-gradient(90deg,#ffffff00 0,#ffffff70 70px,#ffffff00 140px,#f6e2e800 190px),
+  linear-gradient(180deg,#fbf4f5,#f5eaee)!important}
+/* clean card bodies: soft blush paper under the lace trim */
+:root body :is(#studioScreen #customer,#studioScreen .custom,#atelierScreen #mergeDetail,#atelierScreen .board-rim,#atelierScreen .atelier-order,.modal:not(.collection-modal):not(.boutique-modal):not(.runway-modal),.collection-stage,.collection-detail,.boutique-visual,.boutique-tasks,.runway-modal .runway-dock){
+  background:linear-gradient(180deg,#fdf3f5,#fffbfb 110px)!important;border-color:#f2dde2!important}
+:root body #studioScreen #stage::before{content:none!important}
+:root body :is(#inspire,.modal .secondary:not(.modal-dismiss):not(.sock-chip):not(.showcase-chip):not(.sock-color),.title-card .title-actions .secondary:not(:last-child)){background:#fffdfd!important;border:1px solid #eccbd4!important}
+:root body .title-card .title-actions .secondary:last-child{background:none!important;border:0!important;box-shadow:none!important;min-height:36px!important;color:var(--t-muted)!important;font-size:14px!important}
+:root body header :is(.hud-pill,.coin-pill,.header-energy){background:#fffdfdeb!important;border:1px solid #efd3da!important}
+:root body #atelierScreen .merge-cell{background:#fffdfd!important}
+:root body .custom #options .option{background:#fffdfd!important;border:1px solid #f3e1e6!important}
+:root body .custom #options .option:nth-child(even){background:#fefafb!important}
+:root body .custom #options .option.selected{background:var(--t-dots-soft),linear-gradient(180deg,#f7d3dc,#efbccb)!important;border-color:#e6a9b9!important}
+:root body .runway-scene .styling-brief{background:#fffcfcee!important}
+:root body .modal.title-card::before{width:96px;height:64px;margin-left:-48px;top:-26px}
+
+/* Navigation: one satin ribbon band, the chosen item a lace-white keeper */
+:root body header{align-items:center!important}
+:root body header .header-right{padding-top:0!important}
+:root body #app{padding-top:12px!important}
+:root body header #nav{position:relative!important;gap:2px!important;padding:6px 30px!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:linear-gradient(180deg,#ffffff00 0 22%,#ffffff70 34%,#ffffff00 50%),linear-gradient(180deg,#f2c9d3,#e2a3b4 55%,#d892a5 80%,#e5adbb)!important;
+  clip-path:polygon(0 0,100% 0,calc(100% - 16px) 50%,100% 100%,0 100%,16px 50%)!important;filter:drop-shadow(0 4px 8px #a5627822)}
+:root body header #nav button,:root body header #nav button:hover,:root body header #nav button.active{
+  width:auto!important;min-height:46px!important;padding:6px 14px!important;flex-direction:row!important;justify-content:center!important;gap:7px!important;
+  clip-path:none!important;transform:none!important;border-radius:999px!important;background:none!important;color:#fff!important;text-shadow:0 1px 1px #a5627880!important;font:600 14px/1 var(--v-font)!important}
+:root body header #nav button img.ui-icon{width:26px!important;height:26px!important;filter:drop-shadow(0 1px 0 #ffffffaa)!important}
+:root body header #nav button:hover{background:#ffffff26!important}
+:root body header #nav button.active{background:#fffdfd!important;color:#a85872!important;text-shadow:none!important;box-shadow:0 2px 6px #a5627833,inset 0 0 0 1px #f4d6de!important}
+:root body header #nav button.active img.ui-icon{filter:none!important}
+@media (max-height:560px) and (orientation:landscape){
+  :root body #app{padding-top:6px!important}
+  :root body header #nav{padding:4px 22px!important}
+  :root body header #nav button,:root body header #nav button:hover,:root body header #nav button.active{min-height:36px!important;padding:4px 8px!important;font-size:11.5px!important;gap:4px!important;width:auto!important}
+  :root body header #nav button img.ui-icon{width:20px!important;height:20px!important}
+  :root body header .header-right{padding-top:0!important}
+  :root body #atelierScreen .merge-board{--cell:clamp(24px,min(calc((100dvh - 186px)/7.5),calc((100vw - 260px)/9.8)),46px)!important}
+}
+@media (orientation:portrait) and (max-width:700px){
+  :root body header #nav{position:fixed!important;left:6px!important;right:6px!important;bottom:max(8px,env(safe-area-inset-bottom,0px))!important;padding:6px 22px!important;gap:0!important;justify-content:space-between!important;align-items:center!important}
+  :root body header #nav button,:root body header #nav button:hover,:root body header #nav button.active{flex:1 1 0!important;flex-direction:column!important;min-height:56px!important;padding:5px 2px!important;gap:2px!important;font-size:10.5px!important;border-radius:18px!important}
+  :root body header #nav button img.ui-icon{width:24px!important;height:24px!important}
+}
+/* the board has room again under the slimmer header */
+:root body #atelierScreen .merge-board{--cell:clamp(34px,min(calc((100dvh - 276px)/7.4),calc((100vw - 400px)/9.6)),66px)!important}
+@media (max-height:560px) and (orientation:landscape){
+  :root body header #nav{padding:4px 18px!important;gap:0!important}
+  :root body header #nav button,:root body header #nav button:hover,:root body header #nav button.active{padding:4px 6px!important;font-size:11px!important}
+  :root body header{gap:6px!important}
+}

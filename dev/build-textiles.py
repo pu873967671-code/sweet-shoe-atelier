@@ -72,6 +72,33 @@ def rosette():
            f'<circle cx="32" cy="32" r="18.5" fill="none" stroke="{LINE}" stroke-width=".6" stroke-dasharray="1.4 1.8"/></svg>')
     (OUT / 'rosette.svg').write_text(svg)
 
-for f in (lace, tulle, bow, rosette):
+def tulle_fine():
+    # real tulle is a tiny, barely visible diamond net
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10">'
+           '<path d="M0,0 L3,5 L0,10 M6,0 L3,5 L6,10" fill="none" stroke="#c98fa2" stroke-opacity=".16" stroke-width=".45"/></svg>')
+    (OUT / 'tulle-fine.svg').write_text(svg)
+
+def bow_fine():
+    # a slim satin bow: soft folded loops, long fluttering tails
+    g = ('<defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7d9e0"/><stop offset=".5" stop-color="#e5a9b8"/><stop offset="1" stop-color="#d28fa1"/></linearGradient>'
+         '<linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eebccb"/><stop offset=".55" stop-color="#d995a8"/><stop offset="1" stop-color="#c47e93"/></linearGradient></defs>')
+    loop_l = 'M47,26 C38,12 22,5 12,9 C5,12 6,22 13,27 C22,33 36,31 47,28Z'
+    fold_l = 'M47,27 C38,22 26,20 17,23 C26,25 37,27 47,28Z'
+    tail_l = 'M45,29 C40,38 33,47 24,58 C29,57 32,59 34,62 C39,50 45,40 49,30Z'
+    def mirror(d):
+        import re
+        return re.sub(r'(-?\d+(?:\.\d+)?),', lambda m: f'{96-float(m.group(1)):g},', d)
+    parts = [(loop_l, 'url(#a)'), (fold_l, '#c98699'), (tail_l, 'url(#b)')]
+    body = ''
+    for d, f in parts:
+        body += f'<path d="{d}" fill="{f}" stroke="#b47488" stroke-width=".8" stroke-linejoin="round"/>'
+        body += f'<path d="{mirror(d)}" fill="{f}" stroke="#b47488" stroke-width=".8" stroke-linejoin="round"/>'
+    body += '<path d="M15,13 C22,10 32,13 40,20" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.3" stroke-linecap="round"/>'
+    body += '<path d="M81,13 C74,10 64,13 56,20" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.3" stroke-linecap="round"/>'
+    body += '<ellipse cx="48" cy="27.5" rx="5.2" ry="6" fill="url(#a)" stroke="#b47488" stroke-width=".8"/><path d="M46,24 q2,-1 4,0" stroke="#fff" stroke-opacity=".8" stroke-width="1" fill="none" stroke-linecap="round"/>'
+    svg = f'<svg xmlns="http://www.w3.org/2000/svg" width="96" height="64" viewBox="0 0 96 64">{g}{body}</svg>'
+    (OUT / 'bow.svg').write_text(svg)
+
+for f in (lace, tulle, tulle_fine, bow, rosette, bow_fine):
     f()
 print('PASS', sorted(p.name for p in OUT.iterdir()))
