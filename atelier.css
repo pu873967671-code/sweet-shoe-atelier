@@ -138,7 +138,11 @@
 :root body #atelierScreen .order-reward{margin-left:auto!important;display:inline-flex!important;align-items:center!important;gap:3px!important;white-space:nowrap!important;padding:4px 10px!important;border-radius:999px!important;background:#fff8ec!important;font:700 13px var(--v-font)!important;color:#8a6a3c!important}
 :root body #atelierScreen .order-reward img{width:16px!important;height:16px!important}
 /* the old layout placed these by grid lines; the card is a single column now */
-:root body #atelierScreen .atelier-order>*{grid-column:1!important;grid-row:auto!important;position:relative!important;inset:auto!important}
+:root body #atelierScreen .atelier-order>:is(.order-customer,.order-request,.order-deliver){grid-column:1!important;grid-row:auto!important;position:relative!important;inset:auto!important}
+/* delivery: the thank-you note covers the card while the pieces fly in */
+:root body #atelierScreen .atelier-order .order-reaction{position:absolute!important;inset:0!important;z-index:6!important;border-radius:inherit!important;
+  background:linear-gradient(135deg,#fffdfd,#fde9ef)!important;color:var(--a-ink)!important}
+:root body #atelierScreen .atelier-order.receiving::after{content:none!important}
 /* the wish: one tile per requested piece, each with its own progress */
 :root body #atelierScreen .order-request{display:flex!important;gap:8px!important;flex-wrap:wrap!important;min-width:0!important;margin:0!important;padding:0!important;background:none!important}
 :root body #atelierScreen .requested-item{position:relative!important;flex:1 1 0!important;min-width:84px!important;max-width:150px!important;display:grid!important;grid-template-columns:40px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:8px!important;align-items:center!important;
