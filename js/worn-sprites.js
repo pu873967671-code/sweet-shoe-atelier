@@ -34,6 +34,7 @@ function blurred(src,w,h,r){
  const c=make(w,h),pc=c.getContext('2d');pc.imageSmoothingEnabled=true;pc.imageSmoothingQuality='high';pc.drawImage(a,0,0,w,h);return c;
 }
 const SOCK_COLOURS={pink:'#ffd4e4',mint:'#d6f4e7',cream:'#fff1d6',white:'#fffdfa',black:'#292735'};
+const SHEER_YARN={pink:'#f6b3c8',mint:'#a8dfc6',cream:'#f1d7a8',white:'#ffffff',black:'#292735'};
 function alphaMask(gray,sprite,w,h){
  const c=make(w,h),p=c.getContext('2d');p.drawImage(gray,0,0);
  p.globalCompositeOperation='destination-in';p.drawImage(sprite,0,0);return c;
@@ -172,8 +173,17 @@ function mappedHose(p,data,colour,sock,w,h){
   for(let k=0;k<3;k++)px[i+k]=solid?45:rgb[k];
   px[i+3]=data[i+3]?Math.round(255*(solid?.045*r:Math.min(.88,nude?.18+.08*r+.10*b:(black?.30:.22)+.48*r+.07*b))):0;}
  q.putImageData(im,0,0);p.globalCompositeOperation='multiply';p.globalAlpha=1;p.drawImage(c,0,0);
+ // Multiply alone cannot show a pale yarn on skin (multiplying by white is a
+ // no-op), so pale and nude hosiery also lay a thin veil of the yarn colour
+ // over the leg: denser at the silhouette where the knit is seen edge-on.
+ if(!solid&&!black){
+  const v=(nude?'#c4927b':colour).slice(1).match(/../g).map(x=>parseInt(x,16));
+  for(let i=0;i<px.length;i+=4){const r=data[i]/255;for(let k=0;k<3;k++)px[i+k]=v[k];
+   px[i+3]=data[i+3]?Math.round(255*Math.min(.62,nude?.20+.24*r:.20+.40*r)):0;}
+  q.putImageData(im,0,0);p.globalCompositeOperation='source-over';p.drawImage(c,0,0);
+ }
  for(let i=0;i<px.length;i+=4){px[i]=255;px[i+1]=black?244:255;px[i+2]=black?229:255;
-  px[i+3]=data[i+3]?Math.round(data[i+1]*(solid?.06:nude?.035:black?.25:.18)):0;}
+  px[i+3]=data[i+3]?Math.round(data[i+1]*(solid?.06:nude?.11:black?.25:.18)):0;}
  q.putImageData(im,0,0);p.globalCompositeOperation='screen';p.drawImage(c,0,0);
  if(!solid){p.globalCompositeOperation='soft-light';p.globalAlpha=.035;p.fillStyle=p.createPattern(knit(),'repeat');
   p.fillRect(0,0,w,h);p.globalAlpha=1;}
@@ -296,6 +306,8 @@ function hosiery(source,o,w,h,base=source.sprite){
  }
  if(o.sock==='blacksheer')colour='#262430';
  if(o.sock==='pantyhose')colour=o.skin||'#d7ab90';
+ // Sheer yarn shows its hue more strongly than the pastel used for socks.
+ else if(o.sock==='sheer')colour=SHEER_YARN[o.color]||colour;
  const mapped=source.hose&&['sheer','pantyhose','blacksheer','opaque','knee','thigh'].includes(o.sock)?hosePixels(source,w,h):null;
  const opacity=({sheer:.35,pantyhose:.35,blacksheer:.55,opaque:.90,knee:.85,thigh:.85,fishnet:.15})[o.sock];
  p.drawImage(base,0,0);
@@ -305,9 +317,12 @@ function hosiery(source,o,w,h,base=source.sprite){
   p.globalCompositeOperation='source-atop';p.globalAlpha=1;p.fillStyle=colour;p.fillRect(0,0,w,h);
   p.globalCompositeOperation='multiply';p.globalAlpha=.55;p.drawImage(mono(),0,0);
   p.globalCompositeOperation='soft-light';p.globalAlpha=.45;p.drawImage(mono(),0,0);
-  p.globalCompositeOperation='screen';p.globalAlpha=colour==='#292735'?.06:.04;p.drawImage(mono(),0,0);p.globalAlpha=1;
+  p.globalCompositeOperation='screen';p.globalAlpha=(colour==='#292735'?.06:.04)+(o.sock==='thigh'?.16:0);p.drawImage(mono(),0,0);p.globalAlpha=1;
  }else if(!mapped){
   p.globalCompositeOperation='multiply';p.globalAlpha=opacity;p.fillStyle=colour;p.fillRect(0,0,w,h);
+  // Same pale-yarn veil as the mapped path, for heels without a hose map.
+  if(['sheer','pantyhose'].includes(o.sock)){p.globalCompositeOperation='source-atop';p.globalAlpha=o.sock==='pantyhose'?.26:.32;p.fillStyle=o.sock==='pantyhose'?'#c4927b':colour;p.fillRect(0,0,w,h);}
+  p.globalAlpha=1;
  }
  // The mapped field already supplies silhouette density and sheen.
  // Doubling it with the generic edge tint flattened the earlier sheer look.
@@ -317,8 +332,10 @@ function hosiery(source,o,w,h,base=source.sprite){
  }
  if(mapped)mappedHose(p,mapped,colour,o.sock,w,h);
  if(o.sock==='fishnet'){
-  p.globalCompositeOperation='source-atop';p.strokeStyle=colour;p.lineWidth=1.1;p.globalAlpha=.8;p.beginPath();
-  for(let x=-h;x<w+h;x+=14){p.moveTo(x,0);p.lineTo(x+h,h);p.moveTo(x,0);p.lineTo(x-h,h);}p.stroke();p.globalAlpha=1;
+  const net=()=>{p.beginPath();for(let x=-h;x<w+h;x+=14){p.moveTo(x,0);p.lineTo(x+h,h);p.moveTo(x,0);p.lineTo(x-h,h);}p.stroke();};
+  p.globalCompositeOperation='source-atop';
+  if(colour!=='#292735'){p.strokeStyle='#6b4652';p.lineWidth=2.2;p.globalAlpha=.22;net();}
+  p.strokeStyle=colour;p.lineWidth=1.3;p.globalAlpha=.92;net();p.globalAlpha=1;
  }
  // Back leg sits in shadow behind the front one, with a soft contour line.
  if(source.legs){p.globalCompositeOperation='multiply';p.globalAlpha=(colour==='#292735'||colour==='#262430')?.6:.38;p.drawImage(source.legs,0,0);p.globalAlpha=1;}

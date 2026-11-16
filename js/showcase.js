@@ -40,7 +40,7 @@
   vanity:{size:[848,1264],horizon:560/1264,platform:{center:[424,752],rx:349,ry:74,depth:33}},
   balcony:{size:[896,1200],horizon:520/1200,platform:{center:[448,712],rx:357,ry:73,depth:30}}
  };
- const composition=Object.freeze({width:610,height:620,cx:305,cy:490,ry:59,footScale:.33,floor:542,extra:650,crop:Object.freeze({x:0,y:100,width:610,height:500})});
+ const composition=Object.freeze({width:610,height:620,cx:305,cy:490,ry:59,footScale:.33,floor:542,extra:650,crop:Object.freeze({x:0,y:158,width:610,height:442})});
  function project(id,w,h,cropped=false){
   const room=framing[id]||framing.salon,anchor=room.platform,c=composition;
   const view=cropped===true?c.crop:{x:0,y:0,width:c.width,height:c.height};
@@ -80,9 +80,12 @@
    // On very wide displays the controls have their own side rail, leaving the
    // fixed camera room to use the full available height. Keep its projection
    // uniform and reserve enough horizontal space for the rail.
-   const available=Math.max(1,h-top-(ultrawide?16:legacyClearance));
+   // The picture is the knees-down crop; it takes the height the dock leaves
+   // (measured, not guessed) so the feet never sit behind the controls.
+   const dockSpace=dock&&dock.offsetHeight?dock.offsetHeight+12:legacyClearance;
+   const available=Math.max(1,h-top-(ultrawide?16:dockSpace));
    const pictureSpace=ultrawide?Math.max(1,w-500):w;
-   const uniform=ultrawide?Math.min(pictureSpace/composition.crop.width,available/composition.crop.height):Math.min(w/composition.width,available/composition.height);
+   const uniform=ultrawide?Math.min(pictureSpace/composition.crop.width,available/composition.crop.height):Math.min(w/composition.crop.width,available/composition.crop.height,1.75);
    const width=composition.crop.width*uniform,height=composition.crop.height*uniform;
    const x=(pictureSpace-width)/2,y=top;
    Object.assign(host.style,{left:x+'px',top:y+'px',width:width+'px',height:height+'px',right:'auto',bottom:'auto'});
