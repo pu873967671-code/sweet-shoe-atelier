@@ -4,6 +4,31 @@ Prompt pack for GPT Image or Gemini. It produces one photo per shoe shape × soc
 (20 × 10 = 200 photos). The game recolours the shoe and socks to the player's
 design, so every photo uses a **white shoe** and **white (or fixed-colour) socks**.
 
+## Run it directly (GPT Image or Gemini)
+
+`dev/generate-photos.py` reads the prompts and tables below and calls the API for you,
+in the right order (master → shapes → socks). Python 3 only, nothing to install.
+
+```sh
+git clone -b claude/game-art-defects-aesthetics-hre0nm https://github.com/pu873967671-code/sweet-shoe-atelier.git
+cd sweet-shoe-atelier
+
+export OPENAI_API_KEY=sk-...          # for GPT Image (gpt-image-1, 1024x1536)
+python3 dev/generate-photos.py --provider openai --test
+
+export GEMINI_API_KEY=...             # or Gemini (gemini-2.5-flash-image, 3:4)
+python3 dev/generate-photos.py --provider gemini --test
+```
+
+- `--test` makes the 9-photo test batch; leave it out for all 200.
+- `--shapes flat,maryjane --socks none,fishnet` makes only those.
+- `--masks` also makes the Prompt D colour maps.
+- `--dry-run` prints what would be made, without calling the API.
+- Photos go to `photos/` (not committed). Files that exist are skipped: delete a
+  photo and run again to redo it. If you don't like `master.png`, delete the whole
+  folder and start again, since every photo is an edit of it.
+- Editing the prompts or tables in this file changes what the script sends.
+
 ## How to work (important for consistency)
 
 1. **Make one master photo first** (Prompt A). Regenerate until you love it. Every
@@ -19,7 +44,7 @@ design, so every photo uses a **white shoe** and **white (or fixed-colour) socks
 
 ## Delivery
 
-- 3:4 portrait, **1536 × 2048 px**, PNG.
+- Portrait PNG: 3:4 (Gemini, or 1536 × 2048 by hand) or 2:3 1024 × 1536 (GPT Image); the game crops.
 - File name: `<shape-id>__<sock-id>.png`, e.g. `maryjane__fishnet.png`, `flat__none.png`.
 - Optional masks (Prompt D): `maryjane__fishnet__mask.png`. If the generator can't
   keep masks aligned, skip them and I will cut the masks myself.
