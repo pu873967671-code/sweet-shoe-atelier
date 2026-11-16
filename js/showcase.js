@@ -40,7 +40,7 @@
   vanity:{size:[848,1264],horizon:560/1264,platform:{center:[424,752],rx:349,ry:74,depth:33}},
   balcony:{size:[896,1200],horizon:520/1200,platform:{center:[448,712],rx:357,ry:73,depth:30}}
  };
- const composition=Object.freeze({width:610,height:620,cx:305,cy:490,ry:59,footScale:.33,floor:542,extra:650,crop:Object.freeze({x:0,y:158,width:610,height:442})});
+ const composition=Object.freeze({width:610,height:620,cx:305,cy:522,ry:59,footScale:.33,floor:542,extra:650,crop:Object.freeze({x:0,y:158,width:610,height:442})});
  function project(id,w,h,cropped=false){
   const room=framing[id]||framing.salon,anchor=room.platform,c=composition;
   const view=cropped===true?c.crop:{x:0,y:0,width:c.width,height:c.height};

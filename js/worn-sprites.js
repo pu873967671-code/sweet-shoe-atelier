@@ -127,8 +127,45 @@ async function load(heel){
   const padded=make(w+72,h+72),b=padded.getContext('2d');b.drawImage(sprite,36,36);b.drawImage(sprite,0,0,w,1,36,0,w,36);
   const edge=make(w,h),e=edge.getContext('2d');e.drawImage(skin,0,0);e.globalCompositeOperation='source-in';e.fillStyle='#211a30';e.fillRect(0,0,w,h);
   e.globalCompositeOperation='destination-out';e.drawImage(blurred(padded,w+72,h+72,18),-36,-36);
-  return remember(sources,heel,{sprite,mask,clear,noDye,sockMask,sockShade:sockGray,skin,edge,legs,hose,tops,maryJane:base==='maryjane',edgeD:['ballet','slingback','bowsling','crystalsandal'].includes(base)});
+  return remember(sources,heel,{sprite,mask,dyeMask:dyeShare(mask,noDye,w,h,sprite),clear,noDye,sockMask,sockShade:sockGray,skin,edge,legs,hose,tops,maryJane:base==='maryjane',edgeD:['ballet','slingback','bowsling','crystalsandal'].includes(base)});
  }).finally(()=>loading.delete(heel));loading.set(heel,job);return job;
+}
+// Where the dyed upper meets the undyed piping or sole, both mattes are soft,
+// so their alphas can add to less than one and the pale undyed painting shows
+// through as a ragged fringe. Inside the shoe, give the dye its share of the
+// pair (m / (m + n)); on the shoe's outer silhouette, keep the dye matte as is.
+function dyeShare(mask,noDye,w,h,sprite){
+ try{
+  const c=make(w,h),p=c.getContext('2d');p.drawImage(mask,0,0);const m=p.getImageData(0,0,w,h);
+  p.clearRect(0,0,w,h);p.drawImage(noDye,0,0);const n=p.getImageData(0,0,w,h).data,d=m.data;
+  p.clearRect(0,0,w,h);p.drawImage(sprite,0,0);const px=p.getImageData(0,0,w,h).data;
+  const N=w*h,U=new Uint8Array(N),V=new Uint8Array(N);
+  for(let i=0;i<N;i++){const a=d[i*4+3],b=n[i*4+3];U[i]=a>=180&&b<50?1:0;V[i]=b>=140?1:0;}
+  const out=new Uint8ClampedArray(N),band=new Uint8Array(N);
+  for(let i=0;i<N;i++){
+   const a=d[i*4+3],b=n[i*4+3];out[i]=a;if(!a&&!b)continue;
+   const x=i%w,y=(i-x)/w;
+   // Where upper and piping meet, the painted colour decides: a pixel that
+   // looks like the nearby piping stays undyed, one that looks like the
+   // nearby upper is dyed. The two mattes are not trusted there.
+   let su=0,sv=0;const ur=[0,0,0],vr=[0,0,0];
+   for(let dy=-5;dy<=5;dy++){const yy=y+dy;if(yy<0||yy>=h)continue;for(let dx=-5;dx<=5;dx++){const xx=x+dx;if(xx<0||xx>=w)continue;const j=yy*w+xx;
+    if(U[j]){su++;ur[0]+=px[j*4];ur[1]+=px[j*4+1];ur[2]+=px[j*4+2];}else if(V[j]){sv++;vr[0]+=px[j*4];vr[1]+=px[j*4+1];vr[2]+=px[j*4+2];}}}
+   const cover=Math.min(255,a+b);
+   if(su>=3&&sv>=3&&cover>=160){band[i]=1;
+    let num=0,den=0;for(let k=0;k<3;k++){const u=ur[k]/su,v=vr[k]/sv,dd=v-u;num+=(px[i*4+k]-u)*dd;den+=dd*dd;}
+    if(den>=300){const t=Math.max(0,Math.min(1,num/den));out[i]=Math.round(255*(1-t));continue;}
+   }
+   if(!a||!b)continue;
+   // elsewhere split the pair by share; on the outer silhouette keep the matte
+   out[i]=Math.round(cover>=200?255*a/(a+b):a*(255-b)/255);
+  }
+  // soften the colour decision along the seam so it reads as a clean line, not speckle
+  for(let i=0;i<N;i++){if(!band[i]){d[i*4+3]=out[i];continue;}const x=i%w,y=(i-x)/w;let s=0,k=0;
+   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const xx=x+dx,yy=y+dy;if(xx<0||yy<0||xx>=w||yy>=h)continue;const j=yy*w+xx;if(!band[j]&&!(d[j*4+3]||n[j*4+3]))continue;s+=out[j];k++;}
+   d[i*4+3]=k?Math.round(s/k):out[i];}
+  p.clearRect(0,0,w,h);p.putImageData(m,0,0);return c;
+ }catch(error){return null;}
 }
 function skinTone(source,colour,w,h){
  // The map's alpha alone selects skin. Recolour by the painting's own
@@ -331,25 +368,67 @@ function netField(source,w,h){
   if(!source.legs)return source.netField=null;
   const c=make(w,h),p=c.getContext('2d');p.drawImage(source.legs,0,0);
   const legs=p.getImageData(0,0,w,h).data,P=24,field=new Float32Array(w*h*4);
+  // Per leg (0 back, 1 front) and row: the full span, ignoring strap cutouts.
+  // The legs map only tells the legs apart lower down (higher up both are
+  // marked front), so the boundary between them is found where it is known
+  // and carried smoothly up into the rows where the two silhouettes merge.
+  const lo=[new Float32Array(h).fill(NaN),new Float32Array(h).fill(NaN)],hi=[new Float32Array(h).fill(NaN),new Float32Array(h).fill(NaN)];
+  const all=[new Float32Array(h).fill(NaN),new Float32Array(h).fill(NaN)],split=new Float32Array(h).fill(NaN);let side=0,votes=0;
   for(let y=0;y<h;y++){
-   let x=0;
-   while(x<w){
-    const start=x,front=legs[(y*w+x)*4]>=207;
-    if(legs[(y*w+x)*4+3]<64){x++;continue;}
-    while(x<w&&legs[(y*w+x)*4+3]>=64&&(legs[(y*w+x)*4]>=207)===front)x++;
-    const width=x-start,R=width/2;if(width<3)continue;
-    for(let sx=start;sx<x;sx++){
-     const u=Math.max(-.995,Math.min(.995,2*(sx-start+.5)/width-1)),th=Math.asin(u),cos=Math.cos(th);
-     const arc=th*R+(front?0:P*.37),t=y*1.04;
-     const a=(arc+t)/P,b=(arc-t)/P,d=Math.min(Math.abs(a-Math.round(a)),Math.abs(b-Math.round(b)))*P;
-     const ds=d*(.3+.7*cos);            // surface distance as seen on screen
-     const j=(y*w+sx)*4;
-     field[j]=Math.max(0,Math.min(1,(1.6-ds)/1.2));             // thread coverage
-     field[j+1]=Math.max(0,Math.min(1,(3.0-ds)/1.8));           // soft contact halo
-     field[j+2]=Math.max(.5,1-.42*u*u-(front?0:.14));            // cylinder light
-     field[j+3]=Math.exp(-Math.pow((u+.2)/.42,2))*(front?1:.55); // sheen band
-    }
+   let bl=NaN,bh=NaN,fl=NaN,fh=NaN,al=NaN,ah=NaN;
+   for(let x=0;x<w;x++){const k=(y*w+x)*4;if(legs[k+3]<64)continue;if(isNaN(al))al=x;ah=x;if(legs[k]>=207){if(isNaN(fl))fl=x;fh=x;}else{if(isNaN(bl))bl=x;bh=x;}}
+   all[0][y]=al;all[1][y]=ah;
+   if(bh-bl>=12){ // the back leg is visible as its own region in this row
+    const right=(fh>bh); // front leg to the right of the back leg
+    votes+=right?1:-1;
+    split[y]=right?bh+.5:bl-.5;
    }
+  }
+  side=votes>=0?1:-1; // 1: front leg on the right
+  // carry the boundary up (and down) from the nearest known rows, following its slope
+  const known=[];for(let y=0;y<h;y++)if(!isNaN(split[y]))known.push(y);
+  if(known.length>=6){
+   const top=known[0],bot=known[known.length-1],fit=(ys)=>{let n=0,sy=0,sx=0,sxy=0,syy=0;for(const y of ys){n++;sy+=y;sx+=split[y];sxy+=y*split[y];syy+=y*y;}const m=(n*sxy-sy*sx)/Math.max(1e-6,n*syy-sy*sy);return {m,c:(sx-m*sy)/n};};
+   const up=fit(known.slice(0,Math.min(40,known.length))),dn=fit(known.slice(-Math.min(40,known.length)));
+   for(let y=0;y<top;y++)split[y]=up.c+up.m*y;
+   for(let y=bot+1;y<h;y++)split[y]=dn.c+dn.m*y;
+   for(let i=0;i+1<known.length;i++)for(let y=known[i]+1;y<known[i+1];y++){const t=(y-known[i])/(known[i+1]-known[i]);split[y]=split[known[i]]*(1-t)+split[known[i+1]]*t;}
+  }
+  const isFront=(x,y,k)=>isNaN(split[y])?legs[k]>=207:side>0?x>=split[y]:x<=split[y];
+  for(let y=0;y<h;y++){if(isNaN(all[0][y]))continue;
+   if(isNaN(split[y])){lo[1][y]=all[0][y];hi[1][y]=all[1][y];continue;}
+   const sp=Math.max(all[0][y],Math.min(all[1][y],split[y]));
+   if(side>0){lo[0][y]=all[0][y];hi[0][y]=sp;lo[1][y]=sp;hi[1][y]=all[1][y];}else{lo[1][y]=all[0][y];hi[1][y]=sp;lo[0][y]=sp;hi[0][y]=all[1][y];}
+   for(const f of [0,1])if(hi[f][y]-lo[f][y]<3){lo[f][y]=NaN;hi[f][y]=NaN;}
+  }
+  // Smooth centre and half-width down each leg. Below the ankle (the narrowest
+  // row in the lower half) the ankle's cylinder carries on unchanged, so the
+  // lattice flows over the foot instead of re-fitting to each wider row.
+  const geo=[0,1].map(f=>{
+   const C=new Float32Array(h),R=new Float32Array(h);let ankle=-1,best=1e9;
+   for(let y=0;y<h;y++){C[y]=(lo[f][y]+hi[f][y])/2;R[y]=(hi[f][y]-lo[f][y]+1)/2;}
+   for(let y=Math.floor(h*.45);y<h*.9;y++)if(R[y]>=3&&R[y]<best){best=R[y];ankle=y;}
+   const sm=(A,y,r=14)=>{let s=0,n=0;for(let k=Math.max(0,y-r);k<=Math.min(h-1,y+r);k++)if(!isNaN(A[k])&&(ankle<0||k<=ankle)){s+=A[k];n++;}return n?s/n:NaN;};
+   const C2=new Float32Array(h),R2=new Float32Array(h);
+   for(let y=0;y<h;y++){const yy=ankle>=0?Math.min(y,ankle):y;C2[y]=sm(C,yy);R2[y]=sm(R,yy);}
+   // below the ankle the centre keeps following the leg's slant
+   if(ankle>=40){const slope=(C2[ankle]-C2[ankle-40])/40;for(let y=ankle+1;y<h;y++)C2[y]=C2[ankle]+slope*(y-ankle);}
+   return {C:C2,R:R2};
+  });
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
+   const k=(y*w+x)*4;if(legs[k+3]<64)continue;
+   const front=isFront(x,y,k),g=geo[front?1:0],cx=g.C[y],R=g.R[y];if(!(R>=2))continue;
+   // a soft cylinder: wrap round to |v| = .9, then continue flat with the same
+   // slope, so the diamonds never jump in size where the wrap ends
+   const v=(x-cx)/R,av=Math.abs(v),u=Math.max(-.995,Math.min(.995,v)),K=.9,slope=1/Math.sqrt(1-K*K);
+   const arc=(av<=K?Math.asin(v)*R:Math.sign(v)*(Math.asin(K)*R+(av-K)*R*slope))+(front?0:P*.37),t=y*1.04;
+   const a=(arc+t)/P,b=(arc-t)/P,d=Math.min(Math.abs(a-Math.round(a)),Math.abs(b-Math.round(b)))*P;
+   const ds=d*(.3+.7*Math.sqrt(1-Math.min(K,av)**2));
+   const j=(y*w+x)*4;
+   field[j]=Math.max(0,Math.min(1,(1.6-ds)/1.2));
+   field[j+1]=Math.max(0,Math.min(1,(3.0-ds)/1.8));
+   field[j+2]=Math.abs(v)<=1?Math.max(.5,1-.42*u*u-(front?0:.14)):(front?.82:.68);
+   field[j+3]=Math.abs(v)<=1?Math.exp(-Math.pow((u+.2)/.42,2))*(front?1:.55):0;
   }
   return source.netField=field;
  }catch(error){return source.netField=null;}
@@ -437,11 +516,11 @@ async function tinted(d,o){
   q.globalCompositeOperation='screen';q.globalAlpha=['velvet','suede'].includes(d.material)?.08:.25;q.drawImage(sprite,0,0);q.globalAlpha=1;q.globalCompositeOperation='source-over';
   const finish=make(w,h),f=finish.getContext('2d');f.save();f.translate(0,h*.62);f.scale(w/1024,h*.38/640);
   A.CoutureFinish?.drawFinish(f,d,1024,640,'sprite');A.CoutureFinish?.drawPattern(f,d,1024,640,'sprite');f.restore();
-  q.drawImage(finish,0,0);q.globalCompositeOperation='destination-in';q.drawImage(mask,0,0);
+  q.drawImage(finish,0,0);q.globalCompositeOperation='destination-in';q.drawImage(source.dyeMask||mask,0,0);
   // Keep natural soles, welt/piping, insoles and non-fabric heel details
   // in their original painting, for dye, material finish and every motif.
   // Sock variants share the base matte with authored registration offsets.
-  q.globalCompositeOperation='destination-out';q.drawImage(source.noDye,0,0);
+  if(!source.dyeMask){q.globalCompositeOperation='destination-out';q.drawImage(source.noDye,0,0);}
   // Re-keyed shoe masks can overlap a few yarn pixels at narrow openings.
   if(source.sockMask){q.globalCompositeOperation='destination-out';q.drawImage(source.sockMask,0,0);}
   if(o.skin&&!source.legs)throw new Error('Missing worn skin mask: '+variant);
