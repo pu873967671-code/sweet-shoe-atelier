@@ -552,3 +552,43 @@ html body #guidedVoice{display:none}
   html body #guidedVoice span{font:600 13px var(--v-font)}
   html body #guidedVoice span.ok{color:#2f7a5e}html body #guidedVoice span.no{color:#9a6b5a}
 }
+
+/* ══ Fitting room as a photo card (rooms retired) ═════════════════════════ */
+html body .runway-scene.card-mode{background:radial-gradient(70% 60% at 50% 35%,#f8fcfa,#eaf5f0)!important}
+html body .runway-scene.card-mode::before,html body .runway-scene.card-mode::after{display:none!important;content:none!important}
+html body .runway-scene.card-mode>.runway-worn-window{border-radius:22px!important;overflow:hidden!important;box-shadow:0 22px 44px #2f5a4a2e,0 3px 8px #2f5a4a1f!important;border:5px solid #fff!important;box-sizing:border-box;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .28 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --vignette:radial-gradient(90% 75% at 50% 45%,transparent 55%,#3a2e2a2e 100%)}
+html body .runway-scene.card-mode[data-floor=carpet]>.runway-worn-window{background:var(--vignette),var(--grain),radial-gradient(80% 60% at 50% 72%,#ddd5ce,#bdb3aa)!important}
+html body .runway-scene.card-mode[data-floor=wood]>.runway-worn-window{background:var(--vignette),var(--grain),repeating-linear-gradient(97deg,transparent 0 62px,#9b744f30 62px 64px),linear-gradient(180deg,#ead6bf,#cfb08e)!important}
+html body .runway-scene.card-mode[data-floor=marble]>.runway-worn-window{background:var(--vignette),var(--grain),radial-gradient(40% 18% at 30% 30%,#ffffff 0,transparent 70%),linear-gradient(115deg,transparent 40%,#c9c2bd55 42%,transparent 45%,transparent 70%,#d4cdc855 72%,transparent 74%),linear-gradient(180deg,#f6f2ee,#e2dbd5)!important}
+html body .runway-scene.card-mode .fitting2d-canvas{filter:saturate(.97) contrast(1.02)}
+html body .photo-caption{position:absolute;z-index:4;left:0;right:0;bottom:0;display:flex;align-items:center;gap:8px;padding:8px 12px;background:#fffdfdeb;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+html body .photo-caption img{width:30px;height:30px;border-radius:50%;object-fit:cover;object-position:top;background:#eefaf4;flex:none}
+html body .photo-caption span{display:flex;flex-direction:column;min-width:0;line-height:1.15}
+html body .photo-caption b{font:700 13px var(--v-font);color:var(--v-ink);white-space:nowrap}
+html body .photo-caption small{font:600 10.5px var(--v-font);color:var(--v-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html body .photo-caption i{margin-left:auto;font:700 12px var(--v-font);font-style:normal;color:#e07a98;white-space:nowrap}
+/* landscape: the photo card on the left, its controls in a rail on the right */
+html body .runway.card-rail .runway-dock{position:fixed!important;left:auto!important;right:20px!important;bottom:auto!important;translate:none!important;width:var(--rail-w,420px)!important;max-height:calc(100dvh - 92px)!important;overflow-y:auto!important;
+  display:flex!important;flex-direction:column!important;gap:12px!important;padding:24px 18px 18px!important}
+html body .runway.card-rail .runway-sock-panel{display:flex!important;flex-direction:column!important;gap:10px!important}
+html body .runway.card-rail .runway-sock-styles{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;overflow:visible!important}
+html body .runway.card-rail .runway-sock-styles .sock-chip{min-width:0!important;white-space:normal!important}
+html body .runway.card-rail .runway-sock-colors{justify-content:center!important}
+html body .runway.card-rail .runway-actions{order:5;display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+html body .runway.card-rail .runway-actions button{width:100%!important}
+html body .runway.card-rail .runway-reaction{display:none!important}
+@media (max-height:560px){
+  html body .runway.card-rail .runway-dock{padding:16px 12px 12px!important;gap:8px!important;max-height:calc(100dvh - 64px)!important}
+  html body .runway.card-rail .runway-sock-styles{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  html body .runway.card-rail .runway-sock-styles .sock-chip{min-height:30px!important;font-size:11px!important;padding:2px 4px!important}
+}
+/* portrait: the styling wish is one tidy line above the card; sock styles scroll in one row */
+@media (orientation:portrait){
+  html body .runway-scene.card-mode .styling-brief{left:12px!important;right:12px!important;max-width:none!important;display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:4px 10px!important;padding:8px 12px!important;bottom:auto!important}
+  html body .runway-scene.card-mode .styling-brief ul{display:flex!important;gap:10px!important;margin:0!important;padding:0!important}
+  html body .runway-scene.card-mode .styling-brief .styling-reward{margin-left:auto!important}
+  html body .runway-modal:has(.card-mode) .runway-sock-styles{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scrollbar-width:none;gap:6px!important;flex-basis:100%!important}
+  html body .runway-modal:has(.card-mode) .runway-sock-styles .sock-chip{flex:none!important;white-space:nowrap!important;min-height:38px!important}
+}

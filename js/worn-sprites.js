@@ -562,7 +562,7 @@ async function paint(target,input,options,sceneId='salon',cropped=false,current=
  const token={};tokens.set(target,token);const d=A.cleanDesign(input),o=A.cleanFittingOptions(options);if(!has(d.heel))return false;
  let sprite;try{sprite=await tinted(d,o);}catch(error){return false;}
  if(tokens.get(target)!==token||!current())return false;
- const ref=SPRITES[d.heel+(['frill','lace'].includes(o.sock)?'_'+o.sock:'')],g0=A.Showcase.project('salon',1220,1000,true),g=A.Showcase.project(sceneId,target.width,target.height,cropped),k=g.scale/g0.scale;
+ const ref=SPRITES[d.heel+(['frill','lace'].includes(o.sock)?'_'+o.sock:'')],g0=A.Showcase.project('salon',1220,1000,'ref'),g=A.Showcase.project(sceneId,target.width,target.height,cropped),k=g.scale/g0.scale;
  const x=g.cx+(ref.x+(SPRITES[d.heel].ox||0)-g0.cx)*k,y=g.floor+(ref.y-g0.floor)*k,w=ref.w*k,h=ref.h*k,p=target.getContext('2d');
  p.clearRect(0,0,target.width,target.height);p.imageSmoothingEnabled=true;p.imageSmoothingQuality='high';
  const B=SPRITES[d.heel],rearY=B.rc?g.floor+(B.y-g0.floor)*k+B.h*k*B.rc:y+h*.925;
