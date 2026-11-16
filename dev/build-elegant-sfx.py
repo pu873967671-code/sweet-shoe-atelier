@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compose every UI cue for Sweet Shoe Atelier: pure, crisp, elegant tones.
+"""LEGACY (superseded by dev/build-fresh-sfx.py). Pure, crisp, elegant tones.
 
 No noise anywhere: each cue is built from clean sine partials (a glass bell,
 a soft harp-like pluck and a tiny "pearl" pop), with a gentle low-pass and a

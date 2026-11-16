@@ -23,7 +23,7 @@
         if(typeof fetch!=='function'||!this.ctx?.decodeAudioData)return Promise.resolve(null);
         const load=(async()=>{
           for(const ext of ['ogg','mp3'])try{
-            const response=await fetch('assets/sfx/'+name+'.'+ext+'?v=20261115');
+            const response=await fetch('assets/sfx/'+name+'.'+ext+'?v=20261116');
             if(!response.ok)continue;
             const bytes=await response.arrayBuffer();
             const buffer=await new Promise((resolve,reject)=>this.ctx.decodeAudioData(bytes,resolve,reject));
