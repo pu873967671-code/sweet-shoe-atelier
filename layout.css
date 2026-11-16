@@ -524,3 +524,20 @@ html body #studioScreen #customer{position:relative!important;overflow:visible!i
 html body #customer>.guided-reaction{left:var(--gx,50%);top:var(--gy,20px)}
 @media (orientation:portrait) and (max-width:700px){html body #customer>.guided-reaction{top:calc(var(--gy,20px) + 8px);left:calc(var(--gx,40px) + 34px);translate:0 0;bottom:auto}}
 html body .guided-choice{min-height:150px}
+/* story payoffs */
+html body .lane-beat .lane-arc{display:block;margin-top:8px;color:#2f7a5e;font:700 14px var(--v-font)}
+html body .lane-beat .lane-arc small{display:block;margin:2px 0 0;color:#b8862f}
+html body .lane-beat.arc{background:linear-gradient(180deg,#e7f8f0,#fffdf6);border-color:#bfe8d6}
+html body .modal[data-modal-kind=party]{width:min(640px,94vw)!important;text-align:center;max-height:94dvh;overflow:auto;background:linear-gradient(180deg,#effbf5,#fffefb)!important}
+html body .party-row{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:14px 0}
+html body .party-guest{margin:0;display:flex;flex-direction:column;align-items:center;gap:4px;width:84px}
+html body .party-guest img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;background:#fff;box-shadow:0 0 0 3px #fff,0 0 0 5px #bfe8d6,0 8px 18px #2f7a5e22}
+html body .party-guest figcaption{font:700 13px var(--v-font);color:var(--v-ink)}
+html body .party-lead{font:600 16px/1.5 var(--v-font)!important;color:var(--v-ink)!important}
+html body .party-reward{display:inline-block;padding:6px 16px;border-radius:999px;background:#fff8e6;color:#9a6a1f!important;font:700 14px var(--v-font)!important}
+@media (prefers-reduced-motion:no-preference){
+  html body .party-guest{animation:party-hop .7s cubic-bezier(.34,1.56,.64,1) both}
+  html body .party-guest:nth-child(2){animation-delay:.08s}html body .party-guest:nth-child(3){animation-delay:.16s}
+  html body .party-guest:nth-child(4){animation-delay:.24s}html body .party-guest:nth-child(5){animation-delay:.32s}html body .party-guest:nth-child(6){animation-delay:.4s}
+}
+@keyframes party-hop{0%{opacity:0;transform:translateY(18px) scale(.8)}100%{opacity:1;transform:none}}

@@ -63,19 +63,21 @@
         '“It’s my birthday party, so I’m allowed to sparkle the most.”','“今天是我的生日派对，我可以最闪亮！”',
         '“Best birthday ever. You and your shoes are on every photo.”','“最棒的生日！每张照片里都有你和你的鞋。”')]
   };
-  const PEOPLE=[0,1,2,3,4,5],TOTAL=PEOPLE.length*3;
+  const PEOPLE=[0,1,2,3,4,5],TOTAL=PEOPLE.length*3,ARC_BONUS=50,PARTY={coins:200,gems:5};
   // Neighbours move onto the lane as the story grows.
   const ARRIVAL={0:0,1:0,2:0,3:3,4:3,5:6};
   const copy={
-    en:{lane:'Ribbon Lane',goal:'Help every neighbour reach their big day',bigDay:'BIG DAY',next:'Next',party:'Street party',partyLocked:'When every neighbour has had their big day, Ribbon Lane throws a party for you.',arrives:'Moves in after {n} big days',done:'All big days done',again:'{name} loved the effort, but it wasn’t quite it. She’ll come back for another try.',complete:'{name}’s big day',progress:'{n} / {t} big days',close:'Back to work',map:'Ribbon Lane'},
-    zh:{lane:'丝带巷',goal:'帮每一位邻居迎来她们的重要日子',bigDay:'重要日子',next:'下一个',party:'街坊派对',partyLocked:'当每位邻居都迎来了她们的重要日子，丝带巷会为你办一场派对。',arrives:'完成 {n} 个重要日子后搬来',done:'重要日子已全部完成',again:'{name}很感谢你的用心，但还差一点点。她会再来试一次。',complete:'{name}的重要日子',progress:'{n} / {t} 个重要日子',close:'继续工作',map:'丝带巷'}
+    en:{arc:'{name}’s story is complete!',bonus:'+{c} coins for a story well told',moved:'{names} moved onto Ribbon Lane!',and:' and ',partyTitle:'The Ribbon Lane street party',partyLead:'Every neighbour reached her big day, in shoes you made. Tonight, the whole lane celebrates you.',partyReward:'+{c} coins · +{g} gems',partyGo:'Join the party',lane:'Ribbon Lane',goal:'Help every neighbour reach their big day',bigDay:'BIG DAY',next:'Next',party:'Street party',partyLocked:'When every neighbour has had their big day, Ribbon Lane throws a party for you.',arrives:'Moves in after {n} big days',done:'All big days done',again:'{name} loved the effort, but it wasn’t quite it. She’ll come back for another try.',complete:'{name}’s big day',progress:'{n} / {t} big days',close:'Back to work',map:'Ribbon Lane'},
+    zh:{arc:'{name}的故事圆满了！',bonus:'故事圆满奖励 +{c} 金币',moved:'{names}搬进了丝带巷！',and:'和',partyTitle:'丝带巷街坊派对',partyLead:'每一位邻居都穿着你做的鞋，迎来了她的重要日子。今晚，整条巷子为你庆祝。',partyReward:'+{c} 金币 · +{g} 钻石',partyGo:'加入派对',lane:'丝带巷',goal:'帮每一位邻居迎来她们的重要日子',bigDay:'重要日子',next:'下一个',party:'街坊派对',partyLocked:'当每位邻居都迎来了她们的重要日子，丝带巷会为你办一场派对。',arrives:'完成 {n} 个重要日子后搬来',done:'重要日子已全部完成',again:'{name}很感谢你的用心，但还差一点点。她会再来试一次。',complete:'{name}的重要日子',progress:'{n} / {t} 个重要日子',close:'继续工作',map:'丝带巷'}
   };
   const tr=k=>copy[A.lang==='zh'?'zh':'en'][k];
   const L=v=>v[A.lang==='zh'?'zh':'en'];
   function ensure(s){
+    if(s.lane&&s.lane.ok===true)return s.lane; // already normalised: keep its identity
     const lane=s.lane&&typeof s.lane==='object'?s.lane:{};
     const done={};for(const p of PEOPLE)done[p]=Math.max(0,Math.min(3,Math.floor(Number(lane.done?.[p])||0)));
     s.lane={done,last:Number.isInteger(lane.last)?lane.last:-1,party:lane.party===true};
+    Object.defineProperty(s.lane,'ok',{value:true,enumerable:false});
     return s.lane;
   }
   const count=s=>PEOPLE.reduce((n,p)=>n+ensure(s).done[p],0);
@@ -108,9 +110,11 @@
   function complete(s,order,stars){
     const beat=beatOf(order);if(!beat)return null;
     const lane=ensure(s);lane.last=beat.person;
-    const success=stars>=2&&lane.done[beat.person]===beat.step;
+    const success=stars>=2&&lane.done[beat.person]===beat.step,before=PEOPLE.filter(p=>arrived(s,p));
     if(success)lane.done[beat.person]=beat.step+1;
-    return {beat,success,count:count(s),finished:finished(s)};
+    const arc=success&&lane.done[beat.person]===3;if(arc)s.coins=(s.coins||0)+ARC_BONUS;
+    const moved=PEOPLE.filter(p=>arrived(s,p)&&!before.includes(p));
+    return {beat,success,arc,moved,count:count(s),finished:finished(s)};
   }
   const name=p=>A.t('name'+p);
   function dots(s,p){const d=ensure(s).done[p];return [0,1,2].map(i=>`<i class="${i<d?'on':''}"></i>`).join('');}
@@ -135,7 +139,15 @@
     if(!outcome)return '';
     const {beat,success}=outcome;
     if(!success)return `<div class="lane-beat retry"><p>${tr('again').replace('{name}',name(beat.person))}</p></div>`;
-    return `<div class="lane-beat"><span class="eyebrow">${tr('complete').replace('{name}',name(beat.person))} · ${L(beat.title)}</span><p>${L(beat.story)}</p><span class="lane-dots">${dots(s,beat.person)}</span><small>${tr('progress').replace('{n}',outcome.count).replace('{t}',TOTAL)}</small></div>`;
+    return `<div class="lane-beat ${outcome.arc?'arc':''}"><span class="eyebrow">${tr('complete').replace('{name}',name(beat.person))} · ${L(beat.title)}</span><p>${L(beat.story)}</p><span class="lane-dots">${dots(s,beat.person)}</span>${outcome.arc?`<strong class="lane-arc">✦ ${tr('arc').replace('{name}',name(beat.person))} <small>${tr('bonus').replace('{c}',ARC_BONUS)}</small></strong>`:''}<small>${tr('progress').replace('{n}',outcome.count).replace('{t}',TOTAL)}</small></div>`;
   }
-  A.Lane={BEATS,TOTAL,ensure,count,finished,nextBeat,storyOrder,beatOf,complete,brief,trackerMarkup,mapMarkup,resultMarkup,tr};
+  function movedLine(outcome){return outcome?.moved?.length?tr('moved').replace('{names}',outcome.moved.map(name).join(tr('and'))):'';}
+  const partyDue=s=>finished(s)&&!ensure(s).party;
+  // The finale: every neighbour together, happy, with her last line.
+  function party(s){
+    const lane=ensure(s);if(lane.party)return null;lane.party=true;s.coins=(s.coins||0)+PARTY.coins;s.gems=(s.gems||0)+PARTY.gems;
+    const guests=PEOPLE.map(p=>`<figure class="party-guest"><img src="assets/${A.themes[p].asset}_happy.webp" alt=""><figcaption>${name(p)}</figcaption></figure>`).join('');
+    return `<span class="eyebrow">🎉 ${tr('lane')}</span><h2>${tr('partyTitle')}</h2><div class="party-row">${guests}</div><p class="party-lead">${tr('partyLead')}</p><p class="party-reward">${tr('partyReward').replace('{c}',PARTY.coins).replace('{g}',PARTY.gems)}</p>`;
+  }
+  A.Lane={movedLine,partyDue,party,BEATS,TOTAL,ensure,count,finished,nextBeat,storyOrder,beatOf,complete,brief,trackerMarkup,mapMarkup,resultMarkup,tr};
 })(globalThis.SweetShoe);
