@@ -465,7 +465,7 @@ html body .modal[data-modal-kind=result]:has(.lane-beat)>p{margin:4px 0!importan
 }
 
 /* ══ Guided fitting ═══════════════════════════════════════════════════════ */
-html body #studioScreen.guided .custom>:not(#guided):not(#guidedBack){display:none!important}
+html body #studioScreen.guided .custom>:not(#guided):not(#guidedBack):not(#guidedVoice){display:none!important}
 html body #guided[hidden],html body #guidedBack[hidden]{display:none!important}
 html body #guidedBack{align-self:flex-start;min-height:36px!important;padding:0 14px!important;border-radius:999px!important;font:600 13px var(--v-font)!important}
 html body #guided{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;overflow:auto;padding:2px}
@@ -506,8 +506,10 @@ html body .guided-reaction.no{color:#9a6b5a;background:#fff8f3;border-color:#f1d
 html body .guided-reaction::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;margin-left:-5px;background:inherit;border:inherit;border-top:0;border-left:0;rotate:45deg}
 @keyframes g-pop{0%{opacity:0;transform:translateY(6px) scale(.85)}100%{opacity:1;transform:none}}
 /* wishes reveal themselves as you guess them */
-html body #customer.guided .req:not(.match)>span{font-size:0!important}
-html body #customer.guided .req:not(.match)>span::after{content:"?";font-size:14px;font-weight:700}
+html body #customer.guided .req:not(.revealed)>span{font-size:0!important}
+html body #customer.guided .req:not(.revealed)>span::after{content:"?";font-size:14px;font-weight:700}
+html body #customer.guided .req:not(.revealed){background:#fff!important;border-color:#e3f2ec!important;color:var(--v-muted)!important}
+html body #customer.guided .req:not(.revealed)>b{visibility:hidden}
 @media (prefers-reduced-motion:reduce){html body .guided-reaction,html body #studioScreen #pack.guided-ready-glow{animation:none}}
 @media (max-height:560px) and (orientation:landscape){
   html body .guided-choice{min-height:84px;gap:4px;padding:6px 4px;font-size:12px;border-radius:16px}
@@ -541,3 +543,12 @@ html body .party-reward{display:inline-block;padding:6px 16px;border-radius:999p
   html body .party-guest:nth-child(4){animation-delay:.24s}html body .party-guest:nth-child(5){animation-delay:.32s}html body .party-guest:nth-child(6){animation-delay:.4s}
 }
 @keyframes party-hop{0%{opacity:0;transform:translateY(18px) scale(.8)}100%{opacity:1;transform:none}}
+
+/* phones: the customer's reaction also shows at the top of the guided panel */
+html body #guidedVoice{display:none}
+@media (max-width:700px){
+  html body #studioScreen.guided .custom>#guidedVoice:not([hidden]){display:flex!important;align-items:center;gap:8px;padding:6px 10px 6px 6px;border-radius:999px;background:#fff;border:1px solid #d6efe4;box-shadow:0 6px 14px #2f7a5e1a;animation:g-pop .4s cubic-bezier(.34,1.56,.64,1) both}
+  html body #guidedVoice img{width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:top;background:#eefaf4}
+  html body #guidedVoice span{font:600 13px var(--v-font)}
+  html body #guidedVoice span.ok{color:#2f7a5e}html body #guidedVoice span.no{color:#9a6b5a}
+}
