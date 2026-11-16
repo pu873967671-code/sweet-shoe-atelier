@@ -297,6 +297,60 @@ function stockingTop(source,cloth,base,colour,sock,w,h){
  r.globalCompositeOperation='destination-out';r.drawImage(mask,0,0);
  r.globalCompositeOperation='source-over';r.drawImage(c,0,0);return out;
 }
+// Diamond knit wrapped on the legs. Each painted row of each leg (from the
+// legs map, the same spans opaqueRelief uses) is treated as a cylinder cross
+// section: the lattice is laid out in surface arc length, so diamonds narrow
+// and crowd toward the silhouette, each leg carries its own phase, and the
+// threads take the leg's light (sheen in front, shade at the rims and on the
+// back leg). Geometry is cached per source; only the colouring is per call.
+function netField(source,w,h){
+ if(source.netField!==undefined)return source.netField;
+ try{
+  if(!source.legs)return source.netField=null;
+  const c=make(w,h),p=c.getContext('2d');p.drawImage(source.legs,0,0);
+  const legs=p.getImageData(0,0,w,h).data,P=24,field=new Float32Array(w*h*4);
+  for(let y=0;y<h;y++){
+   let x=0;
+   while(x<w){
+    const start=x,front=legs[(y*w+x)*4]>=207;
+    if(legs[(y*w+x)*4+3]<64){x++;continue;}
+    while(x<w&&legs[(y*w+x)*4+3]>=64&&(legs[(y*w+x)*4]>=207)===front)x++;
+    const width=x-start,R=width/2;if(width<3)continue;
+    for(let sx=start;sx<x;sx++){
+     const u=Math.max(-.995,Math.min(.995,2*(sx-start+.5)/width-1)),th=Math.asin(u),cos=Math.cos(th);
+     const arc=th*R+(front?0:P*.37),t=y*1.04;
+     const a=(arc+t)/P,b=(arc-t)/P,d=Math.min(Math.abs(a-Math.round(a)),Math.abs(b-Math.round(b)))*P;
+     const ds=d*(.3+.7*cos);            // surface distance as seen on screen
+     const j=(y*w+sx)*4;
+     field[j]=Math.max(0,Math.min(1,(1.6-ds)/1.2));             // thread coverage
+     field[j+1]=Math.max(0,Math.min(1,(3.0-ds)/1.8));           // soft contact halo
+     field[j+2]=Math.max(.5,1-.42*u*u-(front?0:.14));            // cylinder light
+     field[j+3]=Math.exp(-Math.pow((u+.2)/.42,2))*(front?1:.55); // sheen band
+    }
+   }
+  }
+  return source.netField=field;
+ }catch(error){return source.netField=null;}
+}
+function wrappedNet(source,colour,w,h){
+ const field=netField(source,w,h);if(!field)return null;
+ const c=make(w,h),q=c.getContext('2d'),im=q.createImageData(w,h),px=im.data;
+ const rgb=colour.slice(1).match(/../g).map(v=>parseInt(v,16)),pale=(rgb[0]*.3+rgb[1]*.59+rgb[2]*.11)/255>.5;
+ const shadow=[92,62,72];
+ for(let i=0,j=0;i<px.length;i+=4,j+=4){
+  const thread=field[j],halo=field[j+1];if(thread<=0&&halo<=0)continue;
+  const light=field[j+2],lift=(pale?.22:.38)*field[j+3];
+  // Pale yarn needs a faint contact shadow beside each strand to read on skin.
+  const under=pale?.17*halo*(1-thread):0,alpha=Math.min(1,thread*.95+under);
+  if(alpha<=0)continue;
+  for(let k=0;k<3;k++){
+   const yarn=Math.min(255,rgb[k]*light+(255-rgb[k]*light)*lift);
+   px[i+k]=Math.round((yarn*thread*.95+shadow[k]*under)/alpha);
+  }
+  px[i+3]=Math.round(255*alpha);
+ }
+ q.putImageData(im,0,0);return c;
+}
 function hosiery(source,o,w,h,base=source.sprite){
  const {sprite,sockMask,skin,edge}=source,c=make(w,h),p=c.getContext('2d'),mono=()=>source.gray||(source.gray=gray(sprite,w,h));
  let colour=SOCK_COLOURS[o.color]||SOCK_COLOURS.cream;
@@ -326,19 +380,23 @@ function hosiery(source,o,w,h,base=source.sprite){
  }
  // The mapped field already supplies silhouette density and sheen.
  // Doubling it with the generic edge tint flattened the earlier sheer look.
- if(!mapped){p.globalCompositeOperation='source-atop';p.globalAlpha=o.sock==='blacksheer'?.85:.5;p.drawImage(edge,0,0);p.globalAlpha=1;}
+ if(!mapped){p.globalCompositeOperation='source-atop';p.globalAlpha=o.sock==='blacksheer'?.85:o.sock==='fishnet'?.14:.5;p.drawImage(edge,0,0);p.globalAlpha=1;}
  if(!mapped||['opaque','knee','thigh'].includes(o.sock)){
   p.globalCompositeOperation='screen';p.globalAlpha=.035;p.drawImage(mono(),0,0);p.globalAlpha=1;
  }
  if(mapped)mappedHose(p,mapped,colour,o.sock,w,h);
  if(o.sock==='fishnet'){
-  const net=()=>{p.beginPath();for(let x=-h;x<w+h;x+=14){p.moveTo(x,0);p.lineTo(x+h,h);p.moveTo(x,0);p.lineTo(x-h,h);}p.stroke();};
+  const net=wrappedNet(source,colour,w,h);
   p.globalCompositeOperation='source-atop';
-  if(colour!=='#292735'){p.strokeStyle='#6b4652';p.lineWidth=2.2;p.globalAlpha=.22;net();}
-  p.strokeStyle=colour;p.lineWidth=1.3;p.globalAlpha=.92;net();p.globalAlpha=1;
+  if(net)p.drawImage(net,0,0);
+  else{ // Pixel reads forbidden (file://): keep the flat fallback lattice.
+   const flat=()=>{p.beginPath();for(let x=-h;x<w+h;x+=14){p.moveTo(x,0);p.lineTo(x+h,h);p.moveTo(x,0);p.lineTo(x-h,h);}p.stroke();};
+   if(colour!=='#292735'){p.strokeStyle='#6b4652';p.lineWidth=2.2;p.globalAlpha=.22;flat();}
+   p.strokeStyle=colour;p.lineWidth=1.3;p.globalAlpha=.92;flat();p.globalAlpha=1;
+  }
  }
  // Back leg sits in shadow behind the front one, with a soft contour line.
- if(source.legs){p.globalCompositeOperation='multiply';p.globalAlpha=(colour==='#292735'||colour==='#262430')?.6:.38;p.drawImage(source.legs,0,0);p.globalAlpha=1;}
+ if(source.legs){p.globalCompositeOperation='multiply';p.globalAlpha=(colour==='#292735'||colour==='#262430')?.6:o.sock==='fishnet'?.2:.38;p.drawImage(source.legs,0,0);p.globalAlpha=1;}
  p.globalCompositeOperation='destination-in';p.drawImage(skin,0,0);
  if(['opaque','knee','thigh'].includes(o.sock))shadeOpaque(source,c,colour,w,h);
  return ['knee','thigh'].includes(o.sock)?stockingTop(source,c,base,colour,o.sock,w,h):c;
