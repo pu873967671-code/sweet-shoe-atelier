@@ -367,3 +367,5 @@ html body .runway-scene .styling-brief .styling-hearts{font-size:18px!important}
 }
 /* In the fitting room the autosave note sits under the heading, clear of the dock */
 html body:has(.runway-modal) #saveNotice{top:calc(70px + env(safe-area-inset-top,0px))!important;bottom:auto!important}
+/* A one-colour sock shows its single swatch as chosen, not greyed out */
+html body .runway-dock .sock-color.fixed:disabled{opacity:1!important;cursor:default!important;filter:none!important}

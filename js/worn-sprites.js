@@ -159,10 +159,32 @@ function knit(){
   const v=112+(seed>>>27);im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255;}
  p.putImageData(im,0,0);return knitTile;
 }
+// Some shipped hose maps (strapped lasts such as the Mary Jane) carry
+// row-to-row steps where a strap crossed the instep, which read as pale
+// horizontal streaks under sheer hosiery. Below the ankle, average each
+// column vertically over covered pixels only: horizontal streaks vanish while
+// the across-the-leg cylinder gradient (the volume) is untouched.
+function smoothFootRows(data,w,h,radius=12){
+ const y0=Math.round(h*.56),rows=h-y0;if(rows<=0)return;
+ const col=new Float32Array(rows*3);
+ for(let x=0;x<w;x++){
+  for(let y=y0;y<h;y++){const k=(y*w+x)*4,a=data[k+3]?1:0,t=(y-y0)*3;col[t]=data[k]*a;col[t+1]=data[k+1]*a;col[t+2]=a;}
+  let sr=0,sg=0,sn=0;
+  for(let y=0;y<Math.min(rows,radius);y++){sr+=col[y*3];sg+=col[y*3+1];sn+=col[y*3+2];}
+  for(let y=0;y<rows;y++){
+   const add=y+radius,drop=y-radius-1;
+   if(add<rows){sr+=col[add*3];sg+=col[add*3+1];sn+=col[add*3+2];}
+   if(drop>=0){sr-=col[drop*3];sg-=col[drop*3+1];sn-=col[drop*3+2];}
+   const k=((y+y0)*w+x)*4;
+   if(data[k+3]&&sn>0){data[k]=Math.round(sr/sn);data[k+1]=Math.round(sg/sn);}
+  }
+ }
+}
 function hosePixels(source,w,h){
  if(source.hoseData!==undefined)return source.hoseData;
  try{const c=make(w,h),p=c.getContext('2d');p.drawImage(source.hose,0,0);
-  return source.hoseData=p.getImageData(0,0,w,h).data;
+  const data=p.getImageData(0,0,w,h).data;smoothFootRows(data,w,h);
+  return source.hoseData=data;
  }catch(error){return source.hoseData=null;} // Read-restricted file:// keeps the incumbent cloth.
 }
 function mappedHose(p,data,colour,sock,w,h){

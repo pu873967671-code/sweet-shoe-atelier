@@ -234,16 +234,19 @@ function setRunwayProduct(scene,on){
 }
 function fittingOptionsMarkup(value){
  const selected=A.cleanFittingOptions(value),zh=A.lang==='zh';
+ // Black sheer and sheer pantyhose are one-colour styles: show only their own swatch.
+ const FIXED_SOCK_COLOUR={blacksheer:['black','Black','黑色','#292735'],pantyhose:['nude','Nude','肤色','#d6a58b']};
  const styles=[['none','None','无袜'],['frill','Frill','荷叶边'],['lace','Lace','蕾丝'],['sheer','Sheer tights','薄丝袜'],['knee','Knee-high','及膝袜'],['thigh','Thigh-high','长筒袜'],['blacksheer','Black sheer','黑丝袜'],['pantyhose','Sheer pantyhose','薄连裤袜'],['opaque','Opaque tights','厚连裤袜'],['fishnet','Diamond knit','菱格袜']];
  const colors=[['pink','Candy pink','糖果粉','#ffd1e0'],['mint','Mint','薄荷绿','#c4eadb'],['cream','Cream','奶油色','#fff0d2'],['white','White','白色','#ffffff'],['black','Midnight','午夜黑','#292735']];
- return `<div class="runway-sock-panel"><div class="runway-sock-styles" role="group" aria-label="${zh?'袜子搭配':'Sock pairing'}">${styles.map(([id,en,cn])=>`<button class="sock-chip" data-fitting-sock="${id}" aria-pressed="${selected.sock===id}">${zh?cn:en}</button>`).join('')}</div><div class="runway-sock-colors" role="group" aria-label="${zh?'袜子颜色':'Sock colour'}">${colors.map(([id,en,cn,color])=>`<button class="sock-color" data-fitting-color="${id}" ${['none','blacksheer','pantyhose'].includes(selected.sock)?'disabled':''} aria-disabled="${['none','blacksheer','pantyhose'].includes(selected.sock)}" aria-label="${zh?cn:en}" title="${zh?cn:en}" aria-pressed="${selected.color===id}" style="--sock-color:${color}"><span></span></button>`).join('')}</div></div>`;
+ return `<div class="runway-sock-panel"><div class="runway-sock-styles" role="group" aria-label="${zh?'袜子搭配':'Sock pairing'}">${styles.map(([id,en,cn])=>`<button class="sock-chip" data-fitting-sock="${id}" aria-pressed="${selected.sock===id}">${zh?cn:en}</button>`).join('')}</div><div class="runway-sock-colors" role="group" aria-label="${zh?'袜子颜色':'Sock colour'}">${(FIXED_SOCK_COLOUR[selected.sock]?[FIXED_SOCK_COLOUR[selected.sock]]:colors).map(([id,en,cn,color])=>{const fixed=!!FIXED_SOCK_COLOUR[selected.sock],off=selected.sock==='none';return `<button class="sock-color${fixed?' fixed':''}" ${fixed?'':`data-fitting-color="${id}"`} ${off||fixed?'disabled':''} aria-disabled="${off||fixed}" aria-label="${zh?cn:en}" title="${zh?cn:en}" aria-pressed="${fixed||selected.color===id}" style="--sock-color:${color}"><span></span></button>`;}).join('')}</div></div>`;
 }
 function chooseFitting(key,value){
  const artwork=state.gallery[runwayIndex];if(!artwork||modalKind!=='runway')return;
  const selected=A.cleanFittingOptions({...artwork.fitting,[key]:value});
  state.fitting=A.cleanFittingOptions({...selected,skin:undefined});artwork.fitting={...selected};persist(true);
  const root=$('modalRoot');root.querySelectorAll('[data-fitting-sock]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.fittingSock===selected.sock)));
- root.querySelectorAll('[data-fitting-color]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.fittingColor===selected.color));b.disabled=selected.sock==='none';b.setAttribute('aria-disabled',String(b.disabled));});
+ // Rebuild the colour row: one-colour styles show a single swatch, others all five.
+ {const fresh=document.createElement('div');fresh.innerHTML=fittingOptionsMarkup(selected);const was=root.querySelector('.runway-sock-colors'),now=fresh.querySelector('.runway-sock-colors');if(was&&now)was.replaceWith(now);}
  runwayFitting?.update(artwork.design,selected);refreshFitting(root.querySelector('.runway-scene'));
  const sceneId=root.querySelector('.runway-scene')?.dataset.showcaseScene;
  const styling=A.Showcase.claimStyling(state,artwork,selected,sceneId);
