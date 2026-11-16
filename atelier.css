@@ -10,11 +10,11 @@
    .mentor-area(#mergeDetail, .atelier-mentor, .mentor-bubble). */
 
 :root{
-  --a-card:#fffdfd;--a-edge:#f1dde3;--a-ink:#4f3a44;--a-muted:#8d7a82;
-  --a-rose:#d97e98;--a-rose-deep:#b25a76;--a-blush:#fdeef2;--a-lilac:#efe7f7;
-  --a-shadow:0 14px 34px #8a5a6a1a,0 2px 6px #8a5a6a12;
+  --a-card:#fdfffe;--a-edge:#def0e9;--a-ink:#384a45;--a-muted:#6f7e78;
+  --a-rose:#6ec6a3;--a-rose-deep:#569c80;--a-blush:#f0fbf7;--a-lilac:#e9f5f3;
+  --a-shadow:0 14px 34px #5881761a,0 2px 6px #58817612;
   --a-spring:cubic-bezier(.34,1.56,.64,1);--a-ease:cubic-bezier(.22,1,.36,1);
-  --a-satin:linear-gradient(180deg,#f3bccb 0,#e29aae 38%,#d4849a 62%,#e6a6b7 100%);
+  --a-satin:linear-gradient(180deg,#93dcbf 0,#62c29c 38%,#47aa85 62%,#79cdab 100%);
 }
 
 /* ── Composition (desktop and tablets) ───────────────────────────────── */
@@ -39,31 +39,31 @@
 
 /* ── Board: the hero, lace only along its top edge ───────────────────── */
 :root body #atelierScreen .board-rim{position:relative!important;padding:30px 18px 18px!important;border-radius:30px!important;border:1px solid var(--a-edge)!important;outline:0!important;
-  background:linear-gradient(180deg,#fdf1f4,#fffcfc 120px)!important;box-shadow:var(--a-shadow)!important;max-height:100%!important}
+  background:linear-gradient(180deg,#f2fcf8,#fdfefe 120px)!important;box-shadow:var(--a-shadow)!important;max-height:100%!important}
 :root body #atelierScreen .board-rim::before{content:none!important}
 :root body #atelierScreen .board-rim::after{content:""!important;display:block!important;position:absolute!important;left:22px!important;right:22px!important;top:-1px!important;height:22px!important;
-  background:url('assets/ui/textile/lace-trim.svg') 0 0/44px 22px repeat-x!important;filter:drop-shadow(0 1px 0 #d79aab) drop-shadow(0 3px 3px #c98a9c33);pointer-events:none!important;border:0!important}
+  background:url('assets/ui/textile/lace-trim.svg') 0 0/44px 22px repeat-x!important;filter:drop-shadow(0 1px 0 #87c5ac) drop-shadow(0 3px 3px #7ab79f33);pointer-events:none!important;border:0!important}
 :root body #atelierScreen .merge-board{--cell:inherit!important;gap:6px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
 
 /* cells */
-:root body #atelierScreen .merge-cell{position:relative!important;border-radius:calc(var(--cell) * .24)!important;border:1px solid #f3e4e8!important;outline:0!important;
-  background:#fffdfd!important;box-shadow:inset 0 -2px 0 #f6e9ed!important;transition:transform .35s var(--a-spring),box-shadow .3s var(--a-ease),border-color .3s,background-color .3s!important}
-:root body #atelierScreen .merge-cell:nth-child(even){background:#fffafb!important}
-:root body #atelierScreen .merge-cell.item,:root body #atelierScreen .merge-cell.generator{background:radial-gradient(circle at 50% 38%,#fff 0 42%,#fdecf1 100%)!important;border-color:#f4d3dc!important;box-shadow:inset 0 -3px 0 #f7dfe6,0 3px 8px #b8607a12!important}
+:root body #atelierScreen .merge-cell{position:relative!important;border-radius:calc(var(--cell) * .24)!important;border:1px solid #e5f2ed!important;outline:0!important;
+  background:#fdfffe!important;box-shadow:inset 0 -2px 0 #eaf5f1!important;transition:transform .35s var(--a-spring),box-shadow .3s var(--a-ease),border-color .3s,background-color .3s!important}
+:root body #atelierScreen .merge-cell:nth-child(even){background:#fbfefd!important}
+:root body #atelierScreen .merge-cell.item,:root body #atelierScreen .merge-cell.generator{background:radial-gradient(circle at 50% 38%,#fff 0 42%,#eefbf6 100%)!important;border-color:#b5e5d2!important;box-shadow:inset 0 -3px 0 #e1f5ed,0 3px 8px #57a58612!important}
 :root body #atelierScreen .merge-cell.item[data-chain=lea]{background:radial-gradient(circle at 50% 38%,#fff 0 42%,#f8efe6 100%)!important;border-color:#eedfcf!important}
-:root body #atelierScreen .merge-cell.item[data-chain=spk]{background:radial-gradient(circle at 50% 38%,#fff 0 42%,#f1eafb 100%)!important;border-color:#e2d6f2!important}
+:root body #atelierScreen .merge-cell.item[data-chain=spk]{background:radial-gradient(circle at 50% 38%,#fff 0 42%,#ecf9f7 100%)!important;border-color:#d9eeec!important}
 :root body #atelierScreen .merge-cell .merge-art{transition:transform .35s var(--a-spring),filter .3s,opacity .25s!important}
 /* locked squares: pale Swiss-dot nylon; openable ones grow sheer */
-:root body #atelierScreen .merge-cell.crate{opacity:1!important;border-color:#e6d8d3!important;box-shadow:inset 0 0 10px #a1877d1f!important;
-  background:radial-gradient(circle,#ffffffb3 0 .9px,transparent 1.4px) 0 0/8px 8px,radial-gradient(circle,#ffffffb3 0 .9px,transparent 1.4px) 4px 4px/8px 8px,linear-gradient(135deg,#e6d7d1,#dccbc4 55%,#e5d6d0)!important}
+:root body #atelierScreen .merge-cell.crate{opacity:1!important;border-color:#bad3c9!important;box-shadow:inset 0 0 10px #7091841f!important;
+  background:radial-gradient(circle,#ffffffb3 0 .9px,transparent 1.4px) 0 0/8px 8px,radial-gradient(circle,#ffffffb3 0 .9px,transparent 1.4px) 4px 4px/8px 8px,linear-gradient(135deg,#b8d3c8,#adc9be 55%,#b7d2c7)!important}
 :root body #atelierScreen .merge-cell.crate::after{content:none!important}
-:root body #atelierScreen .merge-cell.crate.openable{background:radial-gradient(circle,#fff 0 .9px,transparent 1.4px) 0 0/8px 8px,radial-gradient(circle,#fff 0 .9px,transparent 1.4px) 4px 4px/8px 8px,linear-gradient(135deg,#f3e9e5,#ecdfda 55%,#f3e8e4)!important;border-color:#efd9d6!important}
+:root body #atelierScreen .merge-cell.crate.openable{background:radial-gradient(circle,#fff 0 .9px,transparent 1.4px) 0 0/8px 8px,radial-gradient(circle,#fff 0 .9px,transparent 1.4px) 4px 4px/8px 8px,linear-gradient(135deg,#e6f2ed,#bfd9cf 55%,#e5f2ed)!important;border-color:#badecf!important}
 :root body #atelierScreen .merge-cell .item-tier{right:3px!important;bottom:3px!important;min-width:16px!important;height:16px!important;padding:0 3px!important;border-radius:999px!important;border:0!important;
-  background:#fff!important;color:var(--a-rose-deep)!important;font:700 10px/16px var(--v-font)!important;box-shadow:0 1px 3px #b8607a33!important}
+  background:#fff!important;color:var(--a-rose-deep)!important;font:700 10px/16px var(--v-font)!important;box-shadow:0 1px 3px #57a58633!important}
 
 /* ── Interactions ────────────────────────────────────────────────────── */
 @media (hover:hover){
-  :root body #atelierScreen .merge-cell:is(.item,.generator,.chest):hover{transform:translateY(-2px)!important;box-shadow:inset 0 -3px 0 #f7dfe6,0 10px 18px #b8607a26!important}
+  :root body #atelierScreen .merge-cell:is(.item,.generator,.chest):hover{transform:translateY(-2px)!important;box-shadow:inset 0 -3px 0 #e1f5ed,0 10px 18px #57a58626!important}
   :root body #atelierScreen .merge-cell:is(.item,.generator,.chest):hover .merge-art{transform:translateY(-3px) scale(1.07)!important}
 }
 /* State rules carry .merge-board so they outrank the hover lift; anything that
@@ -71,27 +71,27 @@
    !important declarations used throughout these stylesheets. */
 /* chosen piece: satin ring and a gentle bob */
 :root body #atelierScreen .merge-board .merge-cell:is(.selected,[aria-pressed="true"]){border-color:transparent!important;
-  box-shadow:0 0 0 2.5px var(--a-rose),0 0 0 7px #f6c9d555,0 10px 20px #b8607a2e!important;transform:translateY(-2px)!important;z-index:2}
+  box-shadow:0 0 0 2.5px var(--a-rose),0 0 0 7px #aee4cf55,0 10px 20px #57a5862e!important;transform:translateY(-2px)!important;z-index:2}
 :root body #atelierScreen .merge-board .merge-cell.selected .merge-art{animation:a-bob 1.6s ease-in-out infinite!important}
 /* drag: the piece lifts and tilts; its square keeps a stitched ghost */
-:root body .merge-drag-ghost{transform:translate(-50%,-58%) rotate(-7deg) scale(1.16)!important;filter:drop-shadow(0 18px 14px #8a5a6a45)!important;transition:none!important}
-:root body #atelierScreen .merge-board .merge-cell.drag-source{background:#fffafb!important;border:1.5px dashed #e9b3c2!important;box-shadow:none!important;transform:none!important}
+:root body .merge-drag-ghost{transform:translate(-50%,-58%) rotate(-7deg) scale(1.16)!important;filter:drop-shadow(0 18px 14px #58817645)!important;transition:none!important}
+:root body #atelierScreen .merge-board .merge-cell.drag-source{background:#fbfefd!important;border:1.5px dashed #9bd8c0!important;box-shadow:none!important;transform:none!important}
 :root body #atelierScreen .merge-board .merge-cell.drag-source>:not(.item-tier){opacity:.18!important;filter:grayscale(.4)!important}
 /* a valid partner swells toward the piece inside a pulsing satin ring */
-:root body #atelierScreen .merge-board .merge-cell.merge-target{border-color:transparent!important;transform:scale(1.08)!important;z-index:3;box-shadow:0 0 0 2.5px var(--a-rose),0 12px 24px #b8607a40!important}
+:root body #atelierScreen .merge-board .merge-cell.merge-target{border-color:transparent!important;transform:scale(1.08)!important;z-index:3;box-shadow:0 0 0 2.5px var(--a-rose),0 12px 24px #57a58640!important}
 :root body #atelierScreen .merge-board .merge-cell.merge-target .merge-art{transform:scale(1.1)!important}
 :root body #atelierScreen .merge-board .merge-cell:is(.merge-target,.idle-match)::after{content:""!important;display:block!important;position:absolute!important;inset:-3px!important;border-radius:inherit!important;
-  border:2.5px solid #eea3b8!important;background:none!important;pointer-events:none!important;z-index:4!important;opacity:1!important;animation:a-pulse 1s ease-out infinite!important}
-:root body #atelierScreen .merge-board .merge-cell.idle-match::after{border-width:2px!important;border-color:#f2bccb!important;animation-duration:2.4s!important}
-:root body #atelierScreen .merge-board .merge-cell.idle-match{box-shadow:0 0 0 2px #f2bccb,0 0 14px #f2bccb88!important}
-:root body #atelierScreen .merge-board .merge-cell.drop-target{background:#fdf3f6!important;border:1.5px dashed #d9a3b3!important}
+  border:2.5px solid #8fdabc!important;background:none!important;pointer-events:none!important;z-index:4!important;opacity:1!important;animation:a-pulse 1s ease-out infinite!important}
+:root body #atelierScreen .merge-board .merge-cell.idle-match::after{border-width:2px!important;border-color:#a3e0c8!important;animation-duration:2.4s!important}
+:root body #atelierScreen .merge-board .merge-cell.idle-match{box-shadow:0 0 0 2px #a3e0c8,0 0 14px #a3e0c888!important}
+:root body #atelierScreen .merge-board .merge-cell.drop-target{background:#f4fcf9!important;border:1.5px dashed #8fc7b1!important}
 /* merge: spring pop, an expanding ring and a burst of satin, gold and lilac */
 :root body #atelierScreen .merge-board .just-merged .merge-art{animation:a-pop .55s var(--a-spring) both!important}
 :root body #atelierScreen .merge-board .merge-cell.just-merged::before{content:""!important;display:block!important;position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;width:8px!important;height:8px!important;margin:-4px!important;border-radius:50%!important;
-  background:#f0a3b8!important;z-index:5!important;pointer-events:none!important;border:0!important;opacity:1!important;
-  box-shadow:0 calc(var(--cell)*-.5) #f0a3b8,calc(var(--cell)*.43) calc(var(--cell)*-.25) #f3cd85,calc(var(--cell)*.43) calc(var(--cell)*.25) #c9b4ef,0 calc(var(--cell)*.5) #f0a3b8,calc(var(--cell)*-.43) calc(var(--cell)*.25) #f3cd85,calc(var(--cell)*-.43) calc(var(--cell)*-.25) #c9b4ef!important;
+  background:#91dabd!important;z-index:5!important;pointer-events:none!important;border:0!important;opacity:1!important;
+  box-shadow:0 calc(var(--cell)*-.5) #91dabd,calc(var(--cell)*.43) calc(var(--cell)*-.25) #f3cd85,calc(var(--cell)*.43) calc(var(--cell)*.25) #bbe8e2,0 calc(var(--cell)*.5) #91dabd,calc(var(--cell)*-.43) calc(var(--cell)*.25) #f3cd85,calc(var(--cell)*-.43) calc(var(--cell)*-.25) #bbe8e2!important;
   animation:a-burst .65s var(--a-ease) both!important}
-:root body #atelierScreen .merge-board .merge-cell.just-merged::after{content:""!important;display:block!important;position:absolute!important;inset:-2px!important;border-radius:inherit!important;border:2.5px solid #f0a3b8!important;background:none!important;pointer-events:none!important;z-index:4!important;animation:a-ring .65s var(--a-ease) both!important}
+:root body #atelierScreen .merge-board .merge-cell.just-merged::after{content:""!important;display:block!important;position:absolute!important;inset:-2px!important;border-radius:inherit!important;border:2.5px solid #91dabd!important;background:none!important;pointer-events:none!important;z-index:4!important;animation:a-ring .65s var(--a-ease) both!important}
 /* the generator holds a slow satin sheen */
 :root body #atelierScreen .merge-cell.generator{overflow:hidden!important}
 :root body #atelierScreen .merge-cell.generator::before{content:""!important;position:absolute!important;inset:0!important;border-radius:inherit!important;pointer-events:none!important;border:0!important;z-index:1!important;
@@ -108,10 +108,10 @@
 
 /* ── Tool tray sewn to the board's hem ───────────────────────────────── */
 :root body #atelierScreen .atelier-tools{display:flex!important;flex-direction:row!important;gap:8px!important;padding:8px!important;margin:0!important;width:auto!important;
-  background:#fffdfde6!important;border:1px solid var(--a-edge)!important;border-radius:999px!important;box-shadow:var(--a-shadow)!important}
+  background:#fdfffee6!important;border:1px solid var(--a-edge)!important;border-radius:999px!important;box-shadow:var(--a-shadow)!important}
 :root body #atelierScreen .atelier-tools button{position:relative!important;display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important;
   width:auto!important;min-width:0!important;height:48px!important;min-height:48px!important;padding:0 16px 0 8px!important;border-radius:999px!important;overflow:hidden!important;
-  background:#fff!important;border:1px solid #f3e1e6!important;outline:0!important;box-shadow:none!important;filter:none!important;color:var(--a-ink)!important;font:600 13.5px var(--v-font)!important;white-space:nowrap!important;
+  background:#fff!important;border:1px solid #e2f2ec!important;outline:0!important;box-shadow:none!important;filter:none!important;color:var(--a-ink)!important;font:600 13.5px var(--v-font)!important;white-space:nowrap!important;
   transition:transform .3s var(--a-spring),background-color .25s,box-shadow .25s!important}
 :root body #atelierScreen .atelier-tools button>img{width:32px!important;height:32px!important;object-fit:contain!important}
 :root body #atelierScreen .atelier-tools button>b{display:grid!important;place-items:center!important;width:32px!important;height:32px!important;border-radius:50%!important;background:var(--a-blush)!important;color:var(--a-rose-deep)!important;font-size:17px!important}
@@ -120,10 +120,10 @@
 :root body #atelierScreen .atelier-tools button small{display:inline!important;font:600 11px var(--v-font)!important;color:var(--a-muted)!important;white-space:nowrap!important}
 :root body #atelierScreen .atelier-tools button>small{font-size:13.5px!important;color:var(--a-ink)!important}
 :root body #atelierScreen .atelier-tools button>i{position:absolute!important;left:0!important;bottom:0!important;height:3px!important;background:var(--a-satin)!important;border-radius:0 3px 3px 0!important}
-:root body #atelierScreen .atelier-tools button.gift-ready{background:var(--a-blush)!important;border-color:#efbccb!important;animation:a-glow 2.2s ease-in-out infinite}
+:root body #atelierScreen .atelier-tools button.gift-ready{background:var(--a-blush)!important;border-color:#a1dfc6!important;animation:a-glow 2.2s ease-in-out infinite}
 :root body #atelierScreen .atelier-tools button:disabled{opacity:.55!important}
-@media (hover:hover){:root body #atelierScreen .atelier-tools button:not(:disabled):hover{transform:translateY(-2px)!important;background:#fffafb!important;box-shadow:0 8px 16px #b8607a1f!important}}
-@keyframes a-glow{0%,100%{box-shadow:0 0 0 0 #efbccb00}50%{box-shadow:0 0 0 6px #efbccb55}}
+@media (hover:hover){:root body #atelierScreen .atelier-tools button:not(:disabled):hover{transform:translateY(-2px)!important;background:#fbfefd!important;box-shadow:0 8px 16px #57a5861f!important}}
+@keyframes a-glow{0%,100%{box-shadow:0 0 0 0 #a1dfc600}50%{box-shadow:0 0 0 6px #a1dfc655}}
 
 /* ── Customer queue: three states, three looks ───────────────────────── */
 :root body #atelierScreen .atelier-order{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important;align-items:stretch!important;
@@ -133,7 +133,7 @@
 :root body #atelierScreen .atelier-order::before,:root body #atelierScreen .atelier-order::after{content:none!important}
 :root body #atelierScreen .order-customer{display:flex!important;align-items:center!important;gap:10px!important;min-width:0!important;flex-wrap:nowrap!important}
 :root body #atelierScreen .order-customer>span:nth-child(2){font:600 16px/1.15 var(--v-font)!important;color:var(--a-ink)!important;white-space:nowrap!important;min-width:2.5em!important;overflow:hidden;text-overflow:ellipsis}
-:root body #atelierScreen .order-avatar{flex:none!important;width:46px!important;height:46px!important;border-radius:50%!important;overflow:hidden!important;background:var(--a-blush)!important;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #f1d2da!important}
+:root body #atelierScreen .order-avatar{flex:none!important;width:46px!important;height:46px!important;border-radius:50%!important;overflow:hidden!important;background:var(--a-blush)!important;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #b5e1cf!important}
 :root body #atelierScreen .order-avatar img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:top!important}
 :root body #atelierScreen .order-reward{margin-left:auto!important;display:inline-flex!important;align-items:center!important;gap:3px!important;white-space:nowrap!important;padding:4px 10px!important;border-radius:999px!important;background:#fff8ec!important;font:700 13px var(--v-font)!important;color:#8a6a3c!important}
 :root body #atelierScreen .order-reward img{width:16px!important;height:16px!important}
@@ -141,29 +141,29 @@
 :root body #atelierScreen .atelier-order>:is(.order-customer,.order-request,.order-deliver){grid-column:1!important;grid-row:auto!important;position:relative!important;inset:auto!important}
 /* delivery: the thank-you note covers the card while the pieces fly in */
 :root body #atelierScreen .atelier-order .order-reaction{position:absolute!important;inset:0!important;z-index:6!important;border-radius:inherit!important;
-  background:linear-gradient(135deg,#fffdfd,#fde9ef)!important;color:var(--a-ink)!important}
+  background:linear-gradient(135deg,#fdfffe,#ecfaf4)!important;color:var(--a-ink)!important}
 :root body #atelierScreen .atelier-order.receiving::after{content:none!important}
 /* the wish: one tile per requested piece, each with its own progress */
 :root body #atelierScreen .order-request{display:flex!important;gap:8px!important;flex-wrap:wrap!important;min-width:0!important;margin:0!important;padding:0!important;background:none!important}
 :root body #atelierScreen .requested-item{position:relative!important;flex:1 1 0!important;min-width:84px!important;max-width:150px!important;display:grid!important;grid-template-columns:40px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:8px!important;align-items:center!important;
-  padding:8px 10px 8px 8px!important;border-radius:16px!important;background:#faf6f8!important;border:1px solid #f1e5e9!important;margin:0!important;width:auto!important;height:auto!important}
+  padding:8px 10px 8px 8px!important;border-radius:16px!important;background:#f6faf8!important;border:1px solid #e6f0ec!important;margin:0!important;width:auto!important;height:auto!important}
 :root body #atelierScreen .requested-item>.merge-art{grid-row:1/3!important;width:40px!important;height:40px!important}
 :root body #atelierScreen .requested-item .request-name{display:block!important;position:static!important;font:600 12px/1.2 var(--v-font)!important;color:var(--a-ink)!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
 :root body #atelierScreen .requested-item .request-progress{display:block!important;position:static!important;font:600 11px/1.2 var(--v-font)!important;color:var(--a-muted)!important;white-space:nowrap!important;background:none!important;padding:0!important;transform:none!important}
 :root body #atelierScreen .requested-item .request-check{position:absolute!important;top:-6px!important;right:-6px!important;left:auto!important;bottom:auto!important;width:20px!important;height:20px!important;border-radius:50%!important;display:grid!important;place-items:center!important;
-  background:#fff!important;color:var(--a-muted)!important;border:1px solid #ecdde2!important;font:700 10px var(--v-font)!important;box-shadow:0 1px 3px #8a5a6a22!important}
-:root body #atelierScreen .requested-item.fulfilled{background:var(--a-blush)!important;border-color:#f3c8d4!important}
+  background:#fff!important;color:var(--a-muted)!important;border:1px solid #c2d9d0!important;font:700 10px var(--v-font)!important;box-shadow:0 1px 3px #58817622!important}
+:root body #atelierScreen .requested-item.fulfilled{background:var(--a-blush)!important;border-color:#ace3cd!important}
 :root body #atelierScreen .requested-item.fulfilled .request-check{background:var(--a-rose)!important;color:#fff!important;border-color:var(--a-rose)!important}
 /* not ready: a quiet hint, never a ribbon */
 :root body #atelierScreen .order-deliver{margin:0!important;width:100%!important;min-width:0!important;max-width:none!important;flex:none!important;white-space:nowrap!important}
-:root body #atelierScreen .order-deliver.secondary{min-height:36px!important;padding:0 12px!important;border-radius:999px!important;clip-path:none!important;border:1px dashed #e7cdd5!important;background:none!important;box-shadow:none!important;
+:root body #atelierScreen .order-deliver.secondary{min-height:36px!important;padding:0 12px!important;border-radius:999px!important;clip-path:none!important;border:1px dashed #b4d5c8!important;background:none!important;box-shadow:none!important;
   color:var(--a-muted)!important;font:600 12.5px var(--v-font)!important;text-shadow:none!important}
 /* ready: the satin ribbon, a soft glow on the card and a sheen that passes */
-:root body #atelierScreen .atelier-order.ready{border-color:#f0c3cf!important;box-shadow:0 0 0 4px #fbe3ea,var(--a-shadow)!important}
+:root body #atelierScreen .atelier-order.ready{border-color:#a7e0c9!important;box-shadow:0 0 0 4px #e5f9f1,var(--a-shadow)!important}
 :root body #atelierScreen .atelier-order.ready::after{content:""!important;display:block!important;position:absolute!important;top:-16px!important;right:14px!important;left:auto!important;width:48px!important;height:32px!important;
-  background:url('assets/ui/textile/bow.svg') center/contain no-repeat!important;transform:rotate(10deg)!important;filter:drop-shadow(0 2px 2px #8a5a6a33);pointer-events:none!important;border:0!important}
+  background:url('assets/ui/textile/bow.svg') center/contain no-repeat!important;transform:rotate(10deg)!important;filter:drop-shadow(0 2px 2px #58817633);pointer-events:none!important;border:0!important}
 :root body #atelierScreen .order-deliver.primary{position:relative!important;min-height:48px!important;padding:0 28px!important;border:0!important;border-radius:0!important;box-shadow:none!important;
-  clip-path:polygon(0 0,100% 0,calc(100% - 12px) 50%,100% 100%,0 100%,12px 50%)!important;color:#fff!important;font:600 15px var(--v-font)!important;text-shadow:0 1px 0 #9d516780!important;
+  clip-path:polygon(0 0,100% 0,calc(100% - 12px) 50%,100% 100%,0 100%,12px 50%)!important;color:#fff!important;font:600 15px var(--v-font)!important;text-shadow:0 1px 0 #50867180!important;
   background-image:linear-gradient(105deg,transparent 30%,#ffffff66 44%,transparent 58%),var(--a-satin)!important;background-size:250% 100%,100% 100%!important;background-repeat:no-repeat!important;background-position:-150% 0;animation:a-sheen 3.2s ease-in-out infinite!important}
 @media (hover:hover){:root body #atelierScreen .atelier-order:hover{transform:translateY(-2px)!important}}
 :root body #atelierScreen .atelier-order.receiving{animation:none!important}
@@ -275,3 +275,8 @@
   :root body #atelierScreen .requested-item{padding-right:12px!important}
   :root body #atelierScreen .requested-item .request-progress{font-size:10px!important;overflow:hidden!important;text-overflow:clip!important}
 }
+
+/* ── Mint pass: locked squares are pale sea-glass dots, not heavy green ── */
+:root body #atelierScreen .merge-cell.crate{border-color:#d3ebe2!important;box-shadow:inset 0 0 10px #6fae9614!important;
+  background:radial-gradient(circle,#ffffffcc 0 .9px,transparent 1.4px) 0 0/8px 8px,radial-gradient(circle,#ffffffcc 0 .9px,transparent 1.4px) 4px 4px/8px 8px,linear-gradient(135deg,#dff2ea,#d2ebe1 55%,#def1e9)!important}
+:root body #atelierScreen .merge-cell.crate.openable{background:radial-gradient(circle,#fff 0 .9px,transparent 1.4px) 0 0/8px 8px,radial-gradient(circle,#fff 0 .9px,transparent 1.4px) 4px 4px/8px 8px,linear-gradient(135deg,#eef8f4,#e6f5ef 55%,#eef8f4)!important;border-color:#dcf0e8!important}
