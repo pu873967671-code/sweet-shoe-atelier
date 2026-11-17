@@ -21,7 +21,7 @@ Keys come from the environment, never from this file:
 Examples:
   python3 dev/generate-photos.py --provider openai --test        # the 9-photo test batch
   python3 dev/generate-photos.py --provider gemini --shapes flat,maryjane --socks none,fishnet
-  python3 dev/generate-photos.py --provider openai               # everything (200 photos)
+  python3 dev/generate-photos.py --provider openai               # everything (180 photos)
   python3 dev/generate-photos.py --dry-run --test                # print the prompts only
 """
 import argparse, base64, json, os, re, subprocess, sys, time, uuid

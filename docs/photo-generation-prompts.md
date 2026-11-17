@@ -1,7 +1,7 @@
 # Sweet Shoe Atelier — photo set for the fitting card
 
 Prompt pack for GPT Image or Gemini. It produces one photo per shoe shape × sock style
-(20 × 10 = 200 photos). The game recolours the shoe and socks to the player's
+(20 × 9 = 180 photos; thigh-high reuses the opaque-tights photo). The game recolours the shoe and socks to the player's
 design, so every photo uses a **white shoe** and **white (or fixed-colour) socks**.
 
 ## Run it directly (GPT Image or Gemini)
@@ -20,7 +20,7 @@ export GEMINI_API_KEY=...             # or Gemini (gemini-2.5-flash-image, 3:4)
 python3 dev/generate-photos.py --provider gemini --test
 ```
 
-- `--test` makes the 9-photo test batch; leave it out for all 200.
+- `--test` makes the 9-photo test batch; leave it out for all 180.
 - `--shapes flat,maryjane --socks none,fishnet` makes only those.
 - `--masks` also makes the Prompt D colour maps.
 - `--dry-run` prints what would be made, without calling the API.
@@ -147,7 +147,6 @@ watermark.
 | `lace` | Lace socks | pure-white ankle socks with a delicate scalloped lace cuff just above the shoe |
 | `sheer` | Sheer tights | very sheer 10-denier white tights, a barely-there veil: the skin tone clearly shows through everywhere, with only a faint white haze, a soft matte sheen, and slightly whiter edges where the leg turns away; not opaque, not pearly, not glossy |
 | `knee` | Knee-high | pure-white matte knit knee-high socks ending just below the knee with a fine ribbed top band |
-| `thigh` | Thigh-high | pure-white soft satin-sheen opaque stockings covering the whole visible leg |
 | `blacksheer` | Black sheer | sheer 20-denier black tights, skin visible through them, darker at the leg edges |
 | `pantyhose` | Sheer pantyhose | sheer 10-denier nude/tan pantyhose with a soft natural sheen |
 | `opaque` | Opaque tights | matte opaque 80-denier pure-white tights |
@@ -155,6 +154,10 @@ watermark.
 
 *(White socks and tights are recoloured in the game to pink, mint, cream, white
 or midnight. Black sheer and pantyhose keep their own colour.)*
+
+*(Thigh-high has no photos of its own: the look-down framing shows only the shins,
+so a thigh-high and opaque tights look the same. The fitting card uses the
+`opaque` photo for `thigh`.)*
 
 ## Prompt D — optional masks (attach the finished photo)
 
