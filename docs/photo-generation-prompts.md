@@ -54,33 +54,50 @@ python3 dev/generate-photos.py --provider gemini --test
 ## Prompt A — master photo (run once, keep the best)
 
 ```
-Photorealistic close-up lifestyle photo, 3:4 portrait, shot on a phone in soft
-natural daylight. A young woman's legs from just below the knees down to the
-floor, standing relaxed: the right foot forward and slightly to the right, the
-left foot a little behind it, toes pointing toward the lower left of the frame,
-both shoes fully visible and not overlapping. Camera at knee height, looking
-slightly down (about 25°), front three-quarter view, both feet centred
-horizontally, the soles about 15% above the bottom edge, the top edge cutting
-just below the knees. Fair, smooth skin with natural shading, slim calves,
-no tattoos, no jewellery.
-Shoes: simple pointed-toe ballet flats in plain pure-white satin with a thin
-cream piping along the opening and a tan leather sole. No logos.
-Floor: soft light warm-grey low-pile carpet, fine texture, nothing else in the
-frame — no furniture, no walls, no hands, no bags, no text, no watermark.
-Mood: calm, airy, cute, like a tidy "outfit of the day" photo; gentle soft
-shadow under each shoe; true-to-life colour, not oversaturated, slight film grain.
+Anime illustration in the style of a dress-up game's detailed outfit art: clearly
+hand-drawn, with fine clean line art in soft brown-pink, and rich painterly anime
+shading on top of it: smooth soft gradients, glossy luminous materials, delicate rim
+light, stylised elegant proportions with long slender legs and small dainty feet, pale
+porcelain skin with a soft pink blush on the ankles and insteps. The satin shoes are
+painted with a pearly sheen, crisp white highlight shapes and a few four-point
+sparkles. Soft pastel palette. It must read as a drawing, not a photo and not a 3D
+render: no realistic skin texture, no photographic lighting, no film grain.
+Portrait 2:3. A first-person "shoe selfie": what she sees when she bows her head and
+looks down at her own feet while standing. Steep high-angle view from above, camera
+pointing almost vertically down at the floor. Because of the foreshortening only the
+lower shins are seen, coming down from the top edge, with no knees and no thighs, and
+the feet are the largest thing in the frame.
+Pose: a cute fashion-selfie stance. The left foot points straight ahead toward the
+bottom of the frame, its shoe seen from above. The right foot is placed slightly
+forward and turned outward about 70 degrees, so that shoe is seen in side profile from
+above: its whole silhouette is readable, including the arch of the sole and the full
+heel from seat to tip standing on the floor. Both shoes fully visible, not overlapping,
+centred in the frame. No tattoos, no jewellery.
+Shoes: classic pointed-toe pumps on a slim 6 cm heel in plain pure-white satin, with a
+thin cream piping along the opening and a tan sole. No ornaments, no logos.
+Floor: pale cream marble tiles painted simply with thin tile lines and very faint
+veining, matte, filling the whole background, no reflections. Nothing else in the
+frame: no phone, no hands, no bag, no skirt, no furniture, no flowers, no text, no
+watermark, no signature.
+Mood: sweet, dreamy, casual and candid; a soft simple shadow under each shoe.
 ```
+
+*(The chosen master is an illustrated look-down "shoe selfie": the shoe on the left of
+the picture is in side profile so its heel shows, the shoe on the right is seen from
+above. The master wears a 6 cm pump, not a flat.)*
 
 ## Prompt B — change the shoe (attach the master)
 
 ```
-Edit the attached photo. Keep EVERYTHING identical — the legs, skin, pose,
-foot positions, camera angle, framing, carpet, light and shadows — and replace
-only the shoes on both feet with: {SHAPE DESCRIPTION}.
+Edit the attached illustration. Keep EVERYTHING identical — the drawing style,
+line art, legs, skin, pose, foot positions, camera angle, framing, floor, light
+and shadows — and replace only the shoes on both feet with: {SHAPE DESCRIPTION}.
 The shoes are plain pure-white satin with a thin cream piping along the opening
 and a tan leather sole, unless the description names another fixed part
 (pearls, crystals, clear heel, metal studs, bow). Same size and placement as
-the original shoes; nothing added to the background; no text or watermark.
+the original shoes: the shoe on the left of the picture still in side profile
+with its heel (or flat sole) fully visible, the shoe on the right still seen
+from above. Nothing added to the background; no text or watermark.
 ```
 
 ### Shape descriptions (paste one into `{SHAPE DESCRIPTION}`)
@@ -91,7 +108,7 @@ the original shoes; nothing added to the background; no text or watermark.
 | `block` | Block heel | pointed-toe pump on a 6 cm chunky block heel |
 | `kitten` | Kitten heel | pointed-toe pump on a slim 3 cm kitten heel |
 | `stiletto6` | Slim pump · 6 cm | pointed-toe pump on a slim 6 cm stiletto heel |
-| `stiletto9` | Slim pump · 9 cm | pointed-toe pump on a slim 9 cm stiletto heel |
+| `stiletto9` | Slim pump · 9 cm | pointed-toe pump on a very high, thin 9 cm stiletto heel, clearly taller than a 6 cm heel: the heel is about as tall as the shoe is long and the foot stands steeply arched, almost on tiptoe |
 | `wedge` | Wedge | pointed-toe closed shoe on a 7 cm woven natural jute wedge |
 | `maryjane` | Mary Jane | pointed-toe flat with one thin strap across the instep and a small gold buckle on the outer side |
 | `ballet` | Ribbon ballet | ballet flat with white satin ribbons crossing over the ankle and tied |
@@ -111,8 +128,9 @@ the original shoes; nothing added to the background; no text or watermark.
 ## Prompt C — add the socks (attach that shape's bare-leg photo)
 
 ```
-Edit the attached photo. Keep EVERYTHING identical — the shoes, legs, pose,
-camera, framing, carpet, light and shadows — and dress the legs in:
+Edit the attached illustration. Keep EVERYTHING identical — the drawing style,
+line art, shoes, legs, pose, camera, framing, floor, light and shadows — and
+dress the legs in:
 {SOCK DESCRIPTION}.
 The hosiery must follow the 3D shape of the calves, ankles and feet naturally
 (pattern and texture wrap around the leg and continue smoothly into the shoe),
@@ -127,7 +145,7 @@ watermark.
 | `none` | Bare legs | *(skip — the bare-leg photo from Prompt B is this one)* |
 | `frill` | Frill socks | pure-white ankle socks with a soft ruffled frill cuff folded over just above the shoe |
 | `lace` | Lace socks | pure-white ankle socks with a delicate scalloped lace cuff just above the shoe |
-| `sheer` | Sheer tights | sheer 15-denier pure-white tights, skin softly visible through them |
+| `sheer` | Sheer tights | very sheer 10-denier white tights, a barely-there veil: the skin tone clearly shows through everywhere, with only a faint white haze, a soft matte sheen, and slightly whiter edges where the leg turns away; not opaque, not pearly, not glossy |
 | `knee` | Knee-high | pure-white matte knit knee-high socks ending just below the knee with a fine ribbed top band |
 | `thigh` | Thigh-high | pure-white soft satin-sheen opaque stockings covering the whole visible leg |
 | `blacksheer` | Black sheer | sheer 20-denier black tights, skin visible through them, darker at the leg edges |

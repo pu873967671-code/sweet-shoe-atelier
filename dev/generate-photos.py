@@ -15,6 +15,8 @@ redone simply by deleting it. Only the Python standard library is used.
 Keys come from the environment, never from this file:
   OPENAI_API_KEY   for --provider openai  (model gpt-image-1, 1024x1536)
   GEMINI_API_KEY   for --provider gemini  (model gemini-2.5-flash-image, 3:4)
+  --provider codex needs no key: it runs Codex CLI's built-in image generator with
+  the ChatGPT login (session model from CODEX_MODEL, default gpt-6.1-terra).
 
 Examples:
   python3 dev/generate-photos.py --provider openai --test        # the 9-photo test batch
@@ -22,7 +24,7 @@ Examples:
   python3 dev/generate-photos.py --provider openai               # everything (200 photos)
   python3 dev/generate-photos.py --dry-run --test                # print the prompts only
 """
-import argparse, base64, json, os, re, sys, time, uuid
+import argparse, base64, json, os, re, subprocess, sys, time, uuid
 import urllib.request, urllib.error
 from pathlib import Path
 
@@ -101,10 +103,34 @@ def gemini_image(prompt, ref=None):
     raise SystemExit('Gemini returned no image: ' + json.dumps(out)[:600])
 
 
+def codex_image(prompt, ref=None):
+    """Codex CLI's built-in image generator (ChatGPT login, no API key)."""
+    jobs = ROOT / 'photos' / '_jobs'; jobs.mkdir(parents=True, exist_ok=True)
+    job = uuid.uuid4().hex[:10]
+    pfile, ofile = jobs / f'{job}.txt', jobs / f'{job}.png'
+    pfile.write_text(prompt + '\n', encoding='utf-8')
+    rel = lambda p: p.relative_to(ROOT).as_posix()
+    ask = (f'Read {rel(pfile)}. Use the built-in $imagegen image generator with the exact text of that file '
+           'as the prompt, unchanged, in portrait orientation'
+           + (', as an edit of the attached image: pass the attached image to the generator as the image to edit, '
+              'so the result is the same picture with only the requested change' if ref else '')
+           + f'. Generate one image and save the PNG to {rel(ofile)}, copied exactly as generated: do not crop, '
+           'resize or re-encode it. Do not call the OpenAI image API. Do not modify any other file.')
+    cmd = ['codex.cmd' if os.name == 'nt' else 'codex', 'exec', '-m', os.environ.get('CODEX_MODEL', 'gpt-6.1-terra'),
+           '--sandbox', 'workspace-write', ask]
+    if ref is not None:
+        cmd += ['-i', str(ref)]
+    run = subprocess.run(cmd, cwd=ROOT, stdin=subprocess.DEVNULL, capture_output=True, text=True, encoding='utf-8', errors='replace')
+    if run.returncode or not ofile.exists():
+        raise SystemExit(f'Codex made no image (exit {run.returncode}):\n' + (run.stdout + run.stderr)[-1200:])
+    data = ofile.read_bytes(); ofile.unlink(); pfile.unlink()
+    return data
+
+
 # ── workflow ─────────────────────────────────────────────────────────────
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--provider', choices=['openai', 'gemini'], default='openai')
+    ap.add_argument('--provider', choices=['openai', 'gemini', 'codex'], default='openai')
     ap.add_argument('--shapes', help='comma-separated shape ids (default: all)')
     ap.add_argument('--socks', help='comma-separated sock ids (default: all)')
     ap.add_argument('--test', action='store_true', help='the 9-photo test batch')
@@ -121,7 +147,7 @@ def main():
     for s in want_socks:
         if s not in socks: sys.exit(f'Unknown sock "{s}". Known: {", ".join(socks)}')
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
-    make = openai_image if a.provider == 'openai' else gemini_image
+    make = {'openai': openai_image, 'gemini': gemini_image, 'codex': codex_image}[a.provider]
 
     def step(path, prompt, ref=None):
         if path.exists():
