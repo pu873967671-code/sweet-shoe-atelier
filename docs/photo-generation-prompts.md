@@ -28,6 +28,10 @@ python3 dev/generate-photos.py --provider gemini --test
   photo and run again to redo it. If you don't like `master.png`, delete the whole
   folder and start again, since every photo is an edit of it.
 - Editing the prompts or tables in this file changes what the script sends.
+- `python dev/build-photo-card.py` then turns `photos/` into the game's card pictures
+  and colour masks in `assets/photo-card/` (720 × 1080 WebP; mask R = shoe, G = sock).
+  The fitting room (`js/photo-card.js`) multiplies those areas by the design's shoe
+  colour and the chosen sock colour.
 
 ## How to work (important for consistency)
 
