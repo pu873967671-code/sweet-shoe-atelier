@@ -44,7 +44,7 @@
       // "None" and "no bows" wishes ask for nothing: they are simply kept.
       const plain=r=>r.value==='none'||r.key==='noBows';
       o.wishes=o.requirements.map((r,i)=>plain(r)?{need:null,done:true,plain:true}:{need:needs[i],done:false});
-      if(o.wishes.every(w=>w.plain))o.wishes[0]={need:{chain:'fab',tier:2,count:1},done:false};
+      if(o.wishes.every(w=>w.plain))o.wishes[0]={need:{chain:'fab',tier:2,count:1},done:false,base:true};
       // She is served on her own card; regular orders go to other neighbours.
       const pool=A.Boutique.customerPool(s.atelier).filter(p=>p!==o.person);
       const orders=A.MergeOrders.ensure(s.atelier);
@@ -85,6 +85,7 @@
     if(r.key==='heel'&&r.value==='kitten')return A.t('thinPump');
     return A.t(r.value);
   }
+  const wishLabel=(s,i)=>wishes(s)[i]?.base?(zh()?'鞋身':'Shoe base'):label(s.order.requirements[i]);
   const itemName=n=>(A.MergeNames?.[zh()?'zh':'en']?.[n.chain]?.[n.tier-1])||n.chain;
   // Kept for older call sites: nothing is ever gated now.
   const pending=()=>false;
@@ -97,13 +98,13 @@
     if(o&&(s.served||0)<day){
       const w=wishes(s),open=w.map((x,i)=>({x,i})).filter(({x})=>!x.done);
       const ready=open.find(({x})=>x.need&&source(s.atelier,x.need)>=0);
-      if(ready)return {text:z?`把${itemName(ready.x.need)}加到${name}的鞋上（${label(o.requirements[ready.i])}）`:`Add the ${itemName(ready.x.need)} to ${name}'s shoe (${label(o.requirements[ready.i])})`,nav:home};
+      if(ready)return {text:z?`把${itemName(ready.x.need)}加到${name}的鞋上（${wishLabel(s,ready.i)}）`:`Add the ${itemName(ready.x.need)} to ${name}'s shoe (${wishLabel(s,ready.i)})`,nav:home};
       const first=open[0];
-      if(first)return {text:z?`为${name}的「${label(o.requirements[first.i])}」合成${itemName(first.x.need)}`:`Craft a ${itemName(first.x.need)} for ${name}'s ${label(o.requirements[first.i])}`,nav:home};
+      if(first)return {text:z?`为${name}的「${wishLabel(s,first.i)}」合成${itemName(first.x.need)}`:`Craft a ${itemName(first.x.need)} for ${name}'s ${wishLabel(s,first.i)}`,nav:home};
     }
     if(!o&&(s.served||0)>=day)return {text:z?'今天的客人都招待完了：开始新的一天':'All of today\'s customers are served: start a new day',nav:'day'};
     if(t)return {text:z?`完成订单赚星星：${s.stars||0}/${t.cost}★ 可装修下一处`:`Fill orders for stars: ${s.stars||0}/${t.cost}★ to the next renovation`,nav:home};
     return null;
   }
-  A.Commission={materialsFor,wishes,source,fits,wishFor,addWish,complete,design,wishDesign,label,itemName,pending,nextStep};
+  A.Commission={wishLabel,materialsFor,wishes,source,fits,wishFor,addWish,complete,design,wishDesign,label,itemName,pending,nextStep};
 })(globalThis.SweetShoe=globalThis.SweetShoe||{});

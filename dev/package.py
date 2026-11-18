@@ -35,7 +35,7 @@ files = [p for p in files if p.relative_to(ROOT).as_posix() not in source_only]
 # as development sources; retain only close_* images still named by the runtime
 # while the fixed baked-platform cameras replace them.
 retired_art = {
-    *(p.relative_to(ROOT).as_posix() for p in (ROOT / 'assets/decor').glob('d_*.webp')),
+    # assets/decor/d_*.webp are back in use: renovations painted into the salon room (js/scenes.js).
     *(p.relative_to(ROOT).as_posix() for p in (ROOT / 'assets/scenes').glob('scene_*.webp') if not p.stem.endswith('_thumb')),
 }
 files = [p for p in files if p.relative_to(ROOT).as_posix() not in retired_art]
