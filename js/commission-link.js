@@ -17,13 +17,24 @@
     if(!has(board,chain))chain=['fab','lea'].find(c=>has(board,c))||'fab';
     return chain;
   }
-  // One material per distinct chain, at most two; big days ask a step higher.
-  function materialsFor(s,order){
-    const board=s.atelier,chains=[];
-    for(const r of order.requirements||[]){const c=chainFor(r,board);if(!chains.includes(c))chains.push(c);if(chains.length>=2)break;}
-    if(!chains.length)chains.push('fab');
-    const higher=(order.beat&&order.beat.step>=1)||(s.day||1)>=3;
-    return chains.map((chain,i)=>({chain,tier:higher&&i===0?3:2,count:1}));
+  // A piece is makeable now if one of that kind and size (or bigger) is on the
+  // board, or the basket can still draw enough with the energy there is.
+  function makeable(board,need,now){
+    if(board.cells.some(c=>c?.kind==='item'&&c.chain===need.chain&&c.tier>=need.tier))return true;
+    const energy=Number.isFinite(board.energy)?Math.max(0,Math.floor(board.energy)):Infinity;
+    return !!A.MergeOrders.supplied?.(board,[need],now,energy);
+  }
+  // Up to two materials, one per kind her wishes point to, and only pieces the
+  // player can make right now: a resting basket never blocks her shoes. Big
+  // days ask a step higher when that is possible. Nothing makeable: no step.
+  function materialsFor(s,order,now=Date.now()){
+    const board=s.atelier,wanted=[];
+    for(const r of order.requirements||[]){const c=chainFor(r,board);if(!wanted.includes(c))wanted.push(c);}
+    const higher=(order.beat&&order.beat.step>=1)||(s.day||1)>=3,out=[];
+    const tryChain=chain=>{for(const tier of higher&&!out.length?[3,2]:[2]){const need={chain,tier,count:1};if(makeable(board,need,now))return need;}return null;};
+    for(const chain of wanted){if(out.length>=2)break;const need=tryChain(chain);if(need)out.push(need);}
+    if(!out.length)for(const chain of ['fab','lea','spk','rib'].filter(c=>has(board,c)&&!wanted.includes(c))){const need=tryChain(chain);if(need){out.push(need);break;}}
+    return out;
   }
   const pending=s=>!!(s?.order&&Array.isArray(s.order.materials)&&s.order.materials.length&&!s.order.materialsReady);
   // Called whenever the studio shows a customer: give a new order its
@@ -31,7 +42,7 @@
   function attach(s){
     const o=s?.order;if(!o||!s.atelier||!A.MergeOrders)return;
     if(A.Introduction?.active?.(s)||!s.tutorial){if(!o.materials){o.materials=[];o.materialsReady=true;}return;}
-    if(!Array.isArray(o.materials)){o.materials=materialsFor(s,o);o.materialsReady=false;}
+    if(!Array.isArray(o.materials)){o.materials=materialsFor(s,o);o.materialsReady=!o.materials.length;}
     if(!pending(s))return;
     const orders=A.MergeOrders.ensure(s.atelier);
     if(orders.some(x=>x.commission))return;
@@ -49,7 +60,7 @@
   function card(s){
     const o=s.order,name=A.t('name'+o.person);
     return {title:zh()?`${name}的鞋需要材料`:`${name}'s shoes need materials`,
-      body:zh()?`先在工坊合成：${list(o.materials)}。交付后就能开始做鞋，在那之前她会耐心等你。`:`Craft ${list(o.materials)} in the Atelier first. Deliver it and her shoes can be made; she'll wait patiently until then.`,
+      body:zh()?`在工坊合成${list(o.materials)}后才能装盒。现在就可以先为她设计，她会耐心等你。`:`Packing needs ${list(o.materials)} from the Atelier. Start on her design now; she'll wait patiently.`,
       button:zh()?'前往工坊 →':'Go to the Atelier →'};
   }
   // The one next thing to do. {text, nav} where nav is a tab to open (or null).

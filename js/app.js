@@ -180,8 +180,12 @@ function renderGuided(){
  let voice=$('guidedVoice');if(!voice){voice=document.createElement('div');voice.id='guidedVoice';voice.className='guided-voice';voice.hidden=true;voice.setAttribute('role','status');host.before(voice);}if(!on)voice.hidden=true;
  let back=$('guidedBack');if(!back){back=document.createElement('button');back.id='guidedBack';back.className='secondary guided-back';back.dataset.guidedBack='';panel.prepend(back);}back.textContent='← '+c.back;back.hidden=!(mode==='order'&&state.order&&guide.full&&!A.Introduction.active(state));
  markChips();
- if(mode==='order'&&A.Commission?.pending(state)){const c=A.Commission.card(state),o=state.order;host.hidden=false;$('studioScreen').classList.add('awaiting-materials');host.innerHTML=`<div class="materials-gate"><span class="eyebrow">${A.lang==='zh'?'第一步 · 材料':'Step 1 · Materials'}</span><h3>${c.title}</h3><div class="gate-items">${o.materials.map(n=>`<span class="gate-item">${A.Commission.itemName(n)}</span>`).join('')}</div><p>${c.body}</p><button class="primary" data-nav="atelier">${c.button}</button></div>`;return;}
- $('studioScreen').classList.remove('awaiting-materials');if(!on)return;
+ // Her materials, while they are being crafted: a banner, not a wall. She can
+ // be designed for now; only packing waits for them.
+ let banner=$('materialsBanner');if(!banner){banner=document.createElement('div');banner.id='materialsBanner';banner.className='materials-gate';host.before(banner);}
+ const waiting=mode==='order'&&A.Commission?.pending(state);banner.hidden=!waiting;$('studioScreen').classList.toggle('awaiting-materials',!!waiting);
+ if(waiting){const c=A.Commission.card(state);banner.innerHTML=`<div><span class="eyebrow">${A.lang==='zh'?'材料':'Materials'}</span><b>${c.title}</b><span class="gate-items">${state.order.materials.map(n=>`<span class="gate-item">${A.Commission.itemName(n)}</span>`).join('')}</span><p>${c.body}</p></div><button class="primary" data-nav="atelier">${c.button}</button>`;}
+ if(!on)return;
  const o=state.order,steps=G.steps(state,o),name=t('name'+o.person),wishes=steps.filter(x=>x.kind==='wish').length;
  const head=`<div class="guided-head"><span class="eyebrow">${c.guided}</span><button class="guided-more" data-guided-more>${c.more} ✎</button></div><div class="guided-dots" aria-hidden="true">${steps.map((x,j)=>`<i class="${j<guide.i?'on':j===guide.i?'now':''} ${x.kind}"></i>`).join('')}</div>`;
  if(guide.i>=steps.length){host.innerHTML=head+`<div class="guided-ready"><h3>${c.ready}</h3><p>${c.readyHint.replace('{name}',name)}</p><div class="guided-recap">${steps.map(x=>`<span class="${G.correct(x,design)?'ok':''}">${optionPreview(x.key,design[x.key])}<b>${t(x.key==='heel'&&A.THIN_HEELS[design.heel]?'thinPump':design[x.key])}</b></span>`).join('')}</div></div>`;$('pack').classList.add('guided-ready-glow');hydrateCanvases(host);for(const canvas of host.querySelectorAll('[data-painted-heel]'))A.Shoe2D.render(canvas,{...design,heel:canvas.dataset.paintedHeel});return;}
@@ -220,8 +224,8 @@ function wishGoal(o){
 // "Pack it!" shows how many wishes are still open, and glows once none are.
 function packLabel(o){
  const pack=$('pack');if(!pack)return;if(mode!=='order'||!o){pack.classList.remove('wishes-done');return;}const left=o.requirements.filter(r=>!matches(design,r)).length,zh=A.lang==='zh';
- pack.innerHTML=icon('gift')+'<span>'+t('pack').replace(/[↗♡]/g,'')+(left?`<small class="pack-left">${zh?`还差 ${left} 个心愿`:`${left} wish${left>1?'es':''} left`}</small>`:'')+'</span>';
- pack.classList.toggle('wishes-done',!left);
+ const needs=A.Commission?.pending(state);pack.innerHTML=icon('gift')+'<span>'+t('pack').replace(/[↗♡]/g,'')+(needs?`<small class="pack-left">${zh?'需要先交付材料':'Materials needed first'}</small>`:left?`<small class="pack-left">${zh?`还差 ${left} 个心愿`:`${left} wish${left>1?'es':''} left`}</small>`:'')+'</span>';
+ pack.classList.toggle('wishes-done',!left&&!needs);
 }
 // The one next thing to do, always visible; tapping it opens the right screen.
 function renderNextStep(){const el=$('nextStep');if(!el)return;const step=A.Commission?.nextStep(state,mode);el.hidden=!step;if(!step)return;el.innerHTML=`<b>${A.lang==='zh'?'下一步':'Next step'}</b><span>${step.text}</span>${step.nav?'<i aria-hidden="true">→</i>':''}`;if(step.nav)el.dataset.nav=step.nav;else delete el.dataset.nav;el.classList.toggle('static',!step.nav);}

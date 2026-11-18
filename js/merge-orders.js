@@ -79,7 +79,10 @@
     return order.needs.map(need=>{
       const found=[];
       for(let n=0;n<need.count;n++) {
-        const index=board.cells.findIndex((c,i)=>!used.has(i)&&c?.kind==='item'&&c.chain===need.chain&&c.tier===need.tier);
+        let index=board.cells.findIndex((c,i)=>!used.has(i)&&c?.kind==='item'&&c.chain===need.chain&&c.tier===need.tier);
+        // A customer's shoe materials also take a bigger piece of the same
+        // kind (the smallest one available), so a stockpile is never useless.
+        if(index<0&&order.commission){let best=-1;board.cells.forEach((c,i)=>{if(!used.has(i)&&c?.kind==='item'&&c.chain===need.chain&&c.tier>need.tier&&(best<0||c.tier<board.cells[best].tier))best=i;});index=best;}
         if(index<0)break;
         used.add(index);found.push(index);
       }
@@ -215,5 +218,5 @@
     orders[slot]=next;
     return {ok:true,consumed,reward:payout,nextId:next.id};
   }
-  A.MergeOrders={make,ensure,availability,indices,nextAction,activity,reward,relief,replace,deliver};
+  A.MergeOrders={make,ensure,availability,indices,nextAction,activity,reward,relief,replace,deliver,supplied};
 })(globalThis.SweetShoe=globalThis.SweetShoe||{});
