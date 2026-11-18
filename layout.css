@@ -728,3 +728,42 @@ html body .mentor-thought.thought-receive{animation:thought-receive .55s cubic-b
 html body .mentor-thought.thought-complete{animation:thought-complete 1s cubic-bezier(.2,.8,.3,1.3) both;box-shadow:0 0 0 5px #ffe08a,0 0 40px 10px #ffd86a99}
 @keyframes thought-complete{30%{transform:scale(1.18) rotate(-2deg)}60%{transform:scale(1.1) rotate(1deg)}100%{transform:scale(1.12)}}
 @media (prefers-reduced-motion:reduce){html body .merge-cell.wish-match,html body .mentor-thought,html body .mentor-thought canvas,html body .board-rim.board-shake,html body .merge-cell.big-merge>.merge-art,html body .merge-tier-pop{animation:none!important;transition:none!important}html body .mentor-thought.thought-new canvas{opacity:1}}
+
+/* The shop as places (2026-11-18): three painted rooms side by side behind
+   the page; the camera glides between them. Tabs are retired: doorways at
+   the screen edges and objects in the painting take you around. */
+html body{background:#eef6f2!important}
+html body header #nav,html body #app header #nav{display:none!important}
+#sceneStage{position:fixed;inset:0;z-index:0;overflow:hidden}
+#sceneStage .scene-strip{display:flex;width:300vw;height:100%;transition:transform .9s cubic-bezier(.65,0,.35,1);will-change:transform}
+#sceneStage .scene-room{position:relative;flex:0 0 100vw;height:100%;background:#eef6f2 center/cover no-repeat}
+#sceneStage .scene-room[data-room=workroom]{background-image:url('assets/scenes/room_workroom.webp'),url('assets/bg_shop.webp')}
+#sceneStage .scene-room[data-room=studio]{background-image:url('assets/scenes/room_studio.webp'),url('assets/bg_shop.webp')}
+#sceneStage .scene-room[data-room=salon]{background-image:url('assets/scenes/room_salon.webp'),url('assets/bg_shop.webp')}
+#sceneStage .scene-spots{position:absolute;inset:0}
+html body #app{position:relative;z-index:1}
+html body[data-room=studio] #app,html body[data-room=salon] #app{pointer-events:none}
+html body[data-room=studio] #app>header,html body[data-room=salon] #app>header,html body #app #modalRoot>*{pointer-events:auto}
+html body[data-room=studio] #app #atelierScreen,html body[data-room=salon] #app #atelierScreen,:root body[data-room=studio] #atelierScreen,:root body[data-room=salon] #atelierScreen{display:none!important}
+html body[data-room=studio] #app main#studioScreen:not([hidden]){pointer-events:auto}
+/* the workroom painting shows through the crafting page */
+html body[data-room=workroom] #atelierScreen{background:transparent!important}
+/* objects you can tap: a soft glow and a label when you point at them */
+.scene-spot{position:absolute;border:0;background:transparent;border-radius:26px;cursor:pointer;padding:0}
+.scene-spot span{position:absolute;left:50%;bottom:-6px;translate:-50% 100%;white-space:nowrap;padding:6px 14px;border-radius:999px;background:#fffdfdf2;color:#2c5a4a;font:700 clamp(12px,1.5vh,16px) var(--v-font);box-shadow:0 6px 16px #6b4a5a2e;opacity:.92;transition:transform .2s,opacity .2s}
+.scene-spot::before{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 3px #ffffffaa,0 0 32px 8px #fff3b0aa;opacity:.0;animation:spot-breathe 2.4s ease-in-out infinite}
+.scene-spot:hover::before,.scene-spot:focus-visible::before{opacity:1;animation:none}
+.scene-spot:hover span{transform:translateY(-3px);opacity:1}
+@keyframes spot-breathe{50%{opacity:.75}}
+/* doorways: tall soft tabs at the screen edges */
+#sceneDoors{position:fixed;inset:0;z-index:20;pointer-events:none}
+.scene-door{position:absolute;top:50%;translate:0 -50%;pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 8px;border:0;border-radius:22px;background:#fffdfde8;color:#2c5a4a;box-shadow:0 8px 22px #6b4a5a29;cursor:pointer;font:700 clamp(11px,1.35vh,14px) var(--v-font);writing-mode:vertical-rl;transition:transform .2s,background .2s}
+.scene-door i{writing-mode:horizontal-tb;font-style:normal;font-size:22px;line-height:1;color:#e9799c}
+.scene-door.left{left:6px}.scene-door.right{right:6px}
+.scene-door:hover{background:#fff;transform:scale(1.05)}
+html body:has(#modalRoot .modal) #sceneDoors{display:none}
+html body.scene-moving #sceneDoors{opacity:0;transition:opacity .2s}
+/* while the camera moves, the page steps aside */
+html body.scene-moving #app>:not(header){opacity:0;transition:opacity .25s}
+html body #app>:not(header){transition:opacity .35s .1s}
+@media (prefers-reduced-motion:reduce){#sceneStage .scene-strip{transition:none}.scene-spot::before{animation:none}}
