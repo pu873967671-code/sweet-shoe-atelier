@@ -628,3 +628,44 @@ html body #materialsBanner>div{display:flex;flex-direction:column;gap:4px;flex:1
 html body #materialsBanner b{font:700 14px/1.25 var(--v-font);color:var(--v-ink)}
 html body #materialsBanner p{font-size:12px}
 html body #materialsBanner .primary{flex:none;align-self:center;white-space:nowrap}
+
+/* One-page atelier (2026-11-18): Serve and try-on retired; the customer card,
+   her wish rows and Mimi's thought bubble live on the Atelier page. */
+html body [data-nav="serve"],html body #nav [data-nav="serve"],html body #tabs [data-nav="serve"]{display:none!important}
+html body .customer-wish-card{display:flex;flex-direction:column;gap:6px;padding:12px;border-radius:20px;background:#fff;border:2px solid #f2b9cc;box-shadow:0 8px 22px #e9799c26;margin-bottom:10px}
+html body .customer-wish-card.complete{border-color:#9fdcbf}
+html body .customer-wish-card .wish-head{display:flex;align-items:center;gap:10px}
+html body .customer-wish-card .wish-head img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:top;background:#fdf1f5;flex:none}
+html body .customer-wish-card .wish-head>div{display:flex;flex-direction:column;min-width:0}
+html body .customer-wish-card .wish-head b{font:700 16px/1.15 var(--v-font);color:var(--v-ink)}
+html body .customer-wish-card .wish-head small{font:600 11px var(--v-font);color:var(--v-muted)}
+html body .customer-wish-card .section-kicker{font-size:10px}
+html body .customer-wish-card .wish-quote{margin:0;font:500 12px/1.4 var(--v-font);color:var(--v-ink);background:#f8fdfc;border-radius:12px;padding:6px 10px}
+html body .customer-wish-card .wish-goal{margin:0!important;padding:5px 10px;font-size:11.5px}
+html body .wish-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+html body .wish-row{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:8px;padding:5px 6px 5px 10px;border-radius:12px;background:#fbf7f9;border:1px solid #f1e3e9}
+html body .wish-row.ready{background:#fff4f8;border-color:#f0a8c2}
+html body .wish-row.done{background:#effaf4;border-color:#bfe8d3}
+html body .wish-row .wish-label{display:flex;flex-direction:column;min-width:0}
+html body .wish-row .wish-label b{font:700 12.5px/1.2 var(--v-font);color:var(--v-ink)}
+html body .wish-row .wish-label small{font:600 10px var(--v-font);color:var(--v-muted)}
+html body .wish-row .wish-item{display:flex;align-items:center;gap:4px;max-width:110px}
+html body .wish-row .wish-item img,html body .wish-row .wish-item svg{width:28px;height:28px;object-fit:contain;flex:none}
+html body .wish-row .wish-item small{font:600 10px/1.15 var(--v-font);color:var(--v-muted)}
+html body .wish-row .wish-add{min-height:0;padding:5px 10px;font-size:12px}
+html body .wish-row .wish-check{color:#2f8a63;font-size:16px;padding:0 8px}
+html body .mentor-thought{position:relative;z-index:3;flex:none;align-self:stretch;height:clamp(120px,22vh,190px);margin:0 6px 26px;border-radius:50% 50% 46% 54%/55% 50% 50% 45%;background:#fff;border:2px solid #e6e1e4;box-shadow:0 10px 24px #6b4a5a1f;display:flex;align-items:center;justify-content:center;overflow:visible;padding:10px 18px}
+html body .mentor-thought canvas,html body .mentor-thought .product-canvas{max-width:100%;max-height:100%}
+html body .mentor-thought .thought-dot{position:absolute;border-radius:50%;background:#fff;border:2px solid #e6e1e4}
+html body .mentor-thought .thought-dot.one{width:20px;height:20px;left:44%;bottom:-24px}
+html body .mentor-thought .thought-dot.two{width:11px;height:11px;left:40%;bottom:-40px}
+html body .mentor-area:has(.mentor-thought) .merge-detail.idle{display:none!important}
+html body .mentor-area:has(.mentor-thought) .merge-detail:not(.idle){position:absolute!important;left:0;right:0;top:0}
+html body .atelier-orders:has(.customer-wish-card){overflow-y:auto;scrollbar-width:thin}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .atelier-order{padding:8px 10px!important;gap:4px!important}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .order-avatar img{width:30px!important;height:30px!important}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .requested-item{padding:4px 8px!important}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .requested-item .merge-art{width:30px!important;height:30px!important}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .order-request{min-height:0!important}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .order-deliver{min-height:32px!important;padding:4px 10px!important;font-size:13px!important;margin-top:4px!important}
+html body #atelierScreen .atelier-orders:has(.customer-wish-card) .atelier-order::before,html body #atelierScreen .atelier-orders:has(.customer-wish-card) .atelier-order::after{transform:scale(.7);transform-origin:top right}

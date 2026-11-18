@@ -22,10 +22,13 @@
   // Independent of the board guide: later lessons never lock navigation or spend for the player.
   A.Introduction={
     active:s=>s.introduction>0&&s.introduction<9,
-    begin(s){if(s.introduction===0)s.introduction=s.introductionFlow===2?3:1;this.sync(s);},
+    begin(s){if(s.introduction===0)s.introduction=1;this.sync(s);},
     sync(s){
       if(s.introduction===1&&(s.stars>=2||A.Boutique.count(s)>0))s.introduction=2;
-      if(s.introduction===2&&A.Boutique.count(s)>0)s.introduction=s.introductionFlow===2?8:3;
+      // One-page atelier: after the first renovation the guide is done. Saves
+      // part-way through the old studio/try-on lessons (3-8) finish too.
+      if(s.introduction===2&&A.Boutique.count(s)>0)s.introduction=9;
+      if(s.introduction>=3&&s.introduction<9)s.introduction=9;
     },
     advance(s,event){
       const expected={3:'studio',4:'bow',5:'commission',6:'fitting',7:'pose',8:'finish'};
