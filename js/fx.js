@@ -20,6 +20,14 @@
     'just-opened'(el){const p=pt(el);F.ring(p.x,p.y+p.h*.25,{rx:p.w*.6,ry:p.h*.18,life:.45,w:3});F.puff(p.x,p.y,{n:5,size:10,life:.7});F.kira(p.x,p.y-p.h*.35,{r:9});},
     'delivery-celebrate'(el){const p=pt(el);F.burst(p.x,p.y,{r:Math.min(90,p.w*.42),spikes:15,life:.38});wait(90,()=>{F.puff(p.x-p.w*.35,p.y+p.h*.3,{n:4,vx:-30});F.puff(p.x+p.w*.35,p.y+p.h*.3,{n:4,vx:30});for(let i=0;i<4;i++)F.kira(p.x+F.rnd(-p.w*.45,p.w*.45),p.y+F.rnd(-p.h*.45,p.h*.2),{r:F.rnd(6,11)});});},
     'closed'(el){if(!el.classList.contains('stage'))return;const p=pt(el,.5,.62);F.ring(p.x,p.y,{rx:p.w*.26,ry:p.h*.07,life:.55,w:4});F.puff(p.x-p.w*.2,p.y,{n:4,vx:-24,vy:-8});F.puff(p.x+p.w*.2,p.y,{n:4,vx:24,vy:-8});},
+    // a big piece (tier 4+): a wider burst, a ground ring and a shower of sparkles
+    'big-merge'(el){const p=pt(el),r=Math.max(44,p.w*.95);wait(40,()=>{F.burst(p.x,p.y,{r,spikes:16,life:.42});F.ring(p.x,p.y+p.h*.22,{rx:p.w*.85,ry:p.h*.24,life:.5,w:4});});wait(140,()=>{F.shards(p.x,p.y,{n:12,speed:230,size:5.5});for(let i=0;i<5;i++)F.kira(p.x+F.rnd(-p.w*.7,p.w*.7),p.y+F.rnd(-p.h*.7,p.h*.2),{r:F.rnd(7,12)});});},
+    // a piece one of her wishes needs: little upward ticks, like a heartbeat
+    'wish-made'(el){const p=pt(el);wait(120,()=>{F.ticks(p.x,p.y-p.h*.45,{n:5,r:16,dir:-Math.PI/2,fan:.7});F.kira(p.x+p.w*.4,p.y-p.h*.4,{r:9});});},
+    // the detail lands on the shoe in Mimi's thought bubble
+    'thought-receive'(el){const p=pt(el);F.burst(p.x,p.y,{r:Math.min(70,p.w*.3),spikes:12,life:.3});wait(80,()=>{for(let i=0;i<5;i++)F.kira(p.x+F.rnd(-p.w*.4,p.w*.4),p.y+F.rnd(-p.h*.35,p.h*.3),{r:F.rnd(6,11)});});},
+    // her shoe is finished: the biggest moment on the page
+    'thought-complete'(el){const p=pt(el);wait(60,()=>{F.burst(p.x,p.y,{r:Math.min(130,p.w*.55),spikes:18,life:.5});F.ring(p.x,p.y,{rx:p.w*.6,ry:p.h*.6,life:.6,w:5});});wait(220,()=>{F.donut(p.x-p.w*.45,p.y,{vx:-50});F.donut(p.x+p.w*.45,p.y,{vx:50});F.ticks(p.x,p.y-p.h*.55,{n:7,r:22,dir:-Math.PI/2,fan:.9});for(let i=0;i<8;i++)F.kira(p.x+F.rnd(-p.w*.6,p.w*.6),p.y+F.rnd(-p.h*.6,p.h*.5),{r:F.rnd(7,13)});});},
     'guided-ready-glow'(el){const p=pt(el);F.ticks(p.x-p.w*.42,p.y-p.h*.2,{n:3,r:14,dir:-2.3});F.ticks(p.x+p.w*.42,p.y-p.h*.2,{n:3,r:14,dir:-.8});}
   };
   function onClass(el){for(const c in FX)if(el.classList.contains(c)&&once(el,c))FX[c](el);}

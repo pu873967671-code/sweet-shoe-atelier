@@ -58,9 +58,17 @@
     board.cells.forEach((c,i)=>{if(c?.kind==='item'&&c.chain===need.chain&&c.tier>=need.tier&&(best<0||c.tier<board.cells[best].tier))best=i;});
     return best;
   }
-  function addWish(s,i){
+  // A piece fits a wish if it is the same kind and at least that size.
+  const fits=(cell,need)=>!!(cell&&need&&cell.kind==='item'&&cell.chain===need.chain&&cell.tier>=need.tier);
+  // The open wish a given board piece can fill (the first, preferring an exact size).
+  function wishFor(s,cellIndex,prefer){
+    const cell=s.atelier.cells[cellIndex],w=wishes(s),open=w.map((x,i)=>({x,i})).filter(({x})=>!x.done&&fits(cell,x.need));
+    if(prefer!=null&&open.some(o=>o.i===prefer))return prefer;
+    return (open.find(({x})=>x.need.tier===cell.tier)||open[0])?.i??-1;
+  }
+  function addWish(s,i,cellIndex){
     const w=wishes(s)[i];if(!w||w.done||!w.need)return {ok:false};
-    const at=source(s.atelier,w.need);if(at<0)return {ok:false,reason:'missing'};
+    const at=cellIndex!=null?(fits(s.atelier.cells[cellIndex],w.need)?cellIndex:-1):source(s.atelier,w.need);if(at<0)return {ok:false,reason:'missing'};
     s.atelier.cells[at]=null;w.done=true;
     return {ok:true,cell:at,complete:complete(s)};
   }
@@ -97,5 +105,5 @@
     if(t)return {text:z?`完成订单赚星星：${s.stars||0}/${t.cost}★ 可装修下一处`:`Fill orders for stars: ${s.stars||0}/${t.cost}★ to the next renovation`,nav:home};
     return null;
   }
-  A.Commission={materialsFor,wishes,source,addWish,complete,design,wishDesign,label,itemName,pending,nextStep};
+  A.Commission={materialsFor,wishes,source,fits,wishFor,addWish,complete,design,wishDesign,label,itemName,pending,nextStep};
 })(globalThis.SweetShoe=globalThis.SweetShoe||{});

@@ -216,7 +216,7 @@
       const freshThought=root.querySelector('.mentor-thought');
       if(keptThought&&freshThought&&keptThought.dataset.thought===freshThought.dataset.thought)freshThought.replaceWith(keptThought);
       else if(freshThought)api.hydrate(freshThought);
-      controls();detail();
+      controls();detail();markWishPieces();
       const guide=api.state().mergeGuide;
       if(guide<4){const cells=G.plans[guide].cells,i=cells[selected===cells[0]&&cells.length>1?1:0];root.querySelector(`[data-cell="${i}"]`)?.classList.add('guide-target');}
       if(guide===4)root.querySelector('[data-deliver="0"]')?.classList.add('guide-target');
@@ -242,8 +242,42 @@
       banner.innerHTML=art(item)+`<div><span class="section-kicker">${c.new}</span><strong>${name(item)}</strong>${unlocks.length?`<small>${c.unlocked} · ${unlocks.map(([id])=>A.t(id.split(':')[1])).join(' · ')}</small>`:`<small>${tr('tier')} ${item.tier} / 7 · ${tr(item.chain)}</small>`}</div>`;
       root.querySelector('.merge-board-wrap')?.append(banner);setTimeout(()=>banner.remove(),3400);
     }
-    function commit(result) {
+    const calm=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // A piece travelling across the page (merge convergence, into the bubble).
+    function fly(html,from,to,ms,{scale=.55,arc=0}={}){
+      if(!from||!to||calm())return Promise.resolve();
+      const g=document.createElement('div');g.className='merge-fly';g.innerHTML=html;g.setAttribute('aria-hidden','true');
+      Object.assign(g.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',height:from.height+'px'});document.body.append(g);
+      const dx=to.left+to.width/2-(from.left+from.width/2),dy=to.top+to.height/2-(from.top+from.height/2);
+      const a=g.animate([{transform:'translate(0,0) scale(1) rotate(0)'},{transform:`translate(${dx*.5}px,${dy*.5-arc}px) scale(${(1+scale)/2}) rotate(-8deg)`},{transform:`translate(${dx}px,${dy}px) scale(${scale}) rotate(0)`}],{duration:ms,easing:'cubic-bezier(.55,0,.7,.2)'});
+      return a.finished.then(()=>g.remove(),()=>g.remove());
+    }
+    // Pieces that one of her open wishes needs glow on the board.
+    function markWishPieces(){
+      const s=api.state(),C=A.Commission;if(!C||!s.order||A.Introduction.active(s)||s.mergeGuide<6)return;
+      const taken=new Set();
+      C.wishes(s).forEach((w,i)=>{if(w.done||!w.need)return;const at=C.source(board(),w.need);if(at>=0&&!taken.has(at)){taken.add(at);root.querySelector(`[data-cell="${at}"]`)?.classList.add('wish-match');}});
+    }
+    // Put a piece on her shoe: it flies from the board into Mimi's bubble,
+    // the detail sparkles onto the shoe, and a finished shoe gets its moment.
+    function addToShoe(wish,cellIndex,fromRect){
+      const s=api.state(),C=A.Commission,at=cellIndex??C.source(board(),C.wishes(s)[wish]?.need);
+      const el=root.querySelector(`[data-cell="${at}"]`),from=fromRect||el?.getBoundingClientRect(),html=el?.querySelector('.merge-art')?.outerHTML||'';
+      const r=C.addWish(s,wish,cellIndex);if(!r.ok){api.sound('error');return false;}
+      selected=-1;api.save();api.sound('delivery');api.header();render();
+      const bubble=root.querySelector('.mentor-thought');bubble?.classList.add('thought-new');
+      fly(html,from,bubble?.getBoundingClientRect(),calm()?0:520,{scale:.4,arc:60}).then(()=>{
+        if(!bubble?.isConnected)return;bubble.classList.remove('thought-new');bubble.classList.add('thought-receive');api.sound('discovery');
+        setTimeout(()=>bubble.classList.remove('thought-receive'),900);
+        mentorPose('cheer');
+        if(r.complete){bubble.classList.add('thought-complete');setTimeout(()=>api.finish(),calm()?0:900);}
+      });
+      return true;
+    }
+    function commit(result,opts={}) {
       if (!result.ok) {api.toast(tr(result.reason==='chestSpace'?'chestSpace':result.reason==='space'?'space':result.reason==='energy'?'emptyBody':result.reason==='crate'?'crate':result.reason==='cooldown'?'cooldown':'mismatch'));if(result.reason!=='cooldown')api.sound('error');return false;}
+      const fromEl=result.type==='merge'&&opts.from!=null?root.querySelector(`[data-cell="${opts.from}"]`):null;
+      const fromRect=fromEl?.getBoundingClientRect(),fromArt=fromEl?.querySelector('.merge-art')?.outerHTML;
       const guided=G.advance(api.state(),result);
       if(result.type==='merge'&&!G.active(api.state()))B.offer(board(),result);
       selected=guided?-1:result.to; api.save();api.header();render();
@@ -258,11 +292,25 @@
           target.classList.add('from-generator');
         }
       }
-      target?.classList.add(result.type==='merge'?'just-merged':'just-spawned');
-      if(result.type==='merge'&&target){
-        const pop=document.createElement('span');pop.className='merge-tier-pop';pop.textContent=tr('tier')+' '+result.item.tier;pop.setAttribute('aria-hidden','true');target.append(pop);
-        setTimeout(()=>pop.remove(),850);
-      }
+      // A merge: the tapped piece flies into its partner, then the new piece
+      // pops with its name. Bigger pieces get bigger moments; a piece one of
+      // her wishes needs is announced for her.
+      const land=()=>{
+        if(!target?.isConnected)return;
+        target.classList.remove('merge-arriving');
+        target.classList.add(result.type==='merge'?'just-merged':'just-spawned');
+        if(result.type!=='merge')return;
+        const tier=result.item.tier,s=api.state(),C=A.Commission;
+        if(tier>=4)target.classList.add('big-merge');
+        if(tier>=6&&!calm()){const rim=root.querySelector('.board-rim');rim?.classList.remove('board-shake');void rim?.offsetWidth;rim?.classList.add('board-shake');}
+        const forWish=C&&s.order&&s.mergeGuide>=6&&!A.Introduction.active(s)?C.wishFor(s,result.to):-1;
+        const pop=document.createElement('span');pop.className='merge-tier-pop tier-'+tier+(forWish>=0?' for-wish':'');pop.setAttribute('aria-hidden','true');
+        pop.innerHTML=`<b>${names[A.lang][result.item.chain][tier-1]}</b>`+(forWish>=0?`<small>${A.lang==='zh'?'给'+A.t('name'+s.order.person)+' ♥':'For '+A.t('name'+s.order.person)+' ♥'}</small>`:'');
+        target.append(pop);setTimeout(()=>pop.remove(),1100);
+        if(forWish>=0){target.classList.add('wish-made');const th=root.querySelector('.mentor-thought');th?.classList.add('thought-ping');setTimeout(()=>th?.classList.remove('thought-ping'),900);}
+      };
+      if(result.type==='merge'&&fromRect&&target&&!calm()){target.classList.add('merge-arriving');fly(fromArt,fromRect,target.getBoundingClientRect(),190,{scale:.85}).then(land);}
+      else land();
       if(result.type==='merge'||result.type==='gift') {
         api.sound(result.discovery?'discovery':'merge',result.item.tier);
         const r=target.getBoundingClientRect();api.particles(r.x+r.width/2,r.y+r.height/2,false,result.item.chain);
@@ -280,7 +328,7 @@
       const guide=G.plans[api.state().mergeGuide];
       if(guide?.to===index&&selected!==guide.cells[0])return;
       const b=board(), cell=b.cells[index];
-      if(selected>=0 && selected!==index && b.cells[selected] && b.cells[selected].kind!=='crate' && (!cell || M.canMerge(b.cells[selected],cell))) {commit(M.move(b,selected,index));return;}
+      if(selected>=0 && selected!==index && b.cells[selected] && b.cells[selected].kind!=='crate' && (!cell || M.canMerge(b.cells[selected],cell))) {commit(M.move(b,selected,index),{from:selected});return;}
       selected=index;
       if(cell?.kind==='generator') {
         // A blocked basket still owns the selected detail; do not leave the
@@ -322,7 +370,10 @@
       }
       if(!pointer.dragging)return;
       e.preventDefault();ghost.style.left=e.clientX+'px';ghost.style.top=e.clientY+'px';
-      const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-cell]');
+      const hit=document.elementFromPoint(e.clientX,e.clientY),shoe=hit?.closest('.mentor-thought,.customer-wish-card');
+      const s0=api.state(),wants=shoe&&A.Commission&&s0.order&&A.Commission.wishFor(s0,pointer.index)>=0;
+      root.querySelectorAll('.thought-target').forEach(el=>{if(el!==shoe||!wants)el.classList.remove('thought-target');});if(wants)shoe.classList.add('thought-target');
+      const target=hit?.closest('[data-cell]');
       if(over!==target) {over?.classList.remove('merge-target','drop-target');over=target;if(over&&+over.dataset.cell!==pointer.index){const cell=board().cells[+over.dataset.cell];if(M.canMerge(board().cells[pointer.index],cell))over.classList.add('merge-target');else if(!cell)over.classList.add('drop-target');}}
     });
     let suppressClick=false;
@@ -331,8 +382,9 @@
       const drag=pointer;
       if(drag.dragging) {
         suppressClick=true;
-        const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-cell]');
-        clearDrag();
+        const hit=document.elementFromPoint(e.clientX,e.clientY),target=hit?.closest('[data-cell]'),shoe=hit?.closest('.mentor-thought,.customer-wish-card');
+        const dropRect=ghost?.getBoundingClientRect();clearDrag();root.querySelectorAll('.thought-target').forEach(el=>el.classList.remove('thought-target'));
+        if(shoe&&A.Commission&&api.state().order){const row=hit.closest('[data-wish]')||hit.closest('.wish-row')?.querySelector('[data-wish]'),wish=A.Commission.wishFor(api.state(),drag.index,row?+row.dataset.wish:null);if(wish>=0){addToShoe(wish,drag.index,dropRect);setTimeout(()=>{suppressClick=false;},0);return;}}
         if(target && G.allows(api.state(),+target.dataset.cell) && +target.dataset.cell!==drag.index) {const result=M.move(board(),drag.index,+target.dataset.cell);if(!commit(result))drag.button.animate?.([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'none'}],{duration:180});}
         setTimeout(()=>{suppressClick=false;},0);
       } else clearDrag();
@@ -383,7 +435,7 @@
         return;
       }
       const wishButton=e.target.closest('[data-wish]');
-      if(wishButton){const r=A.Commission.addWish(api.state(),+wishButton.dataset.wish);if(!r.ok){api.sound('error');return;}selected=-1;api.save();api.sound('delivery');api.header();render();mentorPose('cheer');if(r.complete)setTimeout(()=>api.finish(),matchMedia('(prefers-reduced-motion: reduce)').matches?0:650);return;}
+      if(wishButton){addToShoe(+wishButton.dataset.wish);return;}
       const delivery=e.target.closest('[data-deliver]');
       if(delivery) {
         const order=O.ensure(board()).find(o=>o.id===+delivery.dataset.deliver),consumed=order&&O.indices(board(),order);

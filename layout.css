@@ -694,3 +694,37 @@ html body .wish-row .wish-item{max-width:none}
 html body .wish-row .wish-item .merge-art,html body .wish-row .wish-item img{width:clamp(24px,3.4vh,40px)!important;height:clamp(24px,3.4vh,40px)!important}
 html body .wish-row .wish-item small{display:none}
 html body .wish-row .wish-add{min-height:clamp(32px,4.2vh,44px);min-width:clamp(56px,5vw,84px);font-size:clamp(12px,1.4vh,15px)}
+
+/* The merge is the star (2026-11-18): converging pieces, named pops, bigger
+   moments for bigger pieces, wish pieces glowing, and pieces flying into
+   Mimi's thought bubble where the detail sparkles onto the shoe. */
+html body .merge-fly{position:fixed;z-index:9000;pointer-events:none;filter:drop-shadow(0 6px 10px #7a4a5a40)}
+html body .merge-fly .merge-art{width:100%;height:100%}
+html body .merge-cell.merge-arriving .merge-art{opacity:0}
+html body .merge-cell.wish-match{box-shadow:0 0 0 3px #f6a8c4,0 0 18px 4px #f6a8c480!important;animation:wish-glow 1.6s ease-in-out infinite}
+html body .merge-cell.wish-match::before{content:'♥';position:absolute;top:-7px;left:-5px;z-index:5;width:20px;height:20px;border-radius:50%;background:#e9799c;color:#fff;font:700 11px/20px var(--v-font);text-align:center;box-shadow:0 2px 6px #b8496c55}
+@keyframes wish-glow{50%{box-shadow:0 0 0 3px #f6a8c4,0 0 26px 8px #f6a8c4a8}}
+html body .merge-tier-pop{display:flex!important;flex-direction:column;align-items:center;gap:1px;white-space:nowrap;padding:3px 10px!important;border-radius:999px!important;background:#fffdfdf2!important;box-shadow:0 4px 12px #6b4a5a2e;animation:name-rise 1.1s cubic-bezier(.2,.8,.3,1) both!important}
+html body .merge-tier-pop b{font:800 clamp(11px,1.3vh,14px) var(--v-font);color:#2c5a4a}
+html body .merge-tier-pop small{font:700 10px var(--v-font);color:#d4507c}
+html body .merge-tier-pop.tier-4 b,html body .merge-tier-pop.tier-5 b{color:#b0507a}
+html body .merge-tier-pop.tier-6 b,html body .merge-tier-pop.tier-7 b{color:#c2860c}
+html body .merge-tier-pop.for-wish{background:#fff0f6!important;outline:2px solid #f2a6bf}
+@keyframes name-rise{0%{opacity:0;transform:translate(-50%,6px) scale(.7)}18%{opacity:1;transform:translate(-50%,-14px) scale(1.06)}75%{opacity:1;transform:translate(-50%,-24px) scale(1)}100%{opacity:0;transform:translate(-50%,-34px) scale(.96)}}
+html body .merge-cell.big-merge>.merge-art{animation:big-pop .6s cubic-bezier(.2,.8,.3,1.4) both!important}
+@keyframes big-pop{0%{transform:scale(.3) rotate(-12deg)}55%{transform:scale(1.32) rotate(4deg)}100%{transform:scale(1) rotate(0)}}
+html body .board-rim.board-shake{animation:board-shake .38s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes board-shake{20%{transform:translate(-3px,1px)}40%{transform:translate(3px,-1px)}60%{transform:translate(-2px,1px)}80%{transform:translate(1px,0)}}
+html body .mentor-thought{transition:transform .25s cubic-bezier(.2,.8,.3,1.3),box-shadow .25s}
+html body .mentor-thought.thought-target{transform:scale(1.07);box-shadow:0 0 0 4px #f6a8c4,0 14px 34px #e9799c55}
+html body .customer-wish-card.thought-target{box-shadow:0 0 0 4px #f6a8c4,0 14px 34px #e9799c55}
+html body .mentor-thought.thought-ping{animation:thought-ping .6s ease-in-out}
+@keyframes thought-ping{30%{transform:rotate(-3deg) scale(1.04)}65%{transform:rotate(2deg) scale(1.02)}}
+html body .mentor-thought.thought-new canvas{opacity:0}
+html body .mentor-thought.thought-receive canvas{animation:shoe-paint .7s cubic-bezier(.2,.8,.3,1) both}
+@keyframes shoe-paint{0%{opacity:0;transform:scale(.86);filter:brightness(1.8) saturate(.4)}45%{opacity:1;transform:scale(1.08);filter:brightness(1.35)}100%{opacity:1;transform:scale(1);filter:none}}
+html body .mentor-thought.thought-receive{animation:thought-receive .55s cubic-bezier(.2,.8,.3,1.4)}
+@keyframes thought-receive{40%{transform:scale(1.1)}100%{transform:scale(1)}}
+html body .mentor-thought.thought-complete{animation:thought-complete 1s cubic-bezier(.2,.8,.3,1.3) both;box-shadow:0 0 0 5px #ffe08a,0 0 40px 10px #ffd86a99}
+@keyframes thought-complete{30%{transform:scale(1.18) rotate(-2deg)}60%{transform:scale(1.1) rotate(1deg)}100%{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){html body .merge-cell.wish-match,html body .mentor-thought,html body .mentor-thought canvas,html body .board-rim.board-shake,html body .merge-cell.big-merge>.merge-art,html body .merge-tier-pop{animation:none!important;transition:none!important}html body .mentor-thought.thought-new canvas{opacity:1}}
