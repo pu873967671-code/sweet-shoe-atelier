@@ -64,7 +64,7 @@
     return {id:sequence*2+slot,person:A.Boutique.customerPool(board)[(sequence+slot)%A.Boutique.customerPool(board).length],needs};
   }
   function valid(order) {
-    return order && Number.isSafeInteger(order.id) && order.id>=0 && Number.isInteger(order.person) && order.person>=0 && order.person<6 && Array.isArray(order.needs) && order.needs.length>=1 && order.needs.length<=3 && order.needs.every(n=>n && CHAINS.includes(n.chain) && Number.isInteger(n.tier) && n.tier>=2 && n.tier<=5 && n.count===1);
+    return order && Number.isSafeInteger(order.id) && order.id>=0 && Number.isInteger(order.person) && order.person>=0 && order.person<(A.themes?.length||6) && Array.isArray(order.needs) && order.needs.length>=1 && order.needs.length<=3 && order.needs.every(n=>n && CHAINS.includes(n.chain) && Number.isInteger(n.tier) && n.tier>=2 && n.tier<=5 && n.count===1);
   }
   function ensure(board) {
     board.orderSequence=Number.isSafeInteger(board.orderSequence)&&board.orderSequence>=0?Math.min(board.orderSequence,1e7):0;

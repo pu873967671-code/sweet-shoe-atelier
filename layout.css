@@ -600,3 +600,26 @@ html body .timer-note{margin:4px 0 0;font:500 11px/1.3 var(--v-font);color:var(-
 html body #pack .pack-left{display:block;font:600 11px/1.1 var(--v-font);opacity:.85;margin-top:2px}
 html body #pack.wishes-done{animation:g-glow 1.6s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){html body #pack.wishes-done{animation:none}}
+
+/* One customer, one journey (2026-11-18): next-step line, materials gate, order label. */
+html body .next-step{display:flex;align-items:center;gap:8px;margin:6px auto 0;max-width:min(560px,92vw);padding:7px 14px;border-radius:999px;border:1px solid #f3cfdc;background:#fff7fa;box-shadow:0 4px 14px #d98aa522;font:600 12.5px/1.3 var(--v-font);color:var(--v-ink);cursor:pointer;text-align:left}
+html body .next-step[hidden]{display:none}
+html body .next-step b{flex:none;padding:2px 8px;border-radius:999px;background:#e9799c;color:#fff;font-size:11px;letter-spacing:.02em}
+html body .next-step span{flex:1;min-width:0}
+html body .next-step i{flex:none;font-style:normal;color:#e9799c;font-weight:700}
+html body .next-step.static{cursor:default}
+html body .materials-gate{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:20px;background:#fff8fb;border:1px dashed #efb9cc}
+html body .materials-gate h3{margin:0;font:700 20px/1.2 var(--v-font);color:var(--v-ink)}
+html body .materials-gate p{margin:0;font:500 13px/1.45 var(--v-font);color:var(--v-muted)}
+html body .materials-gate .gate-items{display:flex;flex-wrap:wrap;gap:6px}
+html body .materials-gate .gate-item{padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #f3cfdc;font:700 13px var(--v-font);color:#b0507a}
+html body .materials-gate .primary{align-self:flex-start}
+html body #studioScreen.awaiting-materials .custom>:not(#guided):not(.guided-back){display:none!important}
+html body #studioScreen.awaiting-materials #pack{opacity:.55}
+html body .atelier-order.commission{border:2px solid #f0a8c2!important;box-shadow:0 6px 18px #e9799c33!important}
+html body .atelier-order .order-for{display:block;margin:-2px 0 6px;padding:3px 10px;border-radius:999px;background:#e9799c;color:#fff;font:700 11px/1.3 var(--v-font);text-align:center}
+html body .renovation-progress{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:6px auto;max-width:420px;padding:8px 12px;border-radius:14px;background:#fffaf0;border:1px solid #f4e2b8;font:600 12.5px var(--v-font);color:var(--v-ink)}
+html body .renovation-progress i{flex:1 1 120px;height:7px;border-radius:9px;background:#f4ead2;overflow:hidden}
+html body .renovation-progress i b{display:block;height:100%;background:linear-gradient(90deg,#f3c35b,#e9a93a)}
+html body .renovation-progress.ready{background:#fff4e0;border-color:#efc77a}
+html body .renovation-progress button{padding:4px 12px;min-height:0}
