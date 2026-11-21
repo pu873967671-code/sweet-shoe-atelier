@@ -198,3 +198,5 @@ qa/heel-collar-20261030-before/
 qa/heel-collar-20261030/*.png
 
 qa/heel-collar-20261030/**/*.png
+music-preview/
+photos/

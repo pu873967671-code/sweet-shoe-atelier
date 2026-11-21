@@ -11,6 +11,7 @@ require('./js/merge-rewards.js');
 require('./js/merge-bubbles.js');
 require('./js/boutique.js');
 require('./js/showcase.js');
+require('./js/lane.js');
 require('./js/save.js');
 require('./js/introduction.js');
 require('./js/fabric-regions.js');

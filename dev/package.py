@@ -20,8 +20,9 @@ archived_js = {'shoe3d.js', 'fitting3d.js'}
 # its only createShoeRenderer entry is hydrateCanvases -> Shoe2D.render.
 # Retain all source paintings locally for reference, not in the runtime ZIP.
 source_only_asset_dirs = {'models', 'angles', 'fabrics', 'legs', 'poses', 'tones'}
-files = [ROOT / 'index.html', ROOT / 'style.css', *sorted(p for p in (ROOT / 'js').glob('*.js') if p.name not in archived_js)]
-files += sorted(p for p in (ROOT / 'assets').rglob('*') if p.is_file() and p.relative_to(ROOT / 'assets').parts[0] not in source_only_asset_dirs and p.suffix.lower() in {'.webp', '.svg', '.ttf', '.txt', '.mp3', '.ogg', '.gltf', '.glb', '.bin', '.md'})
+files = [ROOT / 'index.html', ROOT / 'style.css', ROOT / 'layout.css', ROOT / 'textile.css', ROOT / 'atelier.css', *sorted(p for p in (ROOT / 'js').glob('*.js') if p.name not in archived_js)]
+files += [ROOT / 'vendor/sakuga-vfx/core.js', ROOT / 'vendor/sakuga-vfx/LICENSE']  # drawn hit effects (MIT)
+files += sorted(p for p in (ROOT / 'assets').rglob('*') if p.is_file() and p.relative_to(ROOT / 'assets').parts[0] not in source_only_asset_dirs and p.suffix.lower() in {'.webp', '.svg', '.ttf', '.woff2', '.txt', '.mp3', '.ogg', '.gltf', '.glb', '.bin', '.md'})
 # Supervisor art drops can arrive before their runtime integration. Keep those
 # source variants in the repository without shipping unused upload weight.
 source_only = { 'assets/ui/logo_v2.webp', 'assets/ui/logo_v3.webp', 'assets/materials/lace_tile.webp'}
@@ -34,7 +35,7 @@ files = [p for p in files if p.relative_to(ROOT).as_posix() not in source_only]
 # as development sources; retain only close_* images still named by the runtime
 # while the fixed baked-platform cameras replace them.
 retired_art = {
-    *(p.relative_to(ROOT).as_posix() for p in (ROOT / 'assets/decor').glob('d_*.webp')),
+    # assets/decor/d_*.webp are back in use: renovations painted into the salon room (js/scenes.js).
     *(p.relative_to(ROOT).as_posix() for p in (ROOT / 'assets/scenes').glob('scene_*.webp') if not p.stem.endswith('_thumb')),
 }
 files = [p for p in files if p.relative_to(ROOT).as_posix() not in retired_art]

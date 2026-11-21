@@ -457,12 +457,12 @@ let intro=freshSave(now);intro.introductionFlow=1;intro.mergeGuide=6;intro.stars
 assert.equal(intro.introduction,1);assert(!J.advance(intro,'finish'));
 intro.stars=2;J.sync(intro);assert.equal(intro.introduction,2);
 assert(require('./game.js').Boutique.renovate(intro,0,now).ok);J.sync(intro);
-assert.equal(intro.introduction,3);assert.equal(intro.stars,0);
-for(const event of ['studio','bow','commission','fitting','pose','finish']){
- assert(!J.advance(intro,'unexpected'));assert(J.advance(intro,event));
- intro=sanitizeSave(JSON.parse(JSON.stringify(intro)),now);
-}
+// One-page atelier: the first renovation completes the guide (the studio and
+// try-on lessons were retired); saves part-way through them finish too.
+assert.equal(intro.introduction,9);assert.equal(intro.stars,0);
+intro=sanitizeSave(JSON.parse(JSON.stringify(intro)),now);
 assert.equal(intro.introduction,9);assert(!J.active(intro));assert(!J.advance(intro,'finish'));
+for(let step=3;step<=8;step++){const old={...freshSave(now),mergeGuide:6,introduction:step};J.sync(old);assert.equal(old.introduction,9);}
 const oldIntro={...freshSave(now),mergeGuide:6};delete oldIntro.introduction;
 assert.equal(sanitizeSave(oldIntro,now).introduction,9,'Existing players are not forced into the new lessons');
 assert.equal(sanitizeSave({...oldIntro,mergeGuide:3},now).introduction,0);
@@ -486,7 +486,7 @@ assert.equal(sanitizeSave({gallery:[{design:d,scene:'car'}]},now).gallery[0].sce
 assert.equal(Showcase.choose(lookbook,'invalid').reason,'scene');
 console.log('PASS: showcase legacy migration, corrupt recovery, atomic coin purchases, no double-spending, gallery scenes and save roundtrip.');
 
-const newJourney=freshSave(now);newJourney.mergeGuide=6;J.begin(newJourney);assert.equal(newJourney.introduction,3);for(const event of ['studio','bow','commission','fitting','pose'])assert(J.advance(newJourney,event));assert.equal(newJourney.introduction,2);newJourney.stars=3;assert(globalThis.SweetShoe.Boutique.renovate(newJourney,0).ok);J.sync(newJourney);assert.equal(newJourney.introduction,8);assert(J.advance(newJourney,'finish'));assert.equal(newJourney.introduction,9);console.log('PASS: new-player commission → fitting → first renovation route, using real earned stars.');
+const newJourney=freshSave(now);newJourney.mergeGuide=6;J.begin(newJourney);assert.equal(newJourney.introduction,1);newJourney.stars=3;J.sync(newJourney);assert.equal(newJourney.introduction,2);assert(globalThis.SweetShoe.Boutique.renovate(newJourney,0).ok);J.sync(newJourney);assert.equal(newJourney.introduction,9);assert(!J.active(newJourney));console.log('PASS: new-player route: earned stars → first renovation completes the one-page guide.');
 // Persisted locale aliases must preserve Chinese throughout reload and fitting.
 {
  const A=require('./game.js');
